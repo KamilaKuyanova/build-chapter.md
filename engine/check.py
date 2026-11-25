@@ -100,7 +100,7 @@ def check_numbers(src, text, unit_ids, where, page, report):
     for uid in unit_ids:
         unit = src.units.get(uid)
         if unit:
-            base |= numbers(unit["text"])
+            base |= numbers(unit["text"], loose=True)
             if unit["type"] == "figure":  # подписи осей есть только в описании рисунка
                 base |= numbers("\n".join(src.figure.get(unit["page"], [])))
     text = REF.sub(lambda m: " " if m.group(0) in src.refs else m.group(0), text)
@@ -218,7 +218,7 @@ def check_node(src, node, misconceptions, report):
     said = stems(node_text(node))
     for uid in sorted(units):
         unit = src.units.get(uid)
-        if unit and kind(unit) in ("paragraph", "worked_example"):
+        if unit and kind(unit) in ("paragraph", "worked_example") and re.search("[а-яё]{3}", unit["text"]):
             want = stems(unit["text"])
             if len(want) >= 12 and len(want & said) / len(want) < THIN:
                 report.add("suspect", "UNIT_THIN", nid, f"{uid} назван, но почти не пересказан", unit["page"])

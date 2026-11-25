@@ -4,8 +4,9 @@
 Вход: videos/<id>/video.json (сценарий со ссылками на утверждения слоя и «битами» сцены).
 Выход: out/video/<id>/video.mp4 (отключаемые субтитры — отдельная дорожка), subtitles.srt, кадр-превью;
        videos/<id>/passport.json (официальная passport.schema) и scene_spec.json.
-Голос: локальный Microsoft (Windows, SAPI) — наружу ничего не уходит; запасной голос из спецификации.
-Синхрон по построению: слот фразы = длительность её озвучки, кадр берёт состояние из того же таймлайна.
+Голос заменяемый (engine/video/tts.py): порядок голосов в video.json "voices" или domain_pack/voices.json.
+Кадры: "scene" — сцена engine/video/web (рисует Edge через node, пакеты не нужны), "template" — шаблон Pillow.
+Синхрон по построению: слот фразы = длительность её озвучки, кадр берёт состояние из того же таймлайна; измеряется по меткам слов.
 Запуск: python engine/video/make_video.py videos/latyshova_short [--fps 24] [--preview]"""
 import argparse
 import array
@@ -22,82 +23,10 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "engine"))
 import speech  # noqa: E402
+import tts  # noqa: E402
 import sys as _sys_d  # noqa: E402
 _sys_d.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[1]))
 import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
-
-
-def ffmpeg():
-    import imageio_ffmpeg
-    return imageio_ffmpeg.get_ffmpeg_exe()
-
-
-def sapi_synth(phrases, out_dir, voice, fallback, rate):
-    """Озвучка локальным голосом Microsoft через System.Speech; возвращает (пути wav, использованный голос)."""
-    out_dir.mkdir(parents=True, exist_ok=True)
-    lines = ["Add-Type -AssemblyName System.Speech",
-             "$s = New-Object System.Speech.Synthesis.SpeechSynthesizer",
-             "$names = $s.GetInstalledVoices() | ForEach-Object { $_.VoiceInfo.Name }",
-             f"$v = if ($names -contains '{voice}') {{ '{voice}' }} else {{ '{fallback}' }}",
-             "$s.SelectVoice($v)", f"$s.Rate = {rate}", "Write-Output $v"]
-    paths = []
-    for i, txt in enumerate(phrases):
-        p = out_dir / f"phrase_{i:03d}.wav"
-        paths.append(p)
-        safe = txt.replace("'", "''")
-        lines += [f"$s.SetOutputToWaveFile('{p}')", f"$s.Speak('{safe}')"]
-    lines += ["$s.SetOutputToNull()", "$s.Dispose()"]
-    ps1 = out_dir / "synth.ps1"
-    ps1.write_text("\n".join(lines), encoding="utf-8-sig")
-    import shutil
-    shell = shutil.which("pwsh") or "powershell"  # в PowerShell 7 видны голоса OneCore (Pavel), в 5.1 — нет
-    r = subprocess.run([shell, "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(ps1)],
-                       capture_output=True, text=True, encoding="utf-8", errors="replace")
-    if r.returncode != 0:
-        raise RuntimeError("синтез речи не удался: " + r.stderr[-500:])
-    return paths, (r.stdout.strip().splitlines() or [voice])[-1]
-
-
-def elevenlabs_synth(phrases, out_dir, voice_id, model_id="eleven_multilingual_v2"):
-    """Озвучка ElevenLabs (облако): наружу уходит только текст сценария. Ключ — переменная ELEVENLABS_API_KEY.
-    Возвращает пути wav (mp3 сервиса переводится в wav для замера длительности и сведения)."""
-    import json as _json
-    import os
-    import urllib.error
-    import urllib.request
-    key = os.environ.get("ELEVENLABS_API_KEY")
-    if not key:
-        raise RuntimeError("не задан ELEVENLABS_API_KEY")
-    out_dir.mkdir(parents=True, exist_ok=True)
-    paths = []
-    for i, txt in enumerate(phrases):
-        mp3, wav = out_dir / f"phrase_{i:03d}.mp3", out_dir / f"phrase_{i:03d}.wav"
-        req = urllib.request.Request(
-            f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
-            data=_json.dumps({"text": txt, "model_id": model_id}).encode("utf-8"),
-            headers={"xi-api-key": key, "Content-Type": "application/json", "Accept": "audio/mpeg"})
-        try:
-            with urllib.request.urlopen(req, timeout=120) as r:
-                mp3.write_bytes(r.read())
-        except urllib.error.HTTPError as e:
-            raise RuntimeError(f"ElevenLabs {e.code}: {e.read()[:200]!r}")
-        subprocess.run([ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(mp3), "-ac", "1", "-ar", "22050", str(wav)],
-                       check=True)
-        paths.append(wav)
-    return paths
-
-
-def synth(spec, texts, out_dir):
-    """Голос серии: elevenlabs:<voice_id> или локальный Microsoft (SAPI). При отказе облака вся серия переозвучивается
-    запасным голосом (ТЗ: один голос на серию, при отказе допустима замена голоса всей серии)."""
-    voice = spec["voice"]
-    if voice.startswith("elevenlabs:"):
-        try:
-            return elevenlabs_synth(texts, out_dir, voice.split(":", 1)[1], spec.get("eleven_model", "eleven_multilingual_v2")), voice
-        except Exception as e:  # noqa: BLE001
-            print(f"  ! ElevenLabs не сработал ({e}); вся серия озвучивается запасным голосом {spec['fallback_voice']}")
-            return sapi_synth(texts, out_dir, spec["fallback_voice"], spec["fallback_voice"], spec.get("rate", 1))
-    return sapi_synth(texts, out_dir, voice, spec["fallback_voice"], spec.get("rate", 1))
 
 
 def speech_len(path, thr=500):
@@ -114,7 +43,7 @@ def speech_len(path, thr=500):
 
 
 def measure_lufs(path):
-    r = subprocess.run([ffmpeg(), "-hide_banner", "-nostats", "-i", str(path), "-af", "ebur128", "-f", "null", "-"],
+    r = subprocess.run([tts.ffmpeg(), "-hide_banner", "-nostats", "-i", str(path), "-af", "ebur128", "-f", "null", "-"],
                        capture_output=True, text=True, encoding="utf-8", errors="replace")
     m = re.findall(r"I:\s+(-?\d+(?:\.\d+)?)\s+LUFS", r.stderr)
     return float(m[-1]) if m else None
@@ -128,7 +57,7 @@ def build_audio(wavs, starts, total, out):
     mix = "".join(f"[a{i}]" for i in range(len(wavs)))
     fl.append(f"{mix}amix=inputs={len(wavs)}:normalize=0,apad=whole_dur={total:.2f},atrim=0:{total:.2f},"
               f"loudnorm=I=-16:TP=-1.5:LRA=11[out]")
-    cmd = [ffmpeg(), "-y", "-hide_banner", "-loglevel", "error"] + ins + ["-filter_complex", ";".join(fl), "-map", "[out]",
+    cmd = [tts.ffmpeg(), "-y", "-hide_banner", "-loglevel", "error"] + ins + ["-filter_complex", ";".join(fl), "-map", "[out]",
                                                                          "-ar", "48000", "-ac", "1", str(out)]
     subprocess.run(cmd, check=True)
 
@@ -138,6 +67,83 @@ def layer_claims(chapter):
     nodes = {n["id"]: n for n in ly["nodes"]}
     claims = {c["id"]: c for n in ly["nodes"] for c in n["claims"]}
     return nodes, claims
+
+
+def sync_max(beats, lens):
+    """Наибольшее расхождение голоса и слота фразы, с: первое слово не раньше слота, речь не выходит за слот."""
+    worst = 0.0
+    for b, ln in zip(beats, lens):
+        if b.get("words"):
+            worst = max(worst, abs(b["words"][0][0] - b["t_start"]))
+        worst = max(worst, abs(b["t_start"] + ln - b["t_end"]))
+    return round(worst, 2)
+
+
+def follow_layer(spec, claims, vdir):
+    """Голос не расходится со слоем: если утверждение поправили после записи сценария, фраза заменяется его новым текстом."""
+    snap = spec.get("claims_at")
+    now = {ph["claim_id"]: claims[ph["claim_id"]]["text"] for ph in spec["script"] if ph.get("claim_id")}
+    if not snap:
+        (vdir / "video.json").write_text(json.dumps(dict(spec, claims_at=now), ensure_ascii=False, indent=1), encoding="utf-8")
+        return
+    for ph in spec["script"]:
+        cid = ph.get("claim_id")
+        if cid and cid in snap and snap[cid] != now[cid] and "?" not in ph["text"]:
+            if speech.words(now[cid]) <= 18:
+                print(f"  утверждение {cid} изменилось: фраза заменена его текстом")
+                ph["text"] = now[cid]
+            else:
+                print(f"  ! утверждение {cid} изменилось и длиннее 18 слов: перепишите фразу «{ph['text']}»")
+
+
+def mux(out, audio, srt, total, silent):
+    """Немое видео + звук + отключаемые субтитры."""
+    subprocess.run([tts.ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(silent), "-i", str(audio), "-i", str(srt),
+                    "-map", "0:v", "-map", "1:a", "-map", "2:s", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-c:s", "mov_text",
+                    "-metadata:s:s:0", "language=rus", "-movflags", "+faststart", "-t", f"{total:.2f}", str(out / "video.mp4")], check=True)
+
+
+def web_spec(name, params):
+    s = json.loads((HERE / "web" / f"scene_{name}.json").read_text(encoding="utf-8"))
+    return dict(s, scene=name, parameters=params, assumptions=params.get("assumptions", []), frame_class="B",
+                origin="code_from_model", label=params.get("label", "схема"))
+
+
+def render_web(name, spec, params, beats, total, W, H, a, out, audio, srt):
+    times = [b["t_start"] + 0.75 * (b["t_end"] - b["t_start"]) for b in beats] + [total - 0.3]
+    job = {"scene": name, "W": W, "H": H, "fps": a.fps, "total": total, "beats": beats, "params": params,
+           "style": domain.load("styleguide.json"), "ffmpeg": tts.ffmpeg(),
+           "shots": [{"t": round(x, 2), "file": str(out / f"preview_{i:02d}.jpg")} for i, x in enumerate(times)]}
+    silent = out / "silent.mp4"
+    if not a.preview:
+        job["out"] = str(silent)
+    path = out / "job.json"
+    path.write_text(json.dumps(job, ensure_ascii=False), encoding="utf-8")
+    import os
+    import shutil
+    node = shutil.which("node") or os.path.join(os.environ.get("ProgramFiles", ""), "nodejs", "node.exe")
+    subprocess.run([node, str(HERE / "web" / "render.mjs"), str(path)], check=True)
+    if not a.preview:
+        mux(out, audio, srt, total, silent)
+
+
+def render_pillow(scene, beats, total, W, H, a, out, audio, srt):
+    previews = [beats[k]["t_start"] + 0.8 * (beats[k]["t_end"] - beats[k]["t_start"]) for k in range(len(beats))]
+    for k, tp in enumerate(previews):
+        if k % 3 == 0 or k == len(previews) - 1:
+            scene.render(tp, beats).save(out / f"preview_{k:02d}.png")
+    if not a.preview:
+        cmd = [tts.ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
+               "-r", str(a.fps), "-i", "-", "-i", str(audio), "-i", str(srt), "-map", "0:v", "-map", "1:a", "-map", "2:s",
+               "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
+               "-c:s", "mov_text", "-metadata:s:s:0", "language=rus", "-t", f"{total:.2f}", str(out / "video.mp4")]
+        proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+        n = int(math.ceil(total * a.fps))
+        for i in range(n):
+            proc.stdin.write(scene.render(i / a.fps, beats).tobytes())
+        proc.stdin.close()
+        if proc.wait() != 0:
+            raise SystemExit("ffmpeg не собрал видео")
 
 
 def main():
@@ -154,23 +160,36 @@ def main():
     for ph in spec["script"]:
         if ph.get("claim_id") and ph["claim_id"] not in claims:
             raise SystemExit(f"утверждение {ph['claim_id']} нет в слое {spec['chapter']}")
-    import templates
-    tpl = templates.load(spec["template"])
-    params = spec.get("params") or tpl.EXAMPLE
+    follow_layer(spec, claims, vdir)
     W, H = (1080, 1920) if spec["format"] == "short" else (1920, 1080)
+    web = spec.get("scene")
+    if web:
+        params = spec["params"]
 
-    class scene:  # единый интерфейс: кадр и спецификация из шаблона с параметрами ролика
-        SPEC = dict(tpl.spec(params), template=spec["template"])
+        class scene:  # сцена рисуется в браузере (engine/video/web/scene_<имя>.js), описание — в scene_<имя>.json
+            SPEC = web_spec(web, params)
+    else:
+        import templates
+        tpl = templates.load(spec["template"])
+        params = spec.get("params") or tpl.EXAMPLE
 
-        @staticmethod
-        def render(t, beats):
-            return tpl.render(t, beats, params, W, H)
+        class scene:  # единый интерфейс: кадр и спецификация из шаблона с параметрами ролика
+            SPEC = dict(tpl.spec(params), template=spec["template"])
+
+            @staticmethod
+            def render(t, beats):
+                return tpl.render(t, beats, params, W, H)
 
     # 1. озвучка
-    keep_stress = spec["voice"].startswith("elevenlabs:") and spec.get("stress_marks", True)   # знак ударения U+0301
-    texts = [speech.prepare_for_speech(p["text"]) if keep_stress else speech.prepare_for_speech(p["text"]).replace(speech.ACUTE, "")
-             for p in spec["script"]]
-    wavs, used_voice = synth(spec, texts, out / "voice")
+    texts = [speech.prepare_for_speech(p["text"]).replace(speech.ACUTE, "") for p in spec["script"]]
+    voices = spec.get("voices") or domain.load("voices.json")
+    if not spec.get("voices") and spec.get("voice"):   # короткая запись: "voice": "elevenlabs:<id>" или имя голоса Windows
+        eng, _, vid = spec["voice"].rpartition(":")
+        voices = [{"engine": eng or "winrt", "voice": vid, "rate": 1.0}] + voices
+    said = tts.synth(texts, out / "voice", voices)
+    wavs, used_voice = said["wavs"], said["voice"]
+    for miss in said["tried"]:
+        print("  голос пропущен:", miss)
     lens = [speech_len(w) for w in wavs]
 
     # 2. таймлайн из длительностей озвучки (синхрон по построению)
@@ -181,6 +200,9 @@ def main():
         cur += ln + (spec.get("pause_prediction", 1.4) if ph.get("prediction") else spec.get("gap", 0.35))
     total = cur + spec.get("hold_end", 2.0)
     starts = [b["t_start"] for b in beats]
+    if said["words"]:  # метки слов: для проверки синхрона и для появления слов в кадре
+        for b, ws in zip(beats, said["words"]):
+            b["words"] = [[round(b["t_start"] + w["t"], 2), w["w"]] for w in ws]
 
     # 3. звук: сведение, нормализация до -16 LUFS, замер
     audio = out / "audio.wav"
@@ -189,7 +211,7 @@ def main():
     if lufs is not None and abs(lufs + 16) > 0.3:  # второй проход: точная подгонка к -16 LUFS без клиппинга
         tmp = out / "audio_raw.wav"
         audio.replace(tmp)
-        subprocess.run([ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(tmp), "-af",
+        subprocess.run([tts.ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(tmp), "-af",
                         f"volume={-16 - lufs:.2f}dB,alimiter=limit=0.89:level=disabled", "-ar", "48000", str(audio)], check=True)
         lufs = measure_lufs(audio)
 
@@ -201,22 +223,10 @@ def main():
     (out / "video.vtt").write_text("WEBVTT\n\n" + re.sub(r"(\d{2}:\d{2}:\d{2}),(\d{3})", r"\1.\2", srt_text), encoding="utf-8")
 
     # 5. кадры -> видео
-    previews = [beats[k]["t_start"] + 0.8 * (beats[k]["t_end"] - beats[k]["t_start"]) for k in range(len(beats))]
-    for k, tp in enumerate(previews):
-        if k % 3 == 0 or k == len(previews) - 1:
-            scene.render(tp, beats).save(out / f"preview_{k:02d}.png")
-    if not a.preview:
-        cmd = [ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
-               "-r", str(a.fps), "-i", "-", "-i", str(audio), "-i", str(srt), "-map", "0:v", "-map", "1:a", "-map", "2:s",
-               "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
-               "-c:s", "mov_text", "-metadata:s:s:0", "language=rus", "-t", f"{total:.2f}", str(out / "video.mp4")]
-        proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-        n = int(math.ceil(total * a.fps))
-        for i in range(n):
-            proc.stdin.write(scene.render(i / a.fps, beats).tobytes())
-        proc.stdin.close()
-        if proc.wait() != 0:
-            raise SystemExit("ffmpeg не собрал видео")
+    if web:
+        render_web(web, spec, params, beats, total, W, H, a, out, audio, srt)
+    else:
+        render_pillow(scene, beats, total, W, H, a, out, audio, srt)
 
     # 6. паспорт (официальная схема) + спецификация сцены
     (vdir / "scene_spec.json").write_text(json.dumps(scene.SPEC, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -240,10 +250,12 @@ def main():
         "data_it_bridge": spec["data_it_bridge"],
         "physics_checklist": [{"item": p["id"], "answer": (spec["physics"].get(p["id"]) or ["н/п"])[0],
                                "note": (spec["physics"].get(p["id"]) or ["н/п", "к сцене не относится"])[-1]} for p in pcs],
-        "audio_check": {"voice": used_voice + (" (облако ElevenLabs, наружу только текст сценария)" if used_voice.startswith("elevenlabs:")
-                                               else " (локально, Windows)"), "fallback_voice": spec["fallback_voice"],
-                        "wpm": round(speech.wpm(beats), 1), "lufs": lufs, "sync_max_s": 0.0,
-                        "sync_note": "слот фразы равен длительности её озвучки; кадр берёт состояние из того же таймлайна",
+        "audio_check": {"voice": f"{used_voice} ({said['engine']}, {said['where']})",
+                        "fallback_voice": next((f"{v['voice']} ({v['engine']})" for v in voices
+                                                if (v["engine"], v["voice"]) != (said["engine"], used_voice)), ""),
+                        "wpm": round(speech.wpm(beats), 1), "lufs": lufs, "sync_max_s": sync_max(beats, lens),
+                        "sync_note": "по меткам слов: от начала слота фразы до её первого слова и от последнего звука до конца слота"
+                        if said["words"] else "слот фразы равен длительности её озвучки; кадр берёт состояние из того же таймлайна",
                         "asr_wer": None, "asr_note": "распознавание речи локальной моделью ещё не подключено",
                         "check_by_ear": spec.get("check_by_ear", [])},
         "duration_sec": round(total, 1),

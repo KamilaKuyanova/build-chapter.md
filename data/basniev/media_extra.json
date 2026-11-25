@@ -2,16 +2,15 @@
  "basniev.slow_redistribution": [
   {
    "id": "basniev.slow_redistribution.video",
-   "file": "media/basniev_long.mp4",
+   "file": "media/basniev_response.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "Ролик (разбор 16:9, 110 с): До соседней скважины в 200 м изменение давления дойдёт за секунды, минуты или часы?",
+   "caption": "Ролик (разбор 16:9, 115 с): Соседняя скважина в 200 м отзовётся через секунды, минуты или часы?",
    "alt": "Ролик разбор 16:9 по шагу; субтитры включаются в плеере",
-   "source": "паспорт: videos/basniev_long/passport.json",
+   "source": "паспорт: videos/basniev_response/passport.json",
    "claim_ids": [
     "basniev.basic_formula#c2",
-    "basniev.basic_formula#c3",
     "basniev.basic_formula#c4",
     "basniev.elastic_drive#c1",
     "basniev.piezo_coefficient#c1",
@@ -19,6 +18,7 @@
     "basniev.slow_redistribution#c1",
     "basniev.slow_redistribution#c2",
     "basniev.slow_redistribution#c3",
+    "basniev.unsteady_processes#c5",
     "basniev.why_hydrodynamics#c2"
    ],
    "prompt": null

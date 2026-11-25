@@ -6,6 +6,7 @@
 import json
 import re
 
+from .textnorm import norm_quote
 from .units import needs_cover
 
 CHUNK = 9000  # знаков текста автора в одной порции
@@ -31,6 +32,10 @@ def chunks(units):
         size += cost
     if cur:
         out.append(cur)
+    tail = sum(len(u["text"]) for u in out[-1] if u["origin"] == "author")
+    if len(out) > 1 and tail < CHUNK * 0.25:
+        last = out.pop()
+        out[-1] = out[-1] + last
     # заголовок в конце порции относится к следующей
     for i in range(len(out) - 1):
         while len(out[i]) > 1 and out[i][-1]["type"] == "heading":
@@ -77,6 +82,23 @@ def locate(units, uid, start, end=None):
         if quote:
             return u, quote
     return first, None
+
+
+def hoist_terms(nodes):
+    """Определение термина переезжает в первый узел, где термин встретился: новичок не увидит его раньше объяснения."""
+    texts = [norm_quote(" ".join(n["layers"][k]["text"] for k in ("topic", "main", "mechanism", "practice", "nuances")))
+             for n in nodes]
+    for i, node in enumerate(nodes):
+        for g in list(node["glossary"]):
+            word = re.compile(rf"(?<!\w){re.escape(norm_quote(g['term']))}(?!\w)")
+            first = next((j for j in range(i) if word.search(texts[j])), None)
+            if first is None:
+                continue
+            node["glossary"].remove(g)
+            node["terms_introduced"].remove(g["term"])
+            if g["term"] not in nodes[first]["terms_introduced"]:
+                nodes[first]["glossary"].append(g)
+                nodes[first]["terms_introduced"].append(g["term"])
 
 
 class Builder:
@@ -196,6 +218,7 @@ class Builder:
             for a in ans["nodes"]:
                 nodes.append(self.node(a, len(nodes) + 1))
             uncovered += [{"unit": u, "reason": r} for ids, r in ans.get("uncovered", []) for u in ids.split()]
+        hoist_terms(nodes)
         return {"chapter": self.spec["id"], "source": self.spec["book"], "generated_by": generated_by,
                 "nodes": nodes, "uncovered": uncovered}
 

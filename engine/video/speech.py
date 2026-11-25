@@ -55,7 +55,10 @@ ABBR, STRESS = load_abbreviations(), load_stress()
 
 
 def _num_words(m):
-    from num2words import num2words
+    try:
+        from num2words import num2words
+    except ImportError:  # без пакета число прочтёт сам голос
+        return m.group(0)
     s = m.group(0).replace(",", ".")
     try:
         return num2words(float(s) if "." in s else int(s), lang="ru")

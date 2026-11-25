@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+sys.path.append(str(ROOT / "engine" / "video"))
 
 from engine.check import check_layer  # noqa: E402
 from engine.textnorm import norm_quote, numbers  # noqa: E402
@@ -115,6 +116,42 @@ class Units(unittest.TestCase):
         self.assertFalse(any("Штриховка" in u["text"] for u in units if u["origin"] == "author"))
 
 
+EN_BOOK = """<!-- page 3 -->
+# 2.1 Kick Detection
+
+An increase in pit volume usually indicates an influx, e.g. gas, when the pumps run at 1,250 psi
+(see Fig. 2.4). The driller should not ignore it.
+
+Figure 2.4. Pit volume versus time.
+
+Example 2.1. Estimate the gain for 85.5 bbl.
+
+# Problems
+
+1. Define a kick.
+2. What does a pit gain mean?
+"""
+
+
+class English(unittest.TestCase):
+    def test_english_chapter(self):
+        from engine.check import Source, Report, check_numbers, check_quote
+        from engine.nodes import locate
+        units = build_units(EN_BOOK, {"id": "en", "lang": "en"})
+        kinds = [u["type"] for u in units]
+        for k, n in (("task", 2), ("figure", 1), ("example", 1), ("paragraph", 1)):
+            self.assertEqual(kinds.count(k), n, k)
+        self.assertFalse(any(u.get("ocr_suspect") for u in units))
+        src, rep, p = Source(units), Report(), units[kinds.index("paragraph")]
+        unit, quote = locate(src.units, p["id"], "An increase in pit volume")
+        self.assertTrue(quote.endswith("(see Fig. 2.4)."))
+        check_quote(src, quote, 3, "x", rep)
+        check_numbers(src, "Давление насосов 1250 psi", [p["id"]], "x", 3, rep)
+        self.assertEqual(rep, [])
+        check_numbers(src, "Давление насосов 1251 psi", [p["id"]], "x", 3, rep)
+        self.assertEqual(len(rep), 1)
+
+
 class Norm(unittest.TestCase):
     def test_numbers(self):
         self.assertEqual(numbers("4—8 см³, 2,50 и 10⁻¹⁵"), {"4", "8", "3", "2.5", "10", "15"})
@@ -196,6 +233,23 @@ class Nodes(unittest.TestCase):
         got = [u["id"] for c in chunks(UNITS) for u in c]
         self.assertEqual(got, [u["id"] for u in UNITS if u["origin"] != "service"])
 
+    def test_terms_move_to_first_use(self):
+        from engine.nodes import hoist_terms
+        make = lambda text, terms: {"layers": {k: {"text": text if k == "main" else ""} for k in (
+            "topic", "main", "mechanism", "practice", "nuances")}, "terms_introduced": list(terms),
+            "glossary": [{"term": t, "definition": "о"} for t in terms]}
+        nodes = [make("Здесь есть Влага и пляж.", []), make("Песок.", []), make("Влага, соль.", ["влага", "соль"])]
+        hoist_terms(nodes)
+        self.assertEqual([n["terms_introduced"] for n in nodes], [["влага"], [], ["соль"]])
+
+    def test_small_tail_joins_last_chunk(self):
+        from engine.nodes import CHUNK, chunks
+        unit = lambda i, n: {"id": f"p001.{i:02d}", "page": 1, "type": "paragraph", "origin": "author", "text": "Я" * n + "."}
+        units = [unit(i, CHUNK // 2) for i in range(1, 8)] + [unit(9, 100)]
+        parts = chunks(units)
+        self.assertEqual([u["id"] for c in parts for u in c], [u["id"] for u in units])
+        self.assertGreater(len(parts), 2)
+
     def test_routing_matches_schema(self):
         from engine.route import route
         from engine.schema import validate
@@ -232,6 +286,121 @@ class Formulas(unittest.TestCase):
         self.assertIn(uid("formula"), n["units"])
         self.assertEqual(n["tables"], [])
         self.assertIn("p999.01", b.problems[0])
+
+
+class Domain(unittest.TestCase):
+    def test_merge_adds_and_checks(self):
+        import tempfile
+        from engine.domain_fill import merge, rows
+        with tempfile.TemporaryDirectory() as d:
+            folder = Path(d) / "x"
+            ans = {"glossary": [{"ru": "Раствор", "note": "жидкость", "page": 9}, {"ru": "Шлам", "note": "о", "page": 99}],
+                   "misconceptions": [{"id": "misc.a", "text": "т"}, {"id": "b", "text": "т"}],
+                   "it_bridges": [{"term": "x", "analogy": "а"}]}
+            added, errors = merge(folder, ans, {8, 9})
+            self.assertEqual(added, {"glossary": 1, "misconceptions": 1})
+            self.assertEqual(len(errors), 3)
+            self.assertEqual(merge(folder, ans, {8, 9})[0], {})
+            self.assertEqual([x["id"] for x in rows(folder, "misconceptions")], ["misc.a"])
+
+
+class Video(unittest.TestCase):
+    LAYER = {"nodes": [{"id": "x.a", "claims": [{"id": "x.a#c1", "text": "Мокрый песок темнее при 15 % влажности.", "quote": "при 15 % влажности"}]}]}
+
+    def doc(self, **k):
+        line = "Мокрый песок темнее сухого, и это видно каждому на любом пляже после дождя"
+        script = [{"text": "Почему мокрый песок темнее?", "claim_id": "x.a#c1", "beat": {"head": "Почему *темнее?*"}}]
+        script += [{"text": line, "claim_id": "x.a#c1", "beat": {"head": "Темнее"}} for _ in range(6)]
+        script += [{"text": "Что будет дальше?", "claim_id": "x.a#c1", "prediction": True, "beat": {"head": "Что дальше?"}},
+                   {"text": "А в ваших данных?", "claim_id": "x.a#c1", "beat": {"head": "А у вас?"}}]
+        d = {"video_id": "v", "chapter": "x", "node_id": "x.a", "format": "short", "scene": "log_run", "script": script, "params": {"depth": 1},
+             "exaggerations": ["нет преувеличений"], "prediction_question": "?", "transfer_question": "?", "data_it_bridge": "мост",
+             "physics": {"pc.depth_down": ["да", "x"]}}
+        d.update(k)
+        return d
+
+    def test_good_script(self):
+        import plan
+        errors, warn = plan.check(self.doc(), self.LAYER)
+        self.assertEqual((errors, warn), ([], []))
+
+    def test_bad_script(self):
+        import plan
+        d = self.doc()
+        d["script"][0]["text"] = "Песок темнее."
+        d["script"][1]["text"] = "слово " * 19
+        d["script"][2] = {"text": "При 40 процентах песок чёрный", "claim_id": "x.a#c1", "beat": {"head": "κ = 5"}}
+        d["script"][3]["claim_id"] = "x.a#c9"
+        errors, warn = plan.check(d, self.LAYER)
+        for part in ("не вопрос", "максимум 18", "греческая", "нет утверждения x.a#c9"):
+            self.assertTrue(any(part in e for e in errors), part)
+        self.assertTrue(any("40" in w for w in warn))
+
+    def test_changed_claim_replaces_phrase(self):
+        import make_video
+        spec = {"script": [{"text": "Старый текст", "claim_id": "x.a#c1"}], "claims_at": {"x.a#c1": "Старое утверждение"}}
+        make_video.follow_layer(spec, {"x.a#c1": {"text": "Новое утверждение"}}, Path("."))
+        self.assertEqual(spec["script"][0]["text"], "Новое утверждение")
+
+
+class Math(unittest.TestCase):
+    def ok(self, tex, *parts):
+        import xml.etree.ElementTree as ET
+        from engine.mathml import convert
+        got = convert(tex)
+        self.assertTrue(got.startswith("<math"), got)
+        ET.fromstring(got)
+        for p in parts:
+            self.assertIn(p, got)
+
+    def test_formulas(self):
+        self.ok(r"$$\frac{\partial p}{\partial t} = \kappa \frac{\partial^2 p}{\partial x^2}. \quad (23.19)$$", "<mfrac>", "κ")
+        self.ok(r"\[ \eta_ {\mathrm{np}} ^ {*} = \mathrm{Q} ^ {*} / \Delta p \tag {1.1} \]", "<msubsup>", "(1.1)")
+        self.ok(r"$p = \left[ 1 - e^{-x^2/4} \right] \sqrt{2t}$", "<msqrt>")
+        self.ok(r"$$\begin{aligned} a &= b; \\ c &= 2,5 \end{aligned}$$", "<mtable", "<mn>2,5</mn>")
+        self.ok(r"$\int_0^{\infty} \rho \, dp \geqslant 0$", "∫", "≥")
+
+    def test_broken_stays_code(self):
+        from engine.mathml import convert, rich
+        self.assertEqual(convert(r"$\frac{1}{$"), r"<code>\frac{1}{</code>")
+        self.assertEqual(convert(r"$\неведома$")[:6], "<code>")
+        self.assertEqual(rich("a < b"), "a &lt; b")
+        self.assertIn("<math", rich(r"где \( k_{n} \) и <b>"))
+        self.assertIn("&lt;b&gt;", rich(r"где \( k_{n} \) и <b>"))
+
+
+class Tasks(unittest.TestCase):
+    def make(self, **change):
+        from engine import tasks
+        base = {"s": "wet_sand", "c": [1], "t": "single", "k": "understanding", "q": "Что с песком?",
+                "o": ["Мокрый темнее", "Мокрый светлее", "Цвет не меняется"], "e": "Влага."}
+        doc, problems = tasks.build(make_layer(), {"tasks": [{**base, **change}]})
+        return doc, problems, [m for _, i, m in tasks.check(make_layer(), doc) if i != "задания"]
+
+    def test_good(self):
+        doc, problems, bad = self.make()
+        t = doc["tasks"][0]
+        self.assertEqual((problems, bad), ([], []))
+        self.assertEqual(next(o["text"] for o in t["options"] if o["id"] == t["answer"]), "Мокрый темнее")
+
+    def test_bad_keys_are_found(self):
+        for change, part in (({"o": ["Нет", "Мокрый песок обычно темнее сухого", "Да"]}, "верное утверждение"),
+                             ({"q": "Что верно для шага?"}, "из какого шага"),
+                             ({"o": ["Мокрый темнее…", "Б", "В"]}, "многоточием"),
+                             ({"o": ["При 99 % темнее", "Б", "В"]}, "числа, которых нет"),
+                             ({"t": "order", "o": ["Признак: а", "Правило: б", "Вывод: в"]}, "выдаёт порядок"),
+                             ({"t": "gap", "q": "Песок {{1}}", "a": ["зелёный"], "o": []}, "нет в тексте"),
+                             ({"t": "multiple", "n": 1}, "от двух верных"),
+                             ({"ev": "чего нет"}, "evidence")):
+            with self.subTest(part):
+                self.assertTrue(any(part in m for m in self.make(**change)[2]), self.make(**change)[2])
+
+    def test_calc_is_recomputed(self):
+        ok = {"t": "calc", "o": [], "a": 9, "f": "13.5-4.5", "u": "м"}
+        self.assertEqual(self.make(**ok)[1], [])
+        self.assertTrue(self.make(**{**ok, "a": 8})[1])
+        with self.assertRaises(ValueError):
+            self.make(**{**ok, "f": "__import__('os')"})
 
 
 if __name__ == "__main__":

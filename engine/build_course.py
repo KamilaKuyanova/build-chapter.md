@@ -12,6 +12,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import nodetext  # noqa: E402
+from mathml import convert, rich  # noqa: E402
 import validate_layer  # noqa: E402
 import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
 
@@ -57,7 +58,7 @@ def fld(node, f, cls=""):
     if not f or not isinstance(f, dict) or not f.get("text"):
         return ""
     hyp = ' <span class="tag hyp">гипотеза</span>' if f.get("hypothesis") else ""
-    return f'<p class="{cls}">{e(f["text"])}{hyp} {who(f)} {page_tag(node, f)}</p>'
+    return f'<p class="{cls}">{rich(f["text"])}{hyp} {who(f)} {page_tag(node, f)}</p>'
 
 
 def fld_paras(node, f, title=""):
@@ -71,9 +72,9 @@ def fld_paras(node, f, title=""):
 def render_formulas(node):
     out = []
     for f in node.get("formulas", []):
-        rows = "".join(f'<li><code>{e(v["symbol"])}</code> — {e(v["meaning"])}'
+        rows = "".join(f'<li><b>{rich(v["symbol"])}</b> — {e(v["meaning"])}'
                        f'{", " + e(v["unit"]) if v.get("unit") else ""}</li>' for v in f["variables"])
-        out.append(f'<div class="formula"><code>{e(f["latex"])}</code><p>{e(f["meaning"])} {who(f)} '
+        out.append(f'<div class="formula">{convert(f["latex"], block=True)}<p>{rich(f["meaning"])} {who(f)} '
                    f'<span class="src">стр. {e(f["page_pdf"])}</span></p><ul>{rows}</ul></div>')
     return "".join(out)
 
@@ -84,7 +85,7 @@ def render_tables(node):
         rows = [[c.strip() for c in r.strip().strip("|").split("|")] for r in t["markdown"].splitlines()
                 if r.strip().startswith("|")]
         rows = [r for r in rows if not all(set(c) <= set("-: ") for c in r)]
-        body = "".join("<tr>" + "".join(f"<{'td' if i else 'th'}>{e(c)}</{'td' if i else 'th'}>" for c in r) + "</tr>"
+        body = "".join("<tr>" + "".join(f"<{'td' if i else 'th'}>{rich(c)}</{'td' if i else 'th'}>" for c in r) + "</tr>"
                        for i, r in enumerate(rows))
         fixes = "".join(f"<li>{e(x)}</li>" for x in t.get("ocr_fixes", []))
         out.append(f'<h4>{e(t["title"])} <span class="src">стр. {e(t["page_pdf"])}</span></h4>'
@@ -111,8 +112,8 @@ def render_claims(node):
         who_ = "модель" if c["source_kind"] == "figure_description_model" else "автор"
         mine = ' <span class="tag">пересказ модели</span>' if c.get("by_model") else ""
         pr = f" (печ. {c['page_print']})" if c.get("page_print") else ""
-        items.append(f'<li><b>{e(KINDS.get(c["kind"], c["kind"]))}.</b> {e(c["text"])}{mine}'
-                     f'<blockquote>«{e(c["quote"])}» — {who_}, <span class="src">стр. {c["page_pdf"]}{e(pr)}</span></blockquote></li>')
+        items.append(f'<li><b>{e(KINDS.get(c["kind"], c["kind"]))}.</b> {rich(c["text"])}{mine}'
+                     f'<blockquote>«{rich(c["quote"])}» — {who_}, <span class="src">стр. {c["page_pdf"]}{e(pr)}</span></blockquote></li>')
     return "<ul class='claims'>" + "".join(items) + "</ul>"
 
 
@@ -127,7 +128,7 @@ def render_examples(node):
 
 
 def render_book_tasks(node):
-    return "".join(f'<p><b>Задача {e(t["number"])}.</b> {e(t["text"])}'
+    return "".join(f'<p><b>Задача {e(t["number"])}.</b> {rich(t["text"])}'
                    f'{" Рисунок: " + e(t["figure"]) + "." if t.get("figure") else ""} '
                    f'<span class="src">стр. {t["page_pdf"]}</span></p>' for t in node.get("book_tasks", []))
 
@@ -297,14 +298,20 @@ def main():
     glossary = {}
     gp = domain.path("glossary.json")
     if gp.exists():
-        for t in validate_layer.load_json(gp).get("terms", []):
+        gl = validate_layer.load_json(gp)
+        for t in gl if isinstance(gl, list) else gl.get("terms", []):
             if t.get("ru") and t.get("note"):
                 glossary[t["ru"].lower()] = t["note"]
     by_step_t, by_step_i = {}, {}
     for t in tasks["tasks"]:
         by_step_t.setdefault(t["step_id"], []).append(t)
+    lost = [i for i in ill["illustrations"] if not (d / i["file"]).exists()]
     for i in ill["illustrations"]:
-        by_step_i.setdefault(i["step_id"], []).append(i)
+        if i not in lost:
+            by_step_i.setdefault(i["step_id"], []).append(i)
+    if lost:
+        warn(f"нет файлов на этом компьютере, в курс не вошли: {len(lost)} (например {lost[0]['file']}). "
+             "Ролики собирает engine/video/make_video.py, анимации — engine/video/make_animations.py")
     steps = "".join(render_step(n, k + 1, len(nodes), by_step_t.get(n["id"], []), by_step_i.get(n["id"], []),
                                routing.get(n["id"]), glossary) for k, n in enumerate(nodes))
     body = render_path(nodes) + steps + render_cards(nodes) + render_notes(nodes) + render_map(nodes)
@@ -326,8 +333,6 @@ def main():
             vtt = src.with_suffix(".vtt")  # субтитры ролика рядом с mp4
             if src.suffix.lower() == ".mp4" and vtt.exists():
                 shutil.copyfile(vtt, out / "assets" / vtt.name)
-        else:
-            warn(f"файл иллюстрации не найден: {src}")
     video_bytes = sum(f.stat().st_size for f in (out / "assets").glob("*.mp4"))
     total = sum(f.stat().st_size for f in out.rglob("*") if f.is_file()) - video_bytes  # ТЗ: ≤30 МБ без видео
     if total > 30 * 1024 * 1024:

@@ -1,0 +1,28 @@
+[
+ {
+  "engine": "elevenlabs",
+  "voice": "onwK4e9ZLuTAKqWW03F9",
+  "name": "Daniel, eleven_multilingual_v2",
+  "rate": 1.0
+ },
+ {
+  "engine": "piper",
+  "voice": "ru_RU-dmitri-medium",
+  "rate": 1.0
+ },
+ {
+  "engine": "winrt",
+  "voice": "Microsoft Pavel",
+  "rate": 1.08
+ },
+ {
+  "engine": "winrt",
+  "voice": "Microsoft Irina",
+  "rate": 1.08
+ },
+ {
+  "engine": "sapi",
+  "voice": "Microsoft Irina Desktop",
+  "rate": 1.0
+ }
+]

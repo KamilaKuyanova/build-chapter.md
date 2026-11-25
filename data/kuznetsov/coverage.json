@@ -48,30 +48,10 @@
    "reason": null
   },
   {
-   "unit_id": "p201.01",
-   "kind": "paragraph",
-   "page_pdf": 201,
-   "excerpt": "а",
-   "node_ids": [
-    "kuznetsov.buildups"
-   ],
-   "reason": null
-  },
-  {
    "unit_id": "p201.02",
    "kind": "paragraph",
    "page_pdf": 201,
    "excerpt": "Уровень моря",
-   "node_ids": [
-    "kuznetsov.buildups"
-   ],
-   "reason": null
-  },
-  {
-   "unit_id": "p201.03",
-   "kind": "paragraph",
-   "page_pdf": 201,
-   "excerpt": "б",
    "node_ids": [
     "kuznetsov.buildups"
    ],
@@ -88,32 +68,12 @@
    "reason": null
   },
   {
-   "unit_id": "p201.05",
-   "kind": "paragraph",
-   "page_pdf": 201,
-   "excerpt": "в",
-   "node_ids": [
-    "kuznetsov.buildups"
-   ],
-   "reason": null
-  },
-  {
    "unit_id": "p201.06",
    "kind": "paragraph",
    "page_pdf": 201,
    "excerpt": "Уровень моря",
    "node_ids": [
     "kuznetsov.buildups"
-   ],
-   "reason": null
-  },
-  {
-   "unit_id": "p201.08",
-   "kind": "paragraph",
-   "page_pdf": 201,
-   "excerpt": "г",
-   "node_ids": [
-    "kuznetsov.reef_proper"
    ],
    "reason": null
   },
@@ -738,46 +698,6 @@
    "reason": null
   },
   {
-   "unit_id": "p213.01",
-   "kind": "paragraph",
-   "page_pdf": 213,
-   "excerpt": "a",
-   "node_ids": [
-    "kuznetsov.layers_lens"
-   ],
-   "reason": null
-  },
-  {
-   "unit_id": "p213.03",
-   "kind": "paragraph",
-   "page_pdf": 213,
-   "excerpt": "b",
-   "node_ids": [
-    "kuznetsov.layers_lens"
-   ],
-   "reason": null
-  },
-  {
-   "unit_id": "p213.05",
-   "kind": "paragraph",
-   "page_pdf": 213,
-   "excerpt": "c",
-   "node_ids": [
-    "kuznetsov.layers_lens"
-   ],
-   "reason": null
-  },
-  {
-   "unit_id": "p213.07",
-   "kind": "paragraph",
-   "page_pdf": 213,
-   "excerpt": "d",
-   "node_ids": [
-    "kuznetsov.layers_lens"
-   ],
-   "reason": null
-  },
-  {
    "unit_id": "p214.01",
    "kind": "paragraph",
    "page_pdf": 214,
@@ -878,16 +798,6 @@
    "node_ids": [
     "kuznetsov.trap_shapes",
     "kuznetsov.well_layout"
-   ],
-   "reason": null
-  },
-  {
-   "unit_id": "p215.02",
-   "kind": "paragraph",
-   "page_pdf": 215,
-   "excerpt": "1 2 3",
-   "node_ids": [
-    "kuznetsov.trap_shapes"
    ],
    "reason": null
   },

@@ -1,0 +1,831 @@
+{
+ "chapter": "vendelshtein",
+ "illustrations": [
+  {
+   "id": "vendelshtein.quantitative_criteria.i1",
+   "step_id": "vendelshtein.quantitative_criteria",
+   "node_id": "vendelshtein.quantitative_criteria",
+   "file": "illustrations/vendelshtein.quantitative_criteria.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Зачем коллектору численный порог» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Зачем коллектору численный порог» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.quantitative_criteria#c1",
+    "vendelshtein.quantitative_criteria#c2",
+    "vendelshtein.quantitative_criteria#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.limit_permeability.i1",
+   "step_id": "vendelshtein.limit_permeability",
+   "node_id": "vendelshtein.limit_permeability",
+   "file": "illustrations/vendelshtein.limit_permeability.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как экономика задаёт границу коллектора» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как экономика задаёт границу коллектора» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.limit_permeability#c1",
+    "vendelshtein.limit_permeability#c2",
+    "vendelshtein.limit_permeability#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.limits_by_correlation.i1",
+   "step_id": "vendelshtein.limits_by_correlation",
+   "node_id": "vendelshtein.limits_by_correlation",
+   "file": "illustrations/vendelshtein.limits_by_correlation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как порог переносят на кривые» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как порог переносят на кривые» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.limits_by_correlation#c1",
+    "vendelshtein.limits_by_correlation#c2",
+    "vendelshtein.limits_by_correlation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.limits_by_correlation.i2",
+   "step_id": "vendelshtein.limits_by_correlation",
+   "node_id": "vendelshtein.limits_by_correlation",
+   "file": "illustrations/vendelshtein.limits_by_correlation.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как порог переносят на кривые»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как порог переносят на кривые»",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.limits_by_correlation#c1",
+    "vendelshtein.limits_by_correlation#c2",
+    "vendelshtein.limits_by_correlation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.sp_anomaly.i1",
+   "step_id": "vendelshtein.sp_anomaly",
+   "node_id": "vendelshtein.sp_anomaly",
+   "file": "illustrations/vendelshtein.sp_anomaly.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что на самом деле показывает СП» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что на самом деле показывает СП» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.sp_anomaly#c1",
+    "vendelshtein.sp_anomaly#c2",
+    "vendelshtein.sp_anomaly#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.eta_criterion.i1",
+   "step_id": "vendelshtein.eta_criterion",
+   "node_id": "vendelshtein.eta_criterion",
+   "file": "illustrations/vendelshtein.eta_criterion.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему этот критерий чётче остальных» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему этот критерий чётче остальных» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.eta_criterion#c1",
+    "vendelshtein.eta_criterion#c2",
+    "vendelshtein.eta_criterion#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.alpha_sp.i1",
+   "step_id": "vendelshtein.alpha_sp",
+   "node_id": "vendelshtein.alpha_sp",
+   "file": "illustrations/vendelshtein.alpha_sp.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Зачем СП делят на максимум» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Зачем СП делят на максимум» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.alpha_sp#c1",
+    "vendelshtein.alpha_sp#c2",
+    "vendelshtein.alpha_sp#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.alpha_sp_threshold.i1",
+   "step_id": "vendelshtein.alpha_sp_threshold",
+   "node_id": "vendelshtein.alpha_sp_threshold",
+   "file": "illustrations/vendelshtein.alpha_sp_threshold.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему аномалия СП ещё не коллектор» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему аномалия СП ещё не коллектор» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.alpha_sp_threshold#c1",
+    "vendelshtein.alpha_sp_threshold#c2",
+    "vendelshtein.alpha_sp_threshold#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.alpha_sp_threshold.i2",
+   "step_id": "vendelshtein.alpha_sp_threshold",
+   "node_id": "vendelshtein.alpha_sp_threshold",
+   "file": "illustrations/vendelshtein.alpha_sp_threshold.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Почему аномалия СП ещё не коллектор»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Почему аномалия СП ещё не коллектор»",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.alpha_sp_threshold#c1",
+    "vendelshtein.alpha_sp_threshold#c2",
+    "vendelshtein.alpha_sp_threshold#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.alpha_direct_ways.i1",
+   "step_id": "vendelshtein.alpha_direct_ways",
+   "node_id": "vendelshtein.alpha_direct_ways",
+   "file": "illustrations/vendelshtein.alpha_direct_ways.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как найти порог без промежуточных формул» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как найти порог без промежуточных формул» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.alpha_direct_ways#c1",
+    "vendelshtein.alpha_direct_ways#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.sp_limits.i1",
+   "step_id": "vendelshtein.sp_limits",
+   "node_id": "vendelshtein.sp_limits",
+   "file": "illustrations/vendelshtein.sp_limits.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Где порог СП не работает» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Где порог СП не работает» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.sp_limits#c1",
+    "vendelshtein.sp_limits#c2",
+    "vendelshtein.sp_limits#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.gamma_threshold.i1",
+   "step_id": "vendelshtein.gamma_threshold",
+   "node_id": "vendelshtein.gamma_threshold",
+   "file": "illustrations/vendelshtein.gamma_threshold.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как гамма-метод заменяет СП» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как гамма-метод заменяет СП» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.gamma_threshold#c1",
+    "vendelshtein.gamma_threshold#c2",
+    "vendelshtein.gamma_threshold#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.gamma_limits.i1",
+   "step_id": "vendelshtein.gamma_limits",
+   "node_id": "vendelshtein.gamma_limits",
+   "file": "illustrations/vendelshtein.gamma_limits.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Когда гамма-метод обманывает» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Когда гамма-метод обманывает» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.gamma_limits#c1",
+    "vendelshtein.gamma_limits#c2",
+    "vendelshtein.gamma_limits#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.nmr_method.i1",
+   "step_id": "vendelshtein.nmr_method",
+   "node_id": "vendelshtein.nmr_method",
+   "file": "illustrations/vendelshtein.nmr_method.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Какой метод видит коллектор напрямую» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Какой метод видит коллектор напрямую» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.nmr_method#c1",
+    "vendelshtein.nmr_method#c2",
+    "vendelshtein.nmr_method#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.nmr_method.i2",
+   "step_id": "vendelshtein.nmr_method",
+   "node_id": "vendelshtein.nmr_method",
+   "file": "illustrations/vendelshtein.nmr_method.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Какой метод видит коллектор напрямую»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Какой метод видит коллектор напрямую»",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.nmr_method#c1",
+    "vendelshtein.nmr_method#c2",
+    "vendelshtein.nmr_method#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.drilling_data_limits.i1",
+   "step_id": "vendelshtein.drilling_data_limits",
+   "node_id": "vendelshtein.drilling_data_limits",
+   "file": "illustrations/vendelshtein.drilling_data_limits.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Где все эти приёмы перестают работать» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Где все эти приёмы перестают работать» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.drilling_data_limits#c1",
+    "vendelshtein.drilling_data_limits#c2",
+    "vendelshtein.drilling_data_limits#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.saturation_task.i1",
+   "step_id": "vendelshtein.saturation_task",
+   "node_id": "vendelshtein.saturation_task",
+   "file": "illustrations/vendelshtein.saturation_task.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как решают, есть ли в пласте нефть» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как решают, есть ли в пласте нефть» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.saturation_task#c1",
+    "vendelshtein.saturation_task#c2",
+    "vendelshtein.saturation_task#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.resistivity_reliability.i1",
+   "step_id": "vendelshtein.resistivity_reliability",
+   "node_id": "vendelshtein.resistivity_reliability",
+   "file": "illustrations/vendelshtein.resistivity_reliability.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Когда сопротивлению можно верить» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Когда сопротивлению можно верить» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.resistivity_reliability#c1",
+    "vendelshtein.resistivity_reliability#c2",
+    "vendelshtein.resistivity_reliability#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.critical_by_statistics.i1",
+   "step_id": "vendelshtein.critical_by_statistics",
+   "node_id": "vendelshtein.critical_by_statistics",
+   "file": "illustrations/vendelshtein.critical_by_statistics.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Порог по пересечению двух кривых» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Порог по пересечению двух кривых» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.critical_by_statistics#c1",
+    "vendelshtein.critical_by_statistics#c2",
+    "vendelshtein.critical_by_statistics#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.critical_by_permeability.i1",
+   "step_id": "vendelshtein.critical_by_permeability",
+   "node_id": "vendelshtein.critical_by_permeability",
+   "file": "illustrations/vendelshtein.critical_by_permeability.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Сколько воды останавливает нефть» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Сколько воды останавливает нефть» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.critical_by_permeability#c1",
+    "vendelshtein.critical_by_permeability#c2",
+    "vendelshtein.critical_by_permeability#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.critical_by_permeability.i2",
+   "step_id": "vendelshtein.critical_by_permeability",
+   "node_id": "vendelshtein.critical_by_permeability",
+   "file": "illustrations/vendelshtein.critical_by_permeability.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Сколько воды останавливает нефть»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Сколько воды останавливает нефть»",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.critical_by_permeability#c1",
+    "vendelshtein.critical_by_permeability#c2",
+    "vendelshtein.critical_by_permeability#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.clay_sp_resistivity.i1",
+   "step_id": "vendelshtein.clay_sp_resistivity",
+   "node_id": "vendelshtein.clay_sp_resistivity",
+   "file": "illustrations/vendelshtein.clay_sp_resistivity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как найти нефть в глинистом песчанике» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как найти нефть в глинистом песчанике» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.clay_sp_resistivity#c1",
+    "vendelshtein.clay_sp_resistivity#c2",
+    "vendelshtein.clay_sp_resistivity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.clay_sp_resistivity.i2",
+   "step_id": "vendelshtein.clay_sp_resistivity",
+   "node_id": "vendelshtein.clay_sp_resistivity",
+   "file": "illustrations/vendelshtein.clay_sp_resistivity.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как найти нефть в глинистом песчанике»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как найти нефть в глинистом песчанике»",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.clay_sp_resistivity#c1",
+    "vendelshtein.clay_sp_resistivity#c2",
+    "vendelshtein.clay_sp_resistivity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.carbonate_crossplot.i1",
+   "step_id": "vendelshtein.carbonate_crossplot",
+   "node_id": "vendelshtein.carbonate_crossplot",
+   "file": "illustrations/vendelshtein.carbonate_crossplot.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему точка отскакивает и у воды» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему точка отскакивает и у воды» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.carbonate_crossplot#c1",
+    "vendelshtein.carbonate_crossplot#c2",
+    "vendelshtein.carbonate_crossplot#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.repeat_probes.i1",
+   "step_id": "vendelshtein.repeat_probes",
+   "node_id": "vendelshtein.repeat_probes",
+   "file": "illustrations/vendelshtein.repeat_probes.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Ещё три следа нефти на кривых» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Ещё три следа нефти на кривых» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.repeat_probes#c1",
+    "vendelshtein.repeat_probes#c2",
+    "vendelshtein.repeat_probes#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.neutron_principle.i1",
+   "step_id": "vendelshtein.neutron_principle",
+   "node_id": "vendelshtein.neutron_principle",
+   "file": "illustrations/vendelshtein.neutron_principle.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что нейтроны различают в порах» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что нейтроны различают в порах» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.neutron_principle#c1",
+    "vendelshtein.neutron_principle#c2",
+    "vendelshtein.neutron_principle#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.repeat_rules.i1",
+   "step_id": "vendelshtein.repeat_rules",
+   "node_id": "vendelshtein.repeat_rules",
+   "file": "illustrations/vendelshtein.repeat_rules.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как правильно повторять замеры» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как правильно повторять замеры» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.repeat_rules#c1",
+    "vendelshtein.repeat_rules#c2",
+    "vendelshtein.repeat_rules#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.repeat_processing.i1",
+   "step_id": "vendelshtein.repeat_processing",
+   "node_id": "vendelshtein.repeat_processing",
+   "file": "illustrations/vendelshtein.repeat_processing.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как отличить изменение от шума» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как отличить изменение от шума» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.repeat_processing#c1",
+    "vendelshtein.repeat_processing#c2",
+    "vendelshtein.repeat_processing#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.repeat_processing.i2",
+   "step_id": "vendelshtein.repeat_processing",
+   "node_id": "vendelshtein.repeat_processing",
+   "file": "illustrations/vendelshtein.repeat_processing.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как отличить изменение от шума»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как отличить изменение от шума»",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.repeat_processing#c1",
+    "vendelshtein.repeat_processing#c2",
+    "vendelshtein.repeat_processing#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.sign_of_change.i1",
+   "step_id": "vendelshtein.sign_of_change",
+   "node_id": "vendelshtein.sign_of_change",
+   "file": "illustrations/vendelshtein.sign_of_change.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что говорит направление изменения» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что говорит направление изменения» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.sign_of_change#c1",
+    "vendelshtein.sign_of_change#c2",
+    "vendelshtein.sign_of_change#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.inm_kv.i1",
+   "step_id": "vendelshtein.inm_kv",
+   "node_id": "vendelshtein.inm_kv",
+   "file": "illustrations/vendelshtein.inm_kv.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как узнать флюид за один замер» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как узнать флюид за один замер» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.inm_kv#c1",
+    "vendelshtein.inm_kv#c2",
+    "vendelshtein.inm_kv#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.acoustic_cased.i1",
+   "step_id": "vendelshtein.acoustic_cased",
+   "node_id": "vendelshtein.acoustic_cased",
+   "file": "illustrations/vendelshtein.acoustic_cased.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как услышать нефть через трубу» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как услышать нефть через трубу» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.acoustic_cased#c1",
+    "vendelshtein.acoustic_cased#c2",
+    "vendelshtein.acoustic_cased#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.direct_methods.i1",
+   "step_id": "vendelshtein.direct_methods",
+   "node_id": "vendelshtein.direct_methods",
+   "file": "illustrations/vendelshtein.direct_methods.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Когда нефть видно без расчётов» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Когда нефть видно без расчётов» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.direct_methods#c1",
+    "vendelshtein.direct_methods#c2",
+    "vendelshtein.direct_methods#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.formation_testers.i1",
+   "step_id": "vendelshtein.formation_testers",
+   "node_id": "vendelshtein.formation_testers",
+   "file": "illustrations/vendelshtein.formation_testers.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Когда испытание пласта обманывает» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Когда испытание пласта обманывает» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.formation_testers#c1",
+    "vendelshtein.formation_testers#c2",
+    "vendelshtein.formation_testers#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.effective_thickness.i1",
+   "step_id": "vendelshtein.effective_thickness",
+   "node_id": "vendelshtein.effective_thickness",
+   "file": "illustrations/vendelshtein.effective_thickness.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Сколько метров пласта работает» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Сколько метров пласта работает» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.effective_thickness#c1",
+    "vendelshtein.effective_thickness#c2",
+    "vendelshtein.effective_thickness#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.transition_zone.i1",
+   "step_id": "vendelshtein.transition_zone",
+   "node_id": "vendelshtein.transition_zone",
+   "file": "illustrations/vendelshtein.transition_zone.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему вода и нефть не делятся резко» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему вода и нефть не делятся резко» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.transition_zone#c1",
+    "vendelshtein.transition_zone#c2",
+    "vendelshtein.transition_zone#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.owc_by_resistivity.i1",
+   "step_id": "vendelshtein.owc_by_resistivity",
+   "node_id": "vendelshtein.owc_by_resistivity",
+   "file": "illustrations/vendelshtein.owc_by_resistivity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Где провести границу на плавной кривой» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Где провести границу на плавной кривой» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.owc_by_resistivity#c1",
+    "vendelshtein.owc_by_resistivity#c2",
+    "vendelshtein.owc_by_resistivity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.owc_by_resistivity.i2",
+   "step_id": "vendelshtein.owc_by_resistivity",
+   "node_id": "vendelshtein.owc_by_resistivity",
+   "file": "illustrations/vendelshtein.owc_by_resistivity.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Где провести границу на плавной кривой»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Где провести границу на плавной кривой»",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.owc_by_resistivity#c1",
+    "vendelshtein.owc_by_resistivity#c2",
+    "vendelshtein.owc_by_resistivity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.false_owc.i1",
+   "step_id": "vendelshtein.false_owc",
+   "node_id": "vendelshtein.false_owc",
+   "file": "illustrations/vendelshtein.false_owc.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему кривая ошибается на полтора метра» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему кривая ошибается на полтора метра» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.false_owc#c1",
+    "vendelshtein.false_owc#c2",
+    "vendelshtein.false_owc#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.neutron_when.i1",
+   "step_id": "vendelshtein.neutron_when",
+   "node_id": "vendelshtein.neutron_when",
+   "file": "illustrations/vendelshtein.neutron_when.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Зачем измерять через обсадную трубу» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Зачем измерять через обсадную трубу» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.neutron_when#c1",
+    "vendelshtein.neutron_when#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.goc_neutron.i1",
+   "step_id": "vendelshtein.goc_neutron",
+   "node_id": "vendelshtein.goc_neutron",
+   "file": "illustrations/vendelshtein.goc_neutron.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Какой контакт какой метод видит» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Какой контакт какой метод видит» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.goc_neutron#c1",
+    "vendelshtein.goc_neutron#c2",
+    "vendelshtein.goc_neutron#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.lambda_threshold.i1",
+   "step_id": "vendelshtein.lambda_threshold",
+   "node_id": "vendelshtein.lambda_threshold",
+   "file": "illustrations/vendelshtein.lambda_threshold.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как выбрать порог и цену ошибки» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как выбрать порог и цену ошибки» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.lambda_threshold#c1",
+    "vendelshtein.lambda_threshold#c2",
+    "vendelshtein.lambda_threshold#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.lambda_threshold.i2",
+   "step_id": "vendelshtein.lambda_threshold",
+   "node_id": "vendelshtein.lambda_threshold",
+   "file": "illustrations/vendelshtein.lambda_threshold.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как выбрать порог и цену ошибки»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как выбрать порог и цену ошибки»",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.lambda_threshold#c1",
+    "vendelshtein.lambda_threshold#c2",
+    "vendelshtein.lambda_threshold#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.porosity_clay_correction.i1",
+   "step_id": "vendelshtein.porosity_clay_correction",
+   "node_id": "vendelshtein.porosity_clay_correction",
+   "file": "illustrations/vendelshtein.porosity_clay_correction.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что делать, если классы перекрылись» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что делать, если классы перекрылись» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.porosity_clay_correction#c1",
+    "vendelshtein.porosity_clay_correction#c2",
+    "vendelshtein.porosity_clay_correction#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.light_oil_double.i1",
+   "step_id": "vendelshtein.light_oil_double",
+   "node_id": "vendelshtein.light_oil_double",
+   "file": "illustrations/vendelshtein.light_oil_double.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как работающая скважина выдаёт нефть» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как работающая скважина выдаёт нефть» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.light_oil_double#c1",
+    "vendelshtein.light_oil_double#c2",
+    "vendelshtein.light_oil_double#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "vendelshtein.gas_corrections.i1",
+   "step_id": "vendelshtein.gas_corrections",
+   "node_id": "vendelshtein.gas_corrections",
+   "file": "illustrations/vendelshtein.gas_corrections.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как считают газ и когда не верят» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как считают газ и когда не верят» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "vendelshtein.gas_corrections#c1",
+    "vendelshtein.gas_corrections#c2",
+    "vendelshtein.gas_corrections#c3"
+   ],
+   "prompt": null
+  }
+ ]
+}

@@ -61,11 +61,11 @@ def beats_for(tpl, params):
 
 
 def render(tpl_name, params, out, fps):
-    import imageio_ffmpeg
+    import tts
     tpl = templates.load(tpl_name)
     beats, total = beats_for(tpl_name, params)
     W, H = 1920, 1080
-    cmd = [imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-hide_banner", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
+    cmd = [tts.ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
            "-s", f"{W}x{H}", "-r", str(fps), "-i", "-", "-vf", "scale=1280:720", "-c:v", "libx264", "-preset", "veryfast",
            "-crf", "26", "-pix_fmt", "yuv420p", "-an", "-movflags", "+faststart", str(out)]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)

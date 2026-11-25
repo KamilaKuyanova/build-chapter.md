@@ -51,11 +51,16 @@ def chapter(ch, a):
         raise SystemExit(f"нет слоя {d / 'layer.json'} — сначала часть А: python run.py course {ch}")
     print(f"== {ch}")
     t0 = time.time()
-    step("задания", ["engine/gen_tasks_offline.py", "--dir", str(d)])
+    if (d / "answers" / "tasks_answer.json").exists():   # задания по ответу модели с проверкой ключей; офлайн-генератор их не затирает
+        step("задания", ["run.py", "tasks-build", ch])
+    else:
+        step("задания (запасной путь)", ["engine/gen_tasks_offline.py", "--dir", str(d)])
     if (d / "figures").exists():
         step("рисунки книги", ["engine/figures/redraw.py", "--dir", str(d)])
     vids = [json.loads(p.read_text(encoding="utf-8")) for p in (ROOT / "videos").glob("*/video.json")]
-    vids = [v for v in vids if v["chapter"] == ch]
+    media = d / "media_extra.json"
+    used = {pathlib.Path(x["file"]).stem for r in json.loads(media.read_text(encoding="utf-8")).values() for x in r} if media.exists() else set()
+    vids = [v for v in vids if v["chapter"] == ch and (not used or v["video_id"] in used)]   # только ролики, стоящие в курсе
     if a.videos:
         for v in vids:
             step(f"ролик {v['video_id']}", ["engine/video/make_video.py", f"videos/{v['video_id']}"])

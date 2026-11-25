@@ -7,12 +7,12 @@
 
 | Этап | Модель | Версия | Где работает | Что уходит наружу | Как заменить |
 | --- | --- | --- | --- | --- | --- |
-| Учебный слой | Claude (Anthropic API) | claude-opus-5-5 | облако | текст единиц главы | переменная `LLM_MODEL` |
-| Курс и задания | Claude (Anthropic API) | claude-opus-5-5 | облако | текст шага | переменная `LLM_MODEL` |
-| Модуль проверки | Claude (Anthropic API) | claude-opus-5-5 | облако | текст пакета проверки | переменная `LLM_MODEL` |
-| Озвучка (основная) | ElevenLabs, модель eleven_multilingual_v2 | голос Daniel (onwK4e9ZLuTAKqWW03F9) | облако | только текст сценария | `voice` в `videos/<id>/video.json` (`elevenlabs:<voice_id>`); использование разрешено организаторами (со слов команды) |
-| Озвучка (запасная) | Microsoft Pavel (Windows OneCore, ru-RU) | системный голос Windows 11 | локально | ничего | `voice` в `videos/<id>/video.json`; запасной — Microsoft Irina (локально); онлайн-голоса Microsoft через edge-tts поддержаны, но ru-RU на момент сборки не отдают звук |
-| Иллюстрации и кадры роликов | нет (детерминированная графика кодом) | — | локально | ничего | — |
+| Учебный слой | Claude в Claude Code | claude-opus-5-5 | облако | текст единиц главы | любая модель: промпты `work/<глава>/prompts`, ответы JSON в `answers` |
+| Задания, доменный пакет, сценарий ролика | Claude в Claude Code | claude-opus-5-5 | облако | слой главы, текст главы | так же; запасной путь заданий без модели `engine/gen_tasks_offline.py` |
+| Модуль проверки | Claude в Claude Code | claude-opus-5-5 | облако | пакет проверки и текст главы | так же |
+| Озвучка (основная) | ElevenLabs, eleven_multilingual_v2 | голос Daniel (onwK4e9ZLuTAKqWW03F9) | облако | только текст сценария | порядок голосов в `domain_pack/voices.json`; организаторы 25.11 подтвердили: голос Microsoft не обязателен |
+| Озвучка (запасная) | Microsoft Pavel, Microsoft Irina (Windows OneCore, ru-RU) | системные голоса Windows 11 | локально | ничего | следующий голос в `domain_pack/voices.json` |
+| Иллюстрации, кадры роликов, анимации | без модели: расчёт и графика кодом (`engine/scenes`, `engine/figures`, `engine/video`, `gen_illustrations.py`) | — | локально | ничего | — |
 
 Запасная модель при отказе классификаторов безопасности: `LLM_FALLBACK_MODEL` (по умолчанию claude-opus-4-8).
 Ключ API: переменная окружения `ANTHROPIC_API_KEY`, в репозиторий не кладётся. Главы и ролики не публикуются.
@@ -21,12 +21,13 @@
 
 | Инструмент | Версия | Для чего | Данные наружу |
 | --- | --- | --- | --- |
-| Python | 3.13 | конвейер, сборка курса | нет |
+| Python | 3.12.10 | конвейер, сборка курса | нет |
 | anthropic (SDK) | 2.14.0 | вызовы Claude API | да, см. модели |
-| jsonschema | 4.26.0 | проверка форматов организаторов | нет |
+| Git | 2.56.1 | версии | нет |
+| FFmpeg | 9.1 (или imageio-ffmpeg 9.0.2) | сборка видео, громкость −16 LUFS (ebur128), субтитры | нет |
 | Pillow | 12.0.0 | кадры роликов | нет |
-| FFmpeg (imageio-ffmpeg) | 9.0.2 | сборка видео, громкость −16 LUFS (ebur128), субтитры | нет |
 | num2words | 0.5 | числа словами для озвучки | нет |
+| jsonschema | 4.26.0 | только `tests/make_selftest.py`; проверка форматов в конвейере своя (`engine/schema.py`) | нет |
 
 ## Ролики одной командой
 
@@ -34,4 +35,4 @@
 
 ## Запуск
 
-Курс из слоя одной командой: `python engine/build_course.py --dir data/current`
+Слой, задания и курс одной командой: `python run.py rebuild <глава>`. Порядок на тесте: `PLAYBOOK.md`.

@@ -1,0 +1,232 @@
+{
+ "basniev.erf_solution": [
+  {
+   "id": "basniev.erf_solution.m1",
+   "file": "illustrations/basniev.erf_solution.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Давление в пласте через 1, 10 и 100 секунд после пуска галереи. Параметры условные.",
+   "alt": "Три кривые давления: чем больше времени прошло, тем дальше от галереи давление ещё не восстановилось",
+   "source": null,
+   "claim_ids": [
+    "basniev.erf_solution#c1",
+    "basniev.erf_solution#c2",
+    "basniev.erf_solution#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.gallery_rate": [
+  {
+   "id": "basniev.gallery_rate.m1",
+   "file": "illustrations/basniev.gallery_rate.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Дебит галереи при постоянном давлении: убывает как единица на корень из времени.",
+   "alt": "Кривая дебита резко падает в начале и дальше убывает медленно",
+   "source": null,
+   "claim_ids": [
+    "basniev.gallery_rate#c1",
+    "basniev.gallery_rate#c2",
+    "basniev.gallery_rate#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.cumulative_production": [
+  {
+   "id": "basniev.cumulative_production.m1",
+   "file": "illustrations/basniev.cumulative_production.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Накопленная добыча галереи: половина объёма за первую четверть времени.",
+   "alt": "Кривая накопленной добычи круто растёт в начале и выполаживается",
+   "source": null,
+   "claim_ids": [
+    "basniev.cumulative_production#c1",
+    "basniev.cumulative_production#c2"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.gallery_pressure_law": [
+  {
+   "id": "basniev.gallery_pressure_law.m1",
+   "file": "illustrations/basniev.gallery_pressure_law.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Давление на галерее при постоянном дебите: формула даёт отрицательные значения и теряет смысл.",
+   "alt": "Кривая давления падает как корень из времени и пересекает ноль",
+   "source": null,
+   "claim_ids": [
+    "basniev.gallery_pressure_law#c1",
+    "basniev.gallery_pressure_law#c2",
+    "basniev.gallery_pressure_law#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.basic_formula": [
+  {
+   "id": "basniev.basic_formula.m1",
+   "file": "illustrations/basniev.basic_formula.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Снижение давления вокруг скважины через 100, 1000 и 10 000 секунд.",
+   "alt": "Три кривые: воронка давления со временем становится глубже и шире",
+   "source": null,
+   "claim_ids": [
+    "basniev.basic_formula#c1",
+    "basniev.basic_formula#c2",
+    "basniev.basic_formula#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.piezometric_curves": [
+  {
+   "id": "basniev.piezometric_curves.m1",
+   "file": "illustrations/basniev.piezometric_curves.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Пьезометрические кривые: вблизи скважины наклон одинаков в любой момент.",
+   "alt": "В логарифмической шкале три почти параллельные прямые вблизи скважины",
+   "source": null,
+   "claim_ids": [
+    "basniev.piezometric_curves#c1",
+    "basniev.piezometric_curves#c2",
+    "basniev.piezometric_curves#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.flow_profile": [
+  {
+   "id": "basniev.flow_profile.m1",
+   "file": "illustrations/basniev.flow_profile.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Доля дебита скважины, проходящая через окружность радиуса r, в три момента времени.",
+   "alt": "Вблизи скважины доля близка к единице, дальше убывает; со временем зона растёт",
+   "source": null,
+   "claim_ids": [
+    "basniev.flow_profile#c1",
+    "basniev.flow_profile#c2"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.log_approximation": [
+  {
+   "id": "basniev.log_approximation.m1",
+   "file": "illustrations/basniev.log_approximation.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Интегральная показательная функция и её логарифмическая замена.",
+   "alt": "Две линии совпадают при малых x и расходятся при больших",
+   "source": null,
+   "claim_ids": [
+    "basniev.log_approximation#c1",
+    "basniev.log_approximation#c2",
+    "basniev.log_approximation#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.psss_front_linear": [
+  {
+   "id": "basniev.psss_front_linear.m1",
+   "file": "illustrations/basniev.psss_front_linear.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Движение границы возмущённой области и заблуждение о постоянной скорости.",
+   "alt": "Кривая корня из времени отстаёт от прямой с постоянной скоростью",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_front_linear#c1",
+    "basniev.psss_front_linear#c2",
+    "basniev.psss_front_linear#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.psss_radial_front": [
+  {
+   "id": "basniev.psss_radial_front.m1",
+   "file": "illustrations/basniev.psss_radial_front.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Радиус возмущённой области вокруг скважины.",
+   "alt": "Кривая радиуса круто растёт в начале и замедляется",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_radial_front#c1",
+    "basniev.psss_radial_front#c2",
+    "basniev.psss_radial_front#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.psss_error_rate": [
+  {
+   "id": "basniev.psss_error_rate.m1",
+   "file": "illustrations/basniev.psss_error_rate.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Депрессия на галерее по точной формуле и по методу ПССС.",
+   "alt": "Линия ПССС выше точной примерно на четверть в любой момент",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_error_rate#c1"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.psss_pressure": [
+  {
+   "id": "basniev.psss_pressure.m1",
+   "file": "illustrations/basniev.psss_pressure.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Дебит галереи по точной формуле и по методу ПССС.",
+   "alt": "Линия ПССС ниже точной примерно на 11%",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_pressure#c1",
+    "basniev.psss_pressure#c2",
+    "basniev.psss_pressure#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basniev.psss_radial_pressure": [
+  {
+   "id": "basniev.psss_radial_pressure.m1",
+   "file": "illustrations/basniev.psss_radial_pressure.model.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Погрешность депрессии скважины по методу ПССС; точки — числа автора.",
+   "alt": "Кривая погрешности убывает и проходит через три точки из книги",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_radial_pressure#c1",
+    "basniev.psss_radial_pressure#c2",
+    "basniev.psss_radial_pressure#c3"
+   ],
+   "prompt": null
+  }
+ ]
+}

@@ -59,6 +59,7 @@ figure{margin:12px 0}.blk figure{margin:12px -16px}.blk figcaption{padding:6px 1
 .quiz .res:not(:empty){padding:10px 12px}
 .quiz .res.ok{color:var(--okfg);background:var(--okbg)}.quiz .res.no{color:var(--nofg);background:var(--nobg)}
 .quiz .res b{display:block;font-size:1.15rem}
+.quiz .qhint{margin:-6px 0 4px;color:var(--acc);font-weight:700}
 .quiz ol{padding-left:1.4rem}.quiz li{padding:6px 0}
 .grip{cursor:grab;touch-action:none;user-select:none;display:inline-block;min-width:28px;min-height:28px;text-align:center}
 li.drag{background:var(--line);border-radius:8px}
@@ -348,6 +349,8 @@ function buildQuiz(q){
     get=function(){return gapInputs.map(function(i){return i.value.trim()})};
   }else{
     q.appendChild(el('p',{},t.prompt));
+    if(t.type==='multiple')q.appendChild(el('p',{class:'qhint'},'Выберите все верные варианты: их несколько.'));
+    if(t.type==='order')q.appendChild(el('p',{class:'qhint'},'Расставьте по порядку: перетащите или нажмите ↑ ↓.'));
     if(t.type==='single'||t.type==='multiple'){
       opts.forEach(function(o){var l=el('label'),inp=el('input',{type:t.type==='single'?'radio':'checkbox',name:uid,value:o.id});
         l.appendChild(inp);l.appendChild(el('span',{},o.text));q.appendChild(l)});

@@ -15,7 +15,7 @@
    "options": [
     {
      "id": "o1",
-     "text": "Количественной интерпретацией",
+     "text": "Количественной интерпретацией: расчётом коэффициентов по кривым",
      "misconception": null
     },
     {
@@ -78,6 +78,7 @@
    "type": "multiple",
    "step_id": "latyshova.borehole_wall",
    "claim_ids": [
+    "latyshova.borehole_wall#c3",
     "latyshova.borehole_wall#c4"
    ],
    "prompt": "Диаметр скважины больше номинального. Какие породы могли это дать?",

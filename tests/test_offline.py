@@ -140,5 +140,40 @@ answers = {(25, 20): "I", (15, 10): "А", (20, 10): "I", (25, 10): "II"}   # п�
 got = {k: region(*k) for k in answers}
 check(f"рис. 69: примеры 46–47 по оцифровке совпадают с ответами книги {got}", got == answers)
 
+# перерисованные каротажные диаграммы и палетки: у каждой подпись источника, кривые и привязка к шагу с задачей
+sys.path.insert(0, str(ROOT / "engine" / "figures"))
+import redraw  # noqa: E402
+check("ссылки на рисунки в задачах: «рис. 14, 53, 68», «рис. 67 и 76», «рис. 7, б»",
+      redraw.fig_numbers({"figure": "рис. 14, 53, 68"}) == {"14", "53", "68"}
+      and redraw.fig_numbers({"figure": "рис. 67 и 76"}) == {"67", "76"}
+      and redraw.fig_numbers({"condition": "зависимости (рис. 7, б)"}) == {"7"})
+lat = ROOT / "data" / "latyshova"
+need = {"7", "14", "24", "46", "47", "53", "58", "63", "67", "68", "73", "74", "75", "76"}   # рисунки, на которые ссылаются задачи
+have = set()
+for fp in sorted((lat / "figures").glob("*.json")):
+    F = json.loads(fp.read_text(encoding="utf-8"))
+    num = __import__("re").findall(r"\d+", F["figure"])[0]
+    have.add(num)
+    ink = sum(len(T.get("ink", [])) + len(T.get("values", [])) for P in F.get("scan", {}).get("panels", []) for T in P["tracks"]) \
+        if F.get("kind") == "log" else sum(len(P.get("curves", [])) for P in F["panels"])
+    check(f"{F['id']}: «перерисовано по рис.», кривые оцифрованы ({ink})", "перерисовано по рис." in F["source"] and ink > 0)
+check(f"перерисованы все рисунки задач главы: нет {sorted(need - have)}", need <= have)
+fx = json.loads((lat / "figures_extra.json").read_text(encoding="utf-8"))
+ex54 = [i for i in fx.get("latyshova.example54", []) if i["file"].endswith("fig76.svg")]
+check("рис. 76 стоит в шаге примера 54", bool(ex54) and ex54[0]["origin"] == "redrawn_from_book")
+
+# озвучка проверена распознаванием речи: WER ≤ 10 %, синхрон ≤ 0,5 с (ТЗ)
+sys.path.insert(0, str(ROOT / "engine" / "video"))
+import asr_check  # noqa: E402
+check("нормализация для WER: ё, дефис, регистр", asr_check.norm_words("Гамма-излучение ЁЛКА") == ["гамма", "излучение", "елка"])
+for v in ("latyshova_short", "basniev_long"):
+    a = json.loads((ROOT / "videos" / v / "passport.json").read_text(encoding="utf-8"))["audio_check"]
+    check(f"{v}: ASR WER {a.get('asr_wer')} ≤ 0,10", a.get("asr_wer") is not None and a["asr_wer"] <= 0.10)
+
+# маршрутизация учитывает сделанные ролики
+for ch, node, fmt in (("latyshova", "latyshova.rock_signs_table", "шортс"), ("basniev", "basniev.slow_redistribution", "длинное видео")):
+    r = [x for x in json.loads((ROOT / "data" / ch / "routing.json").read_text(encoding="utf-8-sig"))["routes"] if x["node_id"] == node][0]
+    check(f"маршрут {node}: {fmt} и шаблон ролика", fmt in (r["format"], r.get("secondary_format")) and r.get("template"))
+
 print("ИТОГО:", "всё хорошо" if not fails else f"провалено {len(fails)}")
 sys.exit(1 if fails else 0)

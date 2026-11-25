@@ -214,7 +214,7 @@
   {
    "node_id": "latyshova.rock_signs_table",
    "format": "практикум на данных",
-   "secondary_format": "карточки",
+   "secondary_format": "шортс",
    "video_scores": {
     "time": 0,
     "invisible": 1,
@@ -223,8 +223,8 @@
     "cause_effect": 0
    },
    "hook_short": false,
-   "template": null,
-   "why": "распознавание; есть признаки, правило и вывод, видеоёмкость 2 из 10"
+   "template": "tool_and_curve",
+   "why": "распознавание; есть признаки, правило и вывод, видеоёмкость 2 из 10; сделан ролик latyshova_short (шортс, шаблон tool_and_curve)"
   },
   {
    "node_id": "latyshova.transitional_rocks",

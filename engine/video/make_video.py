@@ -66,12 +66,18 @@ def elevenlabs_synth(phrases, out_dir, voice_id, model_id="eleven_multilingual_v
     import urllib.error
     import urllib.request
     key = os.environ.get("ELEVENLABS_API_KEY")
-    if not key:
-        raise RuntimeError("не задан ELEVENLABS_API_KEY")
     out_dir.mkdir(parents=True, exist_ok=True)
     paths = []
     for i, txt in enumerate(phrases):
         mp3, wav = out_dir / f"phrase_{i:03d}.mp3", out_dir / f"phrase_{i:03d}.wav"
+        sig = out_dir / f"phrase_{i:03d}.txt"   # кэш: фраза не переозвучивается, если текст, голос и модель не менялись
+        key_txt = f"{voice_id}\n{model_id}\n{txt}"
+        if mp3.exists() and sig.exists() and sig.read_text(encoding="utf-8") == key_txt:
+            to_wav(mp3, wav)
+            paths.append(wav)
+            continue
+        if not key:
+            raise RuntimeError("не задан ELEVENLABS_API_KEY")
         req = urllib.request.Request(
             f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
             data=_json.dumps({"text": txt, "model_id": model_id}).encode("utf-8"),
@@ -81,10 +87,17 @@ def elevenlabs_synth(phrases, out_dir, voice_id, model_id="eleven_multilingual_v
                 mp3.write_bytes(r.read())
         except urllib.error.HTTPError as e:
             raise RuntimeError(f"ElevenLabs {e.code}: {e.read()[:200]!r}")
-        subprocess.run([ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(mp3), "-ac", "1", "-ar", "22050", str(wav)],
-                       check=True)
+        sig.write_text(key_txt, encoding="utf-8")
+        to_wav(mp3, wav)
         paths.append(wav)
     return paths
+
+
+def to_wav(src, wav):
+    """mp3 сервиса -> wav 22 кГц моно; тишина в начале срезается, чтобы голос начинался ровно в начале слота фразы."""
+    subprocess.run([ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(src), "-af",
+                    "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.03", "-ac", "1", "-ar", "22050",
+                    str(wav)], check=True)
 
 
 def synth(spec, texts, out_dir):
@@ -249,6 +262,14 @@ def main():
         "duration_sec": round(total, 1),
     }
     (vdir / "passport.json").write_text(json.dumps(passport, ensure_ascii=False, indent=1), encoding="utf-8")
+    # 6б. проверка озвучки распознаванием речи (WER, замер синхрона) -> паспорт; затем читаемый паспорт для ментора
+    try:
+        import asr_check
+        asr_check.update_passport(vdir)
+    except ImportError:
+        print("  ! faster-whisper не установлен: asr_wer не заполнен (pip install faster-whisper)")
+    import passport_md
+    passport_md.main(vdir)
     # 7. ролик в курс: mp4 + субтитры в data/<глава>/media, запись для illustrations.json (gen_illustrations --extra)
     if not a.preview:
         import shutil

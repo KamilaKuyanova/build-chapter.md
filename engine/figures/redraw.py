@@ -179,6 +179,132 @@ def figure_svg(F):
     return "".join(s)
 
 
+def wrap_px(text, width, size):
+    """Перенос по ширине в пикселях (оценка ширины символа Segoe UI ≈ 0,55 кегля)."""
+    import textwrap
+    return textwrap.wrap(text, width=max(8, int(width / (size * 0.55))), break_long_words=False) or [""]
+
+
+def log_svg(F):
+    """Каротажная диаграмма книги: панели с дорожками; кривые — оцифровка скана (trace_log.py), шкалы — из шапки рисунка.
+    layout "side" — панели рядом (у каждой своя шкала глубин), "stack" — участки одного ствола друг под другом (общая шапка).
+    Дорожка: ink (кривые), values ([[от, до, "текст"]] — значения в интервалах, как столбец ρп), ticks (строки шкалы)."""
+    W = F.get("width", 1100)
+    S = F["scan"]
+    P_ = S["panels"]
+    stack = F.get("layout") == "stack"
+    DEPTH_W, GAP = 64, 18
+    BODY_H = F.get("body_height", 860)
+    cols = [P_[0]] if stack else P_
+    src_w = [P["tracks"][-1]["x"][1] - P["tracks"][0]["x"][0] for P in cols]
+    k = (W - 40 - len(cols) * DEPTH_W - GAP * (len(cols) - 1)) / sum(src_w)
+
+    def head_parts(T, tw):
+        hl = wrap_px(T["title"], tw - 10, 15)[:3]
+        sl = wrap_px(T.get("scale", ""), tw - 10, 13)[:4] if T.get("scale") else []
+        return hl, sl, T.get("ticks", [])
+    need = [head_parts(T, (T["x"][1] - T["x"][0]) * k) for P in cols for T in P["tracks"]]
+    HEAD = max([110] + [24 + 18 * len(h) + 16 * len(sl) + 22 * len(t) for h, sl, t in need])
+    top = 100
+    note = wrap_px(F.get("note", ""), W - 60, 18) if F.get("note") else []
+    spans = [P["depth_range"][1] - P["depth_range"][0] for P in P_]
+    seg_gap = 16
+    H = top + HEAD + BODY_H + (seg_gap * (len(P_) - 1) if stack else 0) + 50 + 24 * len(note)
+    label = F.get("label", "реальные данные")
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" style="max-width:100%;height:auto" '
+         f'role="img" aria-label="{esc(F["alt"])}" font-family="Segoe UI, sans-serif">',
+         f'<rect width="{W}" height="{H}" fill="{SG["background"]}"/>']
+    for i, ln in enumerate(wrap_px(F["title"], W - 230, 26)[:2]):
+        s.append(f'<text x="24" y="{36 + 30 * i}" font-size="26" font-weight="700" fill="{SG["text"]}">{esc(ln)}</text>')
+    s.append(f'<text x="{W - 24}" y="36" font-size="22" font-weight="700" fill="{SG["provenance"][label]}" text-anchor="end">{esc(label)}</text>')
+    s.append(f'<text x="24" y="{top - 8}" font-size="18" fill="{SG["muted"]}">{esc(F["source"])}</text>')
+
+    def header(x, P):
+        s.append(f'<text x="{x - DEPTH_W / 2}" y="{top + HEAD - 12}" font-size="15" fill="{SG["muted"]}" text-anchor="middle">'
+                 f'{"глубина, м" if F.get("depth_axis", True) else "пласты"}</text>')
+        for T in P["tracks"]:
+            tw = (T["x"][1] - T["x"][0]) * k
+            hl, sl, rows = head_parts(T, tw)
+            s.append(f'<rect x="{x:.1f}" y="{top}" width="{tw:.1f}" height="{HEAD - 6}" fill="none" stroke="{SG["muted"]}" stroke-opacity="0.5"/>')
+            for i, ln in enumerate(hl):
+                s.append(f'<text x="{x + 5:.1f}" y="{top + 19 + 18 * i}" font-size="15" font-weight="700" fill="{SG["text"]}">{esc(ln)}</text>')
+            for i, ln in enumerate(sl):
+                s.append(f'<text x="{x + 5:.1f}" y="{top + 21 + 18 * len(hl) + 16 * i}" font-size="13" fill="{SG["muted"]}">{esc(ln)}</text>')
+            for r, row in enumerate(rows[::-1]):   # строки шкалы — внизу шапки, как в книге
+                yy = top + HEAD - 12 - 22 * r
+                s.append(f'<line x1="{x:.1f}" y1="{yy:.1f}" x2="{x + tw:.1f}" y2="{yy:.1f}" stroke="{SG["muted"]}" stroke-opacity="0.6"/>')
+                for fx, txt in row["at"]:
+                    px = x + fx * tw
+                    s.append(f'<line x1="{px:.1f}" y1="{yy - 4:.1f}" x2="{px:.1f}" y2="{yy + 4:.1f}" stroke="{SG["muted"]}"/>')
+                    s.append(f'<text x="{px:.1f}" y="{yy - 6:.1f}" font-size="12" fill="{SG["text"]}" text-anchor="middle">{esc(txt)}</text>')
+            x += tw
+
+    def body(x, P, yb0, h):
+        d0, d1 = P["depth_range"]
+        Y = lambda d: yb0 + (d - d0) / (d1 - d0) * h  # noqa: E731
+        s.append(f'<rect x="{x - DEPTH_W}" y="{yb0:.1f}" width="{DEPTH_W}" height="{h:.1f}" fill="{SG["panel"]}" stroke="{SG["muted"]}"/>')
+        span = d1 - d0
+        step = 10 if span * 860 / max(h, 1) > 25 else (5 if span * 860 / max(h, 1) > 8 else 1)
+        dd = math.ceil(d0 / step) * step if F.get("depth_axis", True) else d1 + 1   # в книге нет шкалы глубин
+        while dd <= d1:
+            s.append(f'<line x1="{x - 10}" y1="{Y(dd):.1f}" x2="{x}" y2="{Y(dd):.1f}" stroke="{SG["muted"]}"/>')
+            s.append(f'<text x="{x - 14}" y="{Y(dd) + 6:.1f}" font-size="17" fill="{SG["text"]}" text-anchor="end">{dd:g}</text>')
+            dd += step
+        cols_t = cols[0]["tracks"] if stack else P["tracks"]
+        for T, TC in zip(P["tracks"], cols_t):
+            tw = (TC["x"][1] - TC["x"][0]) * k
+            s.append(f'<rect x="{x:.1f}" y="{yb0:.1f}" width="{tw:.1f}" height="{h:.1f}" fill="{SG["panel"]}" stroke="{SG["muted"]}"/>')
+            for g in P.get("grid", []):
+                s.append(f'<line x1="{x:.1f}" y1="{Y(g):.1f}" x2="{x + tw:.1f}" y2="{Y(g):.1f}" stroke="{SG["muted"]}" stroke-opacity="0.45"/>')
+            for fx in TC.get("vgrid", []):   # вертикальная сетка дорожки, как в книге
+                s.append(f'<line x1="{x + fx * tw:.1f}" y1="{yb0:.1f}" x2="{x + fx * tw:.1f}" y2="{yb0 + h:.1f}" stroke="{SG["muted"]}" stroke-opacity="0.35"/>')
+            for a_, b_, txt in T.get("values", []):
+                s.append(f'<line x1="{x:.1f}" y1="{Y(a_):.1f}" x2="{x + tw:.1f}" y2="{Y(a_):.1f}" stroke="{SG["text"]}" stroke-opacity="0.7"/>')
+                s.append(f'<line x1="{x:.1f}" y1="{Y(b_):.1f}" x2="{x + tw:.1f}" y2="{Y(b_):.1f}" stroke="{SG["text"]}" stroke-opacity="0.7"/>')
+                s.append(f'<text x="{x + tw / 2:.1f}" y="{(Y(a_) + Y(b_)) / 2 + 6:.1f}" font-size="16" fill="{SG["text"]}" text-anchor="middle">{esc(txt)}</text>')
+            path = []
+            for pl in T.get("ink", []):
+                path.append("M" + " L".join(f"{x + fx * tw:.1f} {Y(dv):.1f}" for fx, dv in pl))
+            if path:
+                s.append(f'<path d="{" ".join(path)}" fill="none" stroke="{SG["text"]}" stroke-width="1.6" stroke-linejoin="round" '
+                         f'stroke-linecap="round"/>')
+            x += tw
+
+    y0 = top + HEAD
+    if stack:
+        header(20 + DEPTH_W, P_[0])
+        yy = y0
+        for P, sp in zip(P_, spans):
+            h = BODY_H * sp / sum(spans)
+            body(20 + DEPTH_W, P, yy, h)
+            yy += h + seg_gap
+        y_end = yy - seg_gap
+    else:
+        x = 20
+        for P, sw in zip(P_, src_w):
+            header(x + DEPTH_W, P)
+            body(x + DEPTH_W, P, y0, BODY_H)
+            x += DEPTH_W + sw * k + GAP
+        y_end = y0 + BODY_H
+    for i, ln in enumerate(note):
+        s.append(f'<text x="24" y="{y_end + 34 + 24 * i}" font-size="18" fill="{SG["muted"]}">{esc(ln)}</text>')
+    s.append("</svg>")
+    return "".join(s)
+
+
+FIG_RE = __import__("re").compile(r"рис\.\s*((?:\d+\s*[а-я]?\s*(?:,|и)?\s*)+)")
+
+
+def fig_numbers(x):
+    """Номера рисунков, на которые ссылается задача или пример: поле figure и текст («рис. 14, 58», «рис. 67 и 76»)."""
+    import re
+    s = " ".join(str(x.get(k) or "") for k in ("figure", "text", "condition"))
+    out = set()
+    for m in FIG_RE.finditer(s):
+        out |= set(re.findall(r"\d+", m.group(1)))
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", required=True)
@@ -189,13 +315,15 @@ def main():
     extra = {}
     for fp in sorted((d / "figures").glob("*.json")):
         F = json.loads(fp.read_text(encoding="utf-8"))
-        (d / "illustrations" / f"{F['id']}.svg").write_text(figure_svg(F), encoding="utf-8")
-        steps = [n for n in layer["nodes"] if any(F["figure"] in (x.get("figure") or "")
+        (d / "illustrations" / f"{F['id']}.svg").write_text(log_svg(F) if F.get("kind") == "log" else figure_svg(F), encoding="utf-8")
+        num = __import__("re").findall(r"\d+", F["figure"])[0]
+        steps = [n for n in layer["nodes"] if any(num in fig_numbers(x)
                                                   for x in n.get("worked_examples", []) + n.get("book_tasks", []))]
         for n in steps:
             extra.setdefault(n["id"], []).append({
                 "id": f"{n['id']}.{F['id']}", "file": f"illustrations/{F['id']}.svg", "frame_class": "A",
-                "origin": "redrawn_from_book", "label": "схема", "caption": F["caption"], "alt": F["alt"],
+                "origin": "redrawn_from_book", "label": F.get("label", "реальные данные" if F.get("kind") == "log" else "схема"),
+                "caption": F["caption"], "alt": F["alt"],
                 "source": F["source"], "claim_ids": [c["id"] for c in n["claims"]][:3], "prompt": None})
         print(f"{F['id']}: {F['figure']} -> шаги {[n['id'] for n in steps]}")
     (d / "figures_extra.json").write_text(json.dumps(extra, ensure_ascii=False, indent=1), encoding="utf-8")

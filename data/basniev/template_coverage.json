@@ -76,7 +76,7 @@
    "title": "Почему пласт отвечает медленно",
    "type": "М",
    "secondary": "В",
-   "format": "шортс",
+   "format": "длинное видео",
    "video_scores": 7,
    "template": "formula_explorer",
    "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",

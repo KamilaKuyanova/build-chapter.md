@@ -48,7 +48,7 @@
   },
   {
    "node_id": "basniev.slow_redistribution",
-   "format": "шортс",
+   "format": "длинное видео",
    "secondary_format": "интерактив",
    "video_scores": {
     "time": 2,
@@ -58,8 +58,8 @@
     "cause_effect": 1
    },
    "hook_short": false,
-   "template": "process_state",
-   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым, контринтуитивность"
+   "template": "formula_explorer",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым, контринтуитивность; сделан ролик basniev_long (длинное видео, шаблон formula_explorer)"
   },
   {
    "node_id": "basniev.elastic_reserve",

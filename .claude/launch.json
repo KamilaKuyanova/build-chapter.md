@@ -4,8 +4,26 @@
     {
       "name": "course-preview",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "out"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--directory",
+        "out"
+      ],
       "port": 8765
+    },
+    {
+      "name": "deck",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8766",
+        "--directory",
+        "presentation"
+      ],
+      "port": 8766
     }
   ]
 }

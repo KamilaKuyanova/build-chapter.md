@@ -1,79 +1,86 @@
 #!/usr/bin/env python3
-"""Клиент ЛОКАЛЬНОЙ модели через Ollama (http://localhost:11434). Только stdlib. Данные наружу не уходят.
+"""Клиент Claude (официальный SDK `anthropic`) для конвейера. Единственный бэкенд модели в проекте.
 
-Особенности по ТЗ:
-- модель и версия записываются в manifest.json (скрипт `python engine/llm_client.py --manifest`);
-- ответ ограничивается JSON-схемой (structured output), чтобы малая модель не ломала формат;
-- модель заменяема: имя берётся из LLM_MODEL (по умолчанию qwen3:8b), конвейер не привязан к поставщику.
+ВАЖНО по ТЗ:
+- Текст главы уходит во внешний сервис Anthropic. Это записано в MANIFEST.md.
+  Главы и ролики не публикуются: никаких общих ссылок; ключ API в репозиторий не кладём.
+- Ключ берётся из переменной окружения ANTHROPIC_API_KEY (или профиля `ant auth login`).
+- Модель заменяема: LLM_MODEL (по умолчанию claude-opus-5-5). Версия фиксируется в теге заморозки.
+
+Установка:  pip install anthropic
+Проверка:   python engine/llm_client.py --ping      (один короткий платный запрос)
 """
 import json
 import os
 import pathlib
 import sys
-import urllib.error
-import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-HOST = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
-MODEL = os.environ.get("LLM_MODEL", "qwen3:8b")
+MODEL = os.environ.get("LLM_MODEL", "claude-opus-5-5")
+EFFORT = os.environ.get("LLM_EFFORT", "high")  # low | medium | high | xhigh | max
+# Серверный запасной вариант при отказе классификаторов безопасности (рекомендация справочника для Opus 5.5).
+# Пустое значение отключает.
+FALLBACK_MODEL = os.environ.get("LLM_FALLBACK_MODEL", "claude-opus-4-8")
+MAX_TOKENS = int(os.environ.get("LLM_MAX_TOKENS", "32000"))
 
 
 class LLMError(RuntimeError):
     pass
 
 
-def _post(path, payload, timeout=1800):
-    req = urllib.request.Request(HOST + path, data=json.dumps(payload).encode("utf-8"),
-                                 headers={"Content-Type": "application/json"})
+def _client():
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read().decode("utf-8"))
-    except urllib.error.URLError as e:
-        raise LLMError(f"Ollama недоступна на {HOST}: {e}. Установлена и запущена? `ollama list`")
+        import anthropic
+    except ImportError:
+        raise LLMError("Не установлен SDK: выполните  pip install anthropic")
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        # SDK умеет брать учётные данные и из профиля `ant auth login`; предупреждаем, но не блокируем.
+        print("  (ANTHROPIC_API_KEY не задан; используем другие учётные данные SDK, если они есть)", file=sys.stderr)
+    return anthropic.Anthropic()
 
 
-def available_models():
+def generate_json(prompt, schema, system=None, model=None, max_tokens=None):
+    """Один запрос -> dict, строго по JSON-схеме (structured outputs). Стриминг: ответы могут быть длинными."""
+    import anthropic
+    client = _client()
+    kwargs = dict(
+        model=model or MODEL,
+        max_tokens=max_tokens or MAX_TOKENS,
+        messages=[{"role": "user", "content": prompt}],
+        output_config={"effort": EFFORT, "format": {"type": "json_schema", "schema": schema}},
+    )
+    if system:
+        kwargs["system"] = system
     try:
-        with urllib.request.urlopen(HOST + "/api/tags", timeout=5) as r:
-            return [m["name"] for m in json.loads(r.read().decode("utf-8")).get("models", [])]
-    except Exception:
-        return None
-
-
-def generate_json(prompt, schema=None, system=None, model=None, temperature=0.1, retries=2):
-    """Возвращает dict, строго разобранный из ответа. Повторяет при невалидном JSON."""
-    last = None
-    for attempt in range(retries + 1):
-        payload = {"model": model or MODEL, "prompt": prompt, "stream": False,
-                   "format": schema or "json",
-                   "options": {"temperature": temperature, "seed": 7, "num_ctx": 8192}}
-        if system:
-            payload["system"] = system
-        out = _post("/api/generate", payload)
-        txt = out.get("response", "")
-        try:
-            return json.loads(txt)
-        except json.JSONDecodeError as e:
-            last = f"{e}: {txt[:200]}"
-    raise LLMError("модель не вернула валидный JSON: " + str(last))
-
-
-def write_manifest_entry():
-    models = available_models()
-    if models is None:
-        print("Ollama не запущена: манифест не обновлён.")
-        return 1
-    mp = ROOT / "manifest.json"
-    m = json.loads(mp.read_text(encoding="utf-8"))
-    m["models"] = [{"name": MODEL, "runtime": "Ollama (локально)", "role": "извлечение узлов учебного слоя",
-                    "external_data": False, "installed": MODEL in models}]
-    mp.write_text(json.dumps(m, ensure_ascii=False, indent=2), encoding="utf-8")
-    print("manifest.json обновлён:", MODEL, "установлена" if MODEL in models else "НЕ установлена")
-    return 0
+        if FALLBACK_MODEL and (model or MODEL).startswith("claude-opus-5-5"):
+            stream_cm = client.beta.messages.stream(
+                betas=["server-side-fallback-2026-07-01"], fallbacks=[{"model": FALLBACK_MODEL}], **kwargs)
+        else:
+            stream_cm = client.messages.stream(**kwargs)
+        with stream_cm as stream:
+            msg = stream.get_final_message()
+    except anthropic.RateLimitError as e:
+        raise LLMError(f"лимит запросов (429): {e}")
+    except anthropic.APIConnectionError as e:
+        raise LLMError(f"нет связи с API: {e}")
+    except anthropic.APIStatusError as e:
+        raise LLMError(f"ошибка API {e.status_code}: {e}")
+    if msg.stop_reason == "refusal":
+        cat = getattr(getattr(msg, "stop_details", None), "category", None)
+        raise LLMError(f"модель отказалась отвечать (refusal, категория {cat})")
+    if msg.stop_reason == "max_tokens":
+        raise LLMError("ответ обрезан по max_tokens: уменьшите порцию текста или поднимите LLM_MAX_TOKENS")
+    text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError as e:
+        raise LLMError(f"невалидный JSON от модели: {e}: {text[:200]}")
 
 
 if __name__ == "__main__":
-    if "--manifest" in sys.argv:
-        sys.exit(write_manifest_entry())
-    ms = available_models()
-    print("Ollama:", "не отвечает" if ms is None else f"модели: {ms}")
+    if "--ping" in sys.argv:
+        r = generate_json("Верни JSON с полем ok=true.", {"type": "object", "properties": {"ok": {"type": "boolean"}},
+                                                          "required": ["ok"], "additionalProperties": False}, max_tokens=2000)
+        print("Ответ модели:", r)
+        sys.exit(0)
+    print(__doc__)

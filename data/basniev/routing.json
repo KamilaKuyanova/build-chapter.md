@@ -1,0 +1,725 @@
+{
+ "chapter": "basniev",
+ "routes": [
+  {
+   "node_id": "basniev.unsteady_processes",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 6 из 10: изменение во времени, невидимое становится видимым; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.elastic_drive",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 9 из 10: изменение во времени, невидимое становится видимым, контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "basniev.elastic_drive_kinds",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "пространство; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "basniev.slow_redistribution",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым, контринтуитивность"
+  },
+  {
+   "node_id": "basniev.elastic_reserve",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.reserve_change",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.elastic_capacity",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.depletion_equation",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.why_hydrodynamics",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.model_system",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.state_equations",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.constant_permeability",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.one_equation",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 1 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.left_side",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.piezo_equation",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 6 из 10: изменение во времени, невидимое становится видимым; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.piezo_coefficient",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 6 из 10: невидимое становится видимым, контринтуитивность; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.piezo_limits",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  },
+  {
+   "node_id": "basniev.gallery_pressure_setup",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 6 из 10: невидимое становится видимым; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.self_similar",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 6 из 10: изменение во времени, контринтуитивность; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.ode_reduction",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.erf_solution",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым"
+  },
+  {
+   "node_id": "basniev.gallery_rate",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, контринтуитивность"
+  },
+  {
+   "node_id": "basniev.cumulative_production",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.constant_rate_setup",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.velocity_solution",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.constant_rate_pressure",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.gallery_pressure_law",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 8 из 10: изменение во времени, невидимое становится видимым, контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "basniev.radial_setup",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section_views",
+   "why": "пространство; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.radial_self_similar",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.radial_integration",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.basic_formula",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 8 из 10: изменение во времени, невидимое становится видимым, причина и следствие"
+  },
+  {
+   "node_id": "basniev.log_approximation",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "basniev.flow_profile",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым"
+  },
+  {
+   "node_id": "basniev.fourier_numbers",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.point_sink_error",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 2,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; видеоёмкость 6 из 10: скачок масштаба; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.finite_reservoir_error",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "basniev.piezometric_curves",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым, контринтуитивность"
+  },
+  {
+   "node_id": "basniev.why_approximate",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 1 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.psss_idea",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 6 из 10: изменение во времени, невидимое становится видимым; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.psss_phases",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 6 из 10: изменение во времени, невидимое становится видимым; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.psss_front_linear",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 9 из 10: изменение во времени, невидимое становится видимым, контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "basniev.psss_error_rate",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.psss_pressure",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "basniev.psss_radial_setup",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.psss_radial_front",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 9 из 10: изменение во времени, невидимое становится видимым, контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "basniev.psss_radial_pressure",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; видеоёмкость 6 из 10: изменение во времени; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "basniev.psss_constant_pressure_well",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "basniev.psss_assessment",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  }
+ ]
+}

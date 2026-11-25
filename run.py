@@ -4,7 +4,7 @@
   python run.py check <глава>                     проверить work/<глава>/layer.json, таблица покрытия
   python run.py next <глава>                      следующая порция -> prompts/NN.md, ответ модели -> answers/NN.json
   python run.py build <глава>                     ответы -> layer.json, routing.json, проверка
-  python run.py course <глава>                    собрать курс -> out/<глава>/index.html
+  python run.py course <глава>                    слой -> data/<глава>/, курс -> out/<глава>/index.html
   python run.py review <package.json>             промпты проверки чужого пакета -> work/review_<пакет>/
   python run.py review-build <package.json>       ответы -> work/review_<пакет>/review.json
   python run.py log <глава> <файл> <минуты> <людей> <прогон> "<что>" "<почему>"   ручная правка
@@ -17,7 +17,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from engine import nodes as nodes_mod, review as review_mod, route as route_mod, to_course
+from engine import nodes as nodes_mod, review as review_mod, route as route_mod
 from engine.check import check_layer
 from engine.schema import validate
 from engine.units import build_units, needs_cover
@@ -36,12 +36,16 @@ def save(path, data):
 
 
 def schemas():
-    return {p.name.split(".")[0]: load(p) for p in (ROOT / "schema").glob("*.schema.json")}
+    return {p.name.split(".")[0]: load(p) for p in (ROOT / "schema").rglob("*.schema.json")}
+
+
+def domain_dir(domain):
+    """geology — domain_pack/, для другого домена отдельная папка domains/<домен>/."""
+    return ROOT / "domain_pack" if domain == "geology" else ROOT / "domains" / domain
 
 
 def misconceptions(domain):
-    path = ROOT / "domains" / domain / "misconceptions.json"
-    return {x["id"] for x in load(path)} if path.exists() else set()
+    return {x["id"] for x in misc_list(domain)}
 
 
 def chapter_specs(which):
@@ -97,7 +101,7 @@ def cmd_check(chapter):
 
 
 def misc_list(domain):
-    path = ROOT / "domains" / domain / "misconceptions.json"
+    path = domain_dir(domain) / "misconceptions.json"
     return load(path) if path.exists() else []
 
 
@@ -152,18 +156,16 @@ def cmd_build(chapter):
 
 
 def cmd_course(chapter, *flags):
-    work = ROOT / "work" / chapter
+    """Слой кладём в data/<глава>/, рядом ждём tasks.json и illustrations.json от части Б."""
+    work, data = ROOT / "work" / chapter, ROOT / "data" / chapter
     _, (spec,) = chapter_specs(chapter)
-    optional = lambda name, key: load(work / name)[key] if (work / name).exists() else []
-    steps = to_course.steps(load(work / "layer.json"), load(work / "routing.json"),
-                            optional("tasks.json", "tasks"), optional("illustrations.json", "illustrations"), work)
-    folder = work / "steps"
-    folder.mkdir(exist_ok=True)
-    for old in folder.glob("*.json"):
-        old.unlink()
-    for s in steps:
-        save(folder / f"{s['order']:03d}.json", s)
-    return subprocess.run([sys.executable, str(ROOT / "engine" / "build_course.py"), "--nodes", str(folder),
+    for name in ("layer.json", "routing.json", "coverage.json"):
+        if (work / name).exists():
+            save(data / name, load(work / name))
+    for name, key in (("tasks.json", "tasks"), ("illustrations.json", "illustrations")):
+        if not (data / name).exists():
+            save(data / name, {"chapter": chapter, key: []})
+    return subprocess.run([sys.executable, str(ROOT / "engine" / "build_course.py"), "--dir", str(data),
                            "--out", str(ROOT / "out" / chapter), "--title", spec["title"], *flags]).returncode
 
 
@@ -182,7 +184,7 @@ def review_setup(package_path, domain):
 
 def cmd_review(package_path, domain="geology"):
     package, units, work, folder = review_setup(package_path, domain)
-    checklist = load(ROOT / "domains" / domain / "physics_checklist.json")
+    checklist = load(domain_dir(domain) / "physics_checklist.json")
     template = (ROOT / "prompts" / "review.md").read_text(encoding="utf-8")
     groups = review_mod.batches(package)
     for i, items in enumerate(groups, 1):

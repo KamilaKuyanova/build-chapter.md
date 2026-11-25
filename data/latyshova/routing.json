@@ -1,0 +1,680 @@
+{
+ "chapter": "latyshova",
+ "routes": [
+  {
+   "node_id": "latyshova.gis_tasks",
+   "format": "текст",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "косвенное измерение; движение ничего не добавит, видеоёмкость 1 из 10"
+  },
+  {
+   "node_id": "latyshova.complex_and_fluid",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.borehole_wall",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым, причина и следствие"
+  },
+  {
+   "node_id": "latyshova.water_loss",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 6 из 10: невидимое становится видимым, причина и следствие"
+  },
+  {
+   "node_id": "latyshova.mud_density_salinity",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.other_fluids",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.section_types",
+   "format": "карточки",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; движение ничего не добавит, видеоёмкость 1 из 10"
+  },
+  {
+   "node_id": "latyshova.pore_types",
+   "format": "карточки",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 2,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.intergranular_classes",
+   "format": "карточки",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.method_groups",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.clay_methods",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.productivity_methods",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "косвенное измерение; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "latyshova.method_crossover",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.section_building",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.rock_signs_table",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; есть признаки, правило и вывод, видеоёмкость 2 из 10"
+  },
+  {
+   "node_id": "latyshova.transitional_rocks",
+   "format": "длинное видео",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "decision_panel",
+   "why": "неопределённость, решение; видеоёмкость 6 из 10: контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "latyshova.when_enough",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.direct_signs",
+   "format": "длинное видео",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "compare_signs",
+   "why": "распознавание; видеоёмкость 6 из 10: невидимое становится видимым, причина и следствие"
+  },
+  {
+   "node_id": "latyshova.signs_fade",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 8 из 10: изменение во времени, невидимое становится видимым, контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "latyshova.radial_gradient",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.dynamic_methods",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым, причина и следствие"
+  },
+  {
+   "node_id": "latyshova.critical_permeability",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "latyshova.threshold_procedure",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "latyshova.saturation_parameter",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.clean_reservoir_resistivity",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.resistivity_porosity_crossplot",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.chart69_structure",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.chart69_use",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "latyshova.critical_saturation",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  },
+  {
+   "node_id": "latyshova.two_ways_critical",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.three_flow_intervals",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 8 из 10: изменение во времени, невидимое становится видимым, причина и следствие"
+  },
+  {
+   "node_id": "latyshova.saturation_bounds",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "latyshova.clay_saturation_family",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.example53",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 2 из 10"
+  },
+  {
+   "node_id": "latyshova.effective_thickness",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.owc_transition",
+   "format": "длинное видео",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "step_procedure",
+   "why": "процедура; видеоёмкость 7 из 10: невидимое становится видимым, контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "latyshova.goc_neutron",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым, причина и следствие"
+  },
+  {
+   "node_id": "latyshova.nonreservoir_layers",
+   "format": "карточки",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.thin_pack_thickness",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.two_kinds_layers",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.thickness_tasks",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 0 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.carbonate_features",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 6 из 10: невидимое становится видимым, контринтуитивность, причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "latyshova.normalization",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 6 из 10: невидимое становится видимым, контринтуитивность; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "latyshova.example54",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "latyshova.critical_porosity_carbonate",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  }
+ ]
+}

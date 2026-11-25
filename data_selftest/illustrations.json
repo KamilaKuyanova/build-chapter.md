@@ -1,0 +1,33 @@
+{
+ "chapter": "selftest_ch1",
+ "illustrations": [
+  {
+   "id": "i1",
+   "step_id": "selftest.a",
+   "file": "chart.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "реальные данные",
+   "caption": "Линия растёт слева направо.",
+   "alt": "Линия растёт слева направо",
+   "source": "самотест",
+   "claim_ids": [
+    "selftest.a#c1"
+   ]
+  },
+  {
+   "id": "i2",
+   "step_id": "selftest.b",
+   "file": "chart.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "реальные данные",
+   "caption": "Линия растёт слева направо.",
+   "alt": "Линия растёт слева направо",
+   "source": "самотест",
+   "claim_ids": [
+    "selftest.b#c1"
+   ]
+  }
+ ]
+}

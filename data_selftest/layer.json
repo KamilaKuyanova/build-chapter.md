@@ -1,0 +1,247 @@
+{
+ "chapter": "selftest_ch1",
+ "source": "selftest.md",
+ "generated_by": "самотест",
+ "nodes": [
+  {
+   "id": "selftest.a",
+   "order": 1,
+   "title": "Самотест: сложение",
+   "why_here": {
+    "text": "Порядок самотеста.",
+    "by_model": false
+   },
+   "difficulty": {
+    "primary": "П",
+    "secondary": null
+   },
+   "threshold": false,
+   "pages": [
+    11
+   ],
+   "layers": {
+    "topic": {
+     "text": "Тема самотеста",
+     "by_model": false
+    },
+    "main": {
+     "text": "Суть самотеста: сложение двух чисел.",
+     "by_model": false,
+     "claim_ids": [
+      "selftest.a#c1"
+     ]
+    },
+    "mechanism": {
+     "text": "Мы складываем 2 и 3, получаем 5.",
+     "by_model": false,
+     "claim_ids": [
+      "selftest.a#c1"
+     ]
+    },
+    "practice": {
+     "text": "Сумму 5 используют в примерах.",
+     "by_model": false,
+     "claim_ids": [
+      "selftest.a#c1"
+     ]
+    },
+    "nuances": {
+     "text": "Порядок слагаемых не важен.",
+     "by_model": false,
+     "claim_ids": [
+      "selftest.a#c1"
+     ]
+    },
+    "deeper": []
+   },
+   "claims": [
+    {
+     "id": "selftest.a#c1",
+     "text": "Два плюс три равно пяти.",
+     "kind": "observation",
+     "page_pdf": 11,
+     "page_print": null,
+     "quote": "Два плюс три равно пяти.",
+     "source_kind": "text",
+     "by_model": false
+    }
+   ],
+   "links": [],
+   "misconception": {
+    "ref": "misc.log_is_rock",
+    "text": "Кривая — не порода.",
+    "by_model": false
+   },
+   "data_meaning": {
+    "from_chapter": {
+     "text": "Число в данных — отклик, а не сама величина.",
+     "by_model": false
+    },
+    "breaks": {
+     "text": "Если шум велик, сумма неточна.",
+     "by_model": false
+    },
+    "hypotheses": []
+   },
+   "it_analogy": {
+    "text": "Сумма как агрегат в SQL.",
+    "breaks_where": "SQL не знает физических единиц.",
+    "by_model": false
+   },
+   "now_practice": null,
+   "inefficiency_lens": null,
+   "terms_introduced": [
+    "сумма"
+   ],
+   "terms_used": [],
+   "needs_scan": [],
+   "decision_on_data": null,
+   "worked_examples": [
+    {
+     "page_pdf": 11,
+     "condition": "Сложить 2 и 3.",
+     "steps": [
+      "Берём 2",
+      "Прибавляем 3"
+     ],
+     "result": "5"
+    }
+   ],
+   "book_tasks": [
+    {
+     "number": "1",
+     "page_pdf": 11,
+     "text": "Сложить 4 и 4.",
+     "figure": null
+    }
+   ]
+  },
+  {
+   "id": "selftest.b",
+   "order": 2,
+   "title": "Самотест: решение на данных",
+   "why_here": {
+    "text": "Порядок самотеста.",
+    "by_model": false
+   },
+   "difficulty": {
+    "primary": "П",
+    "secondary": null
+   },
+   "threshold": false,
+   "pages": [
+    12
+   ],
+   "layers": {
+    "topic": {
+     "text": "Тема самотеста",
+     "by_model": false
+    },
+    "main": {
+     "text": "Суть самотеста: сложение двух чисел.",
+     "by_model": false,
+     "claim_ids": [
+      "selftest.b#c1"
+     ]
+    },
+    "mechanism": {
+     "text": "Мы складываем 2 и 3, получаем 5.",
+     "by_model": false,
+     "claim_ids": [
+      "selftest.b#c1"
+     ]
+    },
+    "practice": {
+     "text": "Сумму 5 используют в примерах.",
+     "by_model": false,
+     "claim_ids": [
+      "selftest.b#c1"
+     ]
+    },
+    "nuances": {
+     "text": "Порядок слагаемых не важен.",
+     "by_model": false,
+     "claim_ids": [
+      "selftest.b#c1"
+     ]
+    },
+    "deeper": []
+   },
+   "claims": [
+    {
+     "id": "selftest.b#c1",
+     "text": "Два плюс три равно пяти.",
+     "kind": "observation",
+     "page_pdf": 12,
+     "page_print": null,
+     "quote": "Два плюс три равно пяти.",
+     "source_kind": "text",
+     "by_model": false
+    }
+   ],
+   "links": [
+    {
+     "type": "prerequisite",
+     "target": "selftest.a"
+    }
+   ],
+   "misconception": {
+    "ref": "misc.log_is_rock",
+    "text": "Кривая — не порода.",
+    "by_model": false
+   },
+   "data_meaning": {
+    "from_chapter": {
+     "text": "Число в данных — отклик, а не сама величина.",
+     "by_model": false
+    },
+    "breaks": {
+     "text": "Если шум велик, сумма неточна.",
+     "by_model": false
+    },
+    "hypotheses": []
+   },
+   "it_analogy": {
+    "text": "Сумма как агрегат в SQL.",
+    "breaks_where": "SQL не знает физических единиц.",
+    "by_model": false
+   },
+   "now_practice": null,
+   "inefficiency_lens": null,
+   "terms_introduced": [
+    "тренд"
+   ],
+   "terms_used": [
+    "сумма"
+   ],
+   "needs_scan": [],
+   "decision_on_data": {
+    "features": [
+     "значение растёт"
+    ],
+    "rule": "рост значит положительный тренд",
+    "conclusion": "тренд положительный",
+    "counterexample": "шум"
+   },
+   "worked_examples": [
+    {
+     "page_pdf": 12,
+     "condition": "Сложить 2 и 3.",
+     "steps": [
+      "Берём 2",
+      "Прибавляем 3"
+     ],
+     "result": "5"
+    }
+   ],
+   "book_tasks": [
+    {
+     "number": "1",
+     "page_pdf": 12,
+     "text": "Сложить 4 и 4.",
+     "figure": null
+    }
+   ]
+  }
+ ]
+}

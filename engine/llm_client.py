@@ -2,14 +2,13 @@
 """Клиент Claude (официальный SDK `anthropic`) для конвейера. Единственный бэкенд модели в проекте.
 
 ВАЖНО по ТЗ:
-- Текст главы уходит во внешний сервис Anthropic. Это записано в manifest.json (external_data=true).
+- Текст главы уходит во внешний сервис Anthropic. Это записано в MANIFEST.md.
   Главы и ролики не публикуются: никаких общих ссылок; ключ API в репозиторий не кладём.
 - Ключ берётся из переменной окружения ANTHROPIC_API_KEY (или профиля `ant auth login`).
 - Модель заменяема: LLM_MODEL (по умолчанию claude-opus-5-5). Версия фиксируется в теге заморозки.
 
 Установка:  pip install anthropic
 Проверка:   python engine/llm_client.py --ping      (один короткий платный запрос)
-Манифест:   python engine/llm_client.py --manifest
 """
 import json
 import os
@@ -78,24 +77,7 @@ def generate_json(prompt, schema, system=None, model=None, max_tokens=None):
         raise LLMError(f"невалидный JSON от модели: {e}: {text[:200]}")
 
 
-def write_manifest_entry():
-    mp = ROOT / "manifest.json"
-    m = json.loads(mp.read_text(encoding="utf-8"))
-    m["models"] = [{
-        "name": MODEL, "provider": "Anthropic (Claude API)", "role": "извлечение узлов учебного слоя, задания, сценарии",
-        "external_data": True,
-        "data_sent": "текст единиц главы (без публикации; ключ API не хранится в репозитории)",
-        "fallback_model": FALLBACK_MODEL or None, "effort": EFFORT,
-    }]
-    m["policy"] = [p for p in m.get("policy", []) if "локаль" not in p.lower()]
-    mp.write_text(json.dumps(m, ensure_ascii=False, indent=2), encoding="utf-8")
-    print("manifest.json обновлён:", MODEL)
-    return 0
-
-
 if __name__ == "__main__":
-    if "--manifest" in sys.argv:
-        sys.exit(write_manifest_entry())
     if "--ping" in sys.argv:
         r = generate_json("Верни JSON с полем ok=true.", {"type": "object", "properties": {"ok": {"type": "boolean"}},
                                                           "required": ["ok"], "additionalProperties": False}, max_tokens=2000)

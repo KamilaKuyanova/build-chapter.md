@@ -1,0 +1,29 @@
+{
+ "chapter": "selftest_ch1",
+ "routes": [
+  {
+   "node_id": "selftest.a",
+   "format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "why": "самотест"
+  },
+  {
+   "node_id": "selftest.b",
+   "format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "why": "самотест"
+  }
+ ]
+}

@@ -1,0 +1,415 @@
+{
+ "chapter": "selftest_ch1",
+ "tasks": [
+  {
+   "id": "selftest.a.t1",
+   "type": "single",
+   "step_id": "selftest.a",
+   "claim_ids": [
+    "selftest.a#c1"
+   ],
+   "prompt": "Сколько будет два плюс три?",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "четыре",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "пять",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "шесть",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "selftest.a.t2",
+   "type": "single",
+   "step_id": "selftest.a",
+   "claim_ids": [
+    "selftest.a#c1"
+   ],
+   "prompt": "Что верно про сумму?",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "она равна пяти",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "она равна семи",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "selftest.a.t3",
+   "type": "multiple",
+   "step_id": "selftest.a",
+   "claim_ids": [
+    "selftest.a#c1"
+   ],
+   "prompt": "Что входит в сумму?",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "два",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "три",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "семь",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "девять",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o2"
+   ]
+  },
+  {
+   "id": "selftest.a.t4",
+   "type": "multiple",
+   "step_id": "selftest.a",
+   "claim_ids": [
+    "selftest.a#c1"
+   ],
+   "prompt": "Выберите верные.",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "пять",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "равно",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "тысяча",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o2"
+   ]
+  },
+  {
+   "id": "selftest.a.t5",
+   "type": "order",
+   "step_id": "selftest.a",
+   "claim_ids": [
+    "selftest.a#c1"
+   ],
+   "prompt": "Расставьте по порядку.",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Берём 2 Прибавляем 3",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Берём 2",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Прибавляем 3",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Получаем 5",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o2",
+    "o3"
+   ]
+  },
+  {
+   "id": "selftest.a.t6",
+   "type": "gap",
+   "step_id": "selftest.a",
+   "claim_ids": [
+    "selftest.a#c1"
+   ],
+   "prompt": "Два плюс три равно {{1}}.",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "answer": [
+    "пяти"
+   ]
+  },
+  {
+   "id": "selftest.a.t7",
+   "type": "calc",
+   "step_id": "selftest.a",
+   "claim_ids": [
+    "selftest.a#c1"
+   ],
+   "prompt": "Сколько будет 2 + 3?",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "получаем 5",
+   "answer": 5,
+   "tolerance": 0.01,
+   "unit": ""
+  },
+  {
+   "id": "selftest.a.t8",
+   "type": "calc",
+   "step_id": "selftest.a",
+   "claim_ids": [
+    "selftest.a#c1"
+   ],
+   "prompt": "Сложите 2 и 3.",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "получаем 5",
+   "answer": 5,
+   "tolerance": 0.01,
+   "unit": ""
+  },
+  {
+   "id": "selftest.b.t1",
+   "type": "single",
+   "step_id": "selftest.b",
+   "claim_ids": [
+    "selftest.b#c1"
+   ],
+   "prompt": "Сколько будет два плюс три?",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "четыре",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "пять",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "шесть",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "selftest.b.t2",
+   "type": "single",
+   "step_id": "selftest.b",
+   "claim_ids": [
+    "selftest.b#c1"
+   ],
+   "prompt": "Что верно про сумму?",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "она равна пяти",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "она равна семи",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "selftest.b.t3",
+   "type": "multiple",
+   "step_id": "selftest.b",
+   "claim_ids": [
+    "selftest.b#c1"
+   ],
+   "prompt": "Что входит в сумму?",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "два",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "три",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "семь",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "девять",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o2"
+   ]
+  },
+  {
+   "id": "selftest.b.t4",
+   "type": "multiple",
+   "step_id": "selftest.b",
+   "claim_ids": [
+    "selftest.b#c1"
+   ],
+   "prompt": "Выберите верные.",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "пять",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "равно",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "тысяча",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o2"
+   ]
+  },
+  {
+   "id": "selftest.b.t5",
+   "type": "order",
+   "step_id": "selftest.b",
+   "claim_ids": [
+    "selftest.b#c1"
+   ],
+   "prompt": "Расставьте по порядку.",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Берём 2 Прибавляем 3",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Берём 2",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Прибавляем 3",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Получаем 5",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o2",
+    "o3"
+   ]
+  },
+  {
+   "id": "selftest.b.t6",
+   "type": "gap",
+   "step_id": "selftest.b",
+   "claim_ids": [
+    "selftest.b#c1"
+   ],
+   "prompt": "Два плюс три равно {{1}}.",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "Два плюс три равно пяти.",
+   "answer": [
+    "пяти"
+   ]
+  },
+  {
+   "id": "selftest.b.t7",
+   "type": "calc",
+   "step_id": "selftest.b",
+   "claim_ids": [
+    "selftest.b#c1"
+   ],
+   "prompt": "Сколько будет 2 + 3?",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "получаем 5",
+   "answer": 5,
+   "tolerance": 0.01,
+   "unit": ""
+  },
+  {
+   "id": "selftest.b.t8",
+   "type": "calc",
+   "step_id": "selftest.b",
+   "claim_ids": [
+    "selftest.b#c1"
+   ],
+   "prompt": "Сложите 2 и 3.",
+   "explanation": "Пояснение в одну фразу.",
+   "kind": "recall",
+   "evidence": "получаем 5",
+   "answer": 5,
+   "tolerance": 0.01,
+   "unit": ""
+  }
+ ]
+}

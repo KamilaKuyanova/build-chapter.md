@@ -1,83 +1,90 @@
 #!/usr/bin/env python3
-"""Самотест ШАБЛОНА курса (не контент главы!).
-
-Генерирует data_selftest/nodes/*.json с нейтральным школьным содержимым (не геология),
-чтобы проверить: 15+ заданий, все 5 типов, шаг «решение на данных», иллюстрация с alt,
-«стр. N» у абзацев. Цитаты и страницы здесь вымышленные: это проверка вёрстки и правил
-сборщика, а не материал для жюри. Папка data_selftest не используется в сдаче.
-"""
+"""Самотест ШАБЛОНА курса в официальных форматах (не контент главы). Нейтральное школьное содержимое, вымышленные
+цитаты и страницы: проверяет вёрстку и правила сборщика. Пишет data_selftest/ (в сдачу не входит)."""
 import json
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-D = ROOT / "data_selftest" / "nodes"
-D.mkdir(parents=True, exist_ok=True)
+D = ROOT / "data_selftest"
+D.mkdir(exist_ok=True)
+CH = "selftest_ch1"
 
-SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" role="img" aria-label="Линейный график">
-<rect width="320" height="160" fill="#ffffff" stroke="#999"/>
-<polyline fill="none" stroke="#1f5f8b" stroke-width="3" points="20,130 80,100 140,80 200,50 260,30"/>
-<text x="20" y="150" font-size="12" fill="#333">время</text></svg>"""
-(D / "chart.svg").write_text(SVG, encoding="utf-8")
-
-
-def claims(prefix):
-    return [{"id": f"{prefix}{i}", "kind": k, "text": t, "quote": "Вымышленная цитата для самотеста",
-             "page": 10 + i, "origin": "author"}
-            for i, (k, t) in enumerate([("observation", "Наблюдение самотеста"),
-                                        ("conclusion", "Вывод самотеста"),
-                                        ("assumption", "Допущение самотеста")], start=1)]
+(D / "chart.svg").write_text(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" role="img" aria-label="График">'
+    '<rect width="320" height="160" fill="#1A2129"/><polyline fill="none" stroke="#F1C40F" stroke-width="3" '
+    'points="20,130 80,100 140,80 200,50 260,30"/><text x="20" y="150" font-size="12" fill="#ECEFF4">время</text></svg>',
+    encoding="utf-8")
 
 
-def node(nid, order, title, prefix, exercises, data=False):
-    n = {
-        "_selftest": True, "id": nid, "order": order, "title": title, "book_title": "Самотест шаблона",
-        "difficulty": {"primary": "procedure"},
-        "core": {
-            "essence": {"text": "Суть: проверяем, что шаблон показывает страницу у каждого абзаца.", "claims": [prefix + "1"]},
-            "mechanism": {"text": "Механизм самотеста: текст берётся из узла, а не из вёрстки вручную.", "claims": [prefix + "1"]},
-            "practice": {"text": "Практика: сборщик помечает абзацы без источника красным.", "claims": [prefix + "2"]},
-            "nuances": {"text": "Нюанс: страница у утверждения обязательна.", "claims": [prefix + "3"]},
-        },
-        "claims": claims(prefix),
-        "misconception": "Заблуждение самотеста: страницы можно не указывать",
-        "data_meaning": "Для данных: без страницы утверждение нельзя проверить.",
-        "it_analogy": {"analogy": "Ссылка на источник — как комментарий с адресом в коде.", "breaks_where": "Страница книги не заменяет проверку смысла."},
-        "worked_examples": [{"condition": "Условие самотеста: 2 + 3", "steps": ["Складываем", "Получаем 5"], "result": "5", "page": 11}],
-        "book_problems": [{"number": "1", "text": "Задача самотеста", "figure": "рис. 1", "page": 12}],
-        "links": [] if order == 1 else [{"to": "selftest.01", "type": "prerequisite"}],
-        "illustrations": [{"file": "chart.svg", "alt": "Линия растёт слева направо", "class": "A", "label": "схема",
-                            "caption": "Схема самотеста, нарисована кодом."}],
-        "exercises": exercises,
-    }
-    if data:
-        n["data_step"] = True
-        n["data_solution"] = {"task": "Решение на данных (самотест).", "features": ["Значение растёт со временем"],
-                              "rule": "Если значение растёт, тренд положительный.", "conclusion": "Тренд положительный.",
-                              "breaks": "Один шумный отсчёт может обмануть."}
-    return n
-
-
-def ex(i, t, prefix, **kw):
-    d = {"id": f"{prefix}e{i}", "type": t, "claim_id": prefix + "1", "explanation": "Пояснение в одну фразу."}
+def fld(t, **kw):
+    d = {"text": t, "by_model": False}
     d.update(kw)
     return d
 
 
-def exs(prefix):
+def node(order, nid, title, intro_terms, used, decision=False):
+    cid = f"{nid}#c1"
+    n = {
+        "id": nid, "order": order, "title": title, "why_here": fld("Порядок самотеста."),
+        "difficulty": {"primary": "П", "secondary": None}, "threshold": False, "pages": [10 + order],
+        "layers": {"topic": fld("Тема самотеста"), "main": fld("Суть самотеста: сложение двух чисел.", claim_ids=[cid]),
+                   "mechanism": fld("Мы складываем 2 и 3, получаем 5.", claim_ids=[cid]),
+                   "practice": fld("Сумму 5 используют в примерах.", claim_ids=[cid]),
+                   "nuances": fld("Порядок слагаемых не важен.", claim_ids=[cid]), "deeper": []},
+        "claims": [{"id": cid, "text": "Два плюс три равно пяти.", "kind": "observation", "page_pdf": 10 + order,
+                    "page_print": None, "quote": "Два плюс три равно пяти.", "source_kind": "text", "by_model": False}],
+        "links": [] if order == 1 else [{"type": "prerequisite", "target": "selftest.a"}],
+        "misconception": {"ref": "misc.log_is_rock", "text": "Кривая — не порода.", "by_model": False},
+        "data_meaning": {"from_chapter": fld("Число в данных — отклик, а не сама величина."),
+                         "breaks": fld("Если шум велик, сумма неточна."), "hypotheses": []},
+        "it_analogy": {"text": "Сумма как агрегат в SQL.", "breaks_where": "SQL не знает физических единиц.", "by_model": False},
+        "now_practice": None, "inefficiency_lens": None,
+        "terms_introduced": intro_terms, "terms_used": used, "needs_scan": [],
+        "decision_on_data": ({"features": ["значение растёт"], "rule": "рост значит положительный тренд",
+                              "conclusion": "тренд положительный", "counterexample": "шум"} if decision else None),
+        "worked_examples": [{"page_pdf": 10 + order, "condition": "Сложить 2 и 3.", "steps": ["Берём 2", "Прибавляем 3"], "result": "5"}],
+        "book_tasks": [{"number": "1", "page_pdf": 10 + order, "text": "Сложить 4 и 4.", "figure": None}],
+    }
+    return n
+
+
+layer = {"chapter": CH, "source": "selftest.md", "generated_by": "самотест",
+         "nodes": [node(1, "selftest.a", "Самотест: сложение", ["сумма"], []),
+                   node(2, "selftest.b", "Самотест: решение на данных", ["тренд"], ["сумма"], decision=True)]}
+
+EV = "Два плюс три равно пяти."
+
+
+def task(i, nid, ty, prompt, **kw):
+    t = {"id": f"{nid}.t{i}", "type": ty, "step_id": nid, "claim_ids": [f"{nid}#c1"], "prompt": prompt,
+         "explanation": "Пояснение в одну фразу.", "kind": "recall", "evidence": EV}
+    t.update(kw)
+    return t
+
+
+def tasks_for(nid):
+    o = lambda *ts: [{"id": f"o{i}", "text": s, "misconception": None} for i, s in enumerate(ts, 1)]
     return [
-        ex(1, "single", prefix, question="2+2?", options=["3", "4", "5"], answer=1),
-        ex(2, "single", prefix, question="Столица России?", options=["Москва", "Казань"], answer=0),
-        ex(3, "multi", prefix, question="Чётные числа?", options=["2", "3", "4"], answer=[0, 2]),
-        ex(4, "multi", prefix, question="Цвета радуги?", options=["красный", "чёрный", "синий"], answer=[0, 2]),
-        ex(5, "order", prefix, question="Расставьте по возрастанию", options=["1", "2", "3", "4"]),
-        ex(6, "fill", prefix, question="Вода кипит при ___ °C (при норм. давлении)", answer=["100"]),
-        ex(7, "calc", prefix, question="Сколько будет 12 / 4?", answer=3, tolerance=0.01, unit=""),
-        ex(8, "calc", prefix, question="Сколько будет 2.5 * 2?", answer=5, tolerance=0.01, unit=""),
+        task(1, nid, "single", "Сколько будет два плюс три?", options=o("четыре", "пять", "шесть"), answer="o2"),
+        task(2, nid, "single", "Что верно про сумму?", options=o("она равна пяти", "она равна семи"), answer="o1"),
+        task(3, nid, "multiple", "Что входит в сумму?", options=o("два", "три", "семь", "девять"), answer=["o1", "o2"]),
+        task(4, nid, "multiple", "Выберите верные.", options=o("пять", "равно", "тысяча"), answer=["o1", "o2"]),
+        task(5, nid, "order", "Расставьте по порядку.", options=o("Берём 2", "Прибавляем 3", "Получаем 5"), answer=["o1", "o2", "o3"],
+             evidence="Берём 2 Прибавляем 3"),
+        task(6, nid, "gap", "Два плюс три равно {{1}}.", answer=["пяти"]),
+        task(7, nid, "calc", "Сколько будет 2 + 3?", answer=5, tolerance=0.01, unit="", evidence="получаем 5"),
+        task(8, nid, "calc", "Сложите 2 и 3.", answer=5, tolerance=0.01, unit="", evidence="получаем 5"),
     ]
 
 
-for i, (nid, title, p, data) in enumerate([("selftest.01", "Самотест: источник у абзаца", "a", False),
-                                           ("selftest.02", "Самотест: решение на данных", "b", True)], start=1):
-    (D / f"{nid}.node.json").write_text(
-        json.dumps(node(nid, i, title, p, exs(p), data), ensure_ascii=False, indent=2), encoding="utf-8")
+tasks = {"chapter": CH, "tasks": tasks_for("selftest.a") + tasks_for("selftest.b")}
+ill = {"chapter": CH, "illustrations": [
+    {"id": f"i{k}", "step_id": nid, "file": "chart.svg", "frame_class": "A", "origin": "code_from_data",
+     "label": "реальные данные", "caption": "Линия растёт слева направо.", "alt": "Линия растёт слева направо", "source": "самотест",
+     "claim_ids": [f"{nid}#c1"]} for k, nid in enumerate(["selftest.a", "selftest.b"], 1)]}
+routing = {"chapter": CH, "routes": [
+    {"node_id": nid, "format": "текст", "video_scores": {"time": 0, "invisible": 0, "scale": 0, "counterintuitive": 0, "cause_effect": 0},
+     "why": "самотест"} for nid in ("selftest.a", "selftest.b")]}
+for name, data in (("layer", layer), ("tasks", tasks), ("illustrations", ill), ("routing", routing)):
+    (D / f"{name}.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 print("Самотест сгенерирован:", D)

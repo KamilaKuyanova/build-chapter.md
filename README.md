@@ -1,45 +1,33 @@
-# Глава → курс (хакатон)
+# Глава → курс (хакатон), часть Б: курс, задания, ролики, доменный пакет
 
-Конвейер: **глава (md) → учебный слой (узлы JSON) → маршрутизация → курс/ролики**.
-Курс собирается только из узлов, вручную не верстается. Требования ТЗ: см. `TZ-checklist.md`.
+Форматы — ОФИЦИАЛЬНЫЕ (пакет вводных организаторов), копия схем в `schema/official/`. Требования ТЗ: `TZ-checklist.md`.
+Модель: только Claude API (`engine/llm_client.py`), ключ в `ANTHROPIC_API_KEY`, не в репозитории.
 
-## Быстрый старт (без сервера, без логина)
+## Установка
 ```
-python engine/build_course.py            # собрать курс из data/nodes/*.json
-python engine/build_course.py --strict   # то же, но падает при нарушениях правил ТЗ
-```
-Откройте `out/course/index.html` в браузере.
-
-```
-python tests/make_selftest.py            # самотест шаблона (вымышленный нейтральный контент)
-python engine/build_course.py --nodes data_selftest/nodes --out out/selftest --strict
-python engine/check_passport.py templates/video_passport.template.json   # проверка паспорта ролика до рендера
+pip install -r requirements.txt
 ```
 
-## Схема узла
-Официальной общей схемы организаторы не выдали (проверено), поэтому формат наш: `schema/node.schema.json` (v0.1, по полям из ТЗ).
-```
-python engine/validate_nodes.py data/nodes   # форма + ссылки (claims, exercises, links)
-```
-Сборщик курса прогоняет эту проверку сам. Когда выдадут официальную схему — написать конвертер узлов.
+## Входы курса (`data/current/`)
+`layer.json` (учебный слой, делает часть А), `tasks.json`, `illustrations.json`, `routing.json` (необязательно).
 
-## Анализы книг организаторов
-Папка «analysis books» с Диска → положить файлы в `data/analysis/` (в git не попадают), затем:
+## Команды
 ```
-python engine/import_analysis.py
+python engine/validate_layer.py --dir data/current           # схемы организаторов + правила ТЗ
+python engine/gen_exercises.py --dir data/current            # tasks.json через Claude (нужен ключ)
+python engine/build_course.py --dir data/current --strict    # out/course/index.html (офлайн)
+python tests/test_offline.py                                 # проверки без ключа API
+python engine/llm_client.py --ping                           # проверка связи с Claude
 ```
-Создаёт `data/book_index/*.json` (оглавление со страницами, зависимости глав, определения, параметры с оговорками, слабые разделы), дополняет глоссарий и `domain_pack/legacy_notes.json`. Всё из анализа помечено «не сверено» и обязано подтверждаться цитатой со страницы главы.
 
-## Структура
-- `data/nodes/` — учебный слой (узлы). Сейчас там ЗАГЛУШКА, не из книги.
-- `engine/` — сборщик курса (движок не знает геологии).
-- `domain_pack/` — доменный пакет отдельно от движка: заблуждения, чек-лист физики, глоссарий, словарь ударений, стайлгайд.
-- `manifest.json` — инструменты и модели с версиями.
-- `manual_edits_log.csv` — журнал ручных правок (минуты; должен совпадать с историей коммитов).
-- `TZ-checklist.md` — мастер-чек-лист требований ТЗ.
+## Папки
+- `engine/` — сборщик курса, валидатор, генератор заданий, клиент Claude (движок не знает геологии)
+- `domain_pack/` — доменный пакет отдельно от кода: заблуждения `misc.*`, чек-лист `pc.*`, стайлгайд, ударения, портреты, глоссарий
+- `data/book_index/` — индексы анализов книг (не сверено со страницами)
+- `data_selftest/` — самотест шаблона (вымышленный контент, в сдачу не входит)
+- `manual_edits.csv`, `metrics.csv`, `MANIFEST.md` — шаблоны сдачи
 
 ## Правила
-1. Ручная правка = строка в `manual_edits_log.csv` + коммит.
-2. После заморозки (тег версии) код, промпты и доменный пакет не меняются.
-3. Главы и ролики не публиковать (никаких общих ссылок).
-4. Схему узла заменить на официальную JSON организаторов, когда выдадут.
+1. Ручная правка = строка в `manual_edits.csv` (person_minutes, run_no) + коммит.
+2. После заморозки (тег) код, промпты и доменный пакет не меняются.
+3. Книги, сканы, видео и папка «хакатон» в git не попадают (`.gitignore`).

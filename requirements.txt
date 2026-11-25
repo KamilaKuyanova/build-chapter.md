@@ -1,0 +1,2 @@
+anthropic>=2.14
+jsonschema>=4.26

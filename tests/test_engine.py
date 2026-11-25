@@ -304,6 +304,27 @@ class Domain(unittest.TestCase):
             self.assertEqual([x["id"] for x in rows(folder, "misconceptions")], ["misc.a"])
 
 
+class Pictures(unittest.TestCase):
+    def test_text_readable_on_phone(self):
+        """На экране 390 px картинке достаётся около 358 px: подпись в ней не мельче 16 px."""
+        import re
+        small = []
+        for p in (ROOT / "data").glob("*/illustrations/*.svg"):
+            s = p.read_text(encoding="utf-8")
+            width = float(re.search(r'viewBox="0 0 ([0-9.]+)', s).group(1))
+            sizes = [float(x) for x in re.findall(r'font-size="([0-9.]+)"', s)]
+            if sizes and min(sizes) * 358 / width < 16:
+                small.append(f"{p.name}: {min(sizes) * 358 / width:.1f} px")
+        self.assertEqual(small, [])
+
+    def test_grid_gap_is_joined(self):
+        sys.path.append(str(ROOT / "engine" / "figures"))
+        sys.path.append(str(ROOT / "engine"))
+        import redraw
+        ink = [[[.5, 90], [.5, 99.8]], [[.51, 100.2], [.6, 110]], [[.1, 95], [.1, 96]], [[.1, 97], [.1, 98]]]
+        self.assertEqual(len(redraw.joined(ink, [100], 50)), 3)   # сшита линия у сетки, штрихи книги остались штрихами
+
+
 class Video(unittest.TestCase):
     LAYER = {"nodes": [{"id": "x.a", "claims": [{"id": "x.a#c1", "text": "Мокрый песок темнее при 15 % влажности.", "quote": "при 15 % влажности"}]}]}
 

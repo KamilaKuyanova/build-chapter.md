@@ -26,7 +26,7 @@ W = 640  # при ширине 358 px подпись 30 -> 16.8 px, на тел�
 
 def head(title, label="схема"):
     s = [f'<rect x="24" y="22" width="{30 + len(label) * 17}" height="44" rx="8" fill="{SG["provenance"][label]}"/>',
-         text(39, 54, label, 28, "#FFFFFF", weight=600)]
+         text(39, 54, label, 29, "#FFFFFF", weight=600)]
     y = 108
     for ln in wrap(title, 29):
         s.append(text(24, y, ln, 34, weight=700))
@@ -36,7 +36,7 @@ def head(title, label="схема"):
 
 def finish(s, y, foot):
     for ln in wrap(foot, 40):
-        s.append(text(24, y + 34, ln, 28, MUTED))
+        s.append(text(24, y + 34, ln, 29, MUTED))
         y += 34
     H = int(y + 26)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
@@ -51,7 +51,7 @@ def box(s, y, body, color, title=None, strong=False):
     s.append(f'<rect x="24" y="{y}" width="{W - 48}" height="{h}" rx="12" fill="{fill}" stroke="{color}" stroke-width="3"/>')
     ty = y + 42
     if title:
-        s.append(text(46, ty, title, 28, color, weight=700))
+        s.append(text(46, ty, title, 29, color, weight=700))
         ty += 42
     for ln in lines_:
         s.append(text(46, ty, ln, FONT, "#0F1419" if strong else INK, weight=700 if strong else 400))
@@ -81,7 +81,7 @@ def step_diagram(node, nodes):
     blue, gold, green = SG["fluids"]["water"]["color"], SG["curves"]["RES"]["color"], SG["curves"]["GR"]["color"]
     s, y = head("Место шага в главе")
     if before:
-        s.append(text(24, y + 14, "опирается на", 28, MUTED))
+        s.append(text(24, y + 14, "опирается на", 29, MUTED))
         y += 30
         for n in before[:3]:
             y = box(s, y, name(n), blue) + 12
@@ -89,7 +89,7 @@ def step_diagram(node, nodes):
     y = box(s, y + (0 if before else 10), name(node), gold, strong=True)
     if after:
         y = down(s, y)
-        s.append(text(24, y + 18, "ведёт к", 28, MUTED))
+        s.append(text(24, y + 18, "ведёт к", 29, MUTED))
         y += 34
         for n in after[:3]:
             y = box(s, y, name(n), green) + 12

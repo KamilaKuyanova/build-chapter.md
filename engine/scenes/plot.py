@@ -61,7 +61,7 @@ def chart(title, series, xlab, ylab, note, label="симуляция", xticks=No
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
          f'style="max-width:100%;height:auto"><rect width="{W}" height="{H}" rx="14" fill="{PANEL}"/>']
     s.append(f'<rect x="24" y="22" width="{30 + len(label) * 17}" height="44" rx="8" fill="{SG["provenance"][label]}"/>')
-    s.append(text(39, 54, label, 28, "#FFFFFF", weight=600))
+    s.append(text(39, 54, label, 29, "#FFFFFF", weight=600))
     y = 84 + 24
     for ln in heads:
         s.append(text(24, y, ln, 34, weight=700))
@@ -72,21 +72,21 @@ def chart(title, series, xlab, ylab, note, label="симуляция", xticks=No
             s.append(f'<line x1="24" y1="{y + 2}" x2="70" y2="{y + 2}" stroke="{color}" stroke-width="5"{d}/>')
             s.append(text(84, y + 12, name))
             y += 44
-    s.append(text(24, top - 24, ylab, 28, MUTED))
+    s.append(text(24, top - 24, ylab, 29, MUTED))
     for v in yticks or []:
         s.append(f'<line x1="{left}" y1="{py(v):.1f}" x2="{W - right}" y2="{py(v):.1f}" stroke="{MUTED}" stroke-opacity=".25"/>')
-        s.append(text(left - 12, py(v) + 10, fmt(v), 28, MUTED, "end"))
+        s.append(text(left - 12, py(v) + 10, fmt(v), 29, MUTED, "end"))
     for v in xticks or []:
-        s.append(text(px(v), bottom + 40, fmt(v), 28, MUTED, "middle"))
+        s.append(text(px(v), bottom + 40, fmt(v), 29, MUTED, "middle"))
     s.append(f'<line x1="{left}" y1="{bottom}" x2="{W - right}" y2="{bottom}" stroke="{MUTED}" stroke-width="2"/>')
-    s.append(text(W - right, bottom + 82, xlab, 28, MUTED, "end"))
+    s.append(text(W - right, bottom + 82, xlab, 29, MUTED, "end"))
     for _, pts, color, dash in series:
         d = ' stroke-dasharray="10 8"' if dash else ""
         path = " ".join(f"{'M' if i == 0 else 'L'}{px(x):.1f},{py(v):.1f}" for i, (x, v) in enumerate(pts))
         s.append(f'<path d="{path}" fill="none" stroke="{color}" stroke-width="5" stroke-linejoin="round"{d}/>')
     for x, v, name, anchor in marks:
         s.append(f'<circle cx="{px(x):.1f}" cy="{py(v):.1f}" r="9" fill="{INK}" stroke="{PANEL}" stroke-width="3"/>')
-        s.append(text(px(x) + (14 if anchor == "start" else -14), py(v) - 14, name, 28, INK, anchor))
+        s.append(text(px(x) + (14 if anchor == "start" else -14), py(v) - 14, name, 29, INK, anchor))
     for i, ln in enumerate(notes):
-        s.append(text(24, bottom + 124 + 34 * i, ln, 28, MUTED))
+        s.append(text(24, bottom + 124 + 34 * i, ln, 29, MUTED))
     return "".join(s) + "</svg>"

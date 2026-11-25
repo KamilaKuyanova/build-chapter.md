@@ -48,5 +48,18 @@ check("выдуманное число отброшено", gen_exercises.conver
 bad_claim = dict(good, claim_id="нет#c9")
 check("несуществующий claim отброшен", gen_exercises.convert(node, bad_claim, 1, set())[0] is None)
 
+# 4. сцена «каротаж»: кадры корректны, кривые согласованы с моделью слоёв
+sys.path.insert(0, str(ROOT / "engine" / "scenes"))
+import logging_run  # noqa: E402
+import xml.dom.minidom  # noqa: E402
+fr = logging_run.Frame()
+svg = fr.svg(60)
+xml.dom.minidom.parseString(svg)
+check("кадр сцены — корректный SVG с меткой «симуляция»", "симуляция" in svg)
+c60, c77 = logging_run.curves_at(60), logging_run.curves_at(77)
+check("нефть и плотная порода обе дают высокое сопротивление", c60["RES"] > 0.7 and c77["RES"] > 0.7)
+check("плотная порода без отклонения ПС, песчаник с отклонением", abs(c77["SP"]) < 0.2 and c60["SP"] < -0.4)
+check("глубина растёт вниз", fr.y(80) > fr.y(20))
+
 print("ИТОГО:", "всё хорошо" if not fails else f"провалено {len(fails)}")
 sys.exit(1 if fails else 0)

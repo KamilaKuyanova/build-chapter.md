@@ -32,6 +32,7 @@ def norm_quote(text):
 
 def numbers(text):
     """Множество чисел в тексте; запятая и точка в дроби равнозначны."""
+    text = re.sub(r"(?<=[^\W\d_])[₀-₉]+", " ", text)  # индекс в «F₀» — не число
     text = re.sub(r"\\[,;:! ]", " ", unify(text)).replace("{,}", ",")
     found = set()
     for raw in _NUM.findall(text):

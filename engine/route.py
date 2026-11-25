@@ -10,7 +10,8 @@ BASE = {"М": "интерактив", "В": "интерактив", "И": "ин�
         "Пр": "практикум на данных", "Н": "практикум на данных", "Р": "карточки"}
 TEMPLATE = {"М": "process_state", "В": "time_evolution", "И": "tool_and_curve", "Ф": "formula_explorer",
             "П": "section_views", "Пр": "step_procedure", "Н": "decision_panel", "Р": "compare_signs"}
-VIDEO_MIN = 4  # сумма баллов, с которой узел видеоёмкий
+VIDEO_MIN = 6  # сумма баллов, с которой узел видеоёмкий
+VIDEO_SHARE = 0.2  # доля узлов главы, которым нужен ролик
 
 
 def route_node(node):
@@ -38,4 +39,12 @@ def route_node(node):
 
 
 def route(layer):
-    return {"chapter": layer["chapter"], "routes": [route_node(n) for n in layer["nodes"]]}
+    """Ролик получают самые видеоёмкие узлы, не больше VIDEO_SHARE главы; остальным — основной формат."""
+    routes = [route_node(n) for n in layer["nodes"]]
+    video = [r for r in routes if r["format"] in ("шортс", "длинное видео")]
+    video.sort(key=lambda r: -sum(r["video_scores"].values()))
+    for r in video[max(1, round(len(routes) * VIDEO_SHARE)):]:
+        r["format"], r["secondary_format"] = r["secondary_format"], "текст"
+        r["template"] = r["template"] if r["format"] == "интерактив" else None
+        r["why"] += "; в главе есть более видеоёмкие узлы, поэтому без ролика"
+    return {"chapter": layer["chapter"], "routes": routes}

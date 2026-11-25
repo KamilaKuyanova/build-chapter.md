@@ -75,6 +75,31 @@ def render_terms(node):
     return f"<dl>{items}</dl>" if items else ""
 
 
+def render_formulas(node):
+    out = []
+    for f in node.get("formulas", []):
+        rows = "".join(f'<li><code>{e(v.get("symbol"))}</code> — {e(v.get("meaning"))}'
+                       f'{", " + e(v["unit"]) if v.get("unit") else ""}</li>' for v in f.get("variables", []))
+        out.append(f'<div class="formula"><code>{e(f.get("latex"))}</code>'
+                   f'<p>{e(f.get("meaning"))} <span class="src">стр. {e(f.get("page"))}</span></p><ul>{rows}</ul></div>')
+    return "".join(out)
+
+
+def render_tables(node):
+    out = []
+    for t in node.get("tables", []):
+        rows = [[c.strip() for c in r.strip().strip("|").split("|")] for r in t.get("markdown", "").splitlines()
+                if r.strip().startswith("|")]
+        rows = [r for r in rows if not all(set(c) <= set("-: ") for c in r)]
+        body = "".join("<tr>" + "".join(f"<{'th' if i == 0 else 'td'}>{e(c)}</{'th' if i == 0 else 'td'}>"
+                                         for c in r) + "</tr>" for i, r in enumerate(rows))
+        fixes = "".join(f"<li>{e(x)}</li>" for x in t.get("ocr_fixes", []))
+        out.append(f'<h4>{e(t.get("title"))} <span class="src">стр. {e(t.get("page"))}</span></h4>'
+                   f'<div style="overflow-x:auto"><table>{body}</table></div>'
+                   f'{"<p>Исправления распознавания:</p><ul>" + fixes + "</ul>" if fixes else ""}')
+    return "".join(out)
+
+
 def render_data_meaning(node):
     if not node.get("data_meaning"):
         return ""
@@ -242,6 +267,8 @@ def render_step(node, i, total):
   {block('Разбор примеров из главы', render_examples(node))}
   {block('Новые понятия', render_terms(node))}
   {block('Цифры и условия', '<p>' + e(node.get('conditions')) + '</p>' if node.get('conditions') else '')}
+  {block('Формулы', render_formulas(node))}
+  {block('Таблицы книги', render_tables(node))}
   {block('Частая ошибка', '<p>' + e(node.get('misconception')) + '</p>' if node.get('misconception') else '')}
   {block('Что это значит для данных', render_data_meaning(node))}
   {block('Аналогия', ana)}

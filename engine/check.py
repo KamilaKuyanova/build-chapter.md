@@ -26,6 +26,9 @@ LAYERS = ("topic", "main", "mechanism", "practice", "nuances")
 THIN = 0.2  # доля слов единицы, ниже которой считаем, что её сжали до общих слов
 
 
+REF = re.compile(r"\(\d+\.\d+\)")
+
+
 class Report(list):
     def add(self, level, code, where, message, page=None, fix=None):
         self.append({"level": level, "code": code, "where": where, "message": message,
@@ -43,6 +46,7 @@ class Source:
     def __init__(self, units):
         self.units = {u["id"]: u for u in units}
         self.author, self.figure = {}, {}
+        self.refs = {m for u in units if u["origin"] == "author" for m in REF.findall(u["text"])}
         for u in units:
             if u["origin"] == "author":
                 self.author.setdefault(u["page"], []).append(u["text"])
@@ -99,6 +103,7 @@ def check_numbers(src, text, unit_ids, where, page, report):
             base |= numbers(unit["text"])
             if unit["type"] == "figure":  # подписи осей есть только в описании рисунка
                 base |= numbers("\n".join(src.figure.get(unit["page"], [])))
+    text = REF.sub(lambda m: " " if m.group(0) in src.refs else m.group(0), text)
     extra = sorted(numbers(text) - base)
     if extra:
         report.add("error", "NUMBER_NOT_IN_SOURCE", where,
@@ -177,9 +182,22 @@ def check_node(src, node, misconceptions, report):
             if src.units.get(uid, {}).get("ocr_suspect"):
                 report.add("suspect", "OCR_SUSPECT", where, f"{uid} распознан с ошибками", c["page_pdf"])
     for key in LAYERS:
-        check_numbers(src, node["layers"][key]["text"], units, f"{nid}.layers.{key}", None, report)
+        layer = node["layers"][key]
+        for i, p in enumerate(layer.get("paras") or [layer]):
+            check_numbers(src, p["text"], p.get("units") or units, f"{nid}.layers.{key}[{i}]",
+                          p.get("page_pdf"), report)
     for i, d in enumerate(node["layers"]["deeper"]):
-        check_numbers(src, d["text"], units, f"{nid}.layers.deeper[{i}]", None, report)
+        check_numbers(src, d["text"], d.get("units") or units, f"{nid}.layers.deeper[{i}]",
+                      d.get("page_pdf"), report)
+    data, decision = node["data_meaning"], node.get("decision_on_data") or {}
+    for name, text in [("data_meaning.from_chapter", data["from_chapter"]["text"]),
+                       ("data_meaning.breaks", data["breaks"]["text"]),
+                       ("decision_on_data", " ".join([*decision.get("features", []), decision.get("rule", ""),
+                                                      decision.get("conclusion", ""),
+                                                      decision.get("counterexample") or ""]))]:
+        check_numbers(src, text, units, f"{nid}.{name}", None, report)
+    if len(words(node["title"])) and not 3 <= len((node.get("title_novice") or "a b c").split()) <= 7:
+        report.add("error", "TITLE_LENGTH", nid, "заголовок для новичка должен быть 3–7 слов")
     for i, e in enumerate(node.get("worked_examples", [])):
         page_units = [u["id"] for u in src.units.values() if u["origin"] == "author"
                       and u["page"] in (e["page_pdf"], e["page_pdf"] + 1)]

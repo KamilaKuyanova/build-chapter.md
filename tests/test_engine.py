@@ -219,6 +219,21 @@ class Review(unittest.TestCase):
         self.assertEqual(len(dropped), 3)
 
 
+class Formulas(unittest.TestCase):
+    def test_builder_takes_formula_and_table(self):
+        from engine.nodes import Builder
+        b = Builder({"id": "t", "book": "t.md"}, UNITS)
+        a = {"id": "x", "title": "Песок", "novice": "Про мокрый песок", "why": "так", "diff": ["Ф"], "topic": "т",
+             "main": "м", "claims": [], "data": ["", "", []], "analogy": ["", ""], "video": [0] * 5,
+             "formulas": [[uid("formula"), "объём", [["V", "объём"]]]],
+             "tables": [["Таблица 1", "p999.01"]]}
+        n = b.node(a, 1)
+        self.assertEqual(n["formulas"][0]["variables"], [{"symbol": "V", "meaning": "объём", "unit": None}])
+        self.assertIn(uid("formula"), n["units"])
+        self.assertEqual(n["tables"], [])
+        self.assertIn("p999.01", b.problems[0])
+
+
 class Course(unittest.TestCase):
     def test_steps_match_builder_schema(self):
         from engine.route import route

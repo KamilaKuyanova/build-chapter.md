@@ -22,7 +22,8 @@ def chunks(units):
         if u["origin"] == "service":
             continue
         cost = len(u["text"]) if u["origin"] == "author" else 0
-        heavy = size + cost > CHUNK
+        torn = bool(cur) and not re.search(r"[.!?:;»)\]|$]\s*$", cur[-1]["text"]) and u["text"][:1].islower()
+        heavy = size + cost > CHUNK and not torn
         if cur and (heavy or (u["type"] == "heading" and size > CHUNK * 0.6)):
             out.append(cur)
             cur, size = [], 0
@@ -133,15 +134,35 @@ class Builder:
                              "steps": e["steps"], "result": e["result"], "figure": e.get("figure"),
                              "units": own})
         for t in a.get("tasks", []):
-            number, figure = t if isinstance(t, list) else (t, None)
+            number, figure, more = ((t if isinstance(t, list) else [t]) + [None, None])[:3]
+            rest = [i for i in (more or "").split() if i in self.units]
             u = self.by_number.get(("task", str(number)))
             if not u:
                 self.problems.append(f"{nid}: нет задачи {number}")
                 continue
-            units.add(u["id"])
+            units.update([u["id"], *rest])
             tasks.append({"number": str(number), "page_pdf": u["page"], "figure": figure,
-                          "text": re.sub(r"^\d+\.\s*", "", u["text"]),
+                          "text": " ".join([re.sub(r"^\d+\.\s*", "", u["text"]),
+                                            *(self.units[i]["text"] for i in rest)]),
                           "ocr_suspect": bool(u.get("ocr_suspect"))})
+        formulas, tables = [], []
+        for uid, meaning, variables in a.get("formulas", []):
+            u = self.units.get(uid)
+            if not u:
+                self.problems.append(f"{nid}: нет единицы формулы {uid}")
+                continue
+            units.add(uid)
+            formulas.append({"unit": uid, "page_pdf": u["page"], "latex": u["text"], "meaning": meaning,
+                             "variables": [{"symbol": v[0], "meaning": v[1], "unit": (v + [None])[2]}
+                                           for v in variables], "by_model": True})
+        for title, ids, *fixes in a.get("tables", []):
+            own = [self.units[i] for i in ids.split() if i in self.units]
+            self.problems += [f"{nid}: нет единицы таблицы {i}" for i in ids.split() if i not in self.units]
+            if own:
+                units.update(u["id"] for u in own)
+                tables.append({"title": title, "units": ids.split(), "page_pdf": own[0]["page"],
+                               "markdown": "\n".join(u["text"] for u in own if u["type"] == "table"),
+                               "ocr_fixes": fixes[0] if fixes else []})
         units.update(a.get("units", "").split())
         known = [self.units[i] for i in units if i in self.units]
         lens, misc = a.get("lens"), a.get("misc")
@@ -165,6 +186,7 @@ class Builder:
                            for c in claims if c.get("needs_scan")]
             + [{"page": self.units[i]["page"], "what": w} for i, w in a.get("scan", []) if i in self.units],
             "decision_on_data": a.get("decision"), "worked_examples": examples, "book_tasks": tasks,
+            "formulas": formulas, "tables": tables,
             "video_scores": dict(zip(VIDEO, a["video"])),
         }
 

@@ -63,6 +63,7 @@ mark{background:none;color:inherit;border-bottom:3px solid var(--blue);padding-b
 .slide[data-s="1"] .s1,.slide[data-s="2"] .s1,.slide[data-s="2"] .s2{opacity:1;transform:none}
 .tick{display:flex;justify-content:space-between;align-items:center;border-top:1.5px dashed rgba(6,8,12,.28);padding:15px 0;font-size:24px}
 .tick svg{width:26px;height:26px}.tick path{fill:none;stroke:var(--blue);stroke-width:3;stroke-dasharray:30;stroke-dashoffset:30;transition:stroke-dashoffset .6s var(--ease);transition-delay:calc(.9s + var(--d)*.16s)}.on .tick path{stroke-dashoffset:0}
+.pr{display:grid;grid-template-columns:160px 1fr 40px 330px;align-items:center;gap:0 12px;border-top:1.5px dashed rgba(6,8,12,.25);min-height:82px;font-size:27px;line-height:1.22;letter-spacing:-.012em}.pr.hd{min-height:44px;border-top:0;font-size:16px;color:var(--mut)}.pr .lab{color:var(--mut);font-size:16px}.pr i{font-style:normal;color:var(--mut)}
 /* слои */
 .lay{position:absolute;left:1080px;width:480px;border-top:1.5px dashed rgba(255,255,255,.28);padding-top:9px;opacity:0;transform:translateX(26px);transition:all .8s var(--ease)}
 .on .lay.vis{opacity:.5;transform:none}.on .lay.hot{opacity:1}
@@ -120,9 +121,10 @@ mark{background:none;color:inherit;border-bottom:3px solid var(--blue);padding-b
  <section class="slide lt" data-nav="Задача" data-crit="">
   <span class="gd h" style="left:40px;right:40px;top:150px"></span><span class="gd v" style="left:1004px;top:110px;height:740px"></span><span class="sq" style="left:36px;top:146px"></span>
   <div class="abs lab rv" style="left:40px;top:178px">Задача</div>
-  <h2 class="abs wipe" style="left:40px;top:226px;width:900px;font-size:58px;line-height:1.12">Модель перескажет главу за минуту. Но «обычно» станет «всегда», «больше» станет «меньше», а условие пропадёт. Новичок этого не заметит.</h2>
-  <div class="abs rv" style="left:40px;top:640px;width:400px;--d:6"><div class="num" data-n="300" data-suf="+"></div><p style="color:var(--mut);margin-top:6px">книг в корпусе компании: вручную столько не проверить</p></div>
-  <div class="abs rv" style="left:500px;top:640px;width:420px;--d:8"><div style="font-size:96px;line-height:1.06;letter-spacing:-.045em">порог</div><p style="color:var(--mut);margin-top:6px">точность здесь не баллы: критическая ошибка обнуляет ролик</p></div>
+  <h2 class="abs" style="left:40px;top:214px;width:940px;font-size:60px;line-height:1.08"><span class="ln"><span>ИИ пересказывает главу</span></span><span class="ln"><span>гладко, но с ошибками</span></span></h2>
+  <div class="abs prs" style="left:40px;top:384px;width:930px"><div class="pr hd lab rv" style="--d:2"><span></span><span>В книге</span><i></i><span>Пересказ ИИ</span></div><div class="pr rv" style="--d:4"><span class="lab">Оговорка</span><span>Порода <mark>может</mark> разорваться</span><i>→</i><span class="bad">Порода <mark>разорвётся</mark></span></div><div class="pr rv" style="--d:6"><span class="lab">Условие</span><span>Давление растёт, <mark>если скважина закрыта</mark></span><i>→</i><span class="bad">Давление растёт <mark>всегда</mark></span></div><div class="pr rv" style="--d:8"><span class="lab">Направление</span><span>Давление на забое <mark>выше</mark></span><i>→</i><span class="bad">Давление на забое <mark>ниже</mark></span></div></div>
+  <div class="abs rv" style="left:40px;top:700px;width:930px;--d:11;font-size:29px;line-height:1.3;letter-spacing:-.015em">Читается правильно, а смысл уже другой. Новичок этого не заметит.</div>
+  <div class="abs rv" style="left:40px;top:770px;width:930px;--d:13;font-size:20px;color:var(--mut)">В корпусе компании больше 300 книг: вручную столько не проверить. Учебные примеры наши.</div>
  </section>
 
  <section class="slide dark" data-nav="Конвейер" data-crit="слой 15">

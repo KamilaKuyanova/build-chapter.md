@@ -152,6 +152,37 @@ class English(unittest.TestCase):
         self.assertEqual(len(rep), 1)
 
 
+class EnglishMeaning(unittest.TestCase):
+    """Русский текст узла по английской цитате."""
+    def codes(self, text, quote):
+        from engine.check import meaning_suspects
+        return {c for c, _ in meaning_suspects(text, quote)}
+
+    def test_planted_errors(self):
+        may = "Unless the pressure is bled off, the weakest rock may eventually be fractured."
+        self.assertEqual(self.codes("Если давление не стравить, слабая порода может разорваться.", may), set())
+        self.assertLessEqual({"HEDGE_LOST", "OVERGENERALIZED", "CONDITION_LOST"}, self.codes("Слабая порода всегда рвётся.", may))
+        high = "The pressure on bottom is higher while circulating than with the pumps off."
+        self.assertIn("POLARITY", self.codes("При циркуляции давление на забое ниже.", high))
+        self.assertEqual(self.codes("При циркуляции давление на забое выше.", high), set())
+        self.assertIn("NEGATION", self.codes("Диаметр важен.", "It doesn't depend on the hole diameter."))
+        self.assertEqual(self.codes("Самый надёжный признак — прирост.", "The most reliable sign is a pit gain."), set())
+
+    def test_formula_is_not_english(self):
+        self.assertEqual(self.codes("Формула верна, когда t мало.", r"$$p = q t 	ag{1}$$"), set())
+
+    def test_demo_chapter(self):
+        text = (Path(__file__).parent / "demo_drilling_en.md").read_text(encoding="utf-8")
+        units = build_units(text, {"id": "demo", "lang": "en"})
+        count = lambda k: sum(u["type"] == k for u in units)
+        self.assertEqual((count("formula"), count("example"), count("task"), count("table")), (3, 2, 3, 1))
+        self.assertTrue(any(u["origin"] == "figure_ai" for u in units))
+
+    def test_sentence_abbreviations(self):
+        from engine.nodes import sentence
+        self.assertEqual(sentence("As in Fig. A the mud, Eq. B, rises. Then it falls.", "As in"), "As in Fig. A the mud, Eq. B, rises.")
+
+
 class Norm(unittest.TestCase):
     def test_numbers(self):
         self.assertEqual(numbers("4—8 см³, 2,50 и 10⁻¹⁵"), {"4", "8", "3", "2.5", "10", "15"})
@@ -240,6 +271,15 @@ class Nodes(unittest.TestCase):
         self.assertEqual(sentence("Раз два.\n- Три часто.", "Раз"), "Раз два.")
         self.assertEqual(sentence("- раз;\n- два.", "раз"), "раз;")
 
+    def test_unknown_link_and_missing_analogy(self):
+        from engine.nodes import Builder
+        b = Builder({"id": "x", "book": "К"}, UNITS)
+        n = b.node({"id": "a", "title": "т", "novice": "н", "why": "п", "diff": ["М"], "topic": "о", "main": "с", "claims": [],
+                    "links": [["contrasts_with", "b"], ["prerequisite", "c"]], "analogy": None}, 1)
+        self.assertEqual(n["links"], [{"type": "prerequisite", "target": "x.c"}])
+        self.assertTrue(any("contrasts_with" in p for p in b.problems))
+        self.assertEqual(n["it_analogy"]["text"], "")
+
     def test_chunks_lose_nothing(self):
         from engine.nodes import chunks
         got = [u["id"] for c in chunks(UNITS) for u in c]
@@ -285,6 +325,14 @@ class Review(unittest.TestCase):
         self.assertEqual(len(dropped), 3)
 
 
+class ReviewHints(unittest.TestCase):
+    def test_analogy_without_limit(self):
+        from engine.check import Source
+        from engine.review import hints
+        item = {"id": "A01", "type": "analogy", "text": "Раствор как очередь.", "breaks_where": None}
+        self.assertTrue(any(h.startswith("ANALOGY") for h in hints(Source(UNITS), item, {})))
+
+
 class Formulas(unittest.TestCase):
     def test_builder_takes_formula_and_table(self):
         from engine.nodes import Builder
@@ -301,6 +349,16 @@ class Formulas(unittest.TestCase):
 
 
 class Domain(unittest.TestCase):
+    def test_colors_reach_styleguide(self):
+        import tempfile
+        from engine.domain_fill import merge
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            (folder / "styleguide.json").write_text("{}", encoding="utf-8")
+            merge(folder, {"colors": [{"name": "kick", "color": "#E74C3C", "why": "газ"}, {"name": "bad", "color": "red"}]}, set())
+            style = json.loads((folder / "styleguide.json").read_text(encoding="utf-8"))
+            self.assertEqual(style["domain"], {"kick": {"color": "#E74C3C", "ru": "газ"}})
+
     def test_merge_adds_and_checks(self):
         import tempfile
         from engine.domain_fill import merge, rows

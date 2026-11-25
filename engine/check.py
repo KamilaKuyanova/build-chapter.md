@@ -13,15 +13,35 @@ from .textnorm import norm_quote, numbers, words
 from .units import kind, needs_cover
 
 STRONG = {"всегда", "никогда", "любой", "любая", "любое", "любые", "все", "всех", "обязательно",
-          "полностью", "исключительно", "always", "never", "any", "all", "only"}
-HEDGE = {"обычно", "часто", "нередко", "иногда", "возможно", "может", "могут", "большинстве",
-         "большинства", "преимущественно", "примерно", "приблизительно", "usually", "often",
-         "may", "might", "generally", "typically", "sometimes", "approximately"}
-CONDITION = {"если", "когда", "условии", "условиях", "только", "кроме", "исключением", "if",
-             "when", "unless", "provided", "except"}
+          "полностью", "исключительно", "always", "never", "any", "all", "only", "every", "must"}
+HEDGE_RU = {"обычно", "часто", "нередко", "иногда", "возможно", "может", "могут", "большинстве",
+            "большинства", "преимущественно", "примерно", "приблизительно"}
+HEDGE_EN = {"usually", "often", "may", "might", "generally", "typically", "sometimes", "approximately", "could",
+            "about", "commonly", "probably", "possibly", "likely", "mostly", "most", "nearly", "almost", "roughly",
+            "rarely", "seldom", "normally", "frequently", "largely", "mainly", "perhaps", "tend", "tends", "some"}
+# перевод оговорки на русский шире списка, по которому ищем потерю в русской цитате
+SOFT_RU = HEDGE_RU | {"около", "почти", "большинство", "большая", "некоторые", "некоторых", "вероятно", "редко", "бывает",
+                      "бывают", "способен", "способны", "порядка", "правило", "главным", "основном", "чаще", "порой", "мало"}
+CONDITION_RU = {"если", "когда", "условии", "условиях", "только", "кроме", "исключением"}
+CONDITION_EN = {"if", "when", "unless", "provided", "except", "until", "whenever", "assuming"}
+WHEN_RU = CONDITION_RU | {"при", "пока", "иначе", "после", "без", "где"}
+NEG_RU = {"не", "нет", "нельзя", "без"}
+NEG_EN = {"not", "no", "cannot", "never", "nor", "neither", "without", "none"}
 OPPOSITES = [("увелич", "уменьш"), ("повыш", "пониж"), ("выше", "ниже"), ("больше", "меньше"),
              ("раст", "пада"), ("возраст", "убыва"), ("высок", "низк"), ("положительн", "отрицательн"),
-             ("increas", "decreas"), ("higher", "lower"), ("above", "below")]
+             ("increas", "decreas"), ("higher", "lower"), ("above", "below"), ("positive", "negative"),
+             ("rise", "fall"), ("greater", "smaller")]
+# русский текст по английской цитате: слева и справа — противоположные смыслы на обоих языках
+ACROSS = [(("увелич", "повыш", "возраст", "растет", "растут", "вырос", "рост"), ("уменьш", "пониж", "сниж", "падает", "падают", "убыва", "упал"),
+           ("increas", "rise", "rising", "grow"), ("decreas", "fall", "declin", "reduc", "drop", "diminish")),
+          (("выше", "больше", "тяжелее", "быстрее"), ("ниже", "меньше", "легче", "медленнее"),
+           ("higher", "greater", "above", "more", "larger", "heavier", "faster", "exceed"), ("lower", "less", "below", "smaller", "lighter", "slower")),
+          (("высок",), ("низк",), ("high",), ("low",)),
+          (("положительн",), ("отрицательн",), ("positive",), ("negative",)),
+          (("вверх",), ("вниз",), ("upward", "updip"), ("downward", "downdip")),
+          (("крупн", "грубе"), ("мелк",), ("coars",), ("fine", "fining")),
+          (("быстр",), ("медлен",), ("fast", "rapid", "quick"), ("slow",)),
+          (("толст", "мощн"), ("тонк",), ("thick",), ("thin",))]
 LAYERS = ("topic", "main", "mechanism", "practice", "nuances")
 THIN = 0.2  # доля слов единицы, ниже которой считаем, что её сжали до общих слов
 
@@ -112,20 +132,34 @@ def check_numbers(src, text, unit_ids, where, page, report):
 
 def meaning_suspects(text, quote):
     """Дешёвые признаки искажения смысла. Это подсказки, а не приговор."""
-    out, said, quoted = [], set(words(text)), set(words(quote))
-    if said & STRONG and not quoted & STRONG:
+    out, said = [], set(words(text))
+    quote = re.sub(r"n['’]t\b", " not", quote)
+    quoted = set(words(quote))
+    english = not re.search("[а-яё]", quote.casefold()) and len(re.findall(r"\b[a-z]{3,}\b", re.sub(r"\$[^$]*\$", "", quote))) > 2
+    translated = english and bool(re.search("[а-яё]", text.casefold()))
+    has = lambda bag, stems: any(w.startswith(stems) for w in bag)
+    soft, when = (SOFT_RU, WHEN_RU) if translated else (HEDGE_RU | HEDGE_EN, CONDITION_RU | CONDITION_EN)
+    strong = quoted & STRONG or english and quoted & {"entire", "whole", "each", "completely"}
+    if said & STRONG and not strong:
         out.append(("OVERGENERALIZED", f"«{', '.join(sorted(said & STRONG))}» нет в цитате"))
-    if quoted & HEDGE and not said & HEDGE:
-        out.append(("HEDGE_LOST", f"потеряна оговорка «{', '.join(sorted(quoted & HEDGE))}»"))
-    if quoted & CONDITION and not said & CONDITION:
-        out.append(("CONDITION_LOST", f"потеряно условие «{', '.join(sorted(quoted & CONDITION))}»"))
-    has = lambda bag, stem: any(w.startswith(stem) for w in bag)
+    hedges = quoted & (HEDGE_EN if english else HEDGE_RU)
+    if not re.search(r"\bmost (?:of|\w+s)\b", quote.casefold()):
+        hedges = hedges - {"most"}  # «the most reliable» — превосходная степень
+    if hedges and not said & soft:
+        out.append(("HEDGE_LOST", f"потеряна оговорка «{', '.join(sorted(hedges))}»"))
+    conditions = quoted & (CONDITION_EN if english else CONDITION_RU)
+    if conditions and not said & when:
+        out.append(("CONDITION_LOST", f"потеряно условие «{', '.join(sorted(conditions))}»"))
     for a, b in OPPOSITES:
         for x, y in ((a, b), (b, a)):
             if has(said, x) and not has(said, y) and has(quoted, y) and not has(quoted, x):
                 out.append(("POLARITY", f"в тексте «{x}…», в цитате «{y}…»"))
-    neg = lambda bag: bool(bag & {"не", "нет", "нельзя", "без", "not", "no", "cannot"})
-    if neg(said) != neg(quoted):
+    for up, down, up_en, down_en in ACROSS if translated else []:
+        for mine, other, theirs, anti in ((up, down, up_en, down_en), (down, up, down_en, up_en)):
+            if has(said, mine) and not has(said, other) and has(quoted, anti) and not has(quoted, theirs):
+                out.append(("POLARITY", f"в тексте «{mine[0]}…», в цитате «{anti[0]}…»"))
+    neg_said = bool(said & (NEG_RU | NEG_EN)) or "unless" in said
+    if neg_said != bool(quoted & (NEG_RU | NEG_EN)) and not (neg_said and "unless" in quoted):
         out.append(("NEGATION", "отрицание есть только в тексте или только в цитате"))
     return out
 
@@ -225,7 +259,9 @@ def check_node(src, node, misconceptions, report):
     mis = node.get("misconception")
     if mis and mis["ref"] and misconceptions and mis["ref"] not in misconceptions:
         report.add("error", "MISC_UNKNOWN", nid, f"нет заблуждения {mis['ref']}")
-    if len(words(node["it_analogy"]["breaks_where"])) < 3:
+    if not node["it_analogy"]["text"]:
+        report.add("error", "ANALOGY_MISSING", nid, "нет ИТ-аналогии, схема её требует")
+    elif len(words(node["it_analogy"]["breaks_where"])) < 3:
         report.add("error", "ANALOGY_WITHOUT_LIMIT", nid, "у аналогии не названа граница")
 
 

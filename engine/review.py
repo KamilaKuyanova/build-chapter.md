@@ -15,6 +15,9 @@ CATEGORIES = ("overgeneralization", "sign_flip", "measured_vs_inferred", "lost_c
               "analogy_without_limit", "frame_error", "other")
 
 
+SEVERITY = {"major": "significant", "medium": "significant", "high": "critical", "low": "minor"}
+
+
 def hints(src, item, claims):
     """Подсказки машины по элементу пакета."""
     out = []
@@ -24,6 +27,8 @@ def hints(src, item, claims):
         rep = Report()
         check_quote(src, quote, page, item["id"], rep)
         out += [f"{r['code']}: {r['message']}" for r in rep]
+    if item["type"] == "analogy" and len((item.get("breaks_where") or "").split()) < 3:
+        out.append("ANALOGY: не названо, где аналогия ломается")
     if quote and page:
         have = numbers(quote) | numbers("\n".join(src.author.get(page, [])))
         extra = sorted(numbers(item["text"]) - have)
@@ -98,7 +103,7 @@ def assemble(package, units, answers, team):
                 dropped.append((r["target"], why))
                 continue
             seen.add(r["target"])
-            remarks.append({"target": r["target"], "category": r["category"], "severity": r["severity"],
+            remarks.append({"target": r["target"], "category": r["category"], "severity": SEVERITY.get(r["severity"], r["severity"]),
                             "problem": r["problem"], "fix": r["fix"], "page_pdf": unit["page"],
                             "quote": quote.strip()})
     return {"package_id": package["package_id"], "team": team, "remarks": remarks}, dropped

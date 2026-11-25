@@ -28,6 +28,18 @@ def prompt(template, domain, title, folder, units):
     return re.sub(r"\{\{(\w+)\}\}", lambda m: fill[m.group(1)], template)
 
 
+def paint(folder, colors):
+    """Цвета домена видны сценам как domain.<имя>."""
+    path = folder / "styleguide.json"
+    if not path.exists():
+        return
+    style = json.loads(path.read_text(encoding="utf-8-sig"))
+    for c in colors:
+        if c.get("name") and re.fullmatch(r"#[0-9A-Fa-f]{6}", c.get("color") or ""):
+            style.setdefault("domain", {}).setdefault(c["name"], {"color": c["color"], "ru": c.get("why") or c["name"]})
+    path.write_text(json.dumps(style, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def merge(folder, answer, pages):
     """Добавить ответ к пакету, ничего не затирая. Возвращает (что добавлено, ошибки)."""
     added, errors = {}, []
@@ -49,5 +61,7 @@ def merge(folder, answer, pages):
                 have.append(x)
                 known.add(str(x[KEY[part]]).casefold())
                 added[part] = added.get(part, 0) + 1
+        if part == "colors":
+            paint(folder, answer.get(part, []))
         (folder / FILES[part]).write_text(json.dumps(have, ensure_ascii=False, indent=1), encoding="utf-8")
     return added, errors

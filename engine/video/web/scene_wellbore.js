@@ -2,7 +2,7 @@
 // Все давления — из одной модели: раствор ρ·g·h, при притоке газа в закрытой скважине пачка сохраняет давление и поднимает его везде.
 // Параметры: depth, layers, casings, mud (г/см³), pore [[м, МПа]], frac [[м, МПа]], p_max, gas_from (м).
 // beat: cam, span, bit, pump 0..1, drill 0..1, mud, gas (глубина верха пачки), gas_on 0..1, closed 0..1, loss 0..1, loss_at, pit 0..1, graph 0..1, show [pore, frac, mud], head, call, lens.
-const G = 9.81e-3; // МПа на метр при плотности 1 г/см³
+// Единицы книги: grad — давление на единицу глубины при плотности 1 (9.81e-3 для м, МПа и г/см³; 0.052 для ft, psi и ppg); friction — добавка трения на забое при циркуляции.
 const interp = (A, d) => { if (d <= A[0][0]) return A[0][1]; for (let i = 1; i < A.length; i++) if (d <= A[i][0]) return lerp(A[i - 1][1], A[i][1], (d - A[i - 1][0]) / (A[i][0] - A[i - 1][0])); return A[A.length - 1][1]; };
 const Scene = {
   setup(S) {
@@ -15,16 +15,19 @@ const Scene = {
     this.flow = Array.from({ length: 150 }, () => [r(), r(), r()]);
     this.hn = noise1(8);
   },
-  layout(S) { return S.vert ? { bx: 250, R: 92, gx: 575, gw: S.W - 575 - S.safe.side } : { bx: 620, R: 105, gx: 1180, gw: S.W - 1180 - 80 }; },
+  layout(S) { return S.sq ? { bx: 430, R: 70, gx: 590, gw: S.W - 590 - 20 } : S.vert ? { bx: 250, R: 92, gx: 575, gw: S.W - 575 - S.safe.side } : { bx: 620, R: 105, gx: 1180, gw: S.W - 1180 - 80 }; },
   state(S, t) {
-    const P = S.P, s = { cam: S.track(t, 'cam', P.depth / 2), span: S.track(t, 'span', P.depth * 1.15), bit: S.track(t, 'bit', P.depth), pump: S.track(t, 'pump', 0), drill: S.track(t, 'drill', 0),
+    const P = S.P, G = P.grad || 9.81e-3, s = { cam: S.track(t, 'cam', P.depth / 2), span: S.track(t, 'span', P.depth * 1.15), bit: S.track(t, 'bit', P.depth), pump: S.track(t, 'pump', 0), drill: S.track(t, 'drill', 0),
       mud: S.track(t, 'mud', P.mud), gas: S.track(t, 'gas', P.gas_from || P.depth), gasOn: S.track(t, 'gas_on', 0), closed: S.track(t, 'closed', 0), loss: S.track(t, 'loss', 0), pit: S.track(t, 'pit', 0.5), graph: S.track(t, 'graph', 1) };
     s.y = d => S.H / 2 + (d - s.cam) / s.span * S.H;
     s.dAt = y => s.cam + (y - S.H / 2) / S.H * s.span;
-    const from = P.gas_from || P.depth, pk = interp(P.pore, from);
+    const from = P.gas_from || P.depth, den = P.in_density;
+    s.pres = (A, d) => den ? interp(A, d) * G * d : interp(A, d); // пределы могут быть даны плотностью
+    s.show = (p, d) => den ? p / (G * Math.max(d, P.depth * 0.02)) : p;
+    const pk = s.pres(P.pore, from);
     // давление в стволе: столб раствора, при циркуляции больше; газ в закрытой скважине несёт пластовое давление вверх
     s.p = d => {
-      const stat = s.mud * G * d * (1 + 0.04 * s.pump);
+      const stat = s.mud * G * d * (P.friction ? 1 : 1 + 0.04 * s.pump) + (P.friction || 0) * s.pump * d / P.depth;
       if (s.gasOn < 0.01) return stat;
       const open = d > s.gas ? stat - s.mud * G * Math.min(P.depth * 0.05, d - s.gas) * 0.6 * s.gasOn : stat;
       const shut = Math.max(0, pk + s.mud * G * (d - s.gas));
@@ -63,7 +66,7 @@ const Scene = {
     x.fillStyle = s.closed > 0.5 ? '#E74C3C' : '#AEB9C4'; rr(x, cx - A.R * 0.75, y0 - 52, A.R * 1.5, 46, 10); x.fill();
   },
   hole(x, t, S, A, s) {
-    const P = S.P, { H } = S, R = A.R, cx = A.bx, yb = s.y(s.bit), yt = Math.max(-40, s.y(0)), mud = S.color('fluids.mud'), m2 = mix(mud, '#000000', clamp((s.mud - 1) * 0.35));
+    const P = S.P, { H } = S, R = A.R, cx = A.bx, yb = s.y(s.bit), yt = Math.max(-40, s.y(0)), mud = S.color('fluids.mud'), m2 = mix(mud, '#000000', clamp((s.mud / (P.water || 1) - 1) * 0.35));
     const rad = d => { let r = R; for (const c of P.casings || []) if (d < c.shoe) r = Math.max(r * 0 + R * (c.r || 1.12), r); return r + (this.cased(P, d) ? 0 : this.hn(d / s.span * 60) * 5); };
     const step = 6, pts = []; // контур ствола
     for (let y = yt; y <= Math.min(yb, H + 40); y += step) pts.push([rad(s.dAt(y)), y]);
@@ -88,7 +91,7 @@ const Scene = {
     }
     if (s.drill > 0.02) { const L = this.layerAt(P, s.bit), col = S.color(L.color), r = rng(12); for (let i = 0; i < 70 * s.drill; i++) { const v = (t * (0.11 + r() * 0.05) * Math.max(0.2, s.pump) + r()) % 1, q = r() < 0.5 ? -1 : 1; x.fillStyle = mix(col, '#ffffff', r() * 0.3); const X = cx + q * lerp(pr + 16, R - 10, r()), Y = bot - v * span, a = 5 + r() * 8; x.beginPath(); x.moveTo(X - a, Y); x.lineTo(X, Y - a * 0.7); x.lineTo(X + a, Y + a * 0.2); x.lineTo(X, Y + a * 0.8); x.closePath(); x.fill(); } }
     if (s.gasOn > 0.02) { // газовая пачка: в открытой скважине растёт к устью, в закрытой почти не меняется
-      const p0 = interp(P.pore, P.gas_from), pNow = Math.max(0.6, s.p(s.gas)), k = lerp(Math.min(6, p0 / pNow), 1, s.closed), len = clamp(P.depth * 0.035 * k / s.span * H, 60, 900), yTop = s.y(s.gas), r = rng(33);
+      const p0 = s.pres(P.pore, P.gas_from || P.depth), pNow = Math.max(p0 * 0.012, s.p(s.gas)), k = lerp(Math.min(6, p0 / pNow), 1, s.closed), len = clamp(P.depth * 0.035 * k / s.span * H, 60, 900), yTop = s.y(s.gas), r = rng(33);
       const n = Math.round(60 * s.gasOn * Math.min(2.4, k));
       for (let i = 0; i < n; i++) { const a = 5 + r() * 9 * Math.cbrt(k), q = r() < 0.5 ? -1 : 1, Y = yTop + r() * len + Math.sin(t * 3 + i) * 5, X = cx + q * lerp(pr + 12, R - 6, r()) + Math.sin(t * 2 + i * 2) * 4; if (Y > bot) continue; x.fillStyle = rgba(S.color('fluids.gas'), 0.85); x.beginPath(); x.arc(X, Y, a, 0, 7); x.fill(); x.fillStyle = 'rgba(255,255,255,.55)'; x.beginPath(); x.arc(X - a * 0.3, Y - a * 0.3, a * 0.28, 0, 7); x.fill(); }
     }
@@ -118,23 +121,23 @@ const Scene = {
   cased(P, d) { return (P.casings || []).some(c => d < c.shoe); },
   layerAt(P, d) { return P.layers.find(l => d >= l.top && d < l.bot) || P.layers[P.layers.length - 1]; },
   graph(x, t, S, A, s) { // давление по глубине на той же шкале глубин, что и ствол
-    const P = S.P, { H } = S, X = A.gx, w = A.gw, px = p => X + 16 + p / P.p_max * (w - 32), yt = Math.max(0, s.y(0)), yb = H;
+    const P = S.P, { H } = S, X = A.gx, w = A.gw, pm = P.p_min || 0, px = p => X + 16 + clamp((p - pm) / (P.p_max - pm)) * (w - 32), yt = Math.max(0, s.y(0)), yb = H;
     x.save();
     x.globalAlpha = s.graph;
     x.fillStyle = 'rgba(8,13,18,.86)'; x.fillRect(X, yt, w, yb - yt);
     x.strokeStyle = 'rgba(255,255,255,.12)'; x.lineWidth = 2;
     for (let i = 1; i < 4; i++) { x.beginPath(); x.moveTo(X + w * i / 4, yt); x.lineTo(X + w * i / 4, yb); x.stroke(); }
-    const line = (f, col, dash, lw, d1) => { x.beginPath(); for (let y = yt; y <= Math.min(yb, s.y(d1)); y += 5) x.lineTo(px(f(s.dAt(y))), y); x.strokeStyle = col; x.lineWidth = lw; x.setLineDash(dash); x.lineJoin = 'round'; x.stroke(); x.setLineDash([]); };
+    const line = (f, col, dash, lw, d1) => { x.beginPath(); for (let y = yt; y <= Math.min(yb, s.y(d1)); y += 5) { const d = s.dAt(y); x.lineTo(px(s.show(f(d), d)), y); }; x.strokeStyle = col; x.lineWidth = lw; x.setLineDash(dash); x.lineJoin = 'round'; x.stroke(); x.setLineDash([]); };
     const a = k => S.track(t, 'show_' + k, 0), water = S.color('fluids.water'), red = '#E74C3C', mudc = S.color('curves.PRESSURE');
     const bad = []; // где раствор ниже пластового или выше предела прочности
-    x.save(); x.globalAlpha *= a('pore'); line(d => interp(P.pore, d), water, [], 7, P.depth); x.restore();
-    if (P.frac) { x.save(); x.globalAlpha *= a('frac'); line(d => interp(P.frac, d), red, [16, 10], 7, P.depth); x.restore(); }
+    x.save(); x.globalAlpha *= a('pore'); line(d => s.pres(P.pore, d), water, [], 7, P.depth); x.restore();
+    if (P.frac) { x.save(); x.globalAlpha *= a('frac'); line(d => s.pres(P.frac, d), red, [16, 10], 7, P.depth); x.restore(); }
     x.save(); x.globalAlpha *= a('mud'); x.shadowColor = mudc; x.shadowBlur = 16; line(s.p, mudc, [], 10, s.bit);
-    const pb = s.p(s.bit); x.fillStyle = '#fff'; x.beginPath(); x.arc(px(pb), s.y(s.bit), 15, 0, 7); x.fill(); x.restore();
+    const pb = s.p(s.bit); x.fillStyle = '#fff'; x.beginPath(); x.arc(px(s.show(pb, s.bit)), s.y(s.bit), 15, 0, 7); x.fill(); x.restore();
     void bad;
     const key = [['pore', 'пластовое', water], ['mud', 'раствор', mudc]].concat(P.frac ? [['frac', 'разрыв породы', red]] : []);
-    let ky = (S.vert ? 700 : 280);
-    for (const [k, n, col] of key) { const al = a(k); if (al < 0.02) continue; label(x, n, X + w - 16, ky, { size: 44, w: 700, color: mix(col, '#ffffff', 0.25), align: 'right', a: al * s.graph }); ky += 56; }
+    let ky = S.sq ? 300 : S.vert ? 700 : 280;
+    for (const [k, n, col] of key) { const al = a(k); if (al < 0.02) continue; const kw = measure(x, n, 44, 700); x.save(); x.globalAlpha = al * s.graph; x.fillStyle = 'rgba(8,13,18,.88)'; rr(x, X + w - 28 - kw, ky - 44, kw + 24, 56, 8); x.fill(); x.restore(); label(x, n, X + w - 16, ky, { size: 44, w: 700, color: mix(col, '#ffffff', 0.25), align: 'right', a: al * s.graph }); ky += 56; }
     x.restore();
   },
   names(x, t, S, A, s) {
@@ -144,7 +147,7 @@ const Scene = {
       if (!L.name) return;
       const a = Math.max(s.y(L.top), S.vert ? 600 : 260), b = Math.min(s.y(L.bot), S.H - 400), need = L.name.length * 52 + 10;
       if (b - a < need) return;
-      const w = Math.max(...L.name.map(n => measure(x, n, 44, 700))) + 30, X = S.vert ? A.bx + A.R + 46 : A.bx - A.R - 70 - w, y = (a + b) / 2;
+      const w = Math.max(...L.name.map(n => measure(x, n, 44, 700))) + 30, X = S.vert ? A.bx + A.R + 46 : Math.max(16, A.bx - A.R - 70 - w), y = (a + b) / 2;
       x.save(); x.globalAlpha = on; x.fillStyle = 'rgba(10,15,20,.8)'; rr(x, X, y - need / 2, w, need, 12); x.fill();
       x.fillStyle = S.color(L.color); rr(x, X, y - need / 2, 8, need, 4); x.fill();
       L.name.forEach((n, i) => label(x, n, X + 20, y - need / 2 + 44 + i * 52, { size: 44, w: 700, shadow: false })); x.restore();
@@ -152,10 +155,10 @@ const Scene = {
   },
   overlay(x, t, S) {
     const s = this.s, A = this.A, { H } = S;
-    const ratio = A.R * 2 / ((S.P.hole_d || 0.2) * H / s.span), n = ratio >= 100 ? Math.round(ratio / 50) * 50 : Math.max(2, Math.round(ratio));
+    const ratio = A.R * 2 / ((S.P.hole_d || (S.P.grad ? 0.7 : 0.2)) * H / s.span), n = ratio >= 100 ? Math.round(ratio / 50) * 50 : Math.max(2, Math.round(ratio));
     const pit = S.shown(t, 'pit', 0.4, 0.4);
     if (pit > 0.02) { // приёмная ёмкость: объём раствора
-      const w = S.vert ? 300 : 320, h = 210, X = S.vert ? S.W - S.safe.side - w : 90, Y = S.vert ? 1230 : 640, lv = clamp(s.pit);
+      const w = S.sq ? 230 : S.vert ? 300 : 320, h = S.sq ? 150 : 210, X = S.sq ? 44 : S.vert ? S.W - S.safe.side - w : 90, Y = S.sq ? 830 : S.vert ? 1230 : 640, lv = clamp(s.pit);
       x.save(); x.globalAlpha = pit; x.fillStyle = 'rgba(8,13,18,.92)'; rr(x, X - 18, Y - 70, w + 36, h + 96, 22); x.fill();
       label(x, 'ёмкость', X + w / 2, Y - 18, { size: 44, w: 700, align: 'center', shadow: false });
       x.fillStyle = S.color('fluids.mud'); const yy = Y + h * (1 - lv); x.beginPath(); x.moveTo(X, Y + h); for (let i = 0; i <= w; i += 10) x.lineTo(X + i, yy + Math.sin(i / 30 + t * 4) * 4); x.lineTo(X + w, Y + h); x.closePath(); x.fill();

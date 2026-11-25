@@ -4,6 +4,7 @@
 prepare_for_speech(text) -> текст для синтеза: аббревиатуры по таблице чтения, числа словами, ударения знаком U+0301.
 subtitles_srt(script)    -> SRT из сценария (оригинальный текст, без ударений).
 Правила ТЗ: фраза ≤15–18 слов; числа и формулы словами; аббревиатура раскрыта при первом упоминании; 110–150 слов/мин."""
+import json
 import pathlib
 import re
 
@@ -52,6 +53,12 @@ def load_stress():
 
 
 ABBR, STRESS = load_abbreviations(), load_stress()
+EXTRA = domain.pack_dir() / "pronunciation.json"   # термины, которые добавил domain-build
+for _r in json.loads(EXTRA.read_text(encoding="utf-8-sig")) if EXTRA.exists() else []:
+    if re.fullmatch(r"[а-яё-]+", _r["term"]):
+        STRESS[_r["term"]] = _r["say"]
+    else:
+        ABBR[_r["term"]] = (_r["say"], "")
 
 
 def _num_words(m):

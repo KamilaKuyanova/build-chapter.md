@@ -61,9 +61,12 @@ def card(layer, node):
 
 
 def prompt(template, chapter, layer, node_id, fmt):
-    node = next(n for n in layer["nodes"] if n["id"] == node_id)
+    node = next((n for n in layer["nodes"] if n["id"] in (node_id, f"{chapter}.{node_id}")), None)
+    if not node:
+        raise SystemExit(f"нет узла {node_id}. Есть: " + ", ".join(n["id"] for n in layer["nodes"]))
+    node_id = node["id"]
     sg = domain.load("styleguide.json")
-    colors = [f"{g}.{k} ({v['ru']})" for g in ("lithology", "fluids", "curves") for k, v in sg[g].items()]
+    colors = [f"{g}.{k} ({v['ru']})" for g in ("lithology", "fluids", "curves", "domain") for k, v in sg.get(g, {}).items()]
     cat = []
     for name, s in scenes().items():
         cat.append(f"### `{name}`\nКогда: {s['when']}\nПараметры: {s['params_doc']}\nКлючи фразы (`beat`): {s['beat_doc']}\n"
@@ -99,7 +102,7 @@ def anims_prompt(template, chapter, layer, routes):
     ex["bases"]["gal"] = bas["bases"]["gal"]
     ex["nodes"]["basniev.erf_solution"] = bas["nodes"]["basniev.erf_solution"]
     fill = {"CHAPTER": chapter, "SCENES": "\n".join(cat), "NODES": "\n\n".join(rows) or "видеоузлов без ролика нет",
-            "COLORS": ", ".join(f"{g}.{k} ({v['ru']})" for g in ("lithology", "fluids", "curves") for k, v in sg[g].items()),
+            "COLORS": ", ".join(f"{g}.{k} ({v['ru']})" for g in ("lithology", "fluids", "curves", "domain") for k, v in sg.get(g, {}).items()),
             "EXAMPLE": json.dumps(ex, ensure_ascii=False)}
     return re.sub(r"\{\{(\w+)\}\}", lambda m: fill[m.group(1)], template), len(rows)
 

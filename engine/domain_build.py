@@ -43,7 +43,8 @@ def build(dom, chapters):
     en = {}
     gp = domain.path("glossary.json", dom)
     if gp.exists():
-        for t in json.loads(gp.read_text(encoding="utf-8")).get("terms", []):
+        gl = json.loads(gp.read_text(encoding="utf-8-sig"))
+        for t in gl if isinstance(gl, list) else gl.get("terms", []):
             if t.get("ru") and t.get("en"):
                 en[t["ru"].lower()] = t["en"]
     model_en = set()

@@ -15,7 +15,7 @@ for name in sys.argv[1:] or ["wellbore", "strata"]:
     out.mkdir(parents=True, exist_ok=True)
     beats = [dict(s, t_start=i * 5.0, t_end=i * 5.0 + 4) for i, s in enumerate(d["script"])]
     W, H = (1080, 1920) if d["format"] == "short" else (1920, 1080)
-    job = {"scene": name, "W": W, "H": H, "fps": 30, "total": len(beats) * 5.0, "beats": beats, "params": d["params"],
+    job = {"scene": d.get("scene", name), "W": W, "H": H, "fps": 30, "total": len(beats) * 5.0, "beats": beats, "params": d["params"],
            "style": domain.load("styleguide.json"),
            "shots": [{"t": b["t_start"] + 3.2, "file": str(out / f"{name}_{i:02d}.jpg")} for i, b in enumerate(beats)]}
     (out / "job.json").write_text(json.dumps(job, ensure_ascii=False), encoding="utf-8")

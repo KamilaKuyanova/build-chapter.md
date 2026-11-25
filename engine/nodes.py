@@ -59,6 +59,9 @@ def prompt(template, domain_brief, spec, part, total, chunk, done_nodes):
     return re.sub(r"\{\{(\w+)\}\}", lambda m: fill[m.group(1)], template)
 
 
+LINKS = ("prerequisite", "example_of", "refutes_misconception", "to_data")
+
+
 def sentence(text, start, end=None):
     """Дословный кусок единицы: от слов start до слов end или до конца предложения."""
     i = text.find(start)
@@ -67,7 +70,7 @@ def sentence(text, start, end=None):
     if end:
         j = text.find(end, i)
         return text[i:j + len(end)] if j >= 0 else None
-    m = re.compile(r"(?<!\b[А-ЯA-Z])(?<!рис)(?<!табл)(?<!см)(?:[.!?](?=\s*$|\s*\n|\s+[А-ЯЁA-Z«\"(\\$])|;(?=\s*\n\s*[-•*]))").search(text, i + len(start))
+    m = re.compile(r"(?<!\b[А-ЯA-Z])(?<!рис)(?<!табл)(?<!см)(?<!\bFig)(?<!\bFigs)(?<!\bEq)(?<!\bEqs)(?<!\bNo)(?<!\bRef)(?<!\bet al)(?<!\bvs)(?:[.!?](?=\s*$|\s*\n|\s+[А-ЯЁA-Z«\"(\\$])|;(?=\s*\n\s*[-•*]))").search(text, i + len(start))
     return text[i:m.end()] if m else text[i:]
 
 
@@ -137,7 +140,7 @@ class Builder:
         return out
 
     def node(self, a, order):
-        a = {"data": ["", "", []], "video": [0] * len(VIDEO), **{k: v for k, v in a.items() if v is not None}}
+        a = {"data": ["", "", []], "analogy": ["", ""], "video": [0] * len(VIDEO), **{k: v for k, v in a.items() if v is not None}}
         nid = self.full(a["id"])
         field = lambda text: {"text": text, "by_model": True}
         layers, units = {"topic": field(a["topic"]), "main": field(a["main"])}, set()
@@ -193,6 +196,7 @@ class Builder:
                                "markdown": "\n".join(u["text"] for u in own if u["type"] == "table"),
                                "ocr_fixes": fixes[0] if fixes else []})
         units.update(ids_of(a.get("units")))
+        self.problems += [f"{nid}: связи «{k}» нет, есть {', '.join(LINKS)}" for k, _ in a.get("links", []) if k not in LINKS]
         known = [self.units[i] for i in units if i in self.units]
         lens, misc = a.get("lens"), a.get("misc")
         return {
@@ -202,7 +206,7 @@ class Builder:
             "pages": sorted({u["page"] for u in known}), "units": sorted(i for i in units if i in self.units),
             "layers": layers, "claims": claims,
             "links": [{"type": k, "target": t if k in ("refutes_misconception",) or t.startswith("data.")
-                       else self.full(t)} for k, t in a.get("links", [])],
+                       else self.full(t)} for k, t in a.get("links", []) if k in LINKS],
             "misconception": {"ref": misc[0], "text": misc[1], "by_model": True} if misc else None,
             "data_meaning": {"from_chapter": field(a["data"][0]), "breaks": field(a["data"][1]),
                              "hypotheses": [{**field(h), "hypothesis": True} for h in a["data"][2]]},

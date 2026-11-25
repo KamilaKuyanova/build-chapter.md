@@ -1,7 +1,8 @@
 chapter,stage,nodes,llm_tokens_in,llm_tokens_out,money_usd,person_minutes,mentor_minutes,video_seconds,manual_share
 baraboshkin,course,22,0,0,0,0,,0,
-basniev,course,48,0,0,0,0,,115,
-basniev,video,1,0,0,0.00,0,0,115,
+basniev,course,48,0,0,0,0,,116,
+basniev,video,1,0,0,0.00,0,0,116,
 kuznetsov,course,41,0,0,0,0,,0,
-latyshova,course,45,0,0,0,0,,66,
-latyshova,video,1,0,0,0.00,0,0,66,
+latyshova,course,45,0,0,0,0,,64,
+latyshova,video,1,0,0,0.00,0,0,64,
+vendelshtein,course,38,0,0,0,0,,0,

@@ -175,5 +175,19 @@ for ch, node, fmt in (("latyshova", "latyshova.rock_signs_table", "шортс"),
     r = [x for x in json.loads((ROOT / "data" / ch / "routing.json").read_text(encoding="utf-8-sig"))["routes"] if x["node_id"] == node][0]
     check(f"маршрут {node}: {fmt} и шаблон ролика", fmt in (r["format"], r.get("secondary_format")) and r.get("template"))
 
+# практикум на открытых данных Volve: ключ зон из интерпретации Equinor совпадает с ожидаемым, задания kind=data, рисунок класса A
+import data_practicum  # noqa: E402
+vd = json.loads((ROOT / "data" / "latyshova" / "datasets" / "volve_15_9-19A.json").read_text(encoding="utf-8"))
+got = {z["label"]: data_practicum.classify(z["key"]) for z in vd["zones"]}
+check(f"Volve 15/9-19 A: зоны по ключу Equinor {got}", got == {"А": "clay", "Б": "oil", "В": "tight", "Г": "water"})
+check("Volve: в срезе 391 точка и 4 кривые", len(vd["depth"]) == 391 and set(vd["curves"]) == {"GR", "RT", "RHOB", "NPHI"})
+lt = json.loads((ROOT / "data" / "latyshova" / "tasks.json").read_text(encoding="utf-8"))["tasks"]
+dt = [t for t in lt if t.get("kind") == "data"]
+check(f"задания на данных в курсе Латышовой: {len(dt)}", len(dt) >= 5)
+de = json.loads((ROOT / "data" / "latyshova" / "data_extra.json").read_text(encoding="utf-8"))
+ill = de["latyshova.rock_signs_table"][0]
+check("рисунок практикума: класс A, код из данных, метка «реальные данные»",
+      (ill["frame_class"], ill["origin"], ill["label"]) == ("A", "code_from_data", "реальные данные"))
+
 print("ИТОГО:", "всё хорошо" if not fails else f"провалено {len(fails)}")
 sys.exit(1 if fails else 0)

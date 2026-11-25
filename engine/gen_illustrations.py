@@ -118,7 +118,7 @@ def main():
     out = d / "illustrations"
     out.mkdir(exist_ok=True)
     extra = {}  # ролики, перерисованные рисунки, расчётные сцены и анимации подхватываются сами; --extra — сверх этого
-    auto = [d / f for f in ("media_extra.json", "figures_extra.json", "extra_illustrations.json", "anim_extra.json")]
+    auto = [d / f for f in ("media_extra.json", "figures_extra.json", "extra_illustrations.json", "anim_extra.json", "data_extra.json")]
     for path in [p for p in auto if p.exists()] + [pathlib.Path(p) for p in a.extra or []]:
         for k, v in json.loads(path.read_text(encoding="utf-8")).items():
             have = {x["file"] for x in extra.setdefault(k, [])}

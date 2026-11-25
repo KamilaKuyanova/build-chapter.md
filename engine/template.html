@@ -100,6 +100,7 @@ table{border-collapse:collapse}td,th{border:1px solid var(--line);padding:6px 10
 .test{background:none;border-top:1.5px dashed var(--line);padding:18px 0 0;overflow:visible}
 .quiz{background:var(--card);padding:18px;margin:0 0 16px;border-left:5px solid var(--blue)}.quiz.right{border-left-color:var(--ok)}.quiz.wrong{border-left-color:var(--bad)}
 .quiz>p:first-of-type{font-size:1.18rem;line-height:1.38;letter-spacing:-.01em;margin:0 0 14px}
+.quiz .qhint{margin:-6px 0 10px;color:var(--acc);font-weight:500}
 .quiz label{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;margin:8px 0;border:1.5px solid var(--line);cursor:pointer;line-height:1.4;transition:background .2s,border-color .2s}
 .quiz label:hover{background:var(--soft)}.quiz label:has(input:checked){border-color:var(--blue);background:color-mix(in srgb,var(--blue) 11%,var(--card));box-shadow:inset 4px 0 0 var(--blue)}.quiz label input{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:#0a62ff}
 .quiz label.good,.quiz label.good:has(input:checked){border-color:var(--ok);background:var(--okbg);box-shadow:inset 4px 0 0 var(--ok)}.quiz label.miss,.quiz label.miss:has(input:checked){border-color:var(--bad);background:var(--badbg);box-shadow:inset 4px 0 0 var(--bad)}
@@ -353,6 +354,8 @@ function buildQuiz(q){
     get=function(){return gapInputs.map(function(i){return i.value.trim()})};
   }else{
     q.appendChild(el('p',{},t.prompt));
+    if(t.type==='multiple')q.appendChild(el('p',{class:'qhint'},'Выберите все верные варианты: их несколько.'));
+    if(t.type==='order')q.appendChild(el('p',{class:'qhint'},'Расставьте по порядку: перетащите или нажмите ↑ ↓.'));
     if(t.type==='single'||t.type==='multiple'){
       opts.forEach(function(o){var l=el('label'),inp=el('input',{type:t.type==='single'?'radio':'checkbox',name:uid,value:o.id});
         l.appendChild(inp);l.appendChild(el('span',{},o.text));q.appendChild(l);inp.addEventListener('change',function(){q.querySelectorAll('label').forEach(function(x){x.classList.remove('good','miss')})})});
@@ -394,12 +397,6 @@ function buildQuiz(q){
     var rec=state.answers[t.id];
     if(!rec)state.answers[t.id]={first:ok,tries:1,ok:ok,type:t.type,step:t.step_id};else{rec.tries++;rec.ok=ok}
     save();afterAnswer(t,ok);
-    q.classList.toggle('right',ok);q.classList.toggle('wrong',!ok);
-    if(t.type==='single'||t.type==='multiple'){var rightIds=[].concat(t.answer);q.querySelectorAll('label').forEach(function(l){var i=l.querySelector('input');
-      l.classList.toggle('good',rightIds.indexOf(i.value)>=0);l.classList.toggle('miss',i.checked&&rightIds.indexOf(i.value)<0)})}
-    q.classList.toggle('right',ok);q.classList.toggle('wrong',!ok);
-    if(t.type==='single'||t.type==='multiple'){var rightIds=[].concat(t.answer);q.querySelectorAll('label').forEach(function(l){var i=l.querySelector('input');
-      l.classList.toggle('good',rightIds.indexOf(i.value)>=0);l.classList.toggle('miss',i.checked&&rightIds.indexOf(i.value)<0)})}
     q.classList.toggle('right',ok);q.classList.toggle('wrong',!ok);
     if(t.type==='single'||t.type==='multiple'){var rightIds=[].concat(t.answer);q.querySelectorAll('label').forEach(function(l){var i=l.querySelector('input');
       l.classList.toggle('good',rightIds.indexOf(i.value)>=0);l.classList.toggle('miss',i.checked&&rightIds.indexOf(i.value)<0)})}

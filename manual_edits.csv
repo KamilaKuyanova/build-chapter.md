@@ -1,1 +1,2 @@
 time,chapter,file,what_changed,person_minutes,people,run_no,reason
+2026-11-26T00:29,latyshova,data/latyshova/answers/tasks_answer.json,"borehole_wall.t2: обоснование c3+c4 (глина из c3); gis_tasks.t1: верный вариант поясняет термин ""количественная интерпретация""",10,1,1,"проверка на новичке 1: 7 и 4 попытки, ключ опирался не на ту цитату, термин не знаком новичку"

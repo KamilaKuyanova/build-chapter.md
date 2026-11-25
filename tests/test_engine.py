@@ -115,6 +115,42 @@ class Units(unittest.TestCase):
         self.assertFalse(any("Штриховка" in u["text"] for u in units if u["origin"] == "author"))
 
 
+EN_BOOK = """<!-- page 3 -->
+# 2.1 Kick Detection
+
+An increase in pit volume usually indicates an influx, e.g. gas, when the pumps run at 1,250 psi
+(see Fig. 2.4). The driller should not ignore it.
+
+Figure 2.4. Pit volume versus time.
+
+Example 2.1. Estimate the gain for 85.5 bbl.
+
+# Problems
+
+1. Define a kick.
+2. What does a pit gain mean?
+"""
+
+
+class English(unittest.TestCase):
+    def test_english_chapter(self):
+        from engine.check import Source, Report, check_numbers, check_quote
+        from engine.nodes import locate
+        units = build_units(EN_BOOK, {"id": "en", "lang": "en"})
+        kinds = [u["type"] for u in units]
+        for k, n in (("task", 2), ("figure", 1), ("example", 1), ("paragraph", 1)):
+            self.assertEqual(kinds.count(k), n, k)
+        self.assertFalse(any(u.get("ocr_suspect") for u in units))
+        src, rep, p = Source(units), Report(), units[kinds.index("paragraph")]
+        unit, quote = locate(src.units, p["id"], "An increase in pit volume")
+        self.assertTrue(quote.endswith("(see Fig. 2.4)."))
+        check_quote(src, quote, 3, "x", rep)
+        check_numbers(src, "Давление насосов 1250 psi", [p["id"]], "x", 3, rep)
+        self.assertEqual(rep, [])
+        check_numbers(src, "Давление насосов 1251 psi", [p["id"]], "x", 3, rep)
+        self.assertEqual(len(rep), 1)
+
+
 class Norm(unittest.TestCase):
     def test_numbers(self):
         self.assertEqual(numbers("4—8 см³, 2,50 и 10⁻¹⁵"), {"4", "8", "3", "2.5", "10", "15"})
@@ -195,6 +231,23 @@ class Nodes(unittest.TestCase):
         from engine.nodes import chunks
         got = [u["id"] for c in chunks(UNITS) for u in c]
         self.assertEqual(got, [u["id"] for u in UNITS if u["origin"] != "service"])
+
+    def test_terms_move_to_first_use(self):
+        from engine.nodes import hoist_terms
+        make = lambda text, terms: {"layers": {k: {"text": text if k == "main" else ""} for k in (
+            "topic", "main", "mechanism", "practice", "nuances")}, "terms_introduced": list(terms),
+            "glossary": [{"term": t, "definition": "о"} for t in terms]}
+        nodes = [make("Здесь есть Влага и пляж.", []), make("Песок.", []), make("Влага, соль.", ["влага", "соль"])]
+        hoist_terms(nodes)
+        self.assertEqual([n["terms_introduced"] for n in nodes], [["влага"], [], ["соль"]])
+
+    def test_small_tail_joins_last_chunk(self):
+        from engine.nodes import CHUNK, chunks
+        unit = lambda i, n: {"id": f"p001.{i:02d}", "page": 1, "type": "paragraph", "origin": "author", "text": "Я" * n + "."}
+        units = [unit(i, CHUNK // 2) for i in range(1, 8)] + [unit(9, 100)]
+        parts = chunks(units)
+        self.assertEqual([u["id"] for c in parts for u in c], [u["id"] for u in units])
+        self.assertGreater(len(parts), 2)
 
     def test_routing_matches_schema(self):
         from engine.route import route

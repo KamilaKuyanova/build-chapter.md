@@ -190,6 +190,8 @@ def build_units(text, spec):
             typ = "list"
             if in_tasks and TASK.match(s):  # нумерация пошла заново: задачи кончились
                 in_tasks, group = False, None
+        elif len(words(s)) < 2 and len(s) < 30 and not re.search(r"\w{4,}\.$", s):
+            typ, origin = "service", "service"
         else:
             typ = "paragraph"
         seq[page] = seq.get(page, 0) + 1

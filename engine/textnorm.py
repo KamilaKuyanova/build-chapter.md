@@ -30,11 +30,13 @@ def norm_quote(text):
     return re.sub(r"\s+", " ", text).strip().casefold()
 
 
-def numbers(text):
+def numbers(text, loose=False):
     """Множество чисел в тексте; запятая и точка в дроби равнозначны."""
     text = re.sub(r"(?<=[^\W\d_])[₀-₉]+", " ", text)  # индекс в «F₀» — не число
     text = re.sub(r"\\[,;:! ]", " ", unify(text)).replace("{,}", ",")
     found = set()
+    if loose:  # в источнике «1,250 psi» — это тысяча двести пятьдесят
+        found |= {m.replace(",", "") for m in re.findall(r"(?<![\d.,])\d{1,3}(?:,\d{3})+(?![\d,])", text)}
     for raw in _NUM.findall(text):
         whole, _, frac = raw.replace(",", ".").partition(".")
         whole = whole.lstrip("0") or "0"

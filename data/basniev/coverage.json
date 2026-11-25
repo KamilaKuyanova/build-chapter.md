@@ -216,16 +216,6 @@
    "reason": null
   },
   {
-   "unit_id": "p476.12",
-   "kind": "paragraph",
-   "page_pdf": 476,
-   "excerpt": "или",
-   "node_ids": [
-    "basniev.elastic_capacity"
-   ],
-   "reason": null
-  },
-  {
    "unit_id": "p476.13",
    "kind": "formula",
    "page_pdf": 476,
@@ -233,16 +223,6 @@
    "node_ids": [
     "basniev.elastic_capacity",
     "basniev.piezo_equation"
-   ],
-   "reason": null
-  },
-  {
-   "unit_id": "p476.14",
-   "kind": "paragraph",
-   "page_pdf": 476,
-   "excerpt": "где",
-   "node_ids": [
-    "basniev.elastic_capacity"
    ],
    "reason": null
   },
@@ -1932,16 +1912,6 @@
    "reason": null
   },
   {
-   "unit_id": "p488.05",
-   "kind": "paragraph",
-   "page_pdf": 488,
-   "excerpt": "или",
-   "node_ids": [
-    "basniev.gallery_pressure_law"
-   ],
-   "reason": null
-  },
-  {
    "unit_id": "p488.06",
    "kind": "formula",
    "page_pdf": 488,
@@ -2214,16 +2184,6 @@
    "kind": "formula",
    "page_pdf": 489,
    "excerpt": "$$\\frac{dv}{d\\xi} + \\left( \\frac{1}{\\xi} + 2\\xi \\right) v = 0,$$",
-   "node_ids": [
-    "basniev.radial_integration"
-   ],
-   "reason": null
-  },
-  {
-   "unit_id": "p490.03",
-   "kind": "paragraph",
-   "page_pdf": 490,
-   "excerpt": "или",
    "node_ids": [
     "basniev.radial_integration"
    ],
@@ -2962,16 +2922,6 @@
    "kind": "formula",
    "page_pdf": 496,
    "excerpt": "$$Q = \\frac{k}{\\mu} \\frac{p_{\\mathrm{k}} - p_{\\mathrm{r}}}{l(t)} Bh,$$",
-   "node_ids": [
-    "basniev.psss_front_linear"
-   ],
-   "reason": null
-  },
-  {
-   "unit_id": "p496.05",
-   "kind": "paragraph",
-   "page_pdf": 496,
-   "excerpt": "откуда",
    "node_ids": [
     "basniev.psss_front_linear"
    ],

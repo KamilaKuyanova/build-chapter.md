@@ -47,7 +47,7 @@ def chapter(spec):
             "nodes": len(layer["nodes"]), "claims": sum(len(n["claims"]) for n in layer["nodes"]), "tasks": len(tasks["tasks"]),
             "loops": sum(1 for v in loops.values() if not v.get("need_new_scene")),
             "units": int(cov.group(2)) if cov else 0, "covered": int(cov.group(1)) if cov else 0,
-            "scan": sum(len(n.get("needs_scan", [])) for n in layer["nodes"])}
+            "scan": len({(s.get("page"), s.get("what")) for n in layer["nodes"] for s in n.get("needs_scan", [])})}  # одно место в двух узлах считаем один раз
 
 
 def videos():

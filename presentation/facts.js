@@ -7,7 +7,7 @@ window.FACTS = {
   "loops": 56,
   "units": 656,
   "covered": 656,
-  "scan": 123
+  "scan": 115
  },
  "train": [
   {
@@ -36,7 +36,7 @@ window.FACTS = {
    "loops": 19,
    "units": 357,
    "covered": 357,
-   "scan": 51
+   "scan": 43
   },
   {
    "id": "kuznetsov",

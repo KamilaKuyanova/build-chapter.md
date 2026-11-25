@@ -13,6 +13,8 @@ const shot = async (name, hash, h, from) => {
   await call('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
   await call('Page.navigate', { url: 'about:blank' }); await wait(200);
   await call('Page.navigate', { url: pathToFileURL('out/latyshova/index.html').href + hash }); await wait(1800);
+  await js(`(()=>{const k='course:'+document.title,n=[...document.querySelectorAll('.nd')].map(x=>x.dataset.node),o={done:{},seen:{},cards:{},answers:{}};n.slice(0,5).forEach(i=>o.done[i]=true);n.slice(0,6).forEach(i=>o.seen[i]=1);n.slice(0,4).forEach(i=>o.cards[i]='know');o.last=n[5];document.querySelectorAll('.quiz').forEach(q=>{const t=JSON.parse(q.dataset.ex);if(o.done[t.step_id])o.answers[t.id]={first:true,ok:true,tries:1}});localStorage[k]=JSON.stringify(o);location.reload()})()`); await wait(1800);
+  await js(`(()=>{const s=document.createElement('style');s.textContent='nav.main{display:none!important}header.top,.unit,.bar{position:relative!important;top:0!important}*{animation:none!important}';document.head.append(s)})()`); await wait(300);
   await js(`document.querySelectorAll('img').forEach(i=>i.loading='eager')`); await wait(900);
   const top = from ? await js(from) : 0, full = await js('document.documentElement.scrollHeight');
   const s = await call('Page.captureScreenshot', { format: 'jpeg', quality: 82, captureBeyondViewport: true, clip: { x: 0, y: top || 0, width: 390, height: Math.min(h, full - (top || 0)), scale: 1 } });

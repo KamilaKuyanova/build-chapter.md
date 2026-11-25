@@ -7,6 +7,7 @@ import argparse
 import html
 import json
 import pathlib
+import re
 import shutil
 import sys
 
@@ -98,8 +99,8 @@ def novice(node):
     return node.get("title_novice") or node["title"]
 
 
-def block(title, body):
-    return f"<section class='blk'><h3>{e(title)}</h3>{body}</section>" if body.strip() else ""
+def block(title, body, cls=""):
+    return f"<section class='blk {cls}'><h3>{e(title)}</h3>{body}</section>" if body.strip() else ""
 
 
 def minutes(node):
@@ -185,7 +186,7 @@ def render_quizzes(tasks):
     return "".join(f'<div class="quiz" data-ex=\'{e(json.dumps(t, ensure_ascii=False))}\'></div>' for t in tasks)
 
 
-def render_step(node, i, total, tasks, ills, route, glossary):
+def render_step(node, i, total, tasks, ills, route, glossary, part=1):
     ly = node.get("layers", {})
     mc = node.get("misconception") if isinstance(node.get("misconception"), dict) else None
     ana = node.get("it_analogy") or {}
@@ -202,38 +203,153 @@ def render_step(node, i, total, tasks, ills, route, glossary):
         lens_html = ('<div class="kv">' + "".join(f"<b>{l}</b><span>{e(lens[k])}</span>" for k, l in (
             ("inputs", "Входные данные"), ("manual_steps", "Ручные шаги"), ("judgment_points", "Точки суждения"),
             ("time", "Время"), ("typical_errors", "Типичные ошибки"))) + "</div>")
-    meta = f"Шаг {i} из {total} · ≈{minutes(node)} мин"
+    meta = f"Часть {part} · шаг {i} из {total} · ≈{minutes(node)} мин"
     if route:
         meta += f" · формат: {e(FMT_LABEL.get(route['format'], route['format']))}"
     ess = ly.get("main")
+    nc = len(node.get("claims", []))
+    claims_html = (f'<details><summary>{nc} {plural(nc, "цитата", "цитаты", "цитат")} автора со страницами</summary>' + render_claims(node) + "</details>") if nc else ""
     nav = (f'<nav class="stepnav"><a href="#/step/{e(node["id"])}-prev">← Назад</a> '
            f'<button class="done" data-done="{e(node["id"])}">Отметить пройденным</button> '
            f'<a href="#/step/{e(node["id"])}-next">Дальше →</a></nav>')
     return f"""
 <article class="view step" id="step-{e(node['id'])}" data-id="{e(node['id'])}" hidden>
-  <p class="meta">{meta}</p>
+  <p class="lab meta">{meta}</p>
   <h2>{e(novice(node))}</h2>
   <p class="meta">{e(node['title'])}. {e(nodetext._f(ly.get('topic')))}</p>
   {block('Почему этот шаг здесь', fld(node, node.get('why_here')))}
-  {block('Суть', fld(node, ess, 'essence'))}
+  {block('Суть', fld(node, ess, 'essence'), 'ess')}
   {block('Как это работает', how)}
   {block('Глубже', deeper)}
   {block('Разбор примеров из главы', render_examples(node))}
   {block('Формулы', render_formulas(node))}
   {block('Таблицы книги', render_tables(node))}
-  {block('Частая ошибка', e(mc['text']) if mc else '')}
+  {block('Частая ошибка', '<p>' + e(mc['text']) + '</p>' if mc else '', 'err')}
   {block('Что это значит для данных', render_data_meaning(node))}
-  {block('Решение на данных', render_decision(node))}
+  {block('Решение на данных', render_decision(node), 'dec')}
   {block('Аналогия', ana_html)}
   {block('Как это делается сейчас', now)}
   {block('Линза неэффективности', lens_html)}
   {block('Новые понятия', render_terms(node, glossary))}
-  {block('Источник', render_claims(node))}
+  {block('Источник', claims_html, 'srcs')}
   {block('Задачи из книги', render_book_tasks(node))}
-  {block('Иллюстрации', render_illustrations(node, ills))}
-  {block('Проверь себя', render_quizzes(tasks))}
+  {block('Иллюстрации', render_illustrations(node, ills), 'ill')}
+  {block('Проверь себя', render_quizzes(tasks), 'test')}
   {nav}
 </article>"""
+
+
+def sentence_case(t):
+    return t[:1] + t[1:].lower() if t.isupper() else t
+
+
+def first_unit(n):
+    return next((c["unit"] for c in n.get("claims", []) if c.get("unit")), min(n.get("units") or [""]))
+
+
+def short(t, n=62):
+    """Заголовок книги бывает на три строки: режем по слову."""
+    return t if len(t) <= n else t[:n].rsplit(" ", 1)[0].rstrip(" ,.:;") + "…"
+
+
+def chapter_parts(nodes, rows):
+    """Части пути — разделы главы по её заголовкам; если заголовков нет, группы по восемь шагов."""
+    heads, subs = [], []
+    for r in rows:
+        if r.get("kind") != "heading":
+            continue
+        t = re.sub(r"\s+", " ", r["excerpt"].lstrip("# ").strip())
+        m = re.match(r"^(§\s*\d+(?:\.\d+)*|\d+(?:\.\d+)+)\.?\s*(.*)$", t)
+        if m and m.group(2):
+            heads.append((r["unit_id"], m.group(1).replace("§ ", "§"), short(sentence_case(m.group(2).rstrip(".")))))
+        elif len(t.split()) > 1 and not re.match(r"(?i)глава|chapter|problems|задачи", t):
+            subs.append((r["unit_id"], short(sentence_case(t.rstrip(".")))))
+    parts, cur = [], -1
+    for n in nodes:
+        first = first_unit(n)
+        k = max((i for i, h in enumerate(heads) if h[0] <= first), default=0) if heads else -1
+        if not parts or k > cur:   # назад по главе часть не возвращаем: порядок шагов задаёт граф
+            cur = max(k, cur)
+            parts.append({"mark": heads[k][1] if heads else "", "title": heads[k][2] if heads else "", "nodes": []})
+        parts[-1]["nodes"].append(n)
+    if len(parts) < 2:
+        parts = [{"mark": "", "title": "", "nodes": nodes[i:i + 8]} for i in range(0, len(nodes), 8)]
+    i = 1
+    while i < len(parts):   # часть из одного шага присоединяем к предыдущей
+        if len(parts[i]["nodes"]) < 2:
+            parts[i - 1]["nodes"] += parts.pop(i)["nodes"]
+        else:
+            i += 1
+    out = []
+    for p in parts:   # длинный раздел режем по подзаголовкам, а потом поровну
+        pieces, done = [{**p, "nodes": []}], set()
+        for n in p["nodes"]:
+            s = max((h for h in subs if h[0] <= first_unit(n) and heads and h[0] > first_unit(p["nodes"][0])), default=None)
+            if len(p["nodes"]) > 14 and s and s not in done and len(pieces[-1]["nodes"]) > 2:
+                done.add(s)
+                pieces.append({"mark": p["mark"], "title": s[1], "nodes": []})
+            pieces[-1]["nodes"].append(n)
+        for q in pieces:
+            k = max(1, -(-len(q["nodes"]) // 14))
+            size = -(-len(q["nodes"]) // k)
+            out += [{**q, "title": q["title"] + (f" ({i + 1} из {k})" if k > 1 else ""), "nodes": q["nodes"][i * size:(i + 1) * size]} for i in range(k)]
+    parts = out
+    for p in parts:
+        p["title"] = p["title"] or f'{novice(p["nodes"][0])} — {novice(p["nodes"][-1])}'
+    return parts
+
+
+ICONS = {  # значок на верхней пластине шага
+    "видео": '<path d="M-7 -8 9 0 -7 8z" fill="currentColor"/>',
+    "практикум на данных": '<path d="M-9 8V1M-3 8V-3M3 8V-7M9 8V-1" stroke="currentColor" stroke-width="3.4" fill="none"/>',
+    "карточки": '<path d="M-9 -4h12v10H-9zM-4 -4v-4H9V3H4" stroke="currentColor" stroke-width="2.4" fill="none"/>',
+    "интерактив": '<path d="M-9 -4H9M-9 4H9" stroke="currentColor" stroke-width="2.4"/><circle cx="-2" cy="-4" r="3.6" fill="currentColor"/><circle cx="4" cy="4" r="3.6" fill="currentColor"/>',
+    "текст": '<path d="M-9 -6H9M-9 0H9M-9 6H3" stroke="currentColor" stroke-width="2.6"/>'}
+TRAIL = (.17, .30, .70, .83, .70, .30)   # где стоит шаг по ширине тропы
+
+
+def plural(n, one, few, many):
+    return many if 10 < n % 100 < 20 else one if n % 10 == 1 else few if 1 < n % 10 < 5 else many
+
+
+def plate(y, k):
+    return (f'<g class="pl p{k}"><path class="sd" d="M4 {y + 23}v8L48 {y + 54}v-8z"/><path class="sr" d="M92 {y + 23}v8L48 {y + 54}v-8z"/>'
+            f'<path class="tp" d="M48 {y} 92 {y + 23} 48 {y + 46} 4 {y + 23}z"/></g>')
+
+
+def render_path(nodes, parts, tasks, routing, title):
+    out, at = [], 0
+    for k, p in enumerate(parts):
+        items = []
+        for n in p["nodes"]:
+            x = TRAIL[at % len(TRAIL)]
+            at += 1
+            fmt = (routing.get(n["id"]) or {}).get("format", "текст")
+            icon = ICONS.get("видео" if fmt in ("шортс", "длинное видео") else fmt, ICONS["текст"])
+            nt = len(tasks.get(n["id"], []))
+            key = '<em class="key">ключевой шаг</em>' if n.get("threshold") else ""
+            info = f'≈{minutes(n)} мин' + (f' · {nt} {plural(nt, "задание", "задания", "заданий")}' if nt else "")
+            items.append(
+                f'<li class="nd {"lft" if x < .5 else "rgt"}" style="--x:{x}" data-node="{e(n["id"])}">'
+                f'<a href="#/step/{e(n["id"])}" aria-label="Шаг {at}. {e(novice(n))}"><span class="disc"><svg viewBox="0 0 96 88" aria-hidden="true">'
+                f'{plate(28, 1)}{plate(14, 2)}{plate(0, 3)}<g class="ic" transform="translate(48 23)">{icon}</g>'
+                f'<path class="ck" d="M36 23l9 8 16-17"/></svg><i class="br a"></i><i class="br b"></i><i class="br c"></i><i class="br d"></i></span>'
+                f'<span class="cap"><b>{at}. {e(novice(n))}</b><small>{info}</small>{key}<small data-ok="{e(n["id"])}"></small></span></a></li>')
+        mark = f' · {e(p["mark"])}' if p["mark"] else ""
+        out.append(f'<section class="stratum t{k % 5}" data-part="{k}"><header class="unit"><div><span class="lab">Часть {k + 1}{mark}</span>'
+                   f'<h3>{e(p["title"])}</h3></div><span class="cnt" data-cnt="{k}"></span><i class="ub"><i data-bar="{k}"></i></i></header>'
+                   f'<ol class="trail">{"".join(items)}</ol></section>')
+    return f"""
+<section class="view" id="path">
+  <div class="hero"><canvas id="iso" aria-hidden="true"></canvas><div class="in">
+    <p class="lab">Путь по главе</p><h1>{e(title)}</h1>
+    <div class="stat"><div><b id="st-steps">0/{len(nodes)}</b><span id="progtxt">шагов пройдено</span></div><div><b id="st-tasks">—</b><span>верно с первого раза</span></div><div><b id="st-cards">0/{len(nodes)}</b><span>карточек «знаю»</span></div></div>
+    <progress id="prog" max="100" value="0" aria-label="Пройдено курса"></progress>
+    <a class="cta" href="#/resume"><b><span id="ctatxt">Начать</span><small id="ctastep">{e(novice(nodes[0]))}</small></b><i>→</i></a>
+    <p class="legend">Пластины шага снизу вверх: открыт, задания решены, пройден.</p></div></div>
+  <div id="strata"><svg id="thread" aria-hidden="true"></svg>{"".join(out)}
+    <div class="fin"><svg viewBox="0 0 96 88" aria-hidden="true">{plate(28, 1)}{plate(14, 2)}{plate(0, 3)}</svg><h3 id="finh">Забой</h3><p id="fintxt">Здесь закончится путь.</p></div></div>
+</section>"""
 
 
 def render_cards(nodes):
@@ -246,35 +362,35 @@ def render_cards(nodes):
     bar = ('<div class="cardbar"><span id="cardstat"></span> '
            '<button type="button" id="cardfilter" aria-pressed="false">Показать только «повторить»</button> '
            '<button type="button" id="cardreset">Сбросить отметки</button></div>')
-    return f'<section class="view" id="cards" hidden><h2>Карточки</h2>{bar}{cards}</section>'
+    trainer = ('<div id="trainer" hidden><div class="deck"><button type="button" class="flip" id="flip" aria-live="polite">'
+               '<span class="face f1"><span class="lab">Вопрос</span><b id="fq"></b><small>Нажмите, чтобы увидеть ответ</small></span>'
+               '<span class="face f2"><span class="lab">Ответ</span><span id="fa"></span></span></button></div>'
+               '<div class="tbtn"><button type="button" id="trep">Повторить</button><span id="tpos"></span><button type="button" id="tknow">Знаю</button></div></div>')
+    return f'<section class="view" id="cards" hidden><p class="lab">Тренажёр</p><h2>Карточки</h2>{trainer}<h3 class="sub">Все карточки</h3>{bar}<div class="cgrid">{cards}</div></section>'
 
 
-def render_notes(nodes):
-    rows = []
-    for n in nodes:
-        dm = (n.get("data_meaning") or {}).get("from_chapter")
-        rows.append(f'<li><b>{e(novice(n))}.</b> {e(nodetext._f(n["layers"].get("main")))}'
-                    f'{" <i>Для данных:</i> " + e(nodetext._f(dm)) if dm else ""}</li>')
-    return ('<section class="view" id="notes" hidden><h2>Конспект</h2>'
-            '<button onclick="window.print()">Печать / сохранить в PDF</button><ul>' + "".join(rows) + "</ul></section>")
+def render_notes(nodes, parts):
+    out = []
+    for k, p in enumerate(parts):
+        rows = []
+        for n in p["nodes"]:
+            dm = (n.get("data_meaning") or {}).get("from_chapter")
+            rows.append(f'<li><b>{e(novice(n))}.</b> {e(nodetext._f(n["layers"].get("main")))}'
+                        f'{" <i>Для данных:</i> " + e(nodetext._f(dm)) if dm else ""}</li>')
+        out.append(f'<h3 class="sub">Часть {k + 1}. {e(p["title"])}</h3><ul class="notes">{"".join(rows)}</ul>')
+    return ('<section class="view" id="notes" hidden><p class="lab">Кратко</p><h2>Конспект</h2>'
+            '<button onclick="window.print()">Печать / сохранить в PDF</button>' + "".join(out) + "</section>")
 
 
 def render_map(nodes):
     titles = {n["id"]: novice(n) for n in nodes}
     rows = []
-    for n in nodes:
-        pre = [titles.get(l["target"], l["target"]) for l in n.get("links", []) if l["type"] == "prerequisite"]
-        rows.append(f'<li><b>{e(novice(n))}</b> ← опирается на: {e(", ".join(pre)) if pre else "—"}</li>')
-    return '<section class="view" id="map" hidden><h2>Карта связей</h2><ul>' + "".join(rows) + "</ul></section>"
-
-
-def render_path(nodes):
-    items = "".join(
-        f'<li><a href="#/step/{e(n["id"])}">{e(novice(n))}</a> <span class="meta">≈{minutes(n)} мин</span> '
-        f'<span data-ok="{e(n["id"])}"></span></li>' for n in nodes)
-    return ('<section class="view" id="path"><h2>Путь по главе</h2><p><progress id="prog" max="100" value="0"></progress> '
-            '<span id="progtxt"></span> <a href="#/resume">Продолжить с места остановки</a></p>'
-            f'<ol>{items}</ol></section>')
+    for i, n in enumerate(nodes, 1):
+        ids = [l["target"] for l in n.get("links", []) if l["type"] == "prerequisite" and l["target"] in titles]
+        rows.append(f'<li data-map="{e(n["id"])}" data-pre="{e(" ".join(ids))}"><a href="#/step/{e(n["id"])}"><b>{i}. {e(novice(n))}</b></a>'
+                    f'<span>опирается на: {e(", ".join(titles[t] for t in ids)) if ids else "—"}</span></li>')
+    return ('<section class="view" id="map" hidden><p class="lab">Что на что опирается</p><h2>Карта связей</h2>'
+            '<div class="mapbox"><svg id="arcs" aria-hidden="true"></svg><ul class="map">' + "".join(rows) + "</ul></div></section>")
 
 
 def main():
@@ -312,12 +428,15 @@ def main():
     if lost:
         warn(f"нет файлов на этом компьютере, в курс не вошли: {len(lost)} (например {lost[0]['file']}). "
              "Ролики собирает engine/video/make_video.py, анимации — engine/video/make_animations.py")
+    rows = validate_layer.load_json(d / "coverage.json") if (d / "coverage.json").exists() else {}
+    parts = chapter_parts(nodes, rows.get("rows", []) if isinstance(rows, dict) else rows)
+    part_of = {n["id"]: k + 1 for k, p in enumerate(parts) for n in p["nodes"]}
+    title = a.title or f"Демо-курс: {layer['chapter']}"
     steps = "".join(render_step(n, k + 1, len(nodes), by_step_t.get(n["id"], []), by_step_i.get(n["id"], []),
-                               routing.get(n["id"]), glossary) for k, n in enumerate(nodes))
-    body = render_path(nodes) + steps + render_cards(nodes) + render_notes(nodes) + render_map(nodes)
+                               routing.get(n["id"]), glossary, part_of[n["id"]]) for k, n in enumerate(nodes))
+    body = render_path(nodes, parts, by_step_t, routing, title) + steps + render_cards(nodes) + render_notes(nodes, parts) + render_map(nodes)
     misc = {m["id"]: m["text"] for m in domain.load("misconceptions.json")}
     tpl = (ROOT / "engine" / "template.html").read_text(encoding="utf-8")
-    title = a.title or f"Демо-курс: {layer['chapter']}"
     page = (tpl.replace("{{TITLE}}", e(title)).replace("{{BODY}}", body)
             .replace("{{ORDER}}", json.dumps([n["id"] for n in nodes]))
             .replace("{{MISC}}", json.dumps(misc, ensure_ascii=False).replace("</", "<\\/")))

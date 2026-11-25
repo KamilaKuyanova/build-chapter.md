@@ -333,6 +333,28 @@ class ReviewHints(unittest.TestCase):
         self.assertTrue(any(h.startswith("ANALOGY") for h in hints(Source(UNITS), item, {})))
 
 
+class Path_(unittest.TestCase):
+    def setUp(self):
+        sys.path.insert(0, str(ROOT / "engine"))
+        import build_course
+        self.b = build_course
+
+    def nodes(self, n):
+        return [{"id": f"n{i:02}", "title": f"Шаг {i}", "title_novice": f"Шаг {i}", "claims": [{"unit": f"p001.{i:02}"}], "units": []} for i in range(n)]
+
+    def test_parts_by_headings(self):
+        rows = [{"unit_id": f"p001.{i:02}", "kind": "heading", "excerpt": t} for i, t in ((0, "# § 1. ВВЕДЕНИЕ В ТЕМУ"), (4, "## § 2. Вторая часть"), (6, "# Задачи"))]
+        parts = self.b.chapter_parts(self.nodes(9), rows)
+        self.assertEqual([(p["mark"], p["title"], len(p["nodes"])) for p in parts], [("§1", "Введение в тему", 4), ("§2", "Вторая часть", 5)])
+
+    def test_parts_without_headings_and_long_part(self):
+        parts = self.b.chapter_parts(self.nodes(20), [])
+        self.assertEqual([len(p["nodes"]) for p in parts], [8, 8, 4])
+        long = self.b.chapter_parts(self.nodes(32), [{"unit_id": "p001.00", "kind": "heading", "excerpt": "# 1.1 Один"}, {"unit_id": "p001.30", "kind": "heading", "excerpt": "# 1.2 Два"}])
+        self.assertEqual(sum(len(p["nodes"]) for p in long), 32)
+        self.assertTrue(all(len(p["nodes"]) <= 14 for p in long))
+
+
 class Formulas(unittest.TestCase):
     def test_builder_takes_formula_and_table(self):
         from engine.nodes import Builder

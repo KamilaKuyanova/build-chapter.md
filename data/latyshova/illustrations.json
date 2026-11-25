@@ -654,6 +654,24 @@
    "prompt": null
   },
   {
+   "id": "latyshova.chart69_use.fig69",
+   "file": "illustrations/fig69.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Палетка ρп = f(kп): области безводной нефти, нефти с водой и воды; точки — примеры 46 и 47 главы.",
+   "alt": "График: по горизонтали пористость, по вертикали сопротивление в логарифмическом масштабе; три области между кривыми 1, 3 и 2; точки примеров 46 и 47",
+   "source": "перерисовано по рис. 69, стр. 98 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.chart69_use#c1",
+    "latyshova.chart69_use#c2",
+    "latyshova.chart69_use#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.chart69_use",
+   "node_id": "latyshova.chart69_use"
+  },
+  {
    "id": "latyshova.critical_saturation.i1",
    "step_id": "latyshova.critical_saturation",
    "node_id": "latyshova.critical_saturation",
@@ -726,6 +744,24 @@
    "prompt": null
   },
   {
+   "id": "latyshova.three_flow_intervals.fig70",
+   "file": "illustrations/fig70.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Три интервала водонасыщения: течёт только нефть, нефть с водой, только вода; критические значения из примера 49.",
+   "alt": "Два графика с общей осью водонасыщения: сверху параметр насыщения в логарифмическом масштабе с тремя областями, снизу проницаемости для нефти и воды, пересекающиеся в критической точке",
+   "source": "перерисовано по рис. 70, стр. 99 (Латышова, 1991); критические точки — по примеру 49",
+   "claim_ids": [
+    "latyshova.three_flow_intervals#c1",
+    "latyshova.three_flow_intervals#c2",
+    "latyshova.three_flow_intervals#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.three_flow_intervals",
+   "node_id": "latyshova.three_flow_intervals"
+  },
+  {
    "id": "latyshova.saturation_bounds.i1",
    "step_id": "latyshova.saturation_bounds",
    "node_id": "latyshova.saturation_bounds",
@@ -760,6 +796,24 @@
     "latyshova.saturation_bounds#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.saturation_bounds.fig70",
+   "file": "illustrations/fig70.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Три интервала водонасыщения: течёт только нефть, нефть с водой, только вода; критические значения из примера 49.",
+   "alt": "Два графика с общей осью водонасыщения: сверху параметр насыщения в логарифмическом масштабе с тремя областями, снизу проницаемости для нефти и воды, пересекающиеся в критической точке",
+   "source": "перерисовано по рис. 70, стр. 99 (Латышова, 1991); критические точки — по примеру 49",
+   "claim_ids": [
+    "latyshova.saturation_bounds#c1",
+    "latyshova.saturation_bounds#c2",
+    "latyshova.saturation_bounds#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.saturation_bounds",
+   "node_id": "latyshova.saturation_bounds"
   },
   {
    "id": "latyshova.clay_saturation_family.i1",
@@ -1063,6 +1117,24 @@
     "latyshova.critical_porosity_carbonate#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.fig77",
+   "file": "illustrations/fig77.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Чем ниже пористость, тем больше связанной воды; у разных классов коллекторов кривые свои. Линия 70 % — условие примера 55.",
+   "alt": "Пять убывающих кривых: по горизонтали пористость, по вертикали остаточная водонасыщенность; горизонтальная линия на 70 %",
+   "source": "перерисовано по рис. 77, стр. 107 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate"
   }
  ]
 }

@@ -102,13 +102,16 @@ def decision_diagram(node):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", required=True)
-    ap.add_argument("--extra")
+    ap.add_argument("--extra", action="append")
     a = ap.parse_args()
     d = pathlib.Path(a.dir)
     layer = json.loads((d / "layer.json").read_text(encoding="utf-8-sig"))
     out = d / "illustrations"
     out.mkdir(exist_ok=True)
-    extra = json.loads(pathlib.Path(a.extra).read_text(encoding="utf-8")) if a.extra else {}
+    extra = {}
+    for ex_path in a.extra or []:   # несколько списков: ролики (media_extra), перерисованные рисунки (figures_extra)
+        for k, v in json.loads(pathlib.Path(ex_path).read_text(encoding="utf-8")).items():
+            extra.setdefault(k, []).extend(v)
     ills = []
     for n in sorted(layer["nodes"], key=lambda x: x["order"]):
         nid, cl = n["id"], [c["id"] for c in n["claims"]][:3]

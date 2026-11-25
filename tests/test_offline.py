@@ -112,5 +112,35 @@ for vid in ("latyshova_short", "basniev_long"):
         e3 = [x for x in passport_check.check(pp, pp["format"]) if "asr_wer" not in x]
         check(f"паспорт {vid}: нарушений нет (кроме ещё не подключённого ASR)", not e3)
 
+# 7. перерисованная палетка рис. 69: точки примеров 46 и 47 попадают в области, совпадающие с ответами книги (стр. 98)
+sys.path.insert(0, str(ROOT / "engine" / "figures"))
+import redraw  # noqa: E402
+F = validate_layer.load_json(ROOT / "data" / "latyshova" / "figures" / "fig69.json")
+P0, cal = F["panels"][0], F["calibration"]
+X = redraw.Axis(P0["x"], 0, 1)
+cv = {c["id"]: [redraw.from_scan(p, cal) for p in c["points"]] for c in P0["curves"]}
+
+
+def y_on(curve, x):
+    import math
+    for (xa, ya), (xb, yb) in zip(curve, curve[1:]):
+        if xa <= x <= xb:
+            t = (X.frac(x) - X.frac(xa)) / (X.frac(xb) - X.frac(xa))
+            return 10 ** (math.log10(ya) + t * (math.log10(yb) - math.log10(ya)))
+    return None
+
+
+def region(kp, rho):
+    if kp < P0["vlines"][0]["x"]:
+        return "А"
+    if rho >= y_on(cv["c3u"], kp):
+        return "I"
+    return "II" if rho >= y_on(cv["c3l"], kp) else "III"
+
+
+answers = {(25, 20): "I", (15, 10): "А", (20, 10): "I", (25, 10): "II"}   # пример 46; пример 47 а, б, в
+got = {k: region(*k) for k in answers}
+check(f"рис. 69: примеры 46–47 по оцифровке совпадают с ответами книги {got}", got == answers)
+
 print("ИТОГО:", "всё хорошо" if not fails else f"провалено {len(fails)}")
 sys.exit(1 if fails else 0)

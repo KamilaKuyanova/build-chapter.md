@@ -3,8 +3,8 @@
  "chapter": "basniev",
  "node_id": "basniev.slow_redistribution",
  "format": "long",
- "voice": "Microsoft Pavel",
- "fallback_voice": "Microsoft Irina",
+ "voice": "elevenlabs:onwK4e9ZLuTAKqWW03F9",
+ "fallback_voice": "Microsoft Pavel",
  "rate": 1,
  "script": [
   {
@@ -291,5 +291,7 @@
    "однофазная упругая жидкость; давление выше давления насыщения (стр. 474)",
    "κ = 1 м²/с из типичного диапазона 0,1–5 м²/с (стр. 481)"
   ]
- }
+ },
+ "voice_name": "ElevenLabs Daniel (Steady Broadcaster), eleven_multilingual_v2",
+ "stress_marks": false
 }

@@ -3,8 +3,8 @@
  "chapter": "latyshova",
  "node_id": "latyshova.rock_signs_table",
  "format": "short",
- "voice": "Microsoft Pavel",
- "fallback_voice": "Microsoft Irina",
+ "voice": "elevenlabs:onwK4e9ZLuTAKqWW03F9",
+ "fallback_voice": "Microsoft Pavel",
  "rate": 1,
  "script": [
   {
@@ -377,5 +377,7 @@
    "значения кривых условные, не измерения реальной скважины",
    "в плотной породе сопротивление высокое при низкой пористости (стр. 102)"
   ]
- }
+ },
+ "voice_name": "ElevenLabs Daniel (Steady Broadcaster), eleven_multilingual_v2",
+ "stress_marks": false
 }

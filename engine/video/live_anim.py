@@ -25,6 +25,7 @@ import domain  # noqa: E402
 import tts  # noqa: E402
 
 HOLD = 1.6
+SIZE = (960, 1080)  # в курсе на телефоне картинке достаётся 356 px: подпись 44 читается как 16 px
 
 
 def merged(doc, spec):
@@ -88,8 +89,8 @@ def build(d, only=None, preview=False):
             t += sec
         total = t + HOLD
         params.setdefault("source", "стр. " + ", ".join(str(p) for p in node.get("pages", [])[:3]))
-        job = {"scene": scene, "W": 1920, "H": 1080, "fps": 20, "total": total, "beats": beats, "params": params, "style": style,
-               "ffmpeg": tts.ffmpeg(), "scale": 1280, "crf": 25}
+        job = {"scene": scene, "W": SIZE[0], "H": SIZE[1], "fps": 20, "total": total, "beats": beats, "params": params, "style": style,
+               "ffmpeg": tts.ffmpeg(), "crf": 25}
         mark = media / f"anim_{nid}.hash"
         code = "".join((HERE / "web" / f).read_text(encoding="utf-8") for f in ("lib.js", f"scene_{scene}.js"))
         h = hashlib.sha1((json.dumps(job, ensure_ascii=False, sort_keys=True) + code).encode()).hexdigest()[:12]

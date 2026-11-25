@@ -34,8 +34,8 @@ const Scene = {
   },
   draw(x, t, S) {
     const P = S.P, { W, H } = S, st = S.track(t, 'st', 0), M = this.model(S, st);
-    const zoom = S.track(t, 'zoom', 1), cx = S.track(t, 'cam_x', 0.5), tr = S.track(t, 'true', 0);
-    const area = S.vert ? { y0: 620, y1: H - 400 } : { y0: 230, y1: H - 70 };
+    const zoom = S.track(t, 'zoom', 1) * (S.sq ? S.P.sq_zoom || 1.3 : 1), cx = S.track(t, 'cam_x', 0.5), tr = S.track(t, 'true', 0);
+    const area = S.vert ? { y0: 620, y1: H - 400 } : S.sq ? { y0: 330, y1: H - 120 } : { y0: 230, y1: H - 70 };
     const kx = W / P.width_m * zoom, ky0 = (area.y1 - area.y0) / (P.z[1] - P.z[0]) * Math.sqrt(zoom), ky = Math.exp(lerp(Math.log(ky0), Math.log(kx), tr));
     const zc = lerp(S.track(t, 'cam_z', (P.z[0] + P.z[1]) / 2), M.bounds[M.bounds.length - 1][NX >> 1], tr), yc = (area.y0 + area.y1) / 2;
     const X = u => W / 2 + (u - cx) * P.width_m * kx, Y = z => yc - (z - zc) * ky;
@@ -105,11 +105,11 @@ const Scene = {
         let z = c.z;
         const n = M.ids.indexOf(c.layer), q = Math.round(c.x * NX);
         if (c.layer) { if (n < 0) return; z = n ? (M.bounds[n][q] + M.bounds[n - 1][q]) / 2 : M.bounds[0][q] - 20; }
-        const px = clamp(X(c.x), 60, S.W - 60), tx = clamp(px + (c.dx || 0), S.safe.side + 20, S.W - S.safe.side - 40);
-        callout(x, px, Y(z), tx, Y(z) + (c.dy || -120), c.text, k, { align: tx > S.W * 0.6 ? 'right' : 'left' });
+        const px = clamp(X(c.x), 60, S.W - 60), wl = measure(x, c.text, 46, 600) + 36, right = px + (c.dx || 0) * (S.sq ? 0.6 : 1) > S.W * 0.6, tx = clamp(px + (c.dx || 0) * (S.sq ? 0.6 : 1), S.safe.side + 10 + (right ? wl : 0), S.W - S.safe.side - 10 - (right ? 0 : wl));
+        callout(x, px, Y(z), tx, Math.max(S.sq ? 340 : 0, Y(z) + (c.dy || -120)), c.text, k, { align: right ? 'right' : 'left' });
       });
       const l = (b.beat || {}).lens;
-      if (l) { const k = Math.min((t - b.t_start - (l.delay || 0.5)) / 0.5, (end - t) / 0.25), n = M.ids.indexOf(l.layer), q = Math.round(l.at * NX); if (k > 0 && n >= 0) lens(x, l.x, l.y, l.r, X(l.at), Y((M.bounds[n][q] + M.bounds[Math.max(0, n - 1)][q]) / 2), k, (c, r) => l.kind === 'crystals' ? Pores.crystals(c, r, S.color(l.color || 'lithology.limestone'), 21) : Pores.grains(c, r, S.color(l.color || 'lithology.sand'), S.color(l.fluid || 'fluids.water'), l.film ? S.color('fluids.water') : l.cement ? mix(S.color(l.color || 'lithology.sand'), '#f3efe6', 0.55) : null, 33, 0, { grow: l.cement ? lerp(l.cement[0], l.cement[1], smooth((t - b.t_start - 1) / Math.max(1, b.t_end - b.t_start - 1))) : 0, vug: l.vug ? lerp(l.vug[0], l.vug[1], smooth((t - b.t_start - 1) / Math.max(1, b.t_end - b.t_start - 1))) : 0 }), { cap: l.cap }); }
+      if (l) { const k = Math.min((t - b.t_start - (l.delay || 0.5)) / 0.5, (end - t) / 0.25), n = M.ids.indexOf(l.layer), q = Math.round(l.at * NX); if (S.sq) { l.r = Math.min(l.r, 175); l.x = Math.min(l.x, S.W - l.r - 26); l.y = 800 - l.r * 0.4; } if (k > 0 && n >= 0) lens(x, l.x, l.y, l.r, X(l.at), Y((M.bounds[n][q] + M.bounds[Math.max(0, n - 1)][q]) / 2), k, (c, r) => l.kind === 'crystals' ? Pores.crystals(c, r, S.color(l.color || 'lithology.limestone'), 21) : Pores.grains(c, r, S.color(l.color || 'lithology.sand'), S.color(l.fluid || 'fluids.water'), l.film ? S.color('fluids.water') : l.cement ? mix(S.color(l.color || 'lithology.sand'), '#f3efe6', 0.55) : null, 33, 0, { grow: l.cement ? lerp(l.cement[0], l.cement[1], smooth((t - b.t_start - 1) / Math.max(1, b.t_end - b.t_start - 1))) : 0, vug: l.vug ? lerp(l.vug[0], l.vug[1], smooth((t - b.t_start - 1) / Math.max(1, b.t_end - b.t_start - 1))) : 0 }), { cap: l.cap }); }
     });
     const n = ve < 1.15 ? 1 : ve < 10 ? Math.round(ve * 2) / 2 : Math.round(ve / 5) * 5;
     Stage.frameText(x, t, n === 1 ? 'истинный масштаб' : `высота увеличена × ${String(n).replace('.', ',')}`);

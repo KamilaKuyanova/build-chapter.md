@@ -15,6 +15,7 @@ function compile(expr) { // в формуле разрешены только ч
   return new Function('x', 'p', ...Object.keys(MATH), 'return ' + expr).bind(null);
 }
 const call = (f, x, p) => f(x, p, ...Object.values(MATH));
+const splitTwo = s => { const w = s.split(' '), n = Math.ceil(w.length / 2); return [w.slice(0, n).join(' '), w.slice(n).join(' ')]; };
 const ptext = (P, v) => P.p.kind === 'time' ? (v < 600 ? `${Math.round(v)} с` : v < 3600 ? `${Math.round(v / 60)} мин` : v < 172800 ? `${String(Math.round(v / 360) / 10).replace('.', ',')} ч` : `${Math.round(v / 86400)} сут`) : `${String(+v.toPrecision(3)).replace('.', ',')} ${P.p.unit || ''}`;
 const Scene = {
   setup(S) {
@@ -34,11 +35,11 @@ const Scene = {
     x.fillStyle = g; x.fillRect(0, 0, W, H);
     const start = k => { const b = S.beats.find(q => (q.beat || {})[k] !== undefined); return b ? [].concat(b.beat[k])[0] : null; };
     const l0 = start('lp'), p = l0 === null ? S.track(t, 'p', start('p') === null ? 1 : start('p')) : Math.pow(10, S.track(t, 'lp', l0));
-    const hasStrip = this.strip && S.track(t, 'strip', 1) > 0.02, box = { X: 90, Y: hasStrip ? 500 : 250, w: W - 180, h: hasStrip ? H - 560 : H - 310 };
-    const fx = P.xlog ? Math.log10 : v => v, x0 = fx(P.x[0]), x1 = fx(P.x[1]), GX = box.X + 60, GW = box.w - 110, GY = box.Y + 84, GH = box.h - 215;
+    const hasStrip = this.strip && S.track(t, 'strip', 1) > 0.02, box = S.sq ? { X: 20, Y: hasStrip ? 510 : 320, w: W - 40, h: hasStrip ? H - 600 : H - 410 } : { X: 90, Y: hasStrip ? 500 : 250, w: W - 180, h: hasStrip ? H - 560 : H - 310 };
+    const fx = P.xlog ? Math.log10 : v => v, x0 = fx(P.x[0]), x1 = fx(P.x[1]), xn = S.sq && measure(x, P.xname, 44, 500) > box.w - 130 ? splitTwo(P.xname) : [P.xname], GX = box.X + (S.sq ? 84 : 60), GW = box.w - (S.sq ? 130 : 110), GY = box.Y + 84, GH = box.h - 215 - (xn.length - 1) * 50;
     const px = v => GX + (fx(v) - x0) / (x1 - x0) * GW, py = v => GY + (1 - (v - P.y[0]) / (P.y[1] - P.y[0])) * GH, inv = q => { const l = lerp(x0, x1, q); return P.xlog ? Math.pow(10, l) : l; };
     if (hasStrip) { // полоса пласта над графиком: точка пласта стоит ровно над своей точкой кривой
-      const a = S.track(t, 'strip', 1), Y = 262, h = 170, col = S.color('curves.PRESSURE'), N = 120;
+      const a = S.track(t, 'strip', 1), Y = S.sq ? 320 : 262, h = S.sq ? 160 : 170, col = S.color('curves.PRESSURE'), N = 120;
       x.save(); x.globalAlpha = a;
       x.save(); rr(x, GX, Y, GW, h, 10); x.clip(); x.drawImage(this.sand, GX, Y, GW, h);
       for (let i = 0; i < N; i++) { const v = clamp(call(this.strip, inv((i + 0.5) / N), p)); x.fillStyle = rgba(v < 0.5 ? mix('#16324a', mix(col, '#16324a', 0.45), v * 2) : mix(mix(col, '#16324a', 0.45), mix(col, '#ffffff', 0.4), v * 2 - 1), 0.78); x.fillRect(GX + GW * i / N, Y, GW / N + 1, h); }
@@ -57,9 +58,10 @@ const Scene = {
     x.fillStyle = 'rgba(8,13,18,.80)'; rr(x, box.X, box.Y, box.w, box.h, 22); x.fill();
     x.strokeStyle = 'rgba(255,255,255,.14)'; x.lineWidth = 2; x.stroke();
     label(x, P.yname, GX, box.Y + 58, { size: 44, w: 600, color: '#D5DCE3' });
-    label(x, P.xname, GX + GW, box.Y + box.h - 22, { size: 44, w: 500, color: '#AEB9C4', align: 'right' });
+    xn.forEach((s, i) => label(x, s, GX + GW, box.Y + box.h - 22 - (xn.length - 1 - i) * 50, { size: 44, w: 500, color: '#AEB9C4', align: 'right' }));
     for (const v of P.yticks || []) { x.strokeStyle = 'rgba(255,255,255,.12)'; x.lineWidth = 2; x.beginPath(); x.moveTo(GX, py(v)); x.lineTo(GX + GW, py(v)); x.stroke(); label(x, String(v).replace('.', ',').replace('-', '−'), GX - 14, py(v) + 15, { size: 44, color: '#AEB9C4', align: 'right' }); }
-    for (const v of P.xticks || []) label(x, String(v).replace('.', ','), px(v), GY + GH + 50, { size: 44, color: '#AEB9C4', align: 'center', a: 0.9 });
+    let lastX = -1e9;
+    for (const v of P.xticks || []) if (px(v) - lastX > measure(x, String(v), 44, 600) + 34 && (lastX = px(v)) > -1) label(x, String(v).replace('.', ','), px(v), GY + GH + 50, { size: 44, color: '#AEB9C4', align: 'center', a: 0.9 });
     if (P.y[0] < 0) { const z = S.track(t, 'zero', 0); if (z > 0.02) { x.fillStyle = `rgba(231,76,60,${0.28 * z})`; x.fillRect(GX, py(0), GW, GY + GH - py(0)); } x.strokeStyle = 'rgba(255,255,255,.5)'; x.lineWidth = 3; x.beginPath(); x.moveTo(GX, py(0)); x.lineTo(GX + GW, py(0)); x.stroke(); }
     x.save(); rr(x, GX, GY - 6, GW + 4, GH + 12, 2); x.clip();
     const line = (f, pv, col, w, dash, upto = 1) => { x.beginPath(); for (let i = 0; i <= 240; i++) { const q = i / 240; if (q > upto) break; const xv = inv(q), v = call(f, xv, pv); if (Number.isFinite(v)) x.lineTo(px(xv), py(v)); } x.strokeStyle = col; x.lineWidth = w; x.lineJoin = 'round'; x.setLineDash(dash ? [18, 12] : []); x.stroke(); x.setLineDash([]); };
@@ -76,8 +78,8 @@ const Scene = {
     x.restore();
     P.curves.forEach((c, i) => { const a = S.track(t, 'c' + i, i === 0 ? 1 : 0); if (c.name && a > 0.02) label(x, c.name, GX + GW - 10, GY + GH - 30 - (P.curves.length - 1 - i) * 56, { size: 44, w: 700, color: mix(S.color(c.color || 'curves.PRESSURE'), '#ffffff', 0.25), align: 'right', a }); });
     const mk = S.track(t, 'marks', 0);
-    if (mk > 0.02) (P.marks || []).forEach(m => { const v = call(this.f[m.curve || 0], m.x, p); callout(x, px(m.x), py(v), px(m.x) + (m.dx === undefined ? 60 : m.dx), py(v) + (m.dy === undefined ? -90 : m.dy), m.text, mk, { color: '#F5E29A' }); });
-    if (!P.p.hide) { const s = `${P.p.name ? P.p.name + ' ' : ''}${ptext(P, p)}`; chip(x, s, W / 2, box.Y + 46, '#ECEFF4', 1, { size: 52 }); }
+    if (mk > 0.02) (P.marks || []).forEach(m => { const v = call(this.f[m.curve || 0], m.x, p); callout(x, px(m.x), py(v), clamp(px(m.x) + (m.dx === undefined ? 60 : m.dx) * (S.sq ? 0.6 : 1), 40, W - 60 - measure(x, m.text, 46, 600)), py(v) + (m.dy === undefined ? -90 : m.dy), m.text, mk, { color: '#F5E29A' }); });
+    if (!P.p.hide) { const s = `${P.p.name ? P.p.name + ' ' : ''}${ptext(P, p)}`; chip(x, s, S.sq ? W - 112 : W / 2, box.Y + 46, '#ECEFF4', 1, { size: 52 }); }
   },
   overlay(x, t, S) { Stage.frameText(x, t, S.P.note || 'расчёт по формуле главы'); },
 };

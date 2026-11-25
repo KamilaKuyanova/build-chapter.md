@@ -120,11 +120,11 @@ const Scene = {
     if (three < 0.99 && fit < 0.99) {
       x.save();
       x.globalAlpha = 1 - Math.max(three, fit);
-      const V = { t, az, cx: 660, cy: 700, s: 1.32, st: 0.42, ct: 0.9, D: 1700, hs: 330, lift: 250 };
+      const V = S.sq ? { t, az, cx: 480, cy: 640, s: 0.86, st: 0.42, ct: 0.9, D: 1500, hs: 235, lift: 180 } : { t, az, cx: 660, cy: 700, s: 1.32, st: 0.42, ct: 0.9, D: 1700, hs: 330, lift: 250 };
       const B = this.block(x, S, V, tm, S.P.kappa);
       this.B = B;
-      callout(x, B.W1[0], B.t1 + 14, B.W1[0] - 60, B.t1 - 48, 'работает', S.track(t, 'names', 0), { align: 'right' });
-      callout(x, B.W2[0], B.t2 + 14, B.W2[0] + 40, B.t2 - 48, 'соседняя', S.track(t, 'names', 0), { color: mix(S.color('measurement'), '#ffffff', 0.2) });
+      callout(x, B.W1[0], B.t1 + 14, B.W1[0] - 60, Math.max(S.sq ? 345 : 0, B.t1 - 48), 'работает', S.track(t, 'names', 0), { align: 'right' });
+      callout(x, B.W2[0], B.t2 + 14, B.W2[0] + 40, Math.max(S.sq ? 345 : 0, B.t2 - 48), 'соседняя', S.track(t, 'names', 0), { color: mix(S.color('measurement'), '#ffffff', 0.2) });
       const k = S.track(t, 'ruler', 0);
       if (k > 0.02) {
         const dy = 64; x.globalAlpha *= k; x.strokeStyle = '#fff'; x.lineWidth = 4;
@@ -145,12 +145,12 @@ const Scene = {
     if (sub) label(x, sub, X + w - 28, Y + h - 22, { size: 44, w: 500, color: '#AEB9C4', align: 'right' });
   },
   charts(x, t, S, tm, A) {
-    const K = S.P.kappa, X = 1268, w = 600, col = S.color('curves.PRESSURE'), mk = S.color('measurement'), hl = S.at(t).q.hl;
+    const K = S.P.kappa, X = S.sq ? 24 : 1268, w = S.sq ? 446 : 600, col = S.color('curves.PRESSURE'), mk = S.color('measurement'), hl = S.at(t).q.hl;
     const a1 = A * S.track(t, 'c1', 0), a2 = A * S.track(t, 'c2', 0);
     if (a1 > 0.02) {
       x.save(); x.globalAlpha = a1 * (hl && hl !== 'c1' ? 0.5 : 1);
-      const Y = 250, h = 370;
-      this.axis(x, X, Y, w, h, 'давление вдоль пласта', `${S.P.r_view} м`);
+      const Y = S.sq ? 722 : 250, h = S.sq ? 252 : 370;
+      this.axis(x, X, Y, w, h, S.sq ? 'вдоль пласта' : 'давление вдоль пласта', `${S.P.r_view} м`);
       const px = r => X + 28 + r / S.P.r_view * (w - 56), py = r => Y + 100 + clamp(drop(r, tm, K) / this.main) * (h - 180);
       x.beginPath(); x.moveTo(px(0), Y + h - 72);
       for (let r = 0; r <= S.P.r_view; r += 4) x.lineTo(px(r), py(r));
@@ -163,7 +163,7 @@ const Scene = {
     }
     if (a2 > 0.02) {
       x.save(); x.globalAlpha = a2 * (hl && hl !== 'c2' ? 0.5 : 1);
-      this.timeChart(x, S, X, 650, w, 370, [[K, mk, tm]], 'соседняя скважина');
+      this.timeChart(x, S, S.sq ? 490 : X, S.sq ? 722 : 650, w, S.sq ? 252 : 370, [[K, mk, tm]], 'соседняя скважина');
       x.restore();
     }
   },
@@ -189,22 +189,22 @@ const Scene = {
     x.globalAlpha = A;
     const n = S.P.kappas.length;
     S.P.kappas.forEach((k, i) => {
-      const cx = S.W * (i + 0.5) / n, V = { t, az, cx, cy: 640, s: 0.68, st: 0.42, ct: 0.9, D: 1500, hs: 190, lift: 250 };
+      const cx = S.W * (i + 0.5) / n, V = { t, az, cx, cy: 660, s: S.sq ? 0.35 : 0.68, st: 0.42, ct: 0.9, D: 1500, hs: S.sq ? 150 : 190, lift: S.sq ? 210 : 250 };
       this.block(x, S, V, tm, k, { small: true });
       chip(x, num(k), cx, 872, i === 1 ? '#ECEFF4' : mix(S.color('curves.PRESSURE'), '#ffffff', 0.3), 1, { size: 64 });
     });
-    label(x, 'пьезопроводность, м²/с', S.W / 2, 1010, { size: 48, w: 600, align: 'center', color: '#D5DCE3' });
+    label(x, 'пьезопроводность, м²/с', S.W / 2, S.sq ? 968 : 1010, { size: 48, w: 600, align: 'center', color: '#D5DCE3' });
     x.restore();
   },
   fit(x, t, S, A) { // обратная задача: по замерам подбирают коэффициент
     x.save();
     x.globalAlpha = A;
-    const b0 = S.beats.find(b => (b.beat || {}).view === 'fit'), s = t - b0.t_start, X = 120, Y = 250, w = S.W - 240, h = 720;
+    const b0 = S.beats.find(b => (b.beat || {}).view === 'fit'), s = t - b0.t_start, X = S.sq ? 24 : 120, Y = S.sq ? 300 : 250, w = S.W - 2 * X, h = S.sq ? 680 : 720;
     const path = S.P.fit_path || [5, 0.2, 2, 0.6, 1.3, 1], T = 13, q = clamp((s - 1.2) / T) * (path.length - 1), i = Math.min(path.length - 2, Math.floor(q));
     const kap = Math.exp(lerp(Math.log(path[i]), Math.log(path[i + 1]), smooth(q - i)));
     const done = smooth((s - 1.2 - T) / 0.6), C = mix(S.color('uncertainty'), S.color('curves.PRESSURE'), done);
     const unc = S.shown(t, 'unc', 0.8, 0.4);
-    const m = this.timeChart(x, S, X, Y, w, h, s > 1.2 ? [[kap, C, S.P.t_max, 9]] : [], 'соседняя скважина: давление от времени', { big: true, nodot: true });
+    const m = this.timeChart(x, S, X, Y, w, h, s > 1.2 ? [[kap, C, S.P.t_max, 9]] : [], S.sq ? 'давление от времени' : 'соседняя скважина: давление от времени', { big: true, nodot: true });
     if (unc > 0.02) { // неопределённость: полупрозрачная полоса, а не одна линия
       const l0 = Math.log10(60), l1 = Math.log10(S.P.t_max);
       x.beginPath();
@@ -223,11 +223,24 @@ const Scene = {
       const r = 14 * outBack(a); x.fillStyle = S.color('measurement'); x.beginPath(); x.arc(m.px(l), m.py(clamp(drop(S.P.r_obs, Math.pow(10, l), S.P.kappa) + e)), r, 0, 7); x.fill();
       x.strokeStyle = '#10151B'; x.lineWidth = 3; x.stroke();
     });
-    callout(x, m.px(this.pts[15][0]), m.py(drop(S.P.r_obs, Math.pow(10, this.pts[15][0]), S.P.kappa)), X + 560, Y + 330, 'замеры', smooth((s - 0.8) / 0.6) * (1 - done), { color: mix(S.color('measurement'), '#ffffff', 0.2) });
-    if (s > 1.2) chip(x, num(kap.toFixed(1)) + ' м²/с', X + w - 250, Y + 70, done > 0.5 ? mix(S.color('curves.PRESSURE'), '#ffffff', 0.3) : '#B9C3CC', 1, { size: 60 });
+    callout(x, m.px(this.pts[15][0]), m.py(drop(S.P.r_obs, Math.pow(10, this.pts[15][0]), S.P.kappa)), X + (S.sq ? 260 : 560), Y + 330, 'замеры', smooth((s - 0.8) / 0.6) * (1 - done), { color: mix(S.color('measurement'), '#ffffff', 0.2) });
+    if (s > 1.2) chip(x, num(kap.toFixed(1)) + ' м²/с', X + w - (S.sq ? 150 : 250), Y + 70, done > 0.5 ? mix(S.color('curves.PRESSURE'), '#ffffff', 0.3) : '#B9C3CC', 1, { size: 60 });
     x.restore();
   },
+  overlaySq(x, t, S) { // петля курса: часы под заголовком, лупа справа
+    Stage.frameText(x, t, S.P.note);
+    const A = S.track(t, 'clock', 0) * (1 - S.shown(t, 'view', 0.5, 0.3, 'fit'));
+    if (A > 0.02) { const s = clock(this.tm), w = measure(x, s, 60, 700) + 48; x.save(); x.globalAlpha = A; x.fillStyle = 'rgba(8,13,18,.88)'; rr(x, 24, S.H - 92, w, 80, 18); x.fill(); label(x, s, 48, S.H - 32, { size: 60, w: 700, shadow: false }); x.restore(); }
+    S.beats.forEach((b, j) => {
+      const q = (b.beat || {}).lens; if (!q || !this.B) return;
+      const end = S.beats[j + 1] ? S.beats[j + 1].t_start : S.job.total + 1, k = Math.min((t - b.t_start - (q.delay || 0.3)) / 0.5, (end - t) / 0.25); if (k <= 0) return;
+      const f = this.B.W1;
+      lens(x, 250, 800, 150, (f[0] + this.B.W2[0]) / 2, (f[1] + this.B.W2[1]) / 2, k, (c, r) => Pores.grains(c, r, mix(S.color('lithology.sand'), '#a8843a', 0.25), S.color('fluids.oil'), rgba(S.color('fluids.water'), 0.95), 33, 4000 - t * 60), {});
+      [].concat(q.cap || []).forEach((c, i) => label(x, c, 430, 810 + i * 54, { size: 44, w: 600, a: smooth((k - 0.5) / 0.5) }));
+    });
+  },
   overlay(x, t, S) {
+    if (S.sq) return this.overlaySq(x, t, S);
     const N = S.at(t), { W, H } = S, g = x.createLinearGradient(0, 0, 0, 260);
     g.addColorStop(0, 'rgba(6,10,14,.9)'); g.addColorStop(1, 'rgba(6,10,14,0)');
     x.fillStyle = g; x.fillRect(0, 0, W, 260);

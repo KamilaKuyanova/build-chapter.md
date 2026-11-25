@@ -45,7 +45,7 @@ const Scene = {
   },
   view(S, t) {
     const span = S.track(t, 'span', 40), cam = S.track(t, 'cam', 80);
-    const z = S.H / (span * U), bx = S.track(t, 'bx', 215);
+    const z = S.H / (span * U), bx = S.sq ? 150 : S.track(t, 'bx', 215);
     return { z, bx, cam, y: d => S.H / 2 + (d - cam) * U * z, X: wx => bx + wx * z, depth: y => cam + (y - S.H / 2) / (U * z) };
   },
   draw(x, t, S) {
@@ -170,7 +170,7 @@ const Scene = {
       x.restore();
     });
   },
-  trackBox(S, i) { const x0 = S.P.track_x || 548, n = S.P.curves.length, gap = 18, w = (S.W - S.safe.side - x0 - gap * (n - 1)) / n; return [x0 + i * (w + gap), w]; },
+  trackBox(S, i) { const x0 = S.sq ? (S.P.curves.length > 1 ? 560 : 640) : S.P.track_x || 548, n = S.P.curves.length, gap = 18, w = (S.W - S.safe.side - x0 - gap * (n - 1)) / n; return [x0 + i * (w + gap), w]; },
   tracks(x, t, S, V, d) {
     const A = S.track(t, 'tracks', 1);
     if (A <= 0.01) return;
@@ -215,15 +215,15 @@ const Scene = {
   },
   names(x, t, S, V, d) { // имя породы появляется, когда прибор до неё дошёл
     const A = S.track(t, 'labels', 1);
-    const under = S.shown(t, "lens", 0.6, 0.3), cmp = 1 - S.shown(t, "compare"), cur = this.layer(S, d);
+    const under = Math.max(S.shown(t, "lens", 0.6, 0.3), S.sq ? S.shown(t, 'call', 0.3, 0.3) * 0.0 : 0), cmp = 1 - S.shown(t, "compare"), cur = this.layer(S, d);
     S.P.layers.forEach(L => {
       if (!L.name || !L.name.length) return;
       const open = L.hidden ? S.track(t, L.hidden, 0) : 1, name = open > 0.5 ? L.name : ['?'];
       const a = A * cmp * smooth((L.bot - 1 - d) / 2.5) * (L.hidden ? Math.max(0.15, Math.abs(open * 2 - 1)) : 1) * (L === cur ? 1 - under : 1);
       if (a <= 0.01) return;
-      const y0 = Math.max(V.y(L.top), S.vert ? 560 : 270), y1 = Math.min(V.y(L.bot), S.H - (S.vert ? 375 : 60)), need = name.length * 52 + 10;
+      const y0 = Math.max(V.y(L.top), S.vert ? 560 : S.sq ? 300 : 270), y1 = Math.min(V.y(L.bot), S.H - (S.vert ? 375 : S.sq ? 90 : 60)), need = name.length * 52 + 10;
       if (y1 - y0 < need) return;
-      const y = clamp(V.y((L.top + L.bot) / 2), y0 + need / 2, y1 - need / 2), w = Math.max(...name.map(s => measure(x, s, 44, 700))) + 30, X = S.P.name_x || 318;
+      const y = clamp(V.y((L.top + L.bot) / 2), y0 + need / 2, y1 - need / 2), w = Math.max(...name.map(s => measure(x, s, 44, 700))) + 30, X = S.sq ? 258 : S.P.name_x || 318;
       x.save();
       x.globalAlpha = a;
       x.fillStyle = 'rgba(10,15,20,.80)'; rr(x, X, y - need / 2, w, need, 12); x.fill();
@@ -242,7 +242,7 @@ const Scene = {
     S.P.curves.forEach((c, i) => {
       const [X, w] = this.trackBox(S, i), col = S.color(c.color);
       const yn = S.vert ? Math.min(1080, V.y(d) - 120) : H - 30;
-      label(x, c.name, S.vert ? X + w / 2 + 16 : X + w - 18, yn, { size: 44, w: 700, color: mix(col, '#ffffff', 0.15), rot: -Math.PI / 2, a: S.vert ? A * smooth((V.y(d) - 860) / 160) : A });
+      label(x, c.name, S.vert ? X + w / 2 + 16 : X + w - 18, S.sq ? H - 90 : yn, { size: 44, w: 700, color: mix(col, '#ffffff', 0.15), rot: -Math.PI / 2, a: S.vert ? A * smooth((V.y(d) - 860) / 160) : A });
     });
     // величины словами прямо у точки кривой
     S.P.curves.forEach((c, i) => {
@@ -267,7 +267,7 @@ const Scene = {
     this.compare(x, t, S);
     S.beats.forEach((b, j) => {
       const list = (b.beat || {}).call || [], end = S.beats[j + 1] ? S.beats[j + 1].t_start : S.job.total + 1;
-      list.forEach((c, i) => { const k = Math.min((t - b.t_start - 0.3 - i * 0.7) / 0.6, (end - t) / 0.25); if (k > 0) callout(x, V.bx + (c.at === undefined ? NOM : c.at) * V.z, V.y(c.d), V.bx + (c.dx === undefined ? 150 : c.dx) * V.z, V.y(c.d) + (c.dy || 0), c.text, k, {}); });
+      list.forEach((c, i) => { const k = Math.min((t - b.t_start - 0.3 - i * 0.7) / 0.6, (end - t) / 0.25); if (k > 0) callout(x, V.bx + (c.at === undefined ? NOM : Math.min(c.at, S.sq ? 130 : 999)) * V.z, V.y(c.d), V.bx + (c.dx === undefined ? 150 : S.sq ? 130 : c.dx) * V.z, V.y(c.d) + (S.sq ? (c.dy > 0 ? 100 : -100) : c.dy || 0), c.text, k, {}); });
     });
     if (!S.vert) { Stage.frameText(x, t, S.P.note); return; }
     // вопрос-предсказание: отсчёт паузы

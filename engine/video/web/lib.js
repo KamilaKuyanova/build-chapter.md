@@ -24,14 +24,15 @@ const F = (size, w = 600) => `${w} ${size}px Bahnschrift, "Segoe UI", sans-serif
 
 const Stage = {
   start(job) {
-    this.job = job; this.W = job.W; this.H = job.H; this.vert = job.H > job.W;
+    this.job = job; this.W = job.W; this.H = job.H; this.vert = job.H > job.W * 1.4;
+    this.sq = !this.vert && job.W < 1300; // почти квадрат для петель курса: при экране 390 px подпись 44 читается как 16 px
     const c = document.getElementById('c');
     c.width = job.W; c.height = job.H;
     this.cv = c;
     this.ctx = c.getContext('2d', { alpha: false });
     this.SG = job.style; this.beats = job.beats; this.P = job.params;
     const z = this.SG.safe_zone;
-    this.safe = this.vert ? { top: z.top, bottom: z.bottom, side: z.side } : { top: 60, bottom: 60, side: 80 };
+    this.safe = this.vert ? { top: z.top, bottom: z.bottom, side: z.side } : { top: 60, bottom: 60, side: this.sq ? 36 : 80 };
     this.grain = makeGrain(512);
     if (Scene.setup) Scene.setup(this);
   },
@@ -89,14 +90,15 @@ const Stage = {
   },
   // общий верхний слой кадра: заголовок, метка, источник, отсчёт паузы на предсказание
   frameText(x, t, note) {
-    const S = this, N = S.at(t), { W, H } = S, h = S.vert ? 640 : 250;
+    const S = this, N = S.at(t), { W, H } = S, tall = S.sq && note && measure(x, S.P.label || 'схема', 44, 700) + 58 + measure(x, note, 44, 500) > W - 2 * S.safe.side, h = S.vert ? 640 : S.sq ? 310 : 250;
     const g = x.createLinearGradient(0, 0, 0, h);
     g.addColorStop(0, 'rgba(6,10,14,.94)'); g.addColorStop(0.66, 'rgba(6,10,14,.80)'); g.addColorStop(1, 'rgba(6,10,14,0)');
     x.fillStyle = g; x.fillRect(0, 0, W, h);
-    if (N.q.head) headline(x, S, N.q.head, N.since / 0.9 + (N.i === 0 ? 0.75 : 0), { size: N.q.head_size || (S.vert ? 88 : 84), Y: S.vert ? undefined : 112, a: smooth(N.left / 0.18) });
-    badge(x, S, S.P.label || 'схема', note, S.vert ? S.safe.top - 44 : 36);
+    if (N.q.head) headline(x, S, N.q.head, N.since / 0.9 + (N.i === 0 ? 0.75 : 0), { size: S.sq ? 66 : N.q.head_size || (S.vert ? 88 : 84), Y: S.vert ? undefined : S.sq ? (tall ? 138 : 88) : 112, a: smooth(N.left / 0.18) });
+    badge(x, S, S.P.label || 'схема', tall ? null : note, S.vert ? S.safe.top - 44 : S.sq ? 20 : 36);
+    if (tall) label(x, note, S.safe.side, 130, { size: 44, w: 500, color: '#D5DCE3' });
     if (S.P.source) {
-      const w = measure(x, S.P.source, 44, 500) + 28, X = S.vert ? S.safe.side - 14 : W - 80 - w, Y = S.vert ? H - 352 : 34;
+      const w = measure(x, S.P.source, 44, 500) + 28, X = S.vert ? S.safe.side - 14 : S.sq ? W - w - 14 : W - 80 - w, Y = S.vert ? H - 352 : S.sq ? H - 74 : 34;
       x.fillStyle = 'rgba(8,12,17,.78)'; rr(x, X, Y, w, 64, 12); x.fill();
       label(x, S.P.source, X + 14, Y + 47, { size: 44, w: 500, color: '#D5DCE3', shadow: false });
     }

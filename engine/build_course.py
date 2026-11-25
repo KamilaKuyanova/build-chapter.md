@@ -164,7 +164,14 @@ def render_illustrations(node, ills):
         fname = pathlib.Path(i["file"]).name
         lab = f' · {e(i["label"])}' if i.get("label") else ""
         src = f' · {e(i["source"])}' if i.get("source") else ""
-        out.append(f'<figure><img src="assets/{e(fname)}" alt="{e(i["alt"])}" loading="lazy">'
+        if fname.lower().endswith(".mp4"):
+            vtt = pathlib.Path(fname).with_suffix(".vtt").name
+            media = (f'<video controls preload="metadata" playsinline src="assets/{e(fname)}" aria-label="{e(i["alt"])}" '
+                     f'style="max-width:100%;max-height:80vh"><track kind="subtitles" srclang="ru" label="Русские субтитры" '
+                     f'src="assets/{e(vtt)}"></video>')
+        else:
+            media = f'<img src="assets/{e(fname)}" alt="{e(i["alt"])}" loading="lazy">'
+        out.append(f'<figure>{media}'
                    f'<figcaption>{e(i["caption"])} <span class="tag">класс {e(i["frame_class"])}{lab}{src}</span></figcaption></figure>')
     return "".join(out)
 
@@ -308,9 +315,13 @@ def main():
         src = d / i["file"]
         if src.exists():
             shutil.copyfile(src, out / "assets" / pathlib.Path(i["file"]).name)
+            vtt = src.with_suffix(".vtt")  # субтитры ролика рядом с mp4
+            if src.suffix.lower() == ".mp4" and vtt.exists():
+                shutil.copyfile(vtt, out / "assets" / vtt.name)
         else:
             warn(f"файл иллюстрации не найден: {src}")
-    total = sum(f.stat().st_size for f in out.rglob("*") if f.is_file())
+    video_bytes = sum(f.stat().st_size for f in (out / "assets").glob("*.mp4"))
+    total = sum(f.stat().st_size for f in out.rglob("*") if f.is_file()) - video_bytes  # ТЗ: ≤30 МБ без видео
     if total > 30 * 1024 * 1024:
         warn(f"курс весит {total // 1048576} МБ > 30 МБ")
     print(f"Собрано: {out / 'index.html'} ({total // 1024} КБ), шагов {len(nodes)}, заданий {len(tasks['tasks'])}")

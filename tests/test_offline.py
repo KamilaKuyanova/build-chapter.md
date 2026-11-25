@@ -98,5 +98,18 @@ bad["physics_checklist"][0] = {"item": pcs[0], "answer": "нет"}
 e2 = " | ".join(passport_check.check(bad, "short"))
 check("плохой паспорт: длинная фраза, нет claim_id, «нет» без оговорки", "слов (максимум" in e2 and "нет claim_id" in e2 and "без оговорки" in e2)
 
+# 6. сцена давления: интегральная показательная функция против табличных значений (Абрамовиц–Стиган)
+import scene_pressure  # noqa: E402
+tab = {0.1: 1.8229, 0.5: 0.5598, 1.0: 0.2194, 2.0: 0.04890, 5.0: 0.001148}
+check("E1(x) совпадает с таблицей до 0,5%", all(abs(scene_pressure.E1(x) - v) / v < 0.005 for x, v in tab.items()))
+check("давление падает с расстоянием и растёт со временем",
+      scene_pressure.dp(50, 3600) > scene_pressure.dp(200, 3600) and scene_pressure.dp(200, 7200) > scene_pressure.dp(200, 3600))
+for vid in ("latyshova_short", "basniev_long"):
+    pp_path = ROOT / "videos" / vid / "passport.json"
+    if pp_path.exists():
+        pp = validate_layer.load_json(pp_path)
+        e3 = [x for x in passport_check.check(pp, pp["format"]) if "asr_wer" not in x]
+        check(f"паспорт {vid}: нарушений нет (кроме ещё не подключённого ASR)", not e3)
+
 print("ИТОГО:", "всё хорошо" if not fails else f"провалено {len(fails)}")
 sys.exit(1 if fails else 0)

@@ -325,6 +325,29 @@
    "prompt": null
   },
   {
+   "id": "latyshova.rock_signs_table.video",
+   "file": "media/latyshova_short.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Ролик (шортс 9:16, 65 с): Как отличить пласт с нефтью от плотной породы, если сопротивление у обоих высокое?",
+   "alt": "Ролик шортс 9:16 по шагу; субтитры включаются в плеере",
+   "source": "паспорт: videos/latyshova_short/passport.json",
+   "claim_ids": [
+    "latyshova.clean_reservoir_resistivity#c3",
+    "latyshova.gis_tasks#c1",
+    "latyshova.gis_tasks#c2",
+    "latyshova.mud_density_salinity#c4",
+    "latyshova.rock_signs_table#c4",
+    "latyshova.two_kinds_layers#c2",
+    "latyshova.two_kinds_layers#c3",
+    "latyshova.two_kinds_layers#c4"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.rock_signs_table",
+   "node_id": "latyshova.rock_signs_table"
+  },
+  {
    "id": "latyshova.transitional_rocks.i1",
    "step_id": "latyshova.transitional_rocks",
    "node_id": "latyshova.transitional_rocks",

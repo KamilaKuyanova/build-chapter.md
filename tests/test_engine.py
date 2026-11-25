@@ -355,6 +355,19 @@ class Path_(unittest.TestCase):
         self.assertTrue(all(len(p["nodes"]) <= 14 for p in long))
 
 
+class TermHelp(unittest.TestCase):
+    def test_words_do_not_give_the_answer_away(self):
+        sys.path.insert(0, str(ROOT / "engine"))
+        import build_course as b
+        gl = {"водоотдача": "сколько жидкости раствор отдаёт в породу", "биостром": "пласт из остатков организмов", "вторая фаза": "начинается, когда граница достигла края пласта"}
+        one = {"type": "single", "prompt": "Что будет при высокой водоотдаче?", "answer": "a", "options": [{"id": "a", "text": "Толстая корка"}]}
+        self.assertEqual([t for t, _ in b.term_help(one, gl)], ["водоотдача"])
+        two = {"type": "single", "prompt": "Это биостром?", "answer": "a", "options": [{"id": "a", "text": "Биостром"}]}
+        self.assertEqual(b.term_help(two, gl), [])
+        three = {"type": "single", "prompt": "Когда начинается вторая фаза?", "answer": "a", "options": [{"id": "a", "text": "Граница достигла края пласта"}]}
+        self.assertEqual(b.term_help(three, gl), [])
+
+
 class Formulas(unittest.TestCase):
     def test_builder_takes_formula_and_table(self):
         from engine.nodes import Builder

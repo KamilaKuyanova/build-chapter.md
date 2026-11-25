@@ -182,8 +182,26 @@ def render_illustrations(node, ills):
     return "".join(out)
 
 
-def render_quizzes(tasks):
-    return "".join(f'<div class="quiz" data-ex=\'{e(json.dumps(t, ensure_ascii=False))}\'></div>' for t in tasks)
+def term_help(task, glossary):
+    """Слова вопроса, которые новичок мог забыть. Сам ответ не подсказываем."""
+    ans = task["answer"] if isinstance(task["answer"], list) else [task["answer"]]
+    said = {str(a).lower() for a in ans} | {o["text"].lower() for o in task.get("options", [])}
+    stems = lambda s: {w[:6] for w in re.findall(r"[а-яёa-z0-9]{4,}", s.lower())}
+    right = stems(" ".join(o["text"] for o in task.get("options", []) if o["id"] in ans)) | stems(" ".join(str(a) for a in ans if task["type"] == "gap"))
+    out = []
+    for term, text in glossary.items():
+        if right and len(right & stems(text)) >= len(right) / 2:   # определение повторяет ответ
+            continue
+        if any(term[:6] in s for s in said) or len(term) < 2:
+            continue
+        stem = " ".join(re.escape(w[:-2] if len(w) > 5 else w) + r"\w{0,4}" for w in term.split())
+        if re.search(r"(?<!\w)" + stem + r"(?!\w)", task["prompt"].lower()):
+            out.append((term, text))
+    return sorted(out, key=lambda x: -len(x[0]))[:3]
+
+
+def render_quizzes(tasks, glossary=None):
+    return "".join(f'<div class="quiz" data-ex=\'{e(json.dumps({**t, "_words": term_help(t, glossary or {})}, ensure_ascii=False))}\'></div>' for t in tasks)
 
 
 def render_step(node, i, total, tasks, ills, route, glossary, part=1):
@@ -234,7 +252,7 @@ def render_step(node, i, total, tasks, ills, route, glossary, part=1):
   {block('Источник', claims_html, 'srcs')}
   {block('Задачи из книги', render_book_tasks(node))}
   {block('Иллюстрации', render_illustrations(node, ills), 'ill')}
-  {block('Проверь себя', render_quizzes(tasks), 'test')}
+  {block('Проверь себя', render_quizzes(tasks, glossary), 'test')}
   {nav}
 </article>"""
 
@@ -420,6 +438,9 @@ def main():
         for t in gl if isinstance(gl, list) else gl.get("terms", []):
             if t.get("ru") and t.get("note"):
                 glossary[t["ru"].lower()] = t["note"]
+    for n in nodes:   # определения из самой главы важнее общих
+        for g in n.get("glossary", []):
+            glossary[g["term"].lower()] = g["definition"]
     by_step_t, by_step_i = {}, {}
     for t in tasks["tasks"]:
         by_step_t.setdefault(t["step_id"], []).append(t)

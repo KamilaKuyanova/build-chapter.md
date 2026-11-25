@@ -107,6 +107,9 @@ table{border-collapse:collapse}td,th{border:1px solid var(--line);padding:6px 10
 .quiz ol{list-style:none;padding:0;margin:0 0 12px}.quiz ol li{display:grid;grid-template-columns:auto 1fr auto auto;gap:6px;align-items:center;padding:6px 6px 6px 10px;margin:8px 0;border:1.5px solid var(--line);line-height:1.35}.quiz ol button{min-width:44px;padding:0;border:0;background:var(--soft)}
 .grip{cursor:grab;touch-action:none;user-select:none;min-width:32px;min-height:44px;display:grid;place-items:center;color:var(--mut);font-size:1.3rem}li.drag{background:var(--soft);border-color:var(--blue)!important}
 .quiz>button{width:100%;background:var(--fg);color:var(--bg);border-color:var(--fg);min-height:52px;font-weight:500;margin-top:10px}
+.qhelp{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:flex-start;margin:8px 0 2px}.qhelp .find{border:0;background:none;color:var(--acc);padding:10px 0;font-weight:500;text-decoration:underline;text-underline-offset:4px}.qhelp details{flex:1 1 12rem}.qhelp details p{margin:0 0 8px;line-height:1.45}
+.here{background:color-mix(in srgb,var(--blue) 18%,transparent);box-shadow:-10px 0 0 color-mix(in srgb,var(--blue) 18%,transparent),inset 4px 0 0 var(--blue);padding-left:10px;scroll-margin:140px}.ess .here{background:rgba(255,255,255,.16)}
+#backq{position:fixed;z-index:45;left:50%;bottom:92px;transform:translateX(-50%);background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 14px 34px rgba(0,8,30,.4);white-space:nowrap}#backq[hidden]{display:none}@media (min-width:821px){#backq{bottom:28px}}
 .quiz .res:empty{display:none}.quiz .res{margin-top:12px;padding:14px 16px;line-height:1.45;animation:up .5s var(--ease)}.quiz .res.ok{background:var(--okbg);color:var(--ok)}.quiz .res.no{background:var(--badbg);color:var(--bad)}
 @keyframes up{from{opacity:0;transform:translateY(12px)}}
 /* ---- карточки ---- */
@@ -125,7 +128,7 @@ ul.map{list-style:none;padding:0 0 0 92px;margin:14px 0}ul.map li{padding:11px 1
 @media (max-width:560px){ul.map{padding-left:64px}#arcs{width:60px}}
 #toast{position:fixed;width:max-content;z-index:60;left:50%;bottom:96px;transform:translate(-50%,160%);background:#06080c;color:#fff;display:flex;align-items:center;gap:14px;padding:14px 20px;transition:transform .6s var(--ease);max-width:calc(100vw - 32px);box-shadow:0 18px 44px rgba(0,8,30,.4);visibility:hidden}#toast.on{transform:translate(-50%,0);visibility:visible}#toast i{width:10px;height:10px;background:var(--blue);flex:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-@media print{header.top,nav.main,.stepnav,button,progress,#toast{display:none!important}body,body::before{background:#fff!important;color:#000}.view{display:block!important}#path,#cards,#map,.step{display:none!important}#notes{display:block!important}ul.notes li{break-inside:avoid;padding:6px 0}}
+@media print{#backq,.qhelp,header.top,nav.main,.stepnav,button,progress,#toast{display:none!important}body,body::before{background:#fff!important;color:#000}.view{display:block!important}#path,#cards,#map,.step{display:none!important}#notes{display:block!important}ul.notes li{break-inside:avoid;padding:6px 0}}
 </style>
 </head>
 <body class="p-path">
@@ -144,6 +147,7 @@ ul.map{list-style:none;padding:0 0 0 92px;margin:14px 0}ul.map li{padding:11px 1
 <main id="content" tabindex="-1">
 {{BODY}}
 </main>
+<button type="button" id="backq" hidden>↓ Вернуться к заданию</button>
 <div id="toast" role="status"><i></i><span></span></div>
 <noscript><p style="padding:16px">Включите JavaScript для навигации и заданий; весь текст курса доступен выше.</p></noscript>
 <script>
@@ -166,6 +170,7 @@ function xp(){var a=state.answers,s=0;for(var k in a)if(a[k].ok)s+=a[k].first?10
 var TASKS={};all('.step').forEach(function(a){TASKS[a.dataset.id]=all('.quiz',a).map(function(q){return JSON.parse(q.getAttribute('data-ex')).id})});
 function nextStep(){var l=state.last;if(l&&ORDER.indexOf(l)>=0&&!state.done[l])return l;for(var i=0;i<ORDER.length;i++)if(!state.done[ORDER[i]])return ORDER[i];return ORDER[ORDER.length-1]}
 function show(id){
+  $('backq').hidden=true;
   var from=shown;
   views.forEach(function(v){v.hidden=true});
   var el=$(id);if(!el){el=$('path')}
@@ -343,6 +348,29 @@ document.getElementById('theme').addEventListener('click',function(){
 /* --- задания: single, multiple, order, gap, calc (формат task.schema организаторов) --- */
 function el(t,a,h){var x=document.createElement(t);for(var k in(a||{}))x.setAttribute(k,a[k]);if(h!=null)x.textContent=h;return x}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+/* слово засчитываем в любой форме: «калийная» и «калийные» — один ответ; числа — только точно */
+function sameWord(a,b){
+  function n(s){return String(s).toLowerCase().replace(/ё/g,'е').replace(/[«»"'.,;:!?()]/g,'').replace(/\s+/g,' ').trim()}
+  a=n(a);b=n(b);if(!a)return false;if(a===b)return true;
+  if(/\d/.test(b))return a.replace(',','.')===b.replace(',','.');
+  var k=0;while(k<a.length&&k<b.length&&a[k]===b[k])k++;
+  return b.length>4&&k>=Math.max(4,b.length-3)&&a.length-k<=3;
+}
+/* место в тексте шага, где лежит ответ: абзац с наибольшим общим словарём с опорой задания */
+function showPlace(q,t){
+  function bag(s){return (s.toLowerCase().replace(/ё/g,'е').match(/[а-яa-z0-9]{4,}/g)||[]).map(function(w){return w.slice(0,6)})}
+  var step=q.closest('.step'),need={},best=null,score=0;bag((t.evidence||'')+' '+t.explanation).forEach(function(w){need[w]=1});
+  var key=[].concat(t.answer),right=(t.options||[]).filter(function(o){return t.type!=='order'&&key.indexOf(o.id)>=0}).map(function(o){return o.text}).join(' ')||(t.type==='gap'?key.join(' '):'');
+  bag(right).forEach(function(w){need[w]=1.6});
+  var ev=(t.evidence||'').replace(/\s+/g,' ').trim();
+  all('.blk:not(.srcs):not(.test):not(.ill) p,.blk:not(.srcs):not(.test):not(.ill) li,.blk tr,.blk .kv>span',step).forEach(function(p){
+    var seen={},s=0,w=bag(p.textContent);w.forEach(function(x){if(need[x]&&!seen[x]){seen[x]=1;s+=need[x]}});
+    if(ev&&p.textContent.replace(/\s+/g,' ').indexOf(ev)>=0)s+=50;
+    s=s/Math.sqrt(8+w.length*.12);if(s>score){score=s;best=p}});
+  if(!best)return;
+  all('.here',step).forEach(function(x){x.classList.remove('here')});best.classList.add('here');best.scrollIntoView({block:'center',behavior:'smooth'});
+  var b=$('backq');b.hidden=false;b.onclick=function(){b.hidden=true;q.scrollIntoView({block:'center',behavior:'smooth'})};
+}
 function buildQuiz(q){
   var t=JSON.parse(q.getAttribute('data-ex')),uid='q'+Math.random().toString(36).slice(2),opts=t.options||[],get,byId={};
   opts.forEach(function(o){byId[o.id]=o});
@@ -354,7 +382,7 @@ function buildQuiz(q){
     get=function(){return gapInputs.map(function(i){return i.value.trim()})};
   }else{
     q.appendChild(el('p',{},t.prompt));
-    if(t.type==='multiple')q.appendChild(el('p',{class:'qhint'},'Выберите все верные варианты: их несколько.'));
+    if(t.type==='multiple')q.appendChild(el('p',{class:'qhint'},'Выберите все верные варианты: их '+t.answer.length+'.'));
     if(t.type==='order')q.appendChild(el('p',{class:'qhint'},'Расставьте по порядку: перетащите или нажмите ↑ ↓.'));
     if(t.type==='single'||t.type==='multiple'){
       opts.forEach(function(o){var l=el('label'),inp=el('input',{type:t.type==='single'?'radio':'checkbox',name:uid,value:o.id});
@@ -384,6 +412,10 @@ function buildQuiz(q){
       get=function(){return inp2.value.trim()};
     }
   }
+  var help=el('div',{class:'qhelp'}),find=el('button',{type:'button',class:'find'},'Где это в шаге?');
+  find.onclick=function(){state.hints=state.hints||{};state.hints[t.id]=1;save();showPlace(q,t)};help.appendChild(find);
+  if(t._words&&t._words.length){var dw=el('details'),sw=el('summary',{},'Слова из вопроса');dw.appendChild(sw);t._words.forEach(function(w){var p=el('p');p.appendChild(el('b',{},w[0]));p.appendChild(document.createTextNode(' — '+w[1]));dw.appendChild(p)});help.appendChild(dw)}
+  q.appendChild(help);
   var btn=el('button',{type:'button'},'Проверить'),res=el('div',{class:'res','aria-live':'polite'});
   btn.onclick=function(){
     var v=get(),ok=false,shown='',hint='';
@@ -391,11 +423,11 @@ function buildQuiz(q){
       if(!ok&&v.length===1&&byId[v[0]]&&byId[v[0]].misconception&&MISC[byId[v[0]].misconception])hint=' Это типичное заблуждение: «'+MISC[byId[v[0]].misconception]+'»';}
     else if(t.type==='multiple'){ok=JSON.stringify(v.slice().sort())===JSON.stringify(t.answer.slice().sort());shown=t.answer.map(function(i){return byId[i].text}).join('; ')}
     else if(t.type==='order'){ok=JSON.stringify(v)===JSON.stringify(t.answer);shown=t.answer.map(function(i){return byId[i].text}).join(' → ')}
-    else if(t.type==='gap'){ok=v.length===t.answer.length&&v.every(function(x,i){return x.toLowerCase()===String(t.answer[i]).toLowerCase()});shown=t.answer.join(', ')}
+    else if(t.type==='gap'){ok=v.length===t.answer.length&&v.every(function(x,i){return sameWord(x,t.answer[i])});shown=t.answer.join(', ')}
     else{var n=parseFloat(String(v).replace(',','.'));ok=!isNaN(n)&&Math.abs(n-t.answer)<=(t.tolerance||0);shown=t.answer+(t.unit?' '+t.unit:'')}
     state.answers=state.answers||{};   /* для проверки на новичках: первая попытка, число попыток, итог */
     var rec=state.answers[t.id];
-    if(!rec)state.answers[t.id]={first:ok,tries:1,ok:ok,type:t.type,step:t.step_id};else{rec.tries++;rec.ok=ok}
+    if(!rec)state.answers[t.id]={first:ok,tries:1,ok:ok,type:t.type,step:t.step_id,hint:!!(state.hints||{})[t.id]};else{rec.tries++;rec.ok=ok}
     save();afterAnswer(t,ok);
     q.classList.toggle('right',ok);q.classList.toggle('wrong',!ok);
     if(t.type==='single'||t.type==='multiple'){var rightIds=[].concat(t.answer);q.querySelectorAll('label').forEach(function(l){var i=l.querySelector('input');

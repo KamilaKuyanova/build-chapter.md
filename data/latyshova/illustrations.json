@@ -74,6 +74,24 @@
    "prompt": null
   },
   {
+   "id": "latyshova.borehole_wall.anim",
+   "file": "media/anim_latyshova.borehole_wall.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Что раствор делает со стенкой скважины»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.borehole_wall#c1",
+    "latyshova.borehole_wall#c2",
+    "latyshova.borehole_wall#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.borehole_wall",
+   "node_id": "latyshova.borehole_wall"
+  },
+  {
    "id": "latyshova.water_loss.i1",
    "step_id": "latyshova.water_loss",
    "node_id": "latyshova.water_loss",
@@ -90,6 +108,24 @@
     "latyshova.water_loss#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.water_loss.anim",
+   "file": "media/anim_latyshova.water_loss.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему водоотдача раствора важнее всего»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.water_loss#c1",
+    "latyshova.water_loss#c2",
+    "latyshova.water_loss#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.water_loss",
+   "node_id": "latyshova.water_loss"
   },
   {
    "id": "latyshova.mud_density_salinity.i1",
@@ -325,6 +361,27 @@
    "prompt": null
   },
   {
+   "id": "latyshova.rock_signs_table.video",
+   "file": "media/latyshova_signs.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Ролик (шортс 9:16, 66 с): Если в песчанике вместо солёной воды нефть, станет ли сопротивление максимальным?",
+   "alt": "Ролик шортс 9:16 по шагу; субтитры включаются в плеере",
+   "source": "паспорт: videos/latyshova_signs/passport.json",
+   "claim_ids": [
+    "latyshova.rock_signs_table#c1",
+    "latyshova.rock_signs_table#c2",
+    "latyshova.rock_signs_table#c4",
+    "latyshova.rock_signs_table#c7",
+    "latyshova.rock_signs_table#c8",
+    "latyshova.rock_signs_table#c9"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.rock_signs_table",
+   "node_id": "latyshova.rock_signs_table"
+  },
+  {
    "id": "latyshova.transitional_rocks.i1",
    "step_id": "latyshova.transitional_rocks",
    "node_id": "latyshova.transitional_rocks",
@@ -341,6 +398,24 @@
     "latyshova.transitional_rocks#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.transitional_rocks.anim",
+   "file": "media/anim_latyshova.transitional_rocks.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему природа не вписывается в таблицу»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.transitional_rocks#c1",
+    "latyshova.transitional_rocks#c2",
+    "latyshova.transitional_rocks#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.transitional_rocks",
+   "node_id": "latyshova.transitional_rocks"
   },
   {
    "id": "latyshova.when_enough.i1",
@@ -397,6 +472,24 @@
    "prompt": null
   },
   {
+   "id": "latyshova.direct_signs.anim",
+   "file": "media/anim_latyshova.direct_signs.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «По каким следам находят коллектор»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.direct_signs#c1",
+    "latyshova.direct_signs#c2",
+    "latyshova.direct_signs#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.direct_signs",
+   "node_id": "latyshova.direct_signs"
+  },
+  {
    "id": "latyshova.signs_fade.i1",
    "step_id": "latyshova.signs_fade",
    "node_id": "latyshova.signs_fade",
@@ -413,6 +506,24 @@
     "latyshova.signs_fade#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.signs_fade.anim",
+   "file": "media/anim_latyshova.signs_fade.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Когда признаки коллектора исчезают»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.signs_fade#c1",
+    "latyshova.signs_fade#c2",
+    "latyshova.signs_fade#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.signs_fade",
+   "node_id": "latyshova.signs_fade"
   },
   {
    "id": "latyshova.radial_gradient.i1",
@@ -449,6 +560,24 @@
     "latyshova.dynamic_methods#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.dynamic_methods.anim",
+   "file": "media/anim_latyshova.dynamic_methods.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Что делать, если одного замера мало»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.dynamic_methods#c1",
+    "latyshova.dynamic_methods#c2",
+    "latyshova.dynamic_methods#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.dynamic_methods",
+   "node_id": "latyshova.dynamic_methods"
   },
   {
    "id": "latyshova.critical_permeability.i1",
@@ -631,6 +760,24 @@
    "prompt": null
   },
   {
+   "id": "latyshova.chart69_use.fig69",
+   "file": "illustrations/fig69.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Палетка ρп = f(kп): области безводной нефти, нефти с водой и воды; точки — примеры 46 и 47 главы.",
+   "alt": "График: по горизонтали пористость, по вертикали сопротивление в логарифмическом масштабе; три области между кривыми 1, 3 и 2; точки примеров 46 и 47",
+   "source": "перерисовано по рис. 69, стр. 98 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.chart69_use#c1",
+    "latyshova.chart69_use#c2",
+    "latyshova.chart69_use#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.chart69_use",
+   "node_id": "latyshova.chart69_use"
+  },
+  {
    "id": "latyshova.critical_saturation.i1",
    "step_id": "latyshova.critical_saturation",
    "node_id": "latyshova.critical_saturation",
@@ -703,6 +850,42 @@
    "prompt": null
   },
   {
+   "id": "latyshova.three_flow_intervals.fig70",
+   "file": "illustrations/fig70.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Три интервала водонасыщения: течёт только нефть, нефть с водой, только вода; критические значения из примера 49.",
+   "alt": "Два графика с общей осью водонасыщения: сверху параметр насыщения в логарифмическом масштабе с тремя областями, снизу проницаемости для нефти и воды, пересекающиеся в критической точке",
+   "source": "перерисовано по рис. 70, стр. 99 (Латышова, 1991); критические точки — по примеру 49",
+   "claim_ids": [
+    "latyshova.three_flow_intervals#c1",
+    "latyshova.three_flow_intervals#c2",
+    "latyshova.three_flow_intervals#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.three_flow_intervals",
+   "node_id": "latyshova.three_flow_intervals"
+  },
+  {
+   "id": "latyshova.three_flow_intervals.anim",
+   "file": "media/anim_latyshova.three_flow_intervals.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (шаги примера автора), 12 с, без звука.",
+   "alt": "Анимация: шаги примера автора для шага «Когда из пласта потечёт вода»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.three_flow_intervals#c1",
+    "latyshova.three_flow_intervals#c2",
+    "latyshova.three_flow_intervals#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.three_flow_intervals",
+   "node_id": "latyshova.three_flow_intervals"
+  },
+  {
    "id": "latyshova.saturation_bounds.i1",
    "step_id": "latyshova.saturation_bounds",
    "node_id": "latyshova.saturation_bounds",
@@ -737,6 +920,24 @@
     "latyshova.saturation_bounds#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.saturation_bounds.fig70",
+   "file": "illustrations/fig70.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Три интервала водонасыщения: течёт только нефть, нефть с водой, только вода; критические значения из примера 49.",
+   "alt": "Два графика с общей осью водонасыщения: сверху параметр насыщения в логарифмическом масштабе с тремя областями, снизу проницаемости для нефти и воды, пересекающиеся в критической точке",
+   "source": "перерисовано по рис. 70, стр. 99 (Латышова, 1991); критические точки — по примеру 49",
+   "claim_ids": [
+    "latyshova.saturation_bounds#c1",
+    "latyshova.saturation_bounds#c2",
+    "latyshova.saturation_bounds#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.saturation_bounds",
+   "node_id": "latyshova.saturation_bounds"
   },
   {
    "id": "latyshova.clay_saturation_family.i1",
@@ -845,6 +1046,24 @@
    "prompt": null
   },
   {
+   "id": "latyshova.owc_transition.anim",
+   "file": "media/anim_latyshova.owc_transition.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Где провести границу нефти и воды»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.owc_transition#c1",
+    "latyshova.owc_transition#c2",
+    "latyshova.owc_transition#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.owc_transition",
+   "node_id": "latyshova.owc_transition"
+  },
+  {
    "id": "latyshova.goc_neutron.i1",
    "step_id": "latyshova.goc_neutron",
    "node_id": "latyshova.goc_neutron",
@@ -861,6 +1080,24 @@
     "latyshova.goc_neutron#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.goc_neutron.anim",
+   "file": "media/anim_latyshova.goc_neutron.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Как найти границу газа и нефти»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.goc_neutron#c1",
+    "latyshova.goc_neutron#c2",
+    "latyshova.goc_neutron#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.goc_neutron",
+   "node_id": "latyshova.goc_neutron"
   },
   {
    "id": "latyshova.nonreservoir_layers.i1",
@@ -952,6 +1189,24 @@
    "prompt": null
   },
   {
+   "id": "latyshova.carbonate_features.anim",
+   "file": "media/anim_latyshova.carbonate_features.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Чем сложнее коллекторы в известняках»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.carbonate_features#c1",
+    "latyshova.carbonate_features#c2",
+    "latyshova.carbonate_features#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.carbonate_features",
+   "node_id": "latyshova.carbonate_features"
+  },
+  {
    "id": "latyshova.normalization.i1",
    "step_id": "latyshova.normalization",
    "node_id": "latyshova.normalization",
@@ -986,6 +1241,24 @@
     "latyshova.normalization#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.normalization.anim",
+   "file": "media/anim_latyshova.normalization.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Как наложить две кривые и увидеть нефть»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.normalization#c1",
+    "latyshova.normalization#c2",
+    "latyshova.normalization#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.normalization",
+   "node_id": "latyshova.normalization"
   },
   {
    "id": "latyshova.example54.i1",
@@ -1040,6 +1313,24 @@
     "latyshova.critical_porosity_carbonate#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.fig77",
+   "file": "illustrations/fig77.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Чем ниже пористость, тем больше связанной воды; у разных классов коллекторов кривые свои. Линия 70 % — условие примера 55.",
+   "alt": "Пять убывающих кривых: по горизонтали пористость, по вертикали остаточная водонасыщенность; горизонтальная линия на 70 %",
+   "source": "перерисовано по рис. 77, стр. 107 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate"
   }
  ]
 }

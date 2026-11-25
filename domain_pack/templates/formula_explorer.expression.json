@@ -1,0 +1,18 @@
+{
+ "model": "expression",
+ "expr": "p*exp(-x/3)",
+ "x_range": [
+  0,
+  10
+ ],
+ "y_range": [
+  0,
+  5
+ ],
+ "p_name": "A",
+ "p_unit": "",
+ "x_label": "x",
+ "y_label": "y",
+ "formula_text": "y = A·e^(−x/3)",
+ "source_note": "формула (1.1), стр. 10"
+}

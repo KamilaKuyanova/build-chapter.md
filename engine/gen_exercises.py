@@ -14,6 +14,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import nodetext  # noqa: E402
+import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TYPES = ["single", "multiple", "order", "gap", "calc"]
@@ -140,7 +141,7 @@ def main():
     import llm_client
     d = pathlib.Path(a.dir)
     layer = json.loads((d / "layer.json").read_text(encoding="utf-8-sig"))
-    miscs = json.loads((ROOT / "domain_pack" / "misconceptions.json").read_text(encoding="utf-8-sig"))
+    miscs = domain.load("misconceptions.json")
     tasks = []
     for n in sorted(layer["nodes"], key=lambda x: x["order"]):
         t = gen_for_node(n, miscs, a.per_node, a.rounds, llm_client.generate_json)

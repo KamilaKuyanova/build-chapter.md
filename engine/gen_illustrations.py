@@ -12,9 +12,11 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SG = json.loads((ROOT / "domain_pack" / "styleguide.json").read_text(encoding="utf-8"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import nodetext  # noqa: E402
+import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
+
+SG = domain.load("styleguide.json")
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "scenes"))
 from plot import FONT, INK, MUTED, PANEL, text, wrap  # noqa: E402
@@ -109,16 +111,18 @@ def decision_diagram(node):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", required=True)
-    ap.add_argument("--extra")
+    ap.add_argument("--extra", action="append")
     a = ap.parse_args()
     d = pathlib.Path(a.dir)
     layer = json.loads((d / "layer.json").read_text(encoding="utf-8-sig"))
     out = d / "illustrations"
     out.mkdir(exist_ok=True)
-    saved = d / "extra_illustrations.json"  # расчётные сцены (engine/scenes) подхватываются сами
-    extra = json.loads(saved.read_text(encoding="utf-8")) if saved.exists() else {}
-    if a.extra:
-        extra.update(json.loads(pathlib.Path(a.extra).read_text(encoding="utf-8")))
+    extra = {}  # ролики, перерисованные рисунки, расчётные сцены и анимации подхватываются сами; --extra — сверх этого
+    auto = [d / f for f in ("media_extra.json", "figures_extra.json", "extra_illustrations.json", "anim_extra.json")]
+    for path in [p for p in auto if p.exists()] + [pathlib.Path(p) for p in a.extra or []]:
+        for k, v in json.loads(path.read_text(encoding="utf-8")).items():
+            have = {x["file"] for x in extra.setdefault(k, [])}
+            extra[k] += [x for x in v if x["file"] not in have]
     ills = []
     for n in sorted(layer["nodes"], key=lambda x: x["order"]):
         nid, cl = n["id"], [c["id"] for c in n["claims"]][:3]

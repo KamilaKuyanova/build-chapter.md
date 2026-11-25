@@ -1,5 +1,5 @@
 """Текст для уха и субтитры (часть Б). Читает словарь произношений и ударений из доменного пакета
-(domain_pack/stress_and_pronunciation.md): движок не знает геологии, всё предметное в пакете.
+(pronunciation.md и stress_dictionary.md пакета): движок не знает геологии, всё предметное в пакете.
 
 prepare_for_speech(text) -> текст для синтеза: аббревиатуры по таблице чтения, числа словами, ударения знаком U+0301.
 subtitles_srt(script)    -> SRT из сценария (оригинальный текст, без ударений).
@@ -8,12 +8,15 @@ import pathlib
 import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-DICT = ROOT / "domain_pack" / "stress_and_pronunciation.md"
+import sys as _sys_d  # noqa: E402
+_sys_d.path.insert(0, str(ROOT / "engine"))
+import domain  # noqa: E402
+PRON, STRESS_MD = domain.path("pronunciation.md"), domain.path("stress_dictionary.md")
 ACUTE = "́"
 
 
-def _rows(section_header_start):
-    lines = DICT.read_text(encoding="utf-8").splitlines()
+def _rows(section_header_start, src):
+    lines = src.read_text(encoding="utf-8").splitlines()
     out, on = [], False
     for ln in lines:
         if ln.startswith("## "):
@@ -29,7 +32,7 @@ def _rows(section_header_start):
 def load_abbreviations():
     """{написание: (чтение, расшифровка)}"""
     d = {}
-    for c in _rows("Обозначения"):
+    for c in _rows("Обозначения", PRON):
         if len(c) >= 2 and c[0] and c[1]:
             # «Kп» в таблице латинская K; в текстах бывает кириллическая К
             for key in {x.strip() for x in c[0].split(",")}:
@@ -42,7 +45,7 @@ def load_abbreviations():
 def load_stress():
     """{слово_без_ударения: с_ударением}"""
     d = {}
-    for c in _rows("Ударения"):
+    for c in _rows("Ударения", STRESS_MD):
         if len(c) >= 2 and ACUTE in c[1] or (len(c) >= 2 and c[1] and c[1] != c[0]):
             d[re.sub(r"\s*\(.*\)", "", c[0]).lower()] = c[1].replace("́", ACUTE)
     return d
@@ -52,7 +55,10 @@ ABBR, STRESS = load_abbreviations(), load_stress()
 
 
 def _num_words(m):
-    from num2words import num2words
+    try:
+        from num2words import num2words
+    except ImportError:  # без пакета число прочтёт сам голос
+        return m.group(0)
     s = m.group(0).replace(",", ".")
     try:
         return num2words(float(s) if "." in s else int(s), lang="ru")

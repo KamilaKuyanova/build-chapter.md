@@ -10,7 +10,9 @@
   python run.py tasks-build <глава>               work/<глава>/tasks_answer.json -> data/<глава>/tasks.json, проверка ключей
   python run.py domain <глава>                    промпт доменного пакета -> work/<глава>/domain_prompt.md
   python run.py domain-build <глава>              work/<глава>/domain_answer.json -> domains/<домен>/
-  python run.py rebuild <глава>                   слой, задания и курс заново одной командой
+  python run.py video <глава> <узел> [short|long] промпт ролика -> work/<глава>/video_prompt.md
+  python run.py video-build <глава> [preview]     work/<глава>/video_answer.json -> проверка, ролик, паспорт, курс
+  python run.py rebuild <глава> [video]           слой, задания, (ролики) и курс заново одной командой
   python run.py course <глава>                    слой -> data/<глава>/, курс -> out/<глава>/index.html
   python run.py review <package.json>             промпты проверки чужого пакета -> work/review_<пакет>/
   python run.py review-build <package.json>       ответы -> work/review_<пакет>/review.json
@@ -26,7 +28,7 @@ from collections import Counter
 from pathlib import Path
 
 from engine import nodes as nodes_mod, review as review_mod, route as route_mod, tasks as tasks_mod
-from engine import domain as domain_mod
+from engine import domain_fill as domain_mod
 from engine.check import check_layer
 from engine.schema import validate
 from engine.units import build_units, needs_cover
@@ -178,7 +180,7 @@ def restore(chapter):
     if not saved.exists():
         return
     for path in saved.glob("*.json"):
-        dst = (work / path.name) if path.name.startswith(("tasks", "domain")) else (work / "answers" / path.name)
+        dst = (work / path.name) if path.name.startswith(("tasks", "domain", "video")) else (work / "answers" / path.name)
         if not dst.exists():
             dst.parent.mkdir(parents=True, exist_ok=True)
             dst.write_text(path.read_text(encoding="utf-8"), encoding="utf-8")
@@ -251,13 +253,81 @@ def cmd_domain_build(chapter):
     return 1 if errors else 0
 
 
-def cmd_rebuild(chapter):
+def video_mod(domain):
+    """Модули роликов читают доменный пакет при загрузке, поэтому домен задаётся до неё."""
+    os.environ["DOMAIN"] = domain
+    sys.path.insert(0, str(ROOT / "engine" / "video"))
+    import plan
+    return plan
+
+
+def cmd_video(chapter, node, fmt="short"):
+    _, (spec,) = chapter_specs(chapter)
+    work, plan = ROOT / "work" / chapter, video_mod(spec.get("domain", "geology"))
+    text = plan.prompt((ROOT / "prompts" / "video.md").read_text(encoding="utf-8"), chapter, load(work / "layer.json"), node, fmt)
+    (work / "video_prompt.md").write_text(text, encoding="utf-8")
+    print(f"work/{chapter}/video_prompt.md ({len(text) // 1000} тыс. знаков), ответ в work/{chapter}/video_answer.json, "
+          f"потом: python run.py video-build {chapter}")
+
+
+def cmd_video_build(chapter, mode=""):
+    _, (spec,) = chapter_specs(chapter)
+    work, plan = ROOT / "work" / chapter, video_mod(spec.get("domain", "geology"))
+    doc = nodes_mod.parse_answer((work / "video_answer.json").read_text(encoding="utf-8-sig"))
+    if doc.get("need_new_scene"):
+        print("Нужна новая сцена:", doc["need_new_scene"])
+        return 1
+    layer = load(work / "layer.json")
+    errors, warn = plan.check(doc, layer)
+    for e in errors:
+        print("[error]", e)
+    for w in warn:
+        print("[suspect]", w)
+    if errors:
+        return 1
+    folder = ROOT / "videos" / doc["video_id"]
+    save(folder / "video.json", doc)
+    save(ROOT / "data" / chapter / "layer.json", layer)
+    backup(chapter, "video_answer.json")
+    return build_video(folder, doc["format"], chapter, spec, mode)
+
+
+def build_video(folder, fmt, chapter, spec, mode=""):
+    env = {**os.environ, "DOMAIN": spec.get("domain", "geology"), "PYTHONUTF8": "1"}
+    cmd = [sys.executable, str(ROOT / "engine" / "video" / "make_video.py"), str(folder), "--fps", "30"]
+    bad = subprocess.run(cmd + (["--preview"] if mode == "preview" else []), env=env).returncode
+    if not bad:
+        subprocess.run([sys.executable, str(ROOT / "engine" / "video" / "passport_check.py"), str(folder / "passport.json"),
+                        "--format", fmt, "--layer", str(ROOT / "data" / chapter / "layer.json")], env=env)
+        if mode != "preview":
+            subprocess.run([sys.executable, str(ROOT / "engine" / "gen_illustrations.py"), "--dir", str(ROOT / "data" / chapter)], env=env)
+    return bad
+
+
+def rebuild_videos(chapter):
+    """Ролики главы, которые стоят в курсе: те же файлы videos/<id>/video.json, новый слой."""
+    _, (spec,) = chapter_specs(chapter)
+    path, used = ROOT / "data" / chapter / "media_extra.json", set()
+    if path.exists():
+        used = {Path(x["file"]).stem for rows in load(path).values() for x in rows}
+    bad = 0
+    for p in sorted((ROOT / "videos").glob("*/video.json")):
+        doc = load(p)
+        if doc["chapter"] == chapter and doc["video_id"] in used:
+            bad = build_video(p.parent, doc["format"], chapter, spec) or bad
+    return bad
+
+
+def cmd_rebuild(chapter, what=""):
     if not (ROOT / "work" / chapter / "units.json").exists():
         cmd_units(chapter)
     restore(chapter)
     bad = cmd_build(chapter)
     if (ROOT / "work" / chapter / "tasks_answer.json").exists():
         bad = cmd_tasks_build(chapter) or bad
+    if what == "video":
+        save(ROOT / "data" / chapter / "layer.json", load(ROOT / "work" / chapter / "layer.json"))
+        bad = rebuild_videos(chapter) or bad
     return cmd_course(chapter) or bad
 
 
@@ -302,10 +372,12 @@ def cmd_course(chapter, *flags):
     for name, key in (("tasks.json", "tasks"), ("illustrations.json", "illustrations")):
         if not (data / name).exists():
             save(data / name, {"chapter": chapter, key: []})
+    if (ROOT / "run_b.py").exists():   # часть Б одной командой: задания, рисунки, анимации, иллюстрации, курс
+        return subprocess.run([sys.executable, str(ROOT / "run_b.py"), chapter, *flags],
+                              env={**os.environ, "DOMAIN": spec.get("domain", "geology"), "PYTHONUTF8": "1"}).returncode
     return subprocess.run([sys.executable, str(ROOT / "engine" / "build_course.py"), "--dir", str(data),
                            "--out", str(ROOT / "out" / chapter), "--title", spec["title"], *flags],
-                          env={**os.environ, "COURSE_DOMAIN_DIR": domain_dir(spec.get("domain", "geology"))
-                               .relative_to(ROOT).as_posix()}).returncode
+                          env={**os.environ, "DOMAIN": spec.get("domain", "geology")}).returncode
 
 
 def review_setup(package_path, domain):
@@ -358,7 +430,7 @@ def cmd_log(chapter, file, minutes, people, run_no, what, why):
 
 
 COMMANDS = {"units": cmd_units, "next": cmd_next, "build": cmd_build, "check": cmd_check, "course": cmd_course, "add": cmd_add, "status": cmd_status, "rebuild": cmd_rebuild,
-            "domain": cmd_domain, "domain-build": cmd_domain_build,
+            "domain": cmd_domain, "domain-build": cmd_domain_build, "video": cmd_video, "video-build": cmd_video_build,
             "tasks": cmd_tasks, "tasks-build": cmd_tasks_build,
             "review": cmd_review, "review-build": cmd_review_build, "log": cmd_log}
 

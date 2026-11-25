@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+sys.path.append(str(ROOT / "engine" / "video"))
 
 from engine.check import check_layer  # noqa: E402
 from engine.textnorm import norm_quote, numbers  # noqa: E402
@@ -290,7 +291,7 @@ class Formulas(unittest.TestCase):
 class Domain(unittest.TestCase):
     def test_merge_adds_and_checks(self):
         import tempfile
-        from engine.domain import merge, rows
+        from engine.domain_fill import merge, rows
         with tempfile.TemporaryDirectory() as d:
             folder = Path(d) / "x"
             ans = {"glossary": [{"ru": "Раствор", "note": "жидкость", "page": 9}, {"ru": "Шлам", "note": "о", "page": 99}],
@@ -301,6 +302,45 @@ class Domain(unittest.TestCase):
             self.assertEqual(len(errors), 3)
             self.assertEqual(merge(folder, ans, {8, 9})[0], {})
             self.assertEqual([x["id"] for x in rows(folder, "misconceptions")], ["misc.a"])
+
+
+class Video(unittest.TestCase):
+    LAYER = {"nodes": [{"id": "x.a", "claims": [{"id": "x.a#c1", "text": "Мокрый песок темнее при 15 % влажности.", "quote": "при 15 % влажности"}]}]}
+
+    def doc(self, **k):
+        line = "Мокрый песок темнее сухого, и это видно каждому на любом пляже после дождя"
+        script = [{"text": "Почему мокрый песок темнее?", "claim_id": "x.a#c1", "beat": {"head": "Почему *темнее?*"}}]
+        script += [{"text": line, "claim_id": "x.a#c1", "beat": {"head": "Темнее"}} for _ in range(6)]
+        script += [{"text": "Что будет дальше?", "claim_id": "x.a#c1", "prediction": True, "beat": {"head": "Что дальше?"}},
+                   {"text": "А в ваших данных?", "claim_id": "x.a#c1", "beat": {"head": "А у вас?"}}]
+        d = {"video_id": "v", "chapter": "x", "node_id": "x.a", "format": "short", "scene": "log_run", "script": script, "params": {"depth": 1},
+             "exaggerations": ["нет преувеличений"], "prediction_question": "?", "transfer_question": "?", "data_it_bridge": "мост",
+             "physics": {"pc.depth_down": ["да", "x"]}}
+        d.update(k)
+        return d
+
+    def test_good_script(self):
+        import plan
+        errors, warn = plan.check(self.doc(), self.LAYER)
+        self.assertEqual((errors, warn), ([], []))
+
+    def test_bad_script(self):
+        import plan
+        d = self.doc()
+        d["script"][0]["text"] = "Песок темнее."
+        d["script"][1]["text"] = "слово " * 19
+        d["script"][2] = {"text": "При 40 процентах песок чёрный", "claim_id": "x.a#c1", "beat": {"head": "κ = 5"}}
+        d["script"][3]["claim_id"] = "x.a#c9"
+        errors, warn = plan.check(d, self.LAYER)
+        for part in ("не вопрос", "максимум 18", "греческая", "нет утверждения x.a#c9"):
+            self.assertTrue(any(part in e for e in errors), part)
+        self.assertTrue(any("40" in w for w in warn))
+
+    def test_changed_claim_replaces_phrase(self):
+        import make_video
+        spec = {"script": [{"text": "Старый текст", "claim_id": "x.a#c1"}], "claims_at": {"x.a#c1": "Старое утверждение"}}
+        make_video.follow_layer(spec, {"x.a#c1": {"text": "Новое утверждение"}}, Path("."))
+        self.assertEqual(spec["script"][0]["text"], "Новое утверждение")
 
 
 class Math(unittest.TestCase):

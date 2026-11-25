@@ -20,6 +20,24 @@
    "prompt": null
   },
   {
+   "id": "basniev.unsteady_processes.anim",
+   "file": "media/anim_basniev.unsteady_processes.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Что движется, когда скважину пустили»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.unsteady_processes#c1",
+    "basniev.unsteady_processes#c2",
+    "basniev.unsteady_processes#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.unsteady_processes",
+   "node_id": "basniev.unsteady_processes"
+  },
+  {
    "id": "basniev.elastic_drive.i1",
    "step_id": "basniev.elastic_drive",
    "node_id": "basniev.elastic_drive",
@@ -36,6 +54,24 @@
     "basniev.elastic_drive#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "basniev.elastic_drive.anim",
+   "file": "media/anim_basniev.elastic_drive.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Как сжатый пласт выталкивает жидкость»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.elastic_drive#c1",
+    "basniev.elastic_drive#c2",
+    "basniev.elastic_drive#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.elastic_drive",
+   "node_id": "basniev.elastic_drive"
   },
   {
    "id": "basniev.elastic_drive_kinds.i1",
@@ -90,6 +126,31 @@
     "basniev.slow_redistribution#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "basniev.slow_redistribution.video",
+   "file": "media/basniev_response.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Ролик (разбор 16:9, 115 с): Соседняя скважина в 200 м отзовётся через секунды, минуты или часы?",
+   "alt": "Ролик разбор 16:9 по шагу; субтитры включаются в плеере",
+   "source": "паспорт: videos/basniev_response/passport.json",
+   "claim_ids": [
+    "basniev.basic_formula#c2",
+    "basniev.basic_formula#c4",
+    "basniev.elastic_drive#c1",
+    "basniev.piezo_coefficient#c1",
+    "basniev.piezo_coefficient#c3",
+    "basniev.slow_redistribution#c1",
+    "basniev.slow_redistribution#c2",
+    "basniev.slow_redistribution#c3",
+    "basniev.unsteady_processes#c5",
+    "basniev.why_hydrodynamics#c2"
+   ],
+   "prompt": null,
+   "step_id": "basniev.slow_redistribution",
+   "node_id": "basniev.slow_redistribution"
   },
   {
    "id": "basniev.elastic_reserve.i1",
@@ -286,6 +347,24 @@
    "prompt": null
   },
   {
+   "id": "basniev.piezo_equation.anim",
+   "file": "media/anim_basniev.piezo_equation.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Главное уравнение всей главы»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.piezo_equation#c1",
+    "basniev.piezo_equation#c2",
+    "basniev.piezo_equation#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.piezo_equation",
+   "node_id": "basniev.piezo_equation"
+  },
+  {
    "id": "basniev.piezo_coefficient.i1",
    "step_id": "basniev.piezo_coefficient",
    "node_id": "basniev.piezo_coefficient",
@@ -302,6 +381,24 @@
     "basniev.piezo_coefficient#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "basniev.piezo_coefficient.anim",
+   "file": "media/anim_basniev.piezo_coefficient.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Число, которое задаёт темп пласта»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.piezo_coefficient#c1",
+    "basniev.piezo_coefficient#c2",
+    "basniev.piezo_coefficient#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.piezo_coefficient",
+   "node_id": "basniev.piezo_coefficient"
   },
   {
    "id": "basniev.piezo_limits.i1",
@@ -358,6 +455,24 @@
    "prompt": null
   },
   {
+   "id": "basniev.gallery_pressure_setup.anim",
+   "file": "media/anim_basniev.gallery_pressure_setup.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Первая задача: галерея в пласте»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.gallery_pressure_setup#c1",
+    "basniev.gallery_pressure_setup#c2",
+    "basniev.gallery_pressure_setup#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.gallery_pressure_setup",
+   "node_id": "basniev.gallery_pressure_setup"
+  },
+  {
    "id": "basniev.self_similar.i1",
    "step_id": "basniev.self_similar",
    "node_id": "basniev.self_similar",
@@ -374,6 +489,24 @@
     "basniev.self_similar#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "basniev.self_similar.anim",
+   "file": "media/anim_basniev.self_similar.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Две переменные сливаются в одну»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.self_similar#c1",
+    "basniev.self_similar#c2",
+    "basniev.self_similar#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.self_similar",
+   "node_id": "basniev.self_similar"
   },
   {
    "id": "basniev.ode_reduction.i1",
@@ -430,6 +563,24 @@
    "node_id": "basniev.erf_solution"
   },
   {
+   "id": "basniev.erf_solution.anim",
+   "file": "media/anim_basniev.erf_solution.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Как выглядит давление вдоль пласта»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.erf_solution#c1",
+    "basniev.erf_solution#c2",
+    "basniev.erf_solution#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.erf_solution",
+   "node_id": "basniev.erf_solution"
+  },
+  {
    "id": "basniev.gallery_rate.i1",
    "step_id": "basniev.gallery_rate",
    "node_id": "basniev.gallery_rate",
@@ -456,6 +607,24 @@
    "caption": "Дебит галереи при постоянном давлении: убывает как единица на корень из времени.",
    "alt": "Кривая дебита резко падает в начале и дальше убывает медленно",
    "source": null,
+   "claim_ids": [
+    "basniev.gallery_rate#c1",
+    "basniev.gallery_rate#c2",
+    "basniev.gallery_rate#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.gallery_rate",
+   "node_id": "basniev.gallery_rate"
+  },
+  {
+   "id": "basniev.gallery_rate.anim",
+   "file": "media/anim_basniev.gallery_rate.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему дебит падает со временем»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
    "claim_ids": [
     "basniev.gallery_rate#c1",
     "basniev.gallery_rate#c2",
@@ -608,6 +777,24 @@
    "node_id": "basniev.gallery_pressure_law"
   },
   {
+   "id": "basniev.gallery_pressure_law.anim",
+   "file": "media/anim_basniev.gallery_pressure_law.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Где формула теряет смысл»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.gallery_pressure_law#c1",
+    "basniev.gallery_pressure_law#c2",
+    "basniev.gallery_pressure_law#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.gallery_pressure_law",
+   "node_id": "basniev.gallery_pressure_law"
+  },
+  {
    "id": "basniev.radial_setup.i1",
    "step_id": "basniev.radial_setup",
    "node_id": "basniev.radial_setup",
@@ -688,6 +875,24 @@
    "caption": "Снижение давления вокруг скважины через 100, 1000 и 10 000 секунд.",
    "alt": "Три кривые: воронка давления со временем становится глубже и шире",
    "source": null,
+   "claim_ids": [
+    "basniev.basic_formula#c1",
+    "basniev.basic_formula#c2",
+    "basniev.basic_formula#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.basic_formula",
+   "node_id": "basniev.basic_formula"
+  },
+  {
+   "id": "basniev.basic_formula.anim",
+   "file": "media/anim_basniev.basic_formula.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Формула, ради которой всё выводили»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
    "claim_ids": [
     "basniev.basic_formula#c1",
     "basniev.basic_formula#c2",
@@ -786,6 +991,23 @@
    "node_id": "basniev.flow_profile"
   },
   {
+   "id": "basniev.flow_profile.anim",
+   "file": "media/anim_basniev.flow_profile.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 9 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Где поток уже установился»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.flow_profile#c1",
+    "basniev.flow_profile#c2"
+   ],
+   "prompt": null,
+   "step_id": "basniev.flow_profile",
+   "node_id": "basniev.flow_profile"
+  },
+  {
    "id": "basniev.fourier_numbers.i1",
    "step_id": "basniev.fourier_numbers",
    "node_id": "basniev.fourier_numbers",
@@ -838,6 +1060,24 @@
     "basniev.point_sink_error#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "basniev.point_sink_error.anim",
+   "file": "media/anim_basniev.point_sink_error.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Насколько врёт нулевой радиус»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.point_sink_error#c1",
+    "basniev.point_sink_error#c2",
+    "basniev.point_sink_error#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.point_sink_error",
+   "node_id": "basniev.point_sink_error"
   },
   {
    "id": "basniev.finite_reservoir_error.i1",
@@ -912,6 +1152,24 @@
    "node_id": "basniev.piezometric_curves"
   },
   {
+   "id": "basniev.piezometric_curves.anim",
+   "file": "media/anim_basniev.piezometric_curves.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Форма воронки давления у скважины»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.piezometric_curves#c1",
+    "basniev.piezometric_curves#c2",
+    "basniev.piezometric_curves#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.piezometric_curves",
+   "node_id": "basniev.piezometric_curves"
+  },
+  {
    "id": "basniev.why_approximate.i1",
    "step_id": "basniev.why_approximate",
    "node_id": "basniev.why_approximate",
@@ -948,6 +1206,24 @@
    "prompt": null
   },
   {
+   "id": "basniev.psss_idea.anim",
+   "file": "media/anim_basniev.psss_idea.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Движение как череда замерших кадров»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.psss_idea#c1",
+    "basniev.psss_idea#c2",
+    "basniev.psss_idea#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.psss_idea",
+   "node_id": "basniev.psss_idea"
+  },
+  {
    "id": "basniev.psss_phases.i1",
    "step_id": "basniev.psss_phases",
    "node_id": "basniev.psss_phases",
@@ -964,6 +1240,24 @@
     "basniev.psss_phases#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "basniev.psss_phases.anim",
+   "file": "media/anim_basniev.psss_phases.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Пока граница бежит и когда дошла»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.psss_phases#c1",
+    "basniev.psss_phases#c2",
+    "basniev.psss_phases#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.psss_phases",
+   "node_id": "basniev.psss_phases"
   },
   {
    "id": "basniev.psss_front_linear.i1",
@@ -992,6 +1286,24 @@
    "caption": "Движение границы возмущённой области и заблуждение о постоянной скорости.",
    "alt": "Кривая корня из времени отстаёт от прямой с постоянной скоростью",
    "source": null,
+   "claim_ids": [
+    "basniev.psss_front_linear#c1",
+    "basniev.psss_front_linear#c2",
+    "basniev.psss_front_linear#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.psss_front_linear",
+   "node_id": "basniev.psss_front_linear"
+  },
+  {
+   "id": "basniev.psss_front_linear.anim",
+   "file": "media/anim_basniev.psss_front_linear.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Как быстро бежит граница возмущения»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
    "claim_ids": [
     "basniev.psss_front_linear#c1",
     "basniev.psss_front_linear#c2",
@@ -1106,6 +1418,24 @@
    "prompt": null
   },
   {
+   "id": "basniev.psss_radial_setup.anim",
+   "file": "media/anim_basniev.psss_radial_setup.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Тот же приём вокруг скважины»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.psss_radial_setup#c1",
+    "basniev.psss_radial_setup#c2",
+    "basniev.psss_radial_setup#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.psss_radial_setup",
+   "node_id": "basniev.psss_radial_setup"
+  },
+  {
    "id": "basniev.psss_radial_front.i1",
    "step_id": "basniev.psss_radial_front",
    "node_id": "basniev.psss_radial_front",
@@ -1160,6 +1490,24 @@
    "node_id": "basniev.psss_radial_front"
   },
   {
+   "id": "basniev.psss_radial_front.anim",
+   "file": "media/anim_basniev.psss_radial_front.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Радиус возмущения растёт всё медленнее»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basniev.psss_radial_front#c1",
+    "basniev.psss_radial_front#c2",
+    "basniev.psss_radial_front#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.psss_radial_front",
+   "node_id": "basniev.psss_radial_front"
+  },
+  {
    "id": "basniev.psss_radial_pressure.i1",
    "step_id": "basniev.psss_radial_pressure",
    "node_id": "basniev.psss_radial_pressure",
@@ -1186,6 +1534,24 @@
    "caption": "Погрешность депрессии скважины по методу ПССС; точки — числа автора.",
    "alt": "Кривая погрешности убывает и проходит через три точки из книги",
    "source": null,
+   "claim_ids": [
+    "basniev.psss_radial_pressure#c1",
+    "basniev.psss_radial_pressure#c2",
+    "basniev.psss_radial_pressure#c3"
+   ],
+   "prompt": null,
+   "step_id": "basniev.psss_radial_pressure",
+   "node_id": "basniev.psss_radial_pressure"
+  },
+  {
+   "id": "basniev.psss_radial_pressure.anim",
+   "file": "media/anim_basniev.psss_radial_pressure.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Насколько точна радиальная формула»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
    "claim_ids": [
     "basniev.psss_radial_pressure#c1",
     "basniev.psss_radial_pressure#c2",

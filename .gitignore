@@ -29,3 +29,5 @@ data/page_images/
 .env
 *.key
 .claude/settings.local.json
+novice_test/results/
+

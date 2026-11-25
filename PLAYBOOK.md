@@ -34,6 +34,9 @@ python run.py add ГЛАВА "путь к файлу.md" en geology
 6. **Картинки:** `python engine/gen_illustrations.py --dir data/ГЛАВА`.
 7. **Курс:** `python run.py rebuild ГЛАВА`. Открыть `out/ГЛАВА/index.html`.
 
+8. **Ролик на назначенный узел** (организаторы называют узел): `python run.py video ГЛАВА УЗЕЛ short` → прочитать `work/ГЛАВА/video_prompt.md` → ответ в `work/ГЛАВА/video_answer.json` → `python run.py video-build ГЛАВА preview` → посмотреть кадры `out/video/ID/preview_*.jpg` → `python run.py video-build ГЛАВА`. Рендер шортса около 3 минут, разбора около 8. Если нужен голос ElevenLabs, перед запуском в этом же окне задаётся `ELEVENLABS_API_KEY`; без ключа ролик выйдет голосом Windows. Если ни одна сцена не подходит, честный ответ «нужна новая» попадает в отчёт о покрытии.
+9. **Анимации и отчёт о покрытии:** `python run_b.py ГЛАВА` (нужен `pip install -r requirements.txt`).
+
 Что уже сделано и какой шаг следующий: `python run.py status ГЛАВА`.
 
 ## Пакет с закладками

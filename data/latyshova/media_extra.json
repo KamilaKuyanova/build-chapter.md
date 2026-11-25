@@ -1,0 +1,23 @@
+{
+ "latyshova.rock_signs_table": [
+  {
+   "id": "latyshova.rock_signs_table.video",
+   "file": "media/latyshova_signs.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Ролик (шортс 9:16, 66 с): Если в песчанике вместо солёной воды нефть, станет ли сопротивление максимальным?",
+   "alt": "Ролик шортс 9:16 по шагу; субтитры включаются в плеере",
+   "source": "паспорт: videos/latyshova_signs/passport.json",
+   "claim_ids": [
+    "latyshova.rock_signs_table#c1",
+    "latyshova.rock_signs_table#c2",
+    "latyshova.rock_signs_table#c4",
+    "latyshova.rock_signs_table#c7",
+    "latyshova.rock_signs_table#c8",
+    "latyshova.rock_signs_table#c9"
+   ],
+   "prompt": null
+  }
+ ]
+}

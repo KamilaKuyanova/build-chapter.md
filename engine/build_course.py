@@ -14,6 +14,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import nodetext  # noqa: E402
 from mathml import convert, rich  # noqa: E402
 import validate_layer  # noqa: E402
+import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 WARN = []
@@ -165,7 +166,17 @@ def render_illustrations(node, ills):
         fname = pathlib.Path(i["file"]).name
         lab = f' · {e(i["label"])}' if i.get("label") else ""
         src = f' · {e(i["source"])}' if i.get("source") else ""
-        out.append(f'<figure><img src="assets/{e(fname)}" alt="{e(i["alt"])}" loading="lazy">'
+        if fname.lower().endswith(".mp4") and fname.startswith("anim_"):   # анимация логики шага: без звука, петлёй
+            media = (f'<video autoplay muted loop playsinline controls preload="metadata" src="assets/{e(fname)}" '
+                     f'aria-label="{e(i["alt"])}" style="max-width:100%"></video>')
+        elif fname.lower().endswith(".mp4"):
+            vtt = pathlib.Path(fname).with_suffix(".vtt").name
+            media = (f'<video controls preload="metadata" playsinline src="assets/{e(fname)}" aria-label="{e(i["alt"])}" '
+                     f'style="max-width:100%;max-height:80vh"><track kind="subtitles" srclang="ru" label="Русские субтитры" '
+                     f'src="assets/{e(vtt)}"></video>')
+        else:
+            media = f'<img src="assets/{e(fname)}" alt="{e(i["alt"])}" loading="lazy">'
+        out.append(f'<figure>{media}'
                    f'<figcaption>{e(i["caption"])} <span class="tag">класс {e(i["frame_class"])}{lab}{src}</span></figcaption></figure>')
     return "".join(out)
 
@@ -227,11 +238,15 @@ def render_step(node, i, total, tasks, ills, route, glossary):
 
 def render_cards(nodes):
     cards = "".join(
-        f'<div class="card"><h3>{e(novice(n))}</h3><details><summary>Показать ответ</summary>'
-        f'<p>{e(nodetext._f(n["layers"].get("main")))}</p></details>'
-        f'<button data-know="{e(n["id"])}">Знаю</button> <button data-repeat="{e(n["id"])}">Повторить</button></div>'
+        f'<div class="card" data-card="{e(n["id"])}"><span class="card-mark" aria-live="polite"></span><h3>{e(novice(n))}</h3>'
+        f'<details><summary>Показать ответ</summary><p>{e(nodetext._f(n["layers"].get("main")))}</p></details>'
+        f'<button type="button" data-know="{e(n["id"])}" aria-pressed="false">Знаю</button> '
+        f'<button type="button" data-repeat="{e(n["id"])}" aria-pressed="false">Повторить</button></div>'
         for n in nodes)
-    return f'<section class="view" id="cards" hidden><h2>Карточки</h2>{cards}</section>'
+    bar = ('<div class="cardbar"><span id="cardstat"></span> '
+           '<button type="button" id="cardfilter" aria-pressed="false">Показать только «повторить»</button> '
+           '<button type="button" id="cardreset">Сбросить отметки</button></div>')
+    return f'<section class="view" id="cards" hidden><h2>Карточки</h2>{bar}{cards}</section>'
 
 
 def render_notes(nodes):
@@ -281,7 +296,7 @@ def main():
         routing = {r["node_id"]: r for r in validate_layer.load_json(d / "routing.json").get("routes", [])}
     nodes = sorted(layer["nodes"], key=lambda n: n["order"])
     glossary = {}
-    gp = validate_layer.PACK / "glossary.json"
+    gp = domain.path("glossary.json")
     if gp.exists():
         gl = validate_layer.load_json(gp)
         for t in gl if isinstance(gl, list) else gl.get("terms", []):
@@ -290,12 +305,17 @@ def main():
     by_step_t, by_step_i = {}, {}
     for t in tasks["tasks"]:
         by_step_t.setdefault(t["step_id"], []).append(t)
+    lost = [i for i in ill["illustrations"] if not (d / i["file"]).exists()]
     for i in ill["illustrations"]:
-        by_step_i.setdefault(i["step_id"], []).append(i)
+        if i not in lost:
+            by_step_i.setdefault(i["step_id"], []).append(i)
+    if lost:
+        warn(f"нет файлов на этом компьютере, в курс не вошли: {len(lost)} (например {lost[0]['file']}). "
+             "Ролики собирает engine/video/make_video.py, анимации — engine/video/make_animations.py")
     steps = "".join(render_step(n, k + 1, len(nodes), by_step_t.get(n["id"], []), by_step_i.get(n["id"], []),
                                routing.get(n["id"]), glossary) for k, n in enumerate(nodes))
     body = render_path(nodes) + steps + render_cards(nodes) + render_notes(nodes) + render_map(nodes)
-    misc = {m["id"]: m["text"] for m in validate_layer.load_json(validate_layer.PACK / "misconceptions.json")}
+    misc = {m["id"]: m["text"] for m in domain.load("misconceptions.json")}
     tpl = (ROOT / "engine" / "template.html").read_text(encoding="utf-8")
     title = a.title or f"Демо-курс: {layer['chapter']}"
     page = (tpl.replace("{{TITLE}}", e(title)).replace("{{BODY}}", body)
@@ -310,9 +330,11 @@ def main():
         src = d / i["file"]
         if src.exists():
             shutil.copyfile(src, out / "assets" / pathlib.Path(i["file"]).name)
-        else:
-            warn(f"файл иллюстрации не найден: {src}")
-    total = sum(f.stat().st_size for f in out.rglob("*") if f.is_file())
+            vtt = src.with_suffix(".vtt")  # субтитры ролика рядом с mp4
+            if src.suffix.lower() == ".mp4" and vtt.exists():
+                shutil.copyfile(vtt, out / "assets" / vtt.name)
+    video_bytes = sum(f.stat().st_size for f in (out / "assets").glob("*.mp4"))
+    total = sum(f.stat().st_size for f in out.rglob("*") if f.is_file()) - video_bytes  # ТЗ: ≤30 МБ без видео
     if total > 30 * 1024 * 1024:
         warn(f"курс весит {total // 1048576} МБ > 30 МБ")
     print(f"Собрано: {out / 'index.html'} ({total // 1024} КБ), шагов {len(nodes)}, заданий {len(tasks['tasks'])}")

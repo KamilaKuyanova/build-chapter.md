@@ -14,6 +14,9 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "engine"))
 import speech  # noqa: E402
 import validate_layer  # noqa: E402
+import sys as _sys_d  # noqa: E402
+_sys_d.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[1]))
+import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
 
 HOOK = re.compile(r"\?|^(почему|зачем|как|что если|а если|представьте)", re.I)
 
@@ -82,7 +85,7 @@ def check(p, fmt, layer=None):
         if not p.get(k, "").strip():
             errs.append(f"(О) {k}: не заполнено")
     # чек-лист физики: все pc.* отвечены, «нет» — только с оговоркой
-    pcs = [c["id"] for c in validate_layer.load_json(ROOT / "domain_pack" / "physics_checklist.json")]
+    pcs = [c["id"] for c in domain.load("physics_checklist.json")]
     got = {x["item"]: x for x in p.get("physics_checklist", [])}
     for cid in pcs:
         if cid not in got:

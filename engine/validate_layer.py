@@ -13,16 +13,15 @@
 """
 import argparse
 import json
-import os
 import pathlib
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import nodetext  # noqa: E402
+import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SCHEMAS = ROOT / "schema" / "official"
-PACK = ROOT / os.environ.get("COURSE_DOMAIN_DIR", "domain_pack")
 
 
 def load_json(p):
@@ -35,7 +34,7 @@ def schema_errors(data, schema_name, label):
 
 
 def misconception_ids():
-    return {m["id"] for m in load_json(PACK / "misconceptions.json")}
+    return {m["id"] for m in domain.load("misconceptions.json")}
 
 
 def check_layer(layer):

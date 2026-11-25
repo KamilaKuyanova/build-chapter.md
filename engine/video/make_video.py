@@ -22,6 +22,9 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "engine"))
 import speech  # noqa: E402
+import sys as _sys_d  # noqa: E402
+_sys_d.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[1]))
+import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
 
 
 def ffmpeg():
@@ -175,7 +178,7 @@ def main():
     (vdir / "scene_spec.json").write_text(json.dumps(scene.SPEC, ensure_ascii=False, indent=1), encoding="utf-8")
     node = nodes[spec["node_id"]]
     used = sorted({b["claim_id"] for b in beats if b.get("claim_id")})
-    pcs = json.loads((ROOT / "domain_pack" / "physics_checklist.json").read_text(encoding="utf-8"))
+    pcs = domain.load("physics_checklist.json")
     script = [{k: v for k, v in b.items() if k in ("t_start", "t_end", "text", "claim_id", "is_analogy", "on_screen")}
               for b in beats]
     for s in script:

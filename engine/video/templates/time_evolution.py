@@ -3,19 +3,11 @@
 (например, пористость) — кусочно-линейная функция T. Параметры: t_name, t_unit, t_range [начало, конец] (в прошлом → к нам),
 layers [{t_from, t_to, name, color, thick}], quantity {name, unit, color, points [[T, v]…], range}, events [{t, name}].
 beat: T [от, до], card."""
-from canvas import SG, caption, card, color, current, header, layout, new, rgb, text, track, wrap
+from canvas import preset, SG, caption, card, color, current, header, layout, new, rgb, text, track, wrap
 
 NAME, TYPE = "time_evolution", "В"
 STATE = "время T; толщина каждого слоя и величина — функции T"
-EXAMPLE = {
-    "title": "Риф растёт, поры зарастают", "t_name": "время", "t_unit": "условные этапы", "t_range": [0, 10],
-    "layers": [{"t_from": 0, "t_to": 3, "name": "основание", "color": "lithology.limestone", "thick": 2},
-               {"t_from": 3, "t_to": 7, "name": "рифовый известняк", "color": "lithology.reef", "thick": 5},
-               {"t_from": 7, "t_to": 10, "name": "покрышка", "color": "lithology.shale", "thick": 2}],
-    "quantity": {"name": "пористость рифа", "unit": "условно", "color": "curves.NEUTRON", "range": [0, 1],
-                 "points": [[3, 0.9], [7, 0.7], [10, 0.3]]},
-    "events": [{"t": 3, "name": "начало роста"}, {"t": 7, "name": "погружение"}],
-}
+EXAMPLE = preset(NAME)  # параметры-образец — в доменном пакете: templates/<шаблон>.json
 
 
 def spec(params):

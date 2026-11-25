@@ -13,6 +13,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import nodetext  # noqa: E402
 import validate_layer  # noqa: E402
+import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 WARN = []
@@ -291,7 +292,7 @@ def main():
         routing = {r["node_id"]: r for r in validate_layer.load_json(d / "routing.json").get("routes", [])}
     nodes = sorted(layer["nodes"], key=lambda n: n["order"])
     glossary = {}
-    gp = ROOT / "domain_pack" / "glossary.json"
+    gp = domain.path("glossary.json")
     if gp.exists():
         for t in validate_layer.load_json(gp).get("terms", []):
             if t.get("ru") and t.get("note"):
@@ -304,7 +305,7 @@ def main():
     steps = "".join(render_step(n, k + 1, len(nodes), by_step_t.get(n["id"], []), by_step_i.get(n["id"], []),
                                routing.get(n["id"]), glossary) for k, n in enumerate(nodes))
     body = render_path(nodes) + steps + render_cards(nodes) + render_notes(nodes) + render_map(nodes)
-    misc = {m["id"]: m["text"] for m in validate_layer.load_json(ROOT / "domain_pack" / "misconceptions.json")}
+    misc = {m["id"]: m["text"] for m in domain.load("misconceptions.json")}
     tpl = (ROOT / "engine" / "template.html").read_text(encoding="utf-8")
     title = a.title or f"Демо-курс: {layer['chapter']}"
     page = (tpl.replace("{{TITLE}}", e(title)).replace("{{BODY}}", body)

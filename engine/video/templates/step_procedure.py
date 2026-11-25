@@ -1,15 +1,11 @@
 """Процедура специалиста по шагам, с накоплением (Пр — процедура).
 Модель состояния: номер текущего шага k (непрерывно). Пройденные шаги остаются на экране с галочкой, текущий раскрыт,
 будущие приглушены; полоса прогресса. Параметры: steps [{name, detail, input?, output?}]. beat: k [от, до], card."""
-from canvas import SG, caption, card, color, current, font, header, layout, new, rgb, text, track, wrap
+from canvas import preset, SG, caption, card, color, current, font, header, layout, new, rgb, text, track, wrap
 
 NAME, TYPE = "step_procedure", "Пр"
 STATE = "номер шага k; пройденные шаги накапливаются"
-EXAMPLE = {"title": "Как выделить коллектор по диаграммам",
-           "steps": [{"name": "Границы пластов", "detail": "по кривым определяют кровлю и подошву", "input": "диаграммы"},
-                     {"name": "Литология", "detail": "по набору признаков определяют породу"},
-                     {"name": "Коллектор", "detail": "выделяют пласты с признаками проницаемости"},
-                     {"name": "Насыщение", "detail": "оценивают по сопротивлению и пористости", "output": "нефть / вода"}]}
+EXAMPLE = preset(NAME)  # параметры-образец — в доменном пакете: templates/<шаблон>.json
 
 
 def spec(params):

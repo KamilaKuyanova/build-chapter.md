@@ -3,16 +3,11 @@
 и диапазон погрешности (штриховка цветом uncertainty); если диапазон задевает две зоны — вывод «неоднозначно».
 Параметры: x_name, x_unit, x_range, zones [{from, to, label, color}], cases [{name, x, sigma}]. beat: case (индекс),
 band (0/1 — показать погрешность), card."""
-from canvas import SG, caption, card, color, current, header, layout, new, rgb, text, track, wrap
+from canvas import preset, SG, caption, card, color, current, header, layout, new, rgb, text, track, wrap
 
 NAME, TYPE = "decision_panel", "Н"
 STATE = "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила"
-EXAMPLE = {"title": "Критическое сопротивление: нефть или вода", "x_name": "сопротивление пласта", "x_unit": "Ом·м",
-           "x_range": [0, 20], "zones": [{"from": 0, "to": 6, "label": "вода", "color": "fluids.water"},
-                                         {"from": 6, "to": 9, "label": "двухфазное, неоднозначно", "color": "uncertainty"},
-                                         {"from": 9, "to": 20, "label": "нефть", "color": "fluids.oil"}],
-           "cases": [{"name": "пласт 1", "x": 3, "sigma": 1}, {"name": "пласт 2", "x": 8.5, "sigma": 1.5},
-                     {"name": "пласт 3", "x": 14, "sigma": 1.5}]}
+EXAMPLE = preset(NAME)  # параметры-образец — в доменном пакете: templates/<шаблон>.json
 
 
 def spec(params):

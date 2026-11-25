@@ -4,26 +4,12 @@
 depth_max, scale_note. beat: d [от, до], hl [кривые], band [верх, низ], labels (подписать пройденные слои), card [заголовок, строки]."""
 import math
 
-from canvas import SG, caption, card, color, current, font, new, provenance, rgb, text, track
+from canvas import preset, SG, caption, card, color, current, font, new, provenance, rgb, text, track
 
 NAME, TYPE = "tool_and_curve", "И"
 STATE = "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d"
 EDGE = 1.2
-EXAMPLE = {
-    "depth_max": 100, "scale_note": ["глубина растёт вниз · шкала условная", "не в масштабе: ствол шире ≈ в 20 раз"],
-    "curves": [{"key": "SP", "name": "ПС", "color": "curves.SP", "range": [-1, 0]},
-               {"key": "GR", "name": "ГК", "color": "curves.GR", "range": [0, 1]},
-               {"key": "RES", "name": "Сопр.", "color": "curves.RES", "range": [0, 1]}],
-    "layers": [
-        {"top": 0, "bot": 20, "name": "глина", "color": "lithology.shale", "values": {"GR": 0.85, "SP": 0.0, "RES": 0.15}},
-        {"top": 20, "bot": 40, "name": "песчаник", "color": "lithology.sand", "fluid": "вода", "fluid_color": "fluids.water",
-         "values": {"GR": 0.25, "SP": -0.7, "RES": 0.2}},
-        {"top": 40, "bot": 50, "name": "глина", "color": "lithology.shale", "values": {"GR": 0.85, "SP": 0.0, "RES": 0.15}},
-        {"top": 50, "bot": 72, "name": "песчаник", "color": "lithology.sand", "fluid": "нефть", "fluid_color": "fluids.oil",
-         "values": {"GR": 0.25, "SP": -0.6, "RES": 0.8}},
-        {"top": 72, "bot": 82, "name": "плотная", "color": "lithology.dense", "values": {"GR": 0.3, "SP": -0.1, "RES": 0.85}},
-        {"top": 82, "bot": 100, "name": "глина", "color": "lithology.shale", "values": {"GR": 0.85, "SP": 0.0, "RES": 0.15}}],
-}
+EXAMPLE = preset(NAME)  # параметры-образец — в доменном пакете: templates/<шаблон>.json
 
 
 def value_at(params, key, d):

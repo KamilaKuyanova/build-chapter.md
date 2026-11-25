@@ -8,7 +8,16 @@ import textwrap
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SG = json.loads((ROOT / "domain_pack" / "styleguide.json").read_text(encoding="utf-8"))
+import sys as _sys  # noqa: E402
+_sys.path.insert(0, str(ROOT / "engine"))
+import domain  # noqa: E402
+
+SG = domain.load("styleguide.json")
+
+
+def preset(name):
+    """Параметры-образец шаблона из доменного пакета (templates/<имя>.json): движок не хранит предметных примеров."""
+    return domain.load(f"templates/{name}.json")
 FONT_DIR = pathlib.Path("C:/Windows/Fonts")
 _cache = {}
 

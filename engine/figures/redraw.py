@@ -13,9 +13,12 @@ import html
 import json
 import math
 import pathlib
+import sys as _sys_d  # noqa: E402
+_sys_d.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[1]))
+import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SG = json.loads((ROOT / "domain_pack" / "styleguide.json").read_text(encoding="utf-8"))
+SG = domain.load("styleguide.json")
 
 
 def col(key):

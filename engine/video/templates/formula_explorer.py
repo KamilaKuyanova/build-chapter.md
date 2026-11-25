@@ -5,15 +5,13 @@
 - expression: y = f(x; p) по формуле из параметров; состояние — параметр p (beat p), след прошлых значений остаётся бледным."""
 import math
 
-from canvas import SG, caption, card, color, current, font, layout, mix, new, provenance, rgb, text, track
+from canvas import preset, SG, caption, card, color, current, font, layout, mix, new, provenance, rgb, text, track
 
 NAME, TYPE = "formula_explorer", "Ф"
 STATE = "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения"
 GAMMA = 0.5772156649
-EXAMPLE = {"model": "radial_diffusion", "kappa": 1.0, "r_view": 400.0, "r_obs": 200.0, "t_max": 21600.0,
-           "source_note": "κ = 1 м²/с · основная формула упругого режима, стр. 491"}
-EXAMPLE_EXPR = {"model": "expression", "expr": "p*exp(-x/3)", "x_range": [0, 10], "y_range": [0, 5], "p_name": "A", "p_unit": "",
-                "x_label": "x", "y_label": "y", "formula_text": "y = A·e^(−x/3)", "source_note": "формула (1.1), стр. 10"}
+EXAMPLE = preset(NAME)  # параметры-образец — в доменном пакете: templates/<шаблон>.json
+EXAMPLE_EXPR = preset(NAME + ".expression")
 
 SAFE = {k: getattr(math, k) for k in ("exp", "log", "log10", "sqrt", "sin", "cos", "tan", "atan", "pi", "e", "erf", "erfc", "tanh")}
 

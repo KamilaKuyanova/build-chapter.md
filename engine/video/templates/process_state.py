@@ -2,18 +2,11 @@
 Модель состояния: непрерывный номер стадии s ∈ [0, N−1]. Цепочка «причина → следствие» и графики величин считаются из s,
 между стадиями величины интерполируются. Параметры: stages [{name, note, values{ключ: число}}],
 quantities [{key, name, color, range, unit}]. beat: s [от, до], card [заголовок, строки]."""
-from canvas import SG, caption, card, color, current, font, header, layout, mix, new, rgb, text, track, wrap
+from canvas import preset, SG, caption, card, color, current, font, header, layout, mix, new, rgb, text, track, wrap
 
 NAME, TYPE = "process_state", "М"
 STATE = "номер стадии процесса s (непрерывно); величины — функции s"
-EXAMPLE = {
-    "title": "Проникновение фильтрата в пласт",
-    "stages": [{"name": "вскрытие", "note": "раствор под давлением контактирует с пластом", "values": {"inv": 0.0, "cake": 0.0}},
-               {"name": "фильтрация", "note": "фильтрат уходит в поры, растёт зона проникновения", "values": {"inv": 0.6, "cake": 0.3}},
-               {"name": "корка", "note": "глинистая корка тормозит фильтрацию", "values": {"inv": 0.8, "cake": 0.9}}],
-    "quantities": [{"key": "inv", "name": "зона проникновения", "color": "fluids.filtrate", "range": [0, 1]},
-                   {"key": "cake", "name": "толщина корки", "color": "fluids.mud", "range": [0, 1]}],
-}
+EXAMPLE = preset(NAME)  # параметры-образец — в доменном пакете: templates/<шаблон>.json
 
 
 def spec(params):

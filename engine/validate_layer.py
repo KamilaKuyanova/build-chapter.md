@@ -18,6 +18,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import nodetext  # noqa: E402
+import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SCHEMAS = ROOT / "schema" / "official"
@@ -33,7 +34,7 @@ def schema_errors(data, schema_name, label):
 
 
 def misconception_ids():
-    return {m["id"] for m in load_json(ROOT / "domain_pack" / "misconceptions.json")}
+    return {m["id"] for m in domain.load("misconceptions.json")}
 
 
 def check_layer(layer):

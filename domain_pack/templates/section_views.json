@@ -1,0 +1,15 @@
+{
+ "title": "Риф в плане и в разрезе",
+ "body": {
+  "shape": "dome",
+  "a_m": 1500,
+  "b_m": 900,
+  "h_m": 120,
+  "name": "риф",
+  "color": "lithology.reef"
+ },
+ "host": {
+  "name": "вмещающие породы",
+  "color": "lithology.shale"
+ }
+}

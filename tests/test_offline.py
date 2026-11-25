@@ -49,17 +49,15 @@ bad_claim = dict(good, claim_id="нет#c9")
 check("несуществующий claim отброшен", gen_exercises.convert(node, bad_claim, 1, set())[0] is None)
 
 # 4. сцена «каротаж»: кадры корректны, кривые согласованы с моделью слоёв
-sys.path.insert(0, str(ROOT / "engine" / "scenes"))
-import logging_run  # noqa: E402
-import xml.dom.minidom  # noqa: E402
-fr = logging_run.Frame()
-svg = fr.svg(60)
-xml.dom.minidom.parseString(svg)
-check("кадр сцены — корректный SVG с меткой «симуляция»", "симуляция" in svg)
-c60, c77 = logging_run.curves_at(60), logging_run.curves_at(77)
+sys.path.insert(0, str(ROOT / "engine" / "video"))
+from templates import tool_and_curve as tc  # noqa: E402
+pr = tc.EXAMPLE   # параметры-образец из доменного пакета (domain_pack/templates/tool_and_curve.json)
+c60 = {k: tc.value_at(pr, k, 60) for k in ("RES", "SP")}
+c77 = {k: tc.value_at(pr, k, 77) for k in ("RES", "SP")}
 check("нефть и плотная порода обе дают высокое сопротивление", c60["RES"] > 0.7 and c77["RES"] > 0.7)
 check("плотная порода без отклонения ПС, песчаник с отклонением", abs(c77["SP"]) < 0.2 and c60["SP"] < -0.4)
-check("глубина растёт вниз", fr.y(80) > fr.y(20))
+im = tc.render(5.0, [{"t_start": 0, "t_end": 4, "text": "", "beat": {"d": [0, 80]}}], pr, 1080, 1920)
+check("кадр шаблона 9:16 рисуется", im.size == (1080, 1920))
 
 # 5. озвучка и паспорт ролика
 sys.path.insert(0, str(ROOT / "engine" / "video"))

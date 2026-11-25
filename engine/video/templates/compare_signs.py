@@ -2,15 +2,11 @@
 Модель состояния: число рассмотренных признаков k; суммы по вариантам считаются из открытых строк, в конце подсвечивается
 вариант с наибольшей суммой. Параметры: features [строки], candidates [{name, color}], scores [[балл варианта…] по строкам].
 beat: k [от, до], winner (true — подсветить итог), card."""
-from canvas import SG, caption, card, color, current, font, header, layout, new, rgb, text, track, wrap
+from canvas import preset, SG, caption, card, color, current, font, header, layout, new, rgb, text, track, wrap
 
 NAME, TYPE = "compare_signs", "Р"
 STATE = "число открытых признаков k; суммы баллов — функция k"
-EXAMPLE = {"title": "Какая это порода?",
-           "features": ["сопротивление высокое", "ПС отклоняется", "ГК низкий", "есть глинистая корка"],
-           "candidates": [{"name": "коллектор с нефтью", "color": "fluids.oil"}, {"name": "плотная порода", "color": "lithology.dense"},
-                          {"name": "глина", "color": "lithology.shale"}],
-           "scores": [[2, 2, 0], [2, 0, 0], [2, 1, 0], [2, 0, 0]]}
+EXAMPLE = preset(NAME)  # параметры-образец — в доменном пакете: templates/<шаблон>.json
 
 
 def spec(params):

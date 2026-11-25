@@ -3,13 +3,11 @@
 той же формы тела. Формы: dome (купол: z = h·(1 − (x/a)² − (y/b)²)), lens (линза, симметрична вверх и вниз),
 channel (русло вдоль y: z = h·(1 − (x/a)²) при |y| ≤ b). Параметры: body {shape, a_m, b_m, h_m, name, color}, host {name, color}.
 beat: y [от, до] в долях полуоси (−1…1), ve [от, до] (1 — истинный масштаб), card."""
-from canvas import SG, caption, card, color, current, header, layout, new, rgb, text, track
+from canvas import preset, SG, caption, card, color, current, header, layout, new, rgb, text, track
 
 NAME, TYPE = "section_views", "П"
 STATE = "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела"
-EXAMPLE = {"title": "Риф в плане и в разрезе", "body": {"shape": "dome", "a_m": 1500, "b_m": 900, "h_m": 120, "name": "риф",
-                                                       "color": "lithology.reef"},
-           "host": {"name": "вмещающие породы", "color": "lithology.shale"}}
+EXAMPLE = preset(NAME)  # параметры-образец — в доменном пакете: templates/<шаблон>.json
 
 
 def spec(params):

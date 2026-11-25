@@ -165,6 +165,8 @@ def cmd_course(chapter, *flags):
     for name, key in (("tasks.json", "tasks"), ("illustrations.json", "illustrations")):
         if not (data / name).exists():
             save(data / name, {"chapter": chapter, key: []})
+    if (ROOT / "run_b.py").exists():   # часть Б одной командой: задания, рисунки, анимации, иллюстрации, курс
+        return subprocess.run([sys.executable, str(ROOT / "run_b.py"), chapter, *flags]).returncode
     return subprocess.run([sys.executable, str(ROOT / "engine" / "build_course.py"), "--dir", str(data),
                            "--out", str(ROOT / "out" / chapter), "--title", spec["title"], *flags]).returncode
 

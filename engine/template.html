@@ -128,6 +128,21 @@ document.addEventListener('click',function(ev){
   if(b.id==='cardreset'){state.cards={};save();paintCards()}
 });
 paintCards();paintDone();
+/* выгрузка результатов тестирующего (проверка курса на новичках): файл JSON сохраняется на компьютер, никуда не отправляется */
+(function(){
+  var path=document.getElementById('path');if(!path)return;
+  var p=document.createElement('p');var b=document.createElement('button');b.type='button';
+  b.textContent='Скачать мои результаты (для проверки курса)';p.appendChild(b);path.appendChild(p);
+  b.addEventListener('click',function(){
+    var who=window.prompt('Имя или номер тестирующего','')||'аноним';
+    var data={course:document.title,tester:who,saved_at:new Date().toISOString(),total_tasks:document.querySelectorAll('.quiz').length,
+      total_steps:ORDER.length,done:state.done,cards:state.cards,answers:state.answers||{}};
+    var blob=new Blob([JSON.stringify(data,null,1)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download='результаты_'+document.title.replace(/[^\wА-Яа-яЁё]+/g,'_').slice(0,40)+'_'+who.replace(/[^\wА-Яа-яЁё]+/g,'_')+'.json';
+    document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
+  });
+})();
 document.getElementById('theme').addEventListener('click',function(){
   var r=document.documentElement,cur=r.getAttribute('data-theme');
   var dark=cur?cur==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
@@ -184,6 +199,10 @@ function buildQuiz(q){
     else if(t.type==='order'){ok=JSON.stringify(v)===JSON.stringify(t.answer);shown=t.answer.map(function(i){return byId[i].text}).join(' → ')}
     else if(t.type==='gap'){ok=v.length===t.answer.length&&v.every(function(x,i){return x.toLowerCase()===String(t.answer[i]).toLowerCase()});shown=t.answer.join(', ')}
     else{var n=parseFloat(String(v).replace(',','.'));ok=!isNaN(n)&&Math.abs(n-t.answer)<=(t.tolerance||0);shown=t.answer+(t.unit?' '+t.unit:'')}
+    state.answers=state.answers||{};   /* для проверки на новичках: первая попытка, число попыток, итог */
+    var rec=state.answers[t.id];
+    if(!rec)state.answers[t.id]={first:ok,tries:1,ok:ok,type:t.type,step:t.step_id};else{rec.tries++;rec.ok=ok}
+    save();
     res.className='res '+(ok?'ok':'no');
     res.textContent=(ok?'Верно. ':'Неверно. Правильный ответ: '+shown+'. ')+(t.explanation||'')+hint;
   };

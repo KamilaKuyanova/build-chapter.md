@@ -28,4 +28,4 @@ data/page_images/
 # Секреты и личные настройки
 .env
 *.key
-.claude/settings.local.json
+.claude/settings.local.jsonnovice_test/results/

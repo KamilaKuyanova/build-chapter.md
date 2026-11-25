@@ -67,7 +67,13 @@ def chapter(ch, a):
             extra += ["--extra", str(d / f)]
     step("иллюстрации", ["engine/gen_illustrations.py", "--dir", str(d)] + extra)
     step("покрытие шаблонами", ["engine/video/template_coverage.py", "--dir", str(d)])
-    r = step("курс", ["engine/build_course.py", "--dir", str(d), "--out", str(ROOT / "out" / ch)] + (["--strict"] if a.strict else []))
+    title = []
+    if (ROOT / "chapters.json").exists():   # заголовок курса — из описания главы части А
+        spec = [c for c in json.loads((ROOT / "chapters.json").read_text(encoding="utf-8"))["chapters"] if c["id"] == ch]
+        if spec and spec[0].get("title"):
+            title = ["--title", spec[0]["title"]]
+    r = step("курс", ["engine/build_course.py", "--dir", str(d), "--out", str(ROOT / "out" / ch)] + title +
+             (["--strict"] if a.strict else []))
     problems = [ln for ln in r.stdout.splitlines() if ln.strip().startswith("!") and "needs_scan" not in ln]
     scans = sum(1 for ln in r.stdout.splitlines() if "needs_scan" in ln)
     nodes = len(json.loads((d / "layer.json").read_text(encoding="utf-8-sig"))["nodes"])

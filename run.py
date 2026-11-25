@@ -372,8 +372,10 @@ def cmd_tasks(chapter):
 def cmd_tasks_build(chapter):
     work = ROOT / "work" / chapter
     _, (spec,) = chapter_specs(chapter)
-    layer = load(work / "layer.json")
-    answer = nodes_mod.parse_answer((work / "tasks_answer.json").read_text(encoding="utf-8-sig"))
+    data = ROOT / "data" / chapter   # без рабочей папки (другой компьютер, жюри) — копии слоя и ответа из data/
+    layer = load(work / "layer.json" if (work / "layer.json").exists() else data / "layer.json")
+    ans = work / "tasks_answer.json" if (work / "tasks_answer.json").exists() else data / "answers" / "tasks_answer.json"
+    answer = nodes_mod.parse_answer(ans.read_text(encoding="utf-8-sig"))
     doc, problems = tasks_mod.build(layer, answer)
     found = [("error", "сборка", p) for p in problems]
     found += [("error", "схема", e) for e in validate(doc, schemas()["task"])]

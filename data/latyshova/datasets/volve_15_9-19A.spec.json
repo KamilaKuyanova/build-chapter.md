@@ -1,0 +1,19 @@
+{
+ "id": "volve_15_9-19A",
+ "title": "Скважина 15/9-19 A, месторождение Volve (Северное море), 3775–3970 м",
+ "source": "Equinor, открытые данные Volve; выборка andymcdgeo/spwla_volve: 159-19A_LFP.las (каротаж), 15_9-19_A_CPI.las (интерпретация)",
+ "licence": "Equinor Open Data Licence (Volve), с указанием источника",
+ "well": "15/9-19 A",
+ "las_dir": "хакатон/пакет_вводных/07_открытые_данные/volve/logs/spwla_volve-main/15_9-19A",
+ "las_logs": "159-19A_LFP.las",
+ "las_cpi": "15_9-19_A_CPI.las",
+ "interval": [3775, 3970],
+ "step": 0.5,
+ "curves": {"GR": "LFP_GR", "RT": "LFP_RT", "RHOB": "LFP_RHOB", "NPHI": "LFP_NPHI"},
+ "zones": [
+  {"label": "А", "from": 3778, "to": 3790},
+  {"label": "Б", "from": 3859, "to": 3871},
+  {"label": "В", "from": 3920, "to": 3927},
+  {"label": "Г", "from": 3946, "to": 3966}
+ ]
+}

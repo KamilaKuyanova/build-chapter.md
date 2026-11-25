@@ -87,6 +87,8 @@ def chapter(ch, a):
         step("задания", ["run.py", "tasks-build", ch])
     else:
         step("задания (запасной путь)", ["engine/gen_tasks_offline.py", "--dir", str(d)])
+    if list((d / "datasets").glob("*.practicum.json")) if (d / "datasets").exists() else []:
+        step("практикум на данных", ["engine/data_practicum.py", "--dir", str(d)])   # открытые данные: рисунок A + задания
     if (d / "figures").exists():
         step("рисунки книги", ["engine/figures/redraw.py", "--dir", str(d)], optional=True)
     vids = [json.loads(p.read_text(encoding="utf-8")) for p in (ROOT / "videos").glob("*/video.json")]

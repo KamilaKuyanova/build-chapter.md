@@ -1,0 +1,20 @@
+{
+ "latyshova.rock_signs_table": [
+  {
+   "id": "latyshova.rock_signs_table.volve_15_9-19A",
+   "file": "illustrations/volve_15_9-19A.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "реальные данные",
+   "caption": "Практикум на открытых данных: Скважина 15/9-19 A, месторождение Volve (Северное море), 3775–3970 м. Определите зоны А–Г по таблице признаков (задания ниже).",
+   "alt": "Каротаж скважины 15/9-19 A: ГК, сопротивление, плотность и нейтронная пористость, зоны А–Г",
+   "source": "Equinor, открытые данные Volve; выборка andymcdgeo/spwla_volve: 159-19A_LFP.las (каротаж), 15_9-19_A_CPI.las (интерпретация)",
+   "claim_ids": [
+    "latyshova.rock_signs_table#c4",
+    "latyshova.rock_signs_table#c7",
+    "latyshova.rock_signs_table#c8"
+   ],
+   "prompt": null
+  }
+ ]
+}

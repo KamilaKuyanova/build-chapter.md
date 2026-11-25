@@ -1,4 +1,1023 @@
 {
  "chapter": "basniev",
- "illustrations": []
+ "illustrations": [
+  {
+   "id": "basniev.unsteady_processes.i1",
+   "step_id": "basniev.unsteady_processes",
+   "node_id": "basniev.unsteady_processes",
+   "file": "illustrations/basniev.unsteady_processes.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Что движется, когда скважину пустили»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Что движется, когда скважину пустили»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.unsteady_processes#c1",
+    "basniev.unsteady_processes#c2",
+    "basniev.unsteady_processes#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.elastic_drive.i1",
+   "step_id": "basniev.elastic_drive",
+   "node_id": "basniev.elastic_drive",
+   "file": "illustrations/basniev.elastic_drive.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как сжатый пласт выталкивает жидкость»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как сжатый пласт выталкивает жидкость»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.elastic_drive#c1",
+    "basniev.elastic_drive#c2",
+    "basniev.elastic_drive#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.elastic_drive_kinds.i1",
+   "step_id": "basniev.elastic_drive_kinds",
+   "node_id": "basniev.elastic_drive_kinds",
+   "file": "illustrations/basniev.elastic_drive_kinds.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Откуда ещё берётся напор»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Откуда ещё берётся напор»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.elastic_drive_kinds#c1",
+    "basniev.elastic_drive_kinds#c2",
+    "basniev.elastic_drive_kinds#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.elastic_drive_kinds.i2",
+   "step_id": "basniev.elastic_drive_kinds",
+   "node_id": "basniev.elastic_drive_kinds",
+   "file": "illustrations/basniev.elastic_drive_kinds.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Откуда ещё берётся напор»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Откуда ещё берётся напор»",
+   "source": null,
+   "claim_ids": [
+    "basniev.elastic_drive_kinds#c1",
+    "basniev.elastic_drive_kinds#c2",
+    "basniev.elastic_drive_kinds#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.slow_redistribution.i1",
+   "step_id": "basniev.slow_redistribution",
+   "node_id": "basniev.slow_redistribution",
+   "file": "illustrations/basniev.slow_redistribution.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему пласт отвечает медленно»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему пласт отвечает медленно»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.slow_redistribution#c1",
+    "basniev.slow_redistribution#c2",
+    "basniev.slow_redistribution#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.elastic_reserve.i1",
+   "step_id": "basniev.elastic_reserve",
+   "node_id": "basniev.elastic_reserve",
+   "file": "illustrations/basniev.elastic_reserve.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Что такое упругий запас жидкости»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Что такое упругий запас жидкости»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.elastic_reserve#c1",
+    "basniev.elastic_reserve#c2",
+    "basniev.elastic_reserve#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.reserve_change.i1",
+   "step_id": "basniev.reserve_change",
+   "node_id": "basniev.reserve_change",
+   "file": "illustrations/basniev.reserve_change.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как сложить жидкость и поры»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как сложить жидкость и поры»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.reserve_change#c1",
+    "basniev.reserve_change#c2",
+    "basniev.reserve_change#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.elastic_capacity.i1",
+   "step_id": "basniev.elastic_capacity",
+   "node_id": "basniev.elastic_capacity",
+   "file": "illustrations/basniev.elastic_capacity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Одно число вместо двух упругостей»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Одно число вместо двух упругостей»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.elastic_capacity#c1",
+    "basniev.elastic_capacity#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.depletion_equation.i1",
+   "step_id": "basniev.depletion_equation",
+   "node_id": "basniev.depletion_equation",
+   "file": "illustrations/basniev.depletion_equation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Баланс отбора и упругого запаса»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Баланс отбора и упругого запаса»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.depletion_equation#c1",
+    "basniev.depletion_equation#c2",
+    "basniev.depletion_equation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.why_hydrodynamics.i1",
+   "step_id": "basniev.why_hydrodynamics",
+   "node_id": "basniev.why_hydrodynamics",
+   "file": "illustrations/basniev.why_hydrodynamics.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Зачем практику эта теория»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Зачем практику эта теория»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.why_hydrodynamics#c1",
+    "basniev.why_hydrodynamics#c2",
+    "basniev.why_hydrodynamics#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.model_system.i1",
+   "step_id": "basniev.model_system",
+   "node_id": "basniev.model_system",
+   "file": "illustrations/basniev.model_system.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Из каких уравнений собрана модель»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Из каких уравнений собрана модель»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.model_system#c1",
+    "basniev.model_system#c2",
+    "basniev.model_system#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.state_equations.i1",
+   "step_id": "basniev.state_equations",
+   "node_id": "basniev.state_equations",
+   "file": "illustrations/basniev.state_equations.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как давление меняет плотность и пористость»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как давление меняет плотность и пористость»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.state_equations#c1"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.constant_permeability.i1",
+   "step_id": "basniev.constant_permeability",
+   "node_id": "basniev.constant_permeability",
+   "file": "illustrations/basniev.constant_permeability.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Что модель сознательно не учитывает»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Что модель сознательно не учитывает»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.constant_permeability#c1",
+    "basniev.constant_permeability#c2",
+    "basniev.constant_permeability#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.one_equation.i1",
+   "step_id": "basniev.one_equation",
+   "node_id": "basniev.one_equation",
+   "file": "illustrations/basniev.one_equation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Было шесть строк, станет одна»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Было шесть строк, станет одна»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.one_equation#c1",
+    "basniev.one_equation#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.left_side.i1",
+   "step_id": "basniev.left_side",
+   "node_id": "basniev.left_side",
+   "file": "illustrations/basniev.left_side.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему малое слагаемое отбрасывают»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему малое слагаемое отбрасывают»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.left_side#c1",
+    "basniev.left_side#c2",
+    "basniev.left_side#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.piezo_equation.i1",
+   "step_id": "basniev.piezo_equation",
+   "node_id": "basniev.piezo_equation",
+   "file": "illustrations/basniev.piezo_equation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Главное уравнение всей главы»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Главное уравнение всей главы»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.piezo_equation#c1",
+    "basniev.piezo_equation#c2",
+    "basniev.piezo_equation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.piezo_coefficient.i1",
+   "step_id": "basniev.piezo_coefficient",
+   "node_id": "basniev.piezo_coefficient",
+   "file": "illustrations/basniev.piezo_coefficient.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Число, которое задаёт темп пласта»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Число, которое задаёт темп пласта»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.piezo_coefficient#c1",
+    "basniev.piezo_coefficient#c2",
+    "basniev.piezo_coefficient#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.piezo_limits.i1",
+   "step_id": "basniev.piezo_limits",
+   "node_id": "basniev.piezo_limits",
+   "file": "illustrations/basniev.piezo_limits.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда уравнением пользоваться нельзя»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда уравнением пользоваться нельзя»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.piezo_limits#c1",
+    "basniev.piezo_limits#c2",
+    "basniev.piezo_limits#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.piezo_limits.i2",
+   "step_id": "basniev.piezo_limits",
+   "node_id": "basniev.piezo_limits",
+   "file": "illustrations/basniev.piezo_limits.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Когда уравнением пользоваться нельзя»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Когда уравнением пользоваться нельзя»",
+   "source": null,
+   "claim_ids": [
+    "basniev.piezo_limits#c1",
+    "basniev.piezo_limits#c2",
+    "basniev.piezo_limits#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.gallery_pressure_setup.i1",
+   "step_id": "basniev.gallery_pressure_setup",
+   "node_id": "basniev.gallery_pressure_setup",
+   "file": "illustrations/basniev.gallery_pressure_setup.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Первая задача: галерея в пласте»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Первая задача: галерея в пласте»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.gallery_pressure_setup#c1",
+    "basniev.gallery_pressure_setup#c2",
+    "basniev.gallery_pressure_setup#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.self_similar.i1",
+   "step_id": "basniev.self_similar",
+   "node_id": "basniev.self_similar",
+   "file": "illustrations/basniev.self_similar.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Две переменные сливаются в одну»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Две переменные сливаются в одну»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.self_similar#c1",
+    "basniev.self_similar#c2",
+    "basniev.self_similar#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.ode_reduction.i1",
+   "step_id": "basniev.ode_reduction",
+   "node_id": "basniev.ode_reduction",
+   "file": "illustrations/basniev.ode_reduction.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как упростилось само уравнение»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как упростилось само уравнение»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.ode_reduction#c1",
+    "basniev.ode_reduction#c2",
+    "basniev.ode_reduction#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.erf_solution.i1",
+   "step_id": "basniev.erf_solution",
+   "node_id": "basniev.erf_solution",
+   "file": "illustrations/basniev.erf_solution.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как выглядит давление вдоль пласта»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как выглядит давление вдоль пласта»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.erf_solution#c1",
+    "basniev.erf_solution#c2",
+    "basniev.erf_solution#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.gallery_rate.i1",
+   "step_id": "basniev.gallery_rate",
+   "node_id": "basniev.gallery_rate",
+   "file": "illustrations/basniev.gallery_rate.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему дебит падает со временем»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему дебит падает со временем»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.gallery_rate#c1",
+    "basniev.gallery_rate#c2",
+    "basniev.gallery_rate#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.cumulative_production.i1",
+   "step_id": "basniev.cumulative_production",
+   "node_id": "basniev.cumulative_production",
+   "file": "illustrations/basniev.cumulative_production.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Сколько добыто к моменту t»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Сколько добыто к моменту t»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.cumulative_production#c1",
+    "basniev.cumulative_production#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.constant_rate_setup.i1",
+   "step_id": "basniev.constant_rate_setup",
+   "node_id": "basniev.constant_rate_setup",
+   "file": "illustrations/basniev.constant_rate_setup.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Вторая задача: держим дебит»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Вторая задача: держим дебит»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.constant_rate_setup#c1",
+    "basniev.constant_rate_setup#c2",
+    "basniev.constant_rate_setup#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.velocity_solution.i1",
+   "step_id": "basniev.velocity_solution",
+   "node_id": "basniev.velocity_solution",
+   "file": "illustrations/basniev.velocity_solution.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Скорость подчиняется тому же уравнению»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Скорость подчиняется тому же уравнению»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.velocity_solution#c1",
+    "basniev.velocity_solution#c2",
+    "basniev.velocity_solution#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.constant_rate_pressure.i1",
+   "step_id": "basniev.constant_rate_pressure",
+   "node_id": "basniev.constant_rate_pressure",
+   "file": "illustrations/basniev.constant_rate_pressure.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «От скорости обратно к давлению»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «От скорости обратно к давлению»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.constant_rate_pressure#c1",
+    "basniev.constant_rate_pressure#c2",
+    "basniev.constant_rate_pressure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.gallery_pressure_law.i1",
+   "step_id": "basniev.gallery_pressure_law",
+   "node_id": "basniev.gallery_pressure_law",
+   "file": "illustrations/basniev.gallery_pressure_law.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Где формула теряет смысл»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Где формула теряет смысл»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.gallery_pressure_law#c1",
+    "basniev.gallery_pressure_law#c2",
+    "basniev.gallery_pressure_law#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.gallery_pressure_law.i2",
+   "step_id": "basniev.gallery_pressure_law",
+   "node_id": "basniev.gallery_pressure_law",
+   "file": "illustrations/basniev.gallery_pressure_law.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Где формула теряет смысл»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Где формула теряет смысл»",
+   "source": null,
+   "claim_ids": [
+    "basniev.gallery_pressure_law#c1",
+    "basniev.gallery_pressure_law#c2",
+    "basniev.gallery_pressure_law#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.radial_setup.i1",
+   "step_id": "basniev.radial_setup",
+   "node_id": "basniev.radial_setup",
+   "file": "illustrations/basniev.radial_setup.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Теперь поток идёт к скважине»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Теперь поток идёт к скважине»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.radial_setup#c1",
+    "basniev.radial_setup#c2",
+    "basniev.radial_setup#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.radial_self_similar.i1",
+   "step_id": "basniev.radial_self_similar",
+   "node_id": "basniev.radial_self_similar",
+   "file": "illustrations/basniev.radial_self_similar.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Снова одна переменная вместо двух»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Снова одна переменная вместо двух»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.radial_self_similar#c1",
+    "basniev.radial_self_similar#c2",
+    "basniev.radial_self_similar#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.radial_integration.i1",
+   "step_id": "basniev.radial_integration",
+   "node_id": "basniev.radial_integration",
+   "file": "illustrations/basniev.radial_integration.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Путь к основной формуле»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Путь к основной формуле»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.radial_integration#c1",
+    "basniev.radial_integration#c2",
+    "basniev.radial_integration#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.basic_formula.i1",
+   "step_id": "basniev.basic_formula",
+   "node_id": "basniev.basic_formula",
+   "file": "illustrations/basniev.basic_formula.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Формула, ради которой всё выводили»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Формула, ради которой всё выводили»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.basic_formula#c1",
+    "basniev.basic_formula#c2",
+    "basniev.basic_formula#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.log_approximation.i1",
+   "step_id": "basniev.log_approximation",
+   "node_id": "basniev.log_approximation",
+   "file": "illustrations/basniev.log_approximation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда хватает простого логарифма»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда хватает простого логарифма»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.log_approximation#c1",
+    "basniev.log_approximation#c2",
+    "basniev.log_approximation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.log_approximation.i2",
+   "step_id": "basniev.log_approximation",
+   "node_id": "basniev.log_approximation",
+   "file": "illustrations/basniev.log_approximation.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Когда хватает простого логарифма»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Когда хватает простого логарифма»",
+   "source": null,
+   "claim_ids": [
+    "basniev.log_approximation#c1",
+    "basniev.log_approximation#c2",
+    "basniev.log_approximation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.flow_profile.i1",
+   "step_id": "basniev.flow_profile",
+   "node_id": "basniev.flow_profile",
+   "file": "illustrations/basniev.flow_profile.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Где поток уже установился»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Где поток уже установился»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.flow_profile#c1",
+    "basniev.flow_profile#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.fourier_numbers.i1",
+   "step_id": "basniev.fourier_numbers",
+   "node_id": "basniev.fourier_numbers",
+   "file": "illustrations/basniev.fourier_numbers.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Время, измеренное размерами пласта»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Время, измеренное размерами пласта»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.fourier_numbers#c1",
+    "basniev.fourier_numbers#c2",
+    "basniev.fourier_numbers#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.point_sink_error.i1",
+   "step_id": "basniev.point_sink_error",
+   "node_id": "basniev.point_sink_error",
+   "file": "illustrations/basniev.point_sink_error.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Насколько врёт нулевой радиус»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Насколько врёт нулевой радиус»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.point_sink_error#c1",
+    "basniev.point_sink_error#c2",
+    "basniev.point_sink_error#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.point_sink_error.i2",
+   "step_id": "basniev.point_sink_error",
+   "node_id": "basniev.point_sink_error",
+   "file": "illustrations/basniev.point_sink_error.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Насколько врёт нулевой радиус»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Насколько врёт нулевой радиус»",
+   "source": null,
+   "claim_ids": [
+    "basniev.point_sink_error#c1",
+    "basniev.point_sink_error#c2",
+    "basniev.point_sink_error#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.finite_reservoir_error.i1",
+   "step_id": "basniev.finite_reservoir_error",
+   "node_id": "basniev.finite_reservoir_error",
+   "file": "illustrations/basniev.finite_reservoir_error.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда пласт можно считать бесконечным»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда пласт можно считать бесконечным»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.finite_reservoir_error#c1",
+    "basniev.finite_reservoir_error#c2",
+    "basniev.finite_reservoir_error#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.finite_reservoir_error.i2",
+   "step_id": "basniev.finite_reservoir_error",
+   "node_id": "basniev.finite_reservoir_error",
+   "file": "illustrations/basniev.finite_reservoir_error.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Когда пласт можно считать бесконечным»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Когда пласт можно считать бесконечным»",
+   "source": null,
+   "claim_ids": [
+    "basniev.finite_reservoir_error#c1",
+    "basniev.finite_reservoir_error#c2",
+    "basniev.finite_reservoir_error#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.piezometric_curves.i1",
+   "step_id": "basniev.piezometric_curves",
+   "node_id": "basniev.piezometric_curves",
+   "file": "illustrations/basniev.piezometric_curves.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Форма воронки давления у скважины»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Форма воронки давления у скважины»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.piezometric_curves#c1",
+    "basniev.piezometric_curves#c2",
+    "basniev.piezometric_curves#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.why_approximate.i1",
+   "step_id": "basniev.why_approximate",
+   "node_id": "basniev.why_approximate",
+   "file": "illustrations/basniev.why_approximate.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Зачем точному решению замена»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Зачем точному решению замена»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.why_approximate#c1",
+    "basniev.why_approximate#c2",
+    "basniev.why_approximate#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_idea.i1",
+   "step_id": "basniev.psss_idea",
+   "node_id": "basniev.psss_idea",
+   "file": "illustrations/basniev.psss_idea.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Движение как череда замерших кадров»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Движение как череда замерших кадров»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_idea#c1",
+    "basniev.psss_idea#c2",
+    "basniev.psss_idea#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_phases.i1",
+   "step_id": "basniev.psss_phases",
+   "node_id": "basniev.psss_phases",
+   "file": "illustrations/basniev.psss_phases.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Пока граница бежит и когда дошла»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Пока граница бежит и когда дошла»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_phases#c1",
+    "basniev.psss_phases#c2",
+    "basniev.psss_phases#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_front_linear.i1",
+   "step_id": "basniev.psss_front_linear",
+   "node_id": "basniev.psss_front_linear",
+   "file": "illustrations/basniev.psss_front_linear.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как быстро бежит граница возмущения»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как быстро бежит граница возмущения»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_front_linear#c1",
+    "basniev.psss_front_linear#c2",
+    "basniev.psss_front_linear#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_error_rate.i1",
+   "step_id": "basniev.psss_error_rate",
+   "node_id": "basniev.psss_error_rate",
+   "file": "illustrations/basniev.psss_error_rate.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Насколько врёт такой метод»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Насколько врёт такой метод»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_error_rate#c1"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_pressure.i1",
+   "step_id": "basniev.psss_pressure",
+   "node_id": "basniev.psss_pressure",
+   "file": "illustrations/basniev.psss_pressure.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Тот же приём для постоянного давления»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Тот же приём для постоянного давления»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_pressure#c1",
+    "basniev.psss_pressure#c2",
+    "basniev.psss_pressure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_pressure.i2",
+   "step_id": "basniev.psss_pressure",
+   "node_id": "basniev.psss_pressure",
+   "file": "illustrations/basniev.psss_pressure.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Тот же приём для постоянного давления»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Тот же приём для постоянного давления»",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_pressure#c1",
+    "basniev.psss_pressure#c2",
+    "basniev.psss_pressure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_radial_setup.i1",
+   "step_id": "basniev.psss_radial_setup",
+   "node_id": "basniev.psss_radial_setup",
+   "file": "illustrations/basniev.psss_radial_setup.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Тот же приём вокруг скважины»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Тот же приём вокруг скважины»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_radial_setup#c1",
+    "basniev.psss_radial_setup#c2",
+    "basniev.psss_radial_setup#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_radial_front.i1",
+   "step_id": "basniev.psss_radial_front",
+   "node_id": "basniev.psss_radial_front",
+   "file": "illustrations/basniev.psss_radial_front.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Радиус возмущения растёт всё медленнее»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Радиус возмущения растёт всё медленнее»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_radial_front#c1",
+    "basniev.psss_radial_front#c2",
+    "basniev.psss_radial_front#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_radial_front.i2",
+   "step_id": "basniev.psss_radial_front",
+   "node_id": "basniev.psss_radial_front",
+   "file": "illustrations/basniev.psss_radial_front.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Радиус возмущения растёт всё медленнее»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Радиус возмущения растёт всё медленнее»",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_radial_front#c1",
+    "basniev.psss_radial_front#c2",
+    "basniev.psss_radial_front#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_radial_pressure.i1",
+   "step_id": "basniev.psss_radial_pressure",
+   "node_id": "basniev.psss_radial_pressure",
+   "file": "illustrations/basniev.psss_radial_pressure.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Насколько точна радиальная формула»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Насколько точна радиальная формула»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_radial_pressure#c1",
+    "basniev.psss_radial_pressure#c2",
+    "basniev.psss_radial_pressure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_constant_pressure_well.i1",
+   "step_id": "basniev.psss_constant_pressure_well",
+   "node_id": "basniev.psss_constant_pressure_well",
+   "file": "illustrations/basniev.psss_constant_pressure_well.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда вместо формулы берут график»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда вместо формулы берут график»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_constant_pressure_well#c1",
+    "basniev.psss_constant_pressure_well#c2",
+    "basniev.psss_constant_pressure_well#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_assessment.i1",
+   "step_id": "basniev.psss_assessment",
+   "node_id": "basniev.psss_assessment",
+   "file": "illustrations/basniev.psss_assessment.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Где методу верить, а где нет»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Где методу верить, а где нет»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_assessment#c1",
+    "basniev.psss_assessment#c2",
+    "basniev.psss_assessment#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_assessment.i2",
+   "step_id": "basniev.psss_assessment",
+   "node_id": "basniev.psss_assessment",
+   "file": "illustrations/basniev.psss_assessment.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Где методу верить, а где нет»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Где методу верить, а где нет»",
+   "source": null,
+   "claim_ids": [
+    "basniev.psss_assessment#c1",
+    "basniev.psss_assessment#c2",
+    "basniev.psss_assessment#c3"
+   ],
+   "prompt": null
+  }
+ ]
 }

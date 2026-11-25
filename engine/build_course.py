@@ -233,11 +233,15 @@ def render_step(node, i, total, tasks, ills, route, glossary):
 
 def render_cards(nodes):
     cards = "".join(
-        f'<div class="card"><h3>{e(novice(n))}</h3><details><summary>Показать ответ</summary>'
-        f'<p>{e(nodetext._f(n["layers"].get("main")))}</p></details>'
-        f'<button data-know="{e(n["id"])}">Знаю</button> <button data-repeat="{e(n["id"])}">Повторить</button></div>'
+        f'<div class="card" data-card="{e(n["id"])}"><span class="card-mark" aria-live="polite"></span><h3>{e(novice(n))}</h3>'
+        f'<details><summary>Показать ответ</summary><p>{e(nodetext._f(n["layers"].get("main")))}</p></details>'
+        f'<button type="button" data-know="{e(n["id"])}" aria-pressed="false">Знаю</button> '
+        f'<button type="button" data-repeat="{e(n["id"])}" aria-pressed="false">Повторить</button></div>'
         for n in nodes)
-    return f'<section class="view" id="cards" hidden><h2>Карточки</h2>{cards}</section>'
+    bar = ('<div class="cardbar"><span id="cardstat"></span> '
+           '<button type="button" id="cardfilter" aria-pressed="false">Показать только «повторить»</button> '
+           '<button type="button" id="cardreset">Сбросить отметки</button></div>')
+    return f'<section class="view" id="cards" hidden><h2>Карточки</h2>{bar}{cards}</section>'
 
 
 def render_notes(nodes):

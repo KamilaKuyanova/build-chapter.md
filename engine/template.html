@@ -43,6 +43,15 @@ li.drag{background:var(--line);border-radius:6px}
 [data-ok]::after{content:attr(data-mark);color:var(--ok);font-size:.85rem}
 progress{width:min(100%,20rem)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+button[aria-pressed="true"]{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:600}
+.card{position:relative;border-left:6px solid transparent}
+.card.is-know{border-left-color:var(--ok)}
+.card.is-repeat{border-left-color:#e0a800}
+.card-mark{position:absolute;top:10px;right:14px;font-size:.9rem;font-weight:600;color:var(--mut)}
+.card.is-know .card-mark{color:var(--ok)}
+.card.is-repeat .card-mark{color:#b78900}
+.cardbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 16px}
+#cardstat{color:var(--mut);margin-right:auto}
 @media print{header,.stepnav,button,progress{display:none}.view{display:block!important}#path,#cards,#map,.step{display:none!important}#notes{display:block!important}}
 </style>
 </head>
@@ -90,12 +99,35 @@ function updateProgress(){
   document.getElementById('prog').value=p;document.getElementById('progtxt').textContent=n+' из '+ORDER.length+' шагов';
   document.querySelectorAll('[data-ok]').forEach(function(s){s.setAttribute('data-mark',state.done[s.dataset.ok]?'✓ пройден':'')});
 }
+var onlyRepeat=false;
+function paintCards(){
+  var n={know:0,repeat:0,none:0};
+  document.querySelectorAll('[data-card]').forEach(function(c){
+    var id=c.dataset.card,v=state.cards[id]||'';
+    c.classList.toggle('is-know',v==='know');c.classList.toggle('is-repeat',v==='repeat');
+    c.querySelector('[data-know]').setAttribute('aria-pressed',v==='know');
+    c.querySelector('[data-repeat]').setAttribute('aria-pressed',v==='repeat');
+    c.querySelector('.card-mark').textContent=v==='know'?'✓ знаю':(v==='repeat'?'↻ повторить':'');
+    n[v||'none']++;
+    c.hidden=onlyRepeat&&v!=='repeat';
+  });
+  var st=document.getElementById('cardstat');
+  if(st)st.textContent='Знаю: '+n.know+' · Повторить: '+n.repeat+' · Не отмечено: '+n.none;
+  var f=document.getElementById('cardfilter');if(f)f.setAttribute('aria-pressed',onlyRepeat);
+}
+function paintDone(){
+  document.querySelectorAll('[data-done]').forEach(function(b){
+    var d=!!state.done[b.dataset.done];b.textContent=d?'Пройден ✓ (снять отметку)':'Отметить пройденным';b.setAttribute('aria-pressed',d)});
+}
 document.addEventListener('click',function(ev){
   var b=ev.target.closest('button');if(!b)return;
-  if(b.dataset.done){state.done[b.dataset.done]=true;save();updateProgress();b.textContent='Пройден ✓'}
-  if(b.dataset.know){state.cards[b.dataset.know]='know';save()}
-  if(b.dataset.repeat){state.cards[b.dataset.repeat]='repeat';save()}
+  if(b.dataset.done){var id=b.dataset.done;if(state.done[id])delete state.done[id];else state.done[id]=true;save();updateProgress();paintDone()}
+  if(b.dataset.know){var k=b.dataset.know;state.cards[k]=state.cards[k]==='know'?'':'know';save();paintCards()}
+  if(b.dataset.repeat){var r=b.dataset.repeat;state.cards[r]=state.cards[r]==='repeat'?'':'repeat';save();paintCards()}
+  if(b.id==='cardfilter'){onlyRepeat=!onlyRepeat;paintCards()}
+  if(b.id==='cardreset'){state.cards={};save();paintCards()}
 });
+paintCards();paintDone();
 document.getElementById('theme').addEventListener('click',function(){
   var r=document.documentElement,cur=r.getAttribute('data-theme');
   var dark=cur?cur==='dark':matchMedia('(prefers-color-scheme:dark)').matches;

@@ -310,6 +310,96 @@
    "prompt": null
   },
   {
+   "id": "latyshova.method_crossover.fig14",
+   "file": "illustrations/fig14.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 14 (задачи 86, 90, 93, 106): микрокаверномер, микрозонды, индукционный зонд, БК-3 и экранированный микрозонд; пласты 1–5.",
+   "alt": "Каротажные диаграммы без шкалы глубин: микрокаверномер, микрозонды, индукционный зонд 6Ф1, экранированный зонд БК-3, экранированный микрозонд; слева номера пластов",
+   "source": "перерисовано по рис. 14, стр. 29 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.method_crossover#c1",
+    "latyshova.method_crossover#c2",
+    "latyshova.method_crossover#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.method_crossover",
+   "node_id": "latyshova.method_crossover"
+  },
+  {
+   "id": "latyshova.method_crossover.fig24",
+   "file": "illustrations/fig24.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 24 (задачи 41, 42, 87): резистивиметр, пять зондов БЭЗ и кавернограмма; участки а (1772–1786 м), б (1695–1722 м), в (1900–1909 м).",
+   "alt": "Диаграммы БЭЗ трёх участков: резистивиметр, градиент-зонды М0,8А0,1В, М2А0,5В, М4А0,5В, М7,5А0,75В, обращённый В0,5А4М, кавернограмма",
+   "source": "перерисовано по рис. 24, стр. 39 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.method_crossover#c1",
+    "latyshova.method_crossover#c2",
+    "latyshova.method_crossover#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.method_crossover",
+   "node_id": "latyshova.method_crossover"
+  },
+  {
+   "id": "latyshova.method_crossover.fig47",
+   "file": "illustrations/fig47.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 47 (задачи 65, 88): КС (В0,25А2,25М) и СП по двум участкам ствола, 917–1022 и 1150–1252 м; пласты I–IV.",
+   "alt": "Каротажные диаграммы КС и СП двух участков ствола: 917–1022 м и 1150–1252 м",
+   "source": "перерисовано по рис. 47, стр. 63 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.method_crossover#c1",
+    "latyshova.method_crossover#c2",
+    "latyshova.method_crossover#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.method_crossover",
+   "node_id": "latyshova.method_crossover"
+  },
+  {
+   "id": "latyshova.method_crossover.fig58",
+   "file": "illustrations/fig58.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 58 (задачи 89, 94, 105): СП и индукционный метод, ГМ, микрозонды, нейтронные и плотностные методы, 2836–2876 м.",
+   "alt": "Каротажные диаграммы 2836–2876 м: СП и ИМ, СП и ГМ, микрозонды и кавернограмма, МНК, ГГМ-П",
+   "source": "перерисовано по рис. 58, стр. 81 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.method_crossover#c1",
+    "latyshova.method_crossover#c2",
+    "latyshova.method_crossover#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.method_crossover",
+   "node_id": "latyshova.method_crossover"
+  },
+  {
+   "id": "latyshova.method_crossover.fig74",
+   "file": "illustrations/fig74.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 74 (задачи 87, 102): БК и БМК, ГМ и НГМ, акустический метод и проницаемость по гидродинамическим исследованиям, 2101–2141 м.",
+   "alt": "Каротажные диаграммы 2101–2141 м: КС (БМК, БК-3), ГМ и НГМ, АМ, столбики эффективной проницаемости по ГДК",
+   "source": "перерисовано по рис. 74, стр. 104 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.method_crossover#c1",
+    "latyshova.method_crossover#c2",
+    "latyshova.method_crossover#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.method_crossover",
+   "node_id": "latyshova.method_crossover"
+  },
+  {
    "id": "latyshova.section_building.i1",
    "step_id": "latyshova.section_building",
    "node_id": "latyshova.section_building",
@@ -438,6 +528,60 @@
     "latyshova.when_enough#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.when_enough.fig14",
+   "file": "illustrations/fig14.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 14 (задачи 86, 90, 93, 106): микрокаверномер, микрозонды, индукционный зонд, БК-3 и экранированный микрозонд; пласты 1–5.",
+   "alt": "Каротажные диаграммы без шкалы глубин: микрокаверномер, микрозонды, индукционный зонд 6Ф1, экранированный зонд БК-3, экранированный микрозонд; слева номера пластов",
+   "source": "перерисовано по рис. 14, стр. 29 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.when_enough#c1",
+    "latyshova.when_enough#c2",
+    "latyshova.when_enough#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.when_enough",
+   "node_id": "latyshova.when_enough"
+  },
+  {
+   "id": "latyshova.when_enough.fig58",
+   "file": "illustrations/fig58.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 58 (задачи 89, 94, 105): СП и индукционный метод, ГМ, микрозонды, нейтронные и плотностные методы, 2836–2876 м.",
+   "alt": "Каротажные диаграммы 2836–2876 м: СП и ИМ, СП и ГМ, микрозонды и кавернограмма, МНК, ГГМ-П",
+   "source": "перерисовано по рис. 58, стр. 81 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.when_enough#c1",
+    "latyshova.when_enough#c2",
+    "latyshova.when_enough#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.when_enough",
+   "node_id": "latyshova.when_enough"
+  },
+  {
+   "id": "latyshova.when_enough.fig68",
+   "file": "illustrations/fig68.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 68 (задачи 91, 93, 97, 106): кавернограмма, СП, КС, микрозонды, ГМ и НГМ, 2183–2255 м.",
+   "alt": "Каротажные диаграммы 2183–2255 м: кавернограмма, СП и КС; микрозонды; ГМ и НГМ",
+   "source": "перерисовано по рис. 68, стр. 95 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.when_enough#c1",
+    "latyshova.when_enough#c2",
+    "latyshova.when_enough#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.when_enough",
+   "node_id": "latyshova.when_enough"
   },
   {
    "id": "latyshova.direct_signs.i1",
@@ -965,6 +1109,24 @@
    "prompt": null
   },
   {
+   "id": "latyshova.clay_saturation_family.fig07",
+   "file": "illustrations/fig07.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Рис. 7, б (примеры 51–53): прямые Pн = f(kв) для αсп = 1…0,4 в билогарифмических координатах; области I (нефть), II (нефть с водой), III (вода).",
+   "alt": "Билогарифмический график: по горизонтали kв от 10 до 100 %, по вертикали Pн от 1 до 40; прямые для αсп сходятся в точке kв = 100 %, Pн = 1; штриховые границы областей I–III",
+   "source": "перерисовано по рис. 7, б, стр. 15 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.clay_saturation_family#c1",
+    "latyshova.clay_saturation_family#c2",
+    "latyshova.clay_saturation_family#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.clay_saturation_family",
+   "node_id": "latyshova.clay_saturation_family"
+  },
+  {
    "id": "latyshova.example53.i1",
    "step_id": "latyshova.example53",
    "node_id": "latyshova.example53",
@@ -999,6 +1161,23 @@
    "prompt": null
   },
   {
+   "id": "latyshova.example53.fig07",
+   "file": "illustrations/fig07.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Рис. 7, б (примеры 51–53): прямые Pн = f(kв) для αсп = 1…0,4 в билогарифмических координатах; области I (нефть), II (нефть с водой), III (вода).",
+   "alt": "Билогарифмический график: по горизонтали kв от 10 до 100 %, по вертикали Pн от 1 до 40; прямые для αсп сходятся в точке kв = 100 %, Pн = 1; штриховые границы областей I–III",
+   "source": "перерисовано по рис. 7, б, стр. 15 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.example53#c1",
+    "latyshova.example53#c2"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.example53",
+   "node_id": "latyshova.example53"
+  },
+  {
    "id": "latyshova.effective_thickness.i1",
    "step_id": "latyshova.effective_thickness",
    "node_id": "latyshova.effective_thickness",
@@ -1015,6 +1194,132 @@
     "latyshova.effective_thickness#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.effective_thickness.fig14",
+   "file": "illustrations/fig14.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 14 (задачи 86, 90, 93, 106): микрокаверномер, микрозонды, индукционный зонд, БК-3 и экранированный микрозонд; пласты 1–5.",
+   "alt": "Каротажные диаграммы без шкалы глубин: микрокаверномер, микрозонды, индукционный зонд 6Ф1, экранированный зонд БК-3, экранированный микрозонд; слева номера пластов",
+   "source": "перерисовано по рис. 14, стр. 29 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.effective_thickness#c1",
+    "latyshova.effective_thickness#c2",
+    "latyshova.effective_thickness#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.effective_thickness",
+   "node_id": "latyshova.effective_thickness"
+  },
+  {
+   "id": "latyshova.effective_thickness.fig46",
+   "file": "illustrations/fig46.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "схема",
+   "caption": "Рис. 46 (задача 94): поправочный коэффициент СП υ в зависимости от относительной толщины пласта h/dс; шифр кривых — ρп/ρр.",
+   "alt": "График: по горизонтали h/dс от 2 до 30 в логарифмическом масштабе, по вертикали υ от 0 до 1; девять кривых для ρп/ρр от 0,1 до 150",
+   "source": "перерисовано по рис. 46, стр. 62 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.effective_thickness#c1",
+    "latyshova.effective_thickness#c2",
+    "latyshova.effective_thickness#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.effective_thickness",
+   "node_id": "latyshova.effective_thickness"
+  },
+  {
+   "id": "latyshova.effective_thickness.fig58",
+   "file": "illustrations/fig58.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 58 (задачи 89, 94, 105): СП и индукционный метод, ГМ, микрозонды, нейтронные и плотностные методы, 2836–2876 м.",
+   "alt": "Каротажные диаграммы 2836–2876 м: СП и ИМ, СП и ГМ, микрозонды и кавернограмма, МНК, ГГМ-П",
+   "source": "перерисовано по рис. 58, стр. 81 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.effective_thickness#c1",
+    "latyshova.effective_thickness#c2",
+    "latyshova.effective_thickness#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.effective_thickness",
+   "node_id": "latyshova.effective_thickness"
+  },
+  {
+   "id": "latyshova.effective_thickness.fig67",
+   "file": "illustrations/fig67.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 67 (задача 92): КС и СП, микрозонды, индекс свободного флюида по ЯМР, 1046–1088 м.",
+   "alt": "Каротажные диаграммы 1046–1088 м: КС и СП, микрозонды, ЯМР (индекс свободного флюида)",
+   "source": "перерисовано по рис. 67, стр. 89 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.effective_thickness#c1",
+    "latyshova.effective_thickness#c2",
+    "latyshova.effective_thickness#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.effective_thickness",
+   "node_id": "latyshova.effective_thickness"
+  },
+  {
+   "id": "latyshova.effective_thickness.fig68",
+   "file": "illustrations/fig68.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 68 (задачи 91, 93, 97, 106): кавернограмма, СП, КС, микрозонды, ГМ и НГМ, 2183–2255 м.",
+   "alt": "Каротажные диаграммы 2183–2255 м: кавернограмма, СП и КС; микрозонды; ГМ и НГМ",
+   "source": "перерисовано по рис. 68, стр. 95 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.effective_thickness#c1",
+    "latyshova.effective_thickness#c2",
+    "latyshova.effective_thickness#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.effective_thickness",
+   "node_id": "latyshova.effective_thickness"
+  },
+  {
+   "id": "latyshova.effective_thickness.fig73",
+   "file": "illustrations/fig73.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 73 (задачи 95, 97, 98): три участка ствола 757–862 м, КС (М1,25А0,1В) и СП; 00′ — линия глин.",
+   "alt": "Каротажные диаграммы трёх участков ствола: 757–777, 807–823 и 847–862 м; кривая КС сплошная, СП штриховая",
+   "source": "перерисовано по рис. 73, стр. 104 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.effective_thickness#c1",
+    "latyshova.effective_thickness#c2",
+    "latyshova.effective_thickness#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.effective_thickness",
+   "node_id": "latyshova.effective_thickness"
+  },
+  {
+   "id": "latyshova.effective_thickness.fig76",
+   "file": "illustrations/fig76.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 76 (пример 54, задача 107): карбонатный разрез 1067–1124 м, две панели одного интервала глубин.",
+   "alt": "Каротажные диаграммы по глубине 1067–1124 м: слева КС, СП, кавернограмма и микрозонды, справа экранированный зонд, НГМ, ГМ, индукционный и акустический методы",
+   "source": "перерисовано по рис. 76, стр. 105 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.effective_thickness#c1",
+    "latyshova.effective_thickness#c2",
+    "latyshova.effective_thickness#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.effective_thickness",
+   "node_id": "latyshova.effective_thickness"
   },
   {
    "id": "latyshova.owc_transition.i1",
@@ -1180,6 +1485,96 @@
    "prompt": null
   },
   {
+   "id": "latyshova.thickness_tasks.fig68",
+   "file": "illustrations/fig68.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 68 (задачи 91, 93, 97, 106): кавернограмма, СП, КС, микрозонды, ГМ и НГМ, 2183–2255 м.",
+   "alt": "Каротажные диаграммы 2183–2255 м: кавернограмма, СП и КС; микрозонды; ГМ и НГМ",
+   "source": "перерисовано по рис. 68, стр. 95 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.thickness_tasks#c1",
+    "latyshova.thickness_tasks#c2",
+    "latyshova.thickness_tasks#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.thickness_tasks",
+   "node_id": "latyshova.thickness_tasks"
+  },
+  {
+   "id": "latyshova.thickness_tasks.fig73",
+   "file": "illustrations/fig73.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 73 (задачи 95, 97, 98): три участка ствола 757–862 м, КС (М1,25А0,1В) и СП; 00′ — линия глин.",
+   "alt": "Каротажные диаграммы трёх участков ствола: 757–777, 807–823 и 847–862 м; кривая КС сплошная, СП штриховая",
+   "source": "перерисовано по рис. 73, стр. 104 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.thickness_tasks#c1",
+    "latyshova.thickness_tasks#c2",
+    "latyshova.thickness_tasks#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.thickness_tasks",
+   "node_id": "latyshova.thickness_tasks"
+  },
+  {
+   "id": "latyshova.thickness_tasks.fig74",
+   "file": "illustrations/fig74.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 74 (задачи 87, 102): БК и БМК, ГМ и НГМ, акустический метод и проницаемость по гидродинамическим исследованиям, 2101–2141 м.",
+   "alt": "Каротажные диаграммы 2101–2141 м: КС (БМК, БК-3), ГМ и НГМ, АМ, столбики эффективной проницаемости по ГДК",
+   "source": "перерисовано по рис. 74, стр. 104 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.thickness_tasks#c1",
+    "latyshova.thickness_tasks#c2",
+    "latyshova.thickness_tasks#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.thickness_tasks",
+   "node_id": "latyshova.thickness_tasks"
+  },
+  {
+   "id": "latyshova.thickness_tasks.fig75",
+   "file": "illustrations/fig75.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 75 (задача 103): ГМ, индукционный, акустический и плотностной гамма-гамма-методы, 3587–3633 м.",
+   "alt": "Каротажные диаграммы 3587–3633 м: ГМ и ИК, акустический метод ΔT, плотностной ГГМ δп",
+   "source": "перерисовано по рис. 75, стр. 105 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.thickness_tasks#c1",
+    "latyshova.thickness_tasks#c2",
+    "latyshova.thickness_tasks#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.thickness_tasks",
+   "node_id": "latyshova.thickness_tasks"
+  },
+  {
+   "id": "latyshova.thickness_tasks.fig76",
+   "file": "illustrations/fig76.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 76 (пример 54, задача 107): карбонатный разрез 1067–1124 м, две панели одного интервала глубин.",
+   "alt": "Каротажные диаграммы по глубине 1067–1124 м: слева КС, СП, кавернограмма и микрозонды, справа экранированный зонд, НГМ, ГМ, индукционный и акустический методы",
+   "source": "перерисовано по рис. 76, стр. 105 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.thickness_tasks#c1",
+    "latyshova.thickness_tasks#c2",
+    "latyshova.thickness_tasks#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.thickness_tasks",
+   "node_id": "latyshova.thickness_tasks"
+  },
+  {
    "id": "latyshova.carbonate_features.i1",
    "step_id": "latyshova.carbonate_features",
    "node_id": "latyshova.carbonate_features",
@@ -1292,6 +1687,24 @@
    "prompt": null
   },
   {
+   "id": "latyshova.example54.fig76",
+   "file": "illustrations/fig76.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 76 (пример 54, задача 107): карбонатный разрез 1067–1124 м, две панели одного интервала глубин.",
+   "alt": "Каротажные диаграммы по глубине 1067–1124 м: слева КС, СП, кавернограмма и микрозонды, справа экранированный зонд, НГМ, ГМ, индукционный и акустический методы",
+   "source": "перерисовано по рис. 76, стр. 105 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.example54#c1",
+    "latyshova.example54#c2",
+    "latyshova.example54#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.example54",
+   "node_id": "latyshova.example54"
+  },
+  {
    "id": "latyshova.critical_porosity_carbonate.i1",
    "step_id": "latyshova.critical_porosity_carbonate",
    "node_id": "latyshova.critical_porosity_carbonate",
@@ -1326,6 +1739,114 @@
     "latyshova.critical_porosity_carbonate#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.fig14",
+   "file": "illustrations/fig14.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 14 (задачи 86, 90, 93, 106): микрокаверномер, микрозонды, индукционный зонд, БК-3 и экранированный микрозонд; пласты 1–5.",
+   "alt": "Каротажные диаграммы без шкалы глубин: микрокаверномер, микрозонды, индукционный зонд 6Ф1, экранированный зонд БК-3, экранированный микрозонд; слева номера пластов",
+   "source": "перерисовано по рис. 14, стр. 29 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate"
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.fig53",
+   "file": "illustrations/fig53.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 53 (задача 106): КС, СП, кавернограмма, микрозонды, ГМ и НГМ-60 с разбивкой на пласты, 2227–2287 м.",
+   "alt": "Каротажные диаграммы 2227–2287 м: КС, СП и кавернограмма, микрозонды, ГМ с отсчётами Iγ и НГМ-60 с отсчётами Inγ",
+   "source": "перерисовано по рис. 53, стр. 68 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate"
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.fig58",
+   "file": "illustrations/fig58.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 58 (задачи 89, 94, 105): СП и индукционный метод, ГМ, микрозонды, нейтронные и плотностные методы, 2836–2876 м.",
+   "alt": "Каротажные диаграммы 2836–2876 м: СП и ИМ, СП и ГМ, микрозонды и кавернограмма, МНК, ГГМ-П",
+   "source": "перерисовано по рис. 58, стр. 81 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate"
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.fig63",
+   "file": "illustrations/fig63.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 63 (задачи 104, 105): микрозонды, кавернограмма, акустический метод и ρп по интервалам, 2813–2906 м.",
+   "alt": "Каротажные диаграммы 2813–2906 м: микрозонды, кавернограмма, интервальное время ΔT, справа значения ρп по интервалам",
+   "source": "перерисовано по рис. 63, стр. 86 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate"
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.fig68",
+   "file": "illustrations/fig68.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 68 (задачи 91, 93, 97, 106): кавернограмма, СП, КС, микрозонды, ГМ и НГМ, 2183–2255 м.",
+   "alt": "Каротажные диаграммы 2183–2255 м: кавернограмма, СП и КС; микрозонды; ГМ и НГМ",
+   "source": "перерисовано по рис. 68, стр. 95 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate"
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.fig76",
+   "file": "illustrations/fig76.svg",
+   "frame_class": "A",
+   "origin": "redrawn_from_book",
+   "label": "реальные данные",
+   "caption": "Рис. 76 (пример 54, задача 107): карбонатный разрез 1067–1124 м, две панели одного интервала глубин.",
+   "alt": "Каротажные диаграммы по глубине 1067–1124 м: слева КС, СП, кавернограмма и микрозонды, справа экранированный зонд, НГМ, ГМ, индукционный и акустический методы",
+   "source": "перерисовано по рис. 76, стр. 105 (Латышова, 1991); кривые оцифрованы по скану",
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null,
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate"
   },
   {
    "id": "latyshova.critical_porosity_carbonate.fig77",

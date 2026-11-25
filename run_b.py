@@ -48,6 +48,35 @@ def metrics_row(chapter, stage, nodes, video_seconds):
         csv.writer(f).writerows([head] + body)
 
 
+def routes_with_videos(d, vids):
+    """Маршрутизация части А + сделанные ролики: формат и шаблон узла совпадают с тем, что реально есть в курсе."""
+    p = d / "routing.json"
+    if not p.exists():
+        return
+    r = json.loads(p.read_text(encoding="utf-8-sig"))
+    by = {x["node_id"]: x for x in r.get("routes", [])}
+    changed = False
+    for v in vids:
+        pp = ROOT / "videos" / v["video_id"] / "passport.json"
+        x = by.get(v["node_id"])
+        tpl = v.get('template') or v.get('scene')
+        if not x or not pp.exists():
+            continue
+        fmt = "шортс" if json.loads(pp.read_text(encoding="utf-8")).get("format") == "short" else "длинное видео"
+        note = f"сделан ролик {v['video_id']} ({fmt}, шаблон {tpl})"
+        if fmt in (x["format"], x.get("secondary_format")) and x.get("template") == tpl and note in x["why"]:
+            continue
+        if x["format"] in ("шортс", "длинное видео"):
+            x["format"] = fmt          # ролик заменяет запланированный ролик другого формата
+        else:
+            x["secondary_format"] = fmt  # основной формат (практикум, интерактив) остаётся, ролик — вторым
+        x["template"] = tpl
+        x["why"] = x["why"].split("; сделан ролик")[0] + "; " + note
+        changed = True
+    if changed:
+        p.write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def chapter(ch, a):
     d = ROOT / "data" / ch
     if not (d / "layer.json").exists():
@@ -67,6 +96,7 @@ def chapter(ch, a):
     if a.videos:
         for v in vids:
             step(f"ролик {v['video_id']}", ["engine/video/make_video.py", f"videos/{v['video_id']}"])
+    routes_with_videos(d, vids)
     if not a.no_anim:
         step("анимации", ["engine/video/make_animations.py", "--dir", str(d)], optional=True)
     extra = []
@@ -104,6 +134,7 @@ def main():
     a = ap.parse_args()
     chs = [p.parent.name for p in sorted((ROOT / "data").glob("*/layer.json"))] if a.chapter == "all" else [a.chapter]
     bad = sum(chapter(c, a) for c in chs)
+    step("метрики стоимости", ["engine/metrics_report.py"])
     sys.exit(2 if (a.strict and bad) else 0)
 
 

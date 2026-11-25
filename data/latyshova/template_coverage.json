@@ -80,7 +80,7 @@
    "video_scores": 2,
    "template": "log_run",
    "state_model": "глубина прибора d; положение прибора, точки всех кривых, выноски и лупа вычисляются из неё",
-   "needs": "признаки и варианты",
+   "needs": null,
    "status": "закрывает: ролик",
    "video": {
     "video_id": "latyshova_signs",

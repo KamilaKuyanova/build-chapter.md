@@ -10,6 +10,7 @@
   sapi        старый голос Windows (System.Speech), последний запасной путь
 synth(phrases, out, voices) -> {"engine", "voice", "wavs": [...], "words": [[{t, w}]] или None, "tried": [...]}"""
 import base64
+import hashlib
 import json
 import os
 import pathlib
@@ -72,20 +73,23 @@ def piper(phrases, out, voice, rate=1.0):
 
 
 def elevenlabs(phrases, out, voice, rate=1.0):
-    key = os.environ.get("ELEVENLABS_API_KEY")
-    if not key:
-        raise RuntimeError("нет ELEVENLABS_API_KEY")
+    key, cache = os.environ.get("ELEVENLABS_API_KEY"), ROOT / "out" / "voice_cache"
+    cache.mkdir(parents=True, exist_ok=True)
     words = []
     for i, txt in enumerate(phrases):
         body = json.dumps({"text": txt, "model_id": "eleven_multilingual_v2",
                            "voice_settings": {"stability": 0.55, "similarity_boost": 0.8, "speed": rate}}).encode()
-        req = urllib.request.Request(f"https://api.elevenlabs.io/v1/text-to-speech/{voice}/with-timestamps", body,
-                                     {"xi-api-key": key, "Content-Type": "application/json"})
-        with urllib.request.urlopen(req, timeout=120) as r:
-            d = json.loads(r.read())
+        saved = cache / (hashlib.sha1(voice.encode() + body).hexdigest()[:16] + ".json")   # фраза не озвучивается дважды: лимит символов
+        if not saved.exists():
+            if not key:
+                raise RuntimeError("нет ELEVENLABS_API_KEY")
+            req = urllib.request.Request(f"https://api.elevenlabs.io/v1/text-to-speech/{voice}/with-timestamps", body,
+                                         {"xi-api-key": key, "Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=120) as r:
+                saved.write_bytes(r.read())
+        d = json.loads(saved.read_text(encoding="utf-8"))
         mp3 = out / f"phrase_{i:03d}.mp3"
         mp3.write_bytes(base64.b64decode(d["audio_base64"]))
-        _wav(mp3, out / f"phrase_{i:03d}.wav")
         al, cur, t0, row = d["alignment"], "", 0.0, []
         for ch, st in zip(al["characters"] + [" "], al["character_start_times_seconds"] + [0]):
             if ch.isalnum():
@@ -93,7 +97,10 @@ def elevenlabs(phrases, out, voice, rate=1.0):
             elif cur:
                 row.append({"t": t0, "w": cur})
                 cur = ""
-        words.append(row)
+        cut = max(0.0, row[0]["t"] - 0.03) if row else 0.0   # тишина в начале срезается: голос начинается в начале слота фразы
+        _run([ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-ss", f"{cut:.3f}", "-i", str(mp3), "-ar", "48000", "-ac", "1",
+              "-c:a", "pcm_s16le", str(out / f"phrase_{i:03d}.wav")])
+        words.append([{"t": w["t"] - cut, "w": w["w"]} for w in row])
     return words
 
 

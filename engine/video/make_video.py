@@ -264,6 +264,9 @@ def main():
         "duration_sec": round(total, 1),
     }
     (vdir / "passport.json").write_text(json.dumps(passport, ensure_ascii=False, indent=1), encoding="utf-8")
+    # 6б. читаемый паспорт для ментора (распознавание речи сделано выше, engine/video/asr.py)
+    import passport_md
+    passport_md.main(vdir)
     # 7. ролик в курс: mp4 + субтитры в data/<глава>/media, запись для illustrations.json (gen_illustrations --extra)
     if not a.preview:
         import shutil

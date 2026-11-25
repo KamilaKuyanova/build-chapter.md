@@ -1,4 +1,6 @@
 chapter,stage,nodes,llm_tokens_in,llm_tokens_out,money_usd,person_minutes,mentor_minutes,video_seconds,manual_share
+basniev,course,48,0,0,0,0,,115,
+basniev,video,1,0,0,0.00,0,0,115,
 kuznetsov,course,41,0,0,0,0,,0,
 latyshova,course,45,0,0,0,0,,66,
-basniev,course,48,0,0,0,0,,115,
+latyshova,video,1,0,0,0.00,0,0,66,

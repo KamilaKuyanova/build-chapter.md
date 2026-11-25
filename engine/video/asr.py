@@ -64,9 +64,13 @@ def check(audio, beats, terms=(), lang="ru"):
         from faster_whisper import WhisperModel
     except ImportError:
         return {"asr_wer": None, "asr_note": "не проверено: нет пакета faster-whisper"}
-    if not (MODEL / "model.bin").exists():
+    try:   # модель в models/ или уже скачанная в общий кэш (так у engine/video/asr_check.py)
+        if (MODEL / "model.bin").exists():
+            model = WhisperModel(str(MODEL), device="cpu", compute_type="int8")
+        else:
+            model = WhisperModel("small", device="cpu", compute_type="int8", local_files_only=True)
+    except Exception:
         return {"asr_wer": None, "asr_note": "не проверено: нет модели, python engine/video/asr.py --download"}
-    model = WhisperModel(str(MODEL), device="cpu", compute_type="int8")
     import subprocess
     import numpy
     import tts

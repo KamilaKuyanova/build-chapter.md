@@ -16,6 +16,13 @@ python engine/build_course.py --nodes data_selftest/nodes --out out/selftest --s
 python engine/check_passport.py templates/video_passport.template.json   # проверка паспорта ролика до рендера
 ```
 
+## Схема узла
+Официальной общей схемы организаторы не выдали (проверено), поэтому формат наш: `schema/node.schema.json` (v0.1, по полям из ТЗ).
+```
+python engine/validate_nodes.py data/nodes   # форма + ссылки (claims, exercises, links)
+```
+Сборщик курса прогоняет эту проверку сам. Когда выдадут официальную схему — написать конвертер узлов.
+
 ## Анализы книг организаторов
 Папка «analysis books» с Диска → положить файлы в `data/analysis/` (в git не попадают), затем:
 ```

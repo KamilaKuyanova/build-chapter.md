@@ -312,6 +312,10 @@ def main():
     if not nodes:
         print("Нет узлов в", a.nodes)
         return 1
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    import validate_nodes  # схема узла: форма и ссылки
+    for msg in validate_nodes.validate_dir(a.nodes)[1]:
+        warn("схема: " + msg)
     validate(nodes)
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)

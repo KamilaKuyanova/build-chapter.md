@@ -33,6 +33,10 @@ table{border-collapse:collapse}td,th{border:1px solid var(--line);padding:4px 8p
 .quiz{border:1px dashed var(--line);border-radius:8px;padding:10px;margin:10px 0}
 .quiz label{display:block;padding:6px 0}
 .quiz .res{margin-top:8px;font-weight:600}.quiz .res.ok{color:var(--ok)}.quiz .res.no{color:var(--bad)}
+.quiz ol{padding-left:1.4rem}.quiz li{padding:6px 0}
+.grip{cursor:grab;touch-action:none;user-select:none;display:inline-block;min-width:28px;min-height:28px;text-align:center}
+li.drag{background:var(--line);border-radius:6px}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px}.kv b{color:var(--mut)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 16px;margin:10px 0}
 .stepnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0}
 .ok::after{content:"✓ пройден";color:var(--ok);font-size:.85rem}
@@ -112,10 +116,22 @@ function buildQuiz(q){
   }else if(ex.type==='order'){
     var items=shuffle(ex.options),ul=el('ol');
     function draw(){ul.textContent='';items.forEach(function(o,i){
-      var li=el('li',{},o+' ');
+      var li=el('li',{'data-i':i});
+      var h=el('span',{class:'grip',role:'img','aria-label':'Потяните, чтобы переместить'},'⠿');
+      li.appendChild(h);li.appendChild(document.createTextNode(' '+o+' '));
       var up=el('button',{type:'button','aria-label':'Выше'},'↑'),dn=el('button',{type:'button','aria-label':'Ниже'},'↓');
       up.onclick=function(){if(i>0){var t=items[i-1];items[i-1]=items[i];items[i]=t;draw()}};
       dn.onclick=function(){if(i<items.length-1){var t=items[i+1];items[i+1]=items[i];items[i]=t;draw()}};
+      /* перетаскивание мышью и пальцем (pointer events); кнопки ↑↓ — запасной путь для клавиатуры */
+      h.addEventListener('pointerdown',function(ev){
+        ev.preventDefault();var from=i;h.setPointerCapture(ev.pointerId);li.classList.add('drag');
+        function mv(e){var t=document.elementFromPoint(e.clientX,e.clientY);t=t&&t.closest('li[data-i]');
+          if(t&&ul.contains(t)){var to=+t.getAttribute('data-i');if(to!==from){var x=items.splice(from,1)[0];items.splice(to,0,x);from=to;draw();
+            var nl=ul.querySelector('li[data-i="'+to+'"]');if(nl)nl.classList.add('drag');}}}
+        function up2(){h.removeEventListener('pointermove',mv);h.removeEventListener('pointerup',up2);
+          var d=ul.querySelector('.drag');if(d)d.classList.remove('drag')}
+        h.addEventListener('pointermove',mv);h.addEventListener('pointerup',up2);
+      });
       li.appendChild(up);li.appendChild(dn);ul.appendChild(li)})}
     draw();q.appendChild(ul);get=function(){return items};
   }else{

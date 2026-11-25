@@ -1,0 +1,29 @@
+{
+  "_note": "Паспорт ролика по ТЗ. ЗАМЕНИТЬ официальным шаблоном организаторов, когда выдадут (поля сверить). Проверка: python engine/check_passport.py <файл>",
+  "node_id": "gis.v20.saturation.03",
+  "format": "short_9x16",
+  "duration_sec": 60,
+  "node_card": "ссылка/копия карточки узла",
+  "frames": [
+    {"id": "f1", "t_start": 0.0, "t_end": 3.0, "class": "D", "origin_label": "схема", "generated": true, "note": "крючок: вопрос/парадокс, не определение"},
+    {"id": "f2", "t_start": 3.0, "t_end": 12.0, "class": "A", "origin_label": "реальные данные", "generated": false, "scale_true": false}
+  ],
+  "script": [
+    {"t_start": 0.0, "t_end": 2.8, "text": "Почему высокое сопротивление ещё не нефть?", "claim_id": "c1", "kind": "claim", "frame": "f1"},
+    {"t_start": 3.0, "t_end": 8.0, "text": "Так же себя ведёт плотная порода.", "claim_id": "c1", "kind": "claim", "frame": "f2"}
+  ],
+  "sources": [{"claim_id": "c1", "page": null, "dataset": null}],
+  "scene_spec": {"objects": [], "parameters": [], "invariants": [], "assumptions": []},
+  "exaggerations": [{"what": "", "factor": "", "label_on_screen": ""}],
+  "questions": {"prediction": "", "transfer": "", "pause_before_answer_sec": 1.0},
+  "data_bridge": "где здесь данные и ИТ",
+  "audio": {"wpm": 130, "lufs": -16.0, "sync_max_offset_sec": 0.3, "asr_word_error_rate": 0.05, "voice": "Microsoft ru", "fallback_voice": ""},
+  "subtitles": true,
+  "reproducible_from_spec": true,
+  "physics_review": {
+    "_help": "Для КАЖДОГО пункта из domain_pack/physics_checklist.json: ключ — group_id:порядковый_номер_с_1. Значения: yes | na | no. 'no' допустимо только с полем caveat (оговорка в ролике).",
+    "layers:1": {"answer": "yes"}
+  },
+  "misconceptions_reinforced": [],
+  "novice_test": {"people": 0, "prediction_correct": 0, "transfer_correct": 0}
+}

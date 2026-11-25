@@ -69,14 +69,31 @@ def step_minutes(node):
     return max(1, round(words(node) / 120))
 
 
+ASSETS = {}  # имя файла в out/assets -> исходный путь
+NODES_DIR = None
+
+
 def render_illustrations(node):
     out = []
     for il in node.get("illustrations", []):
+        nid = node.get("id")
         if not il.get("alt"):
-            warn(f"[{node.get('id')}] иллюстрация без alt-текста")
+            warn(f"[{nid}] иллюстрация без alt-текста")
+        if il.get("class") not in ("A", "B", "C", "D"):
+            warn(f"[{nid}] у иллюстрации не указан класс кадра A–D")
         label = il.get("label", "")
+        if il.get("generated") and "иллюстрация ИИ" not in label:
+            warn(f"[{nid}] сгенерированная иллюстрация без метки «иллюстрация ИИ»")
+        if il.get("class") in ("A", "B") and il.get("generated"):
+            warn(f"[{nid}] класс {il.get('class')}: генерация запрещена (только код из данных/модели)")
+        if il.get("class") in ("A", "B") and not label:
+            warn(f"[{nid}] у кадра класса {il.get('class')} нет метки происхождения (реальные данные / симуляция / схема)")
+        if il.get("redrawn_from_book") and "перерисовано по рис." not in il.get("caption", ""):
+            warn(f"[{nid}] перерисованный рисунок книги без подписи «перерисовано по рис. N, стр. M»")
+        fname = pathlib.Path(il.get("file", "")).name
+        ASSETS[fname] = pathlib.Path(NODES_DIR) / il.get("file", "")
         out.append(
-            f'<figure><img src="{e(il.get("file"))}" alt="{e(il.get("alt"))}" loading="lazy">'
+            f'<figure><img src="assets/{e(fname)}" alt="{e(il.get("alt"))}" loading="lazy">'
             f'<figcaption>{e(il.get("caption"))} <span class="tag">класс {e(il.get("class"))}'
             f'{" · " + e(label) if label else ""}</span></figcaption></figure>'
         )
@@ -124,10 +141,45 @@ def render_problems(node):
     )
 
 
+def render_data_solution(node):
+    ds = node.get("data_solution")
+    if not ds:
+        return ""
+    feats = "".join(f"<li>{e(f)}</li>" for f in ds.get("features", []))
+    return (f'<p>{e(ds.get("task"))}</p><div class="kv"><b>Признаки</b><ul>{feats}</ul>'
+            f'<b>Правило</b><span>{e(ds.get("rule"))}</span><b>Вывод</b><span>{e(ds.get("conclusion"))}</span>'
+            f'<b>Где ломается</b><span>{e(ds.get("breaks"))}</span></div>')
+
+
+EX_TYPES = {"single", "multi", "order", "fill", "calc"}
+
+
+def check_exercise(node, ex):
+    nid, xid, t = node.get("id"), ex.get("id"), ex.get("type")
+    if t not in EX_TYPES:
+        warn(f"[{nid}] задание {xid}: неизвестный тип {t}")
+        return
+    if not ex.get("explanation"):
+        warn(f"[{nid}] задание {xid}: нет пояснения к верному ответу")
+    opts = ex.get("options", [])
+    if t == "single" and not (isinstance(ex.get("answer"), int) and 0 <= ex["answer"] < len(opts)):
+        warn(f"[{nid}] задание {xid}: ключ single вне диапазона")
+    if t == "multi" and not (isinstance(ex.get("answer"), list) and ex["answer"]
+                             and all(isinstance(i, int) and 0 <= i < len(opts) for i in ex["answer"])):
+        warn(f"[{nid}] задание {xid}: ключ multi неверен")
+    if t == "order" and len(opts) < 2:
+        warn(f"[{nid}] задание {xid}: для порядка нужно ≥2 элементов")
+    if t == "fill" and not (isinstance(ex.get("answer"), list) and ex["answer"]):
+        warn(f"[{nid}] задание {xid}: у fill answer — непустой список допустимых ответов")
+    if t == "calc" and not isinstance(ex.get("answer"), (int, float)):
+        warn(f"[{nid}] задание {xid}: у calc answer — число")
+
+
 def render_exercises(node):
     out = []
     claims = claim_index(node)
     for ex in node.get("exercises", []):
+        check_exercise(node, ex)
         if ex.get("claim_id") not in claims:
             warn(f"[{node.get('id')}] задание {ex.get('id')} без ссылки на утверждение узла")
         data = json.dumps(ex, ensure_ascii=False).replace("</", "<\\/")
@@ -172,6 +224,7 @@ def render_step(node, i, total):
   {block('Как это делается сейчас', '<p>' + e(node.get('current_practice')) + '</p>' if node.get('current_practice') else '')}
   {block('Источник', render_claims(node))}
   {block('Задачи из книги', render_problems(node))}
+  {block('Решение на данных', render_data_solution(node))}
   {block('Иллюстрации', render_illustrations(node))}
   {block('Проверь себя', render_exercises(node))}
   {nav}
@@ -253,6 +306,8 @@ def main():
     ap.add_argument("--title", default="Демо-курс по главе")
     ap.add_argument("--strict", action="store_true")
     a = ap.parse_args()
+    global NODES_DIR
+    NODES_DIR = a.nodes
     nodes = load_nodes(a.nodes)
     if not nodes:
         print("Нет узлов в", a.nodes)
@@ -261,6 +316,17 @@ def main():
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(build(nodes, a.title), encoding="utf-8")
+    if ASSETS:
+        (out / "assets").mkdir(exist_ok=True)
+        for name, src in ASSETS.items():
+            if src.exists():
+                (out / "assets" / name).write_bytes(src.read_bytes())
+            else:
+                warn(f"файл иллюстрации не найден: {src}")
+    # курс без видео ≤ 30 МБ на главу
+    total = sum(f.stat().st_size for f in out.rglob("*") if f.is_file())
+    if total > 30 * 1024 * 1024:
+        warn(f"курс весит {total // 1048576} МБ > 30 МБ")
     size = (out / "index.html").stat().st_size
     print(f"Собрано: {out / 'index.html'} ({size // 1024} КБ), узлов: {len(nodes)}")
     for w in sorted(set(WARN)):

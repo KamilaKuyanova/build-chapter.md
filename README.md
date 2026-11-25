@@ -10,6 +10,12 @@ python engine/build_course.py --strict   # то же, но падает при �
 ```
 Откройте `out/course/index.html` в браузере.
 
+```
+python tests/make_selftest.py            # самотест шаблона (вымышленный нейтральный контент)
+python engine/build_course.py --nodes data_selftest/nodes --out out/selftest --strict
+python engine/check_passport.py templates/video_passport.template.json   # проверка паспорта ролика до рендера
+```
+
 ## Структура
 - `data/nodes/` — учебный слой (узлы). Сейчас там ЗАГЛУШКА, не из книги.
 - `engine/` — сборщик курса (движок не знает геологии).

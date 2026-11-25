@@ -413,6 +413,14 @@ def cmd_course(chapter, *flags):
                           env={**os.environ, "DOMAIN": spec.get("domain", "geology")}).returncode
 
 
+def team():
+    """Название команды для ответа модуля проверки — из манифеста."""
+    for line in (ROOT / "MANIFEST.md").read_text(encoding="utf-8").splitlines():
+        if line.startswith("Команда:"):
+            return line.split(":", 1)[1].strip()
+    return "build-chapter"
+
+
 def review_setup(package_path, domain):
     package_path = Path(package_path).resolve()
     package = load(package_path)
@@ -443,7 +451,7 @@ def cmd_review(package_path, domain="geology"):
 
 def cmd_review_build(package_path, domain="geology"):
     package, units, work, _ = review_setup(package_path, domain)
-    out, dropped = review_mod.assemble(package, units, answers_in(work / "answers"), "build-chapter")
+    out, dropped = review_mod.assemble(package, units, answers_in(work / "answers"), team())
     for err in validate(out, schemas()["review_output"]):
         print("[error] OUTPUT", err)
     save(work / "review.json", out)

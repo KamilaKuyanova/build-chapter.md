@@ -103,7 +103,7 @@ tab = {0.1: 1.8229, 0.5: 0.5598, 1.0: 0.2194, 2.0: 0.04890, 5.0: 0.001148}
 check("E1(x) совпадает с таблицей до 0,5%", all(abs(scene_pressure.E1(x) - v) / v < 0.005 for x, v in tab.items()))
 check("давление падает с расстоянием и растёт со временем",
       scene_pressure.dp(50, 3600, 1.0) > scene_pressure.dp(200, 3600, 1.0) and scene_pressure.dp(200, 7200, 1.0) > scene_pressure.dp(200, 3600, 1.0))
-for vid in ("latyshova_short", "basniev_long"):
+for vid in ("latyshova_signs", "basniev_response"):
     pp_path = ROOT / "videos" / vid / "passport.json"
     if pp_path.exists():
         pp = validate_layer.load_json(pp_path)
@@ -166,7 +166,7 @@ check("рис. 76 стоит в шаге примера 54", bool(ex54) and ex54
 sys.path.insert(0, str(ROOT / "engine" / "video"))
 import asr_check  # noqa: E402
 check("нормализация для WER: ё, дефис, регистр", asr_check.norm_words("Гамма-излучение ЁЛКА") == ["гамма", "излучение", "елка"])
-for v in ("latyshova_short", "basniev_long"):
+for v in ("latyshova_signs", "basniev_response"):
     a = json.loads((ROOT / "videos" / v / "passport.json").read_text(encoding="utf-8"))["audio_check"]
     check(f"{v}: ASR WER {a.get('asr_wer')} ≤ 0,10", a.get("asr_wer") is not None and a["asr_wer"] <= 0.10)
 

@@ -7,7 +7,7 @@
 Голос заменяемый (engine/video/tts.py): порядок голосов в video.json "voices" или domain_pack/voices.json.
 Кадры: "scene" — сцена engine/video/web (рисует Edge через node, пакеты не нужны), "template" — шаблон Pillow.
 Синхрон по построению: слот фразы = длительность её озвучки, кадр берёт состояние из того же таймлайна; измеряется по меткам слов.
-Запуск: python engine/video/make_video.py videos/latyshova_short [--fps 24] [--preview]"""
+Запуск: python engine/video/make_video.py videos/latyshova_signs [--fps 24] [--preview]"""
 import argparse
 import array
 import json
@@ -249,7 +249,7 @@ def main():
         "sources": [{"claim_id": c, "page_or_dataset": f"стр. {claims[c]['page_pdf']}", "quote": claims[c]["quote"]} for c in used],
         "scene_spec": f"videos/{spec['video_id']}/scene_spec.json",
         "frames": [{"t": b["t_start"], "class": scene.SPEC["frame_class"], "label": scene.SPEC["label"]} for b in beats],
-        "exaggerations": spec["exaggerations"],
+        "exaggerations": spec["exaggerations"], "references": spec.get("references", []),
         "prediction_question": spec["prediction_question"], "transfer_question": spec["transfer_question"],
         "data_it_bridge": spec["data_it_bridge"],
         "physics_checklist": [{"item": p["id"], "answer": (spec["physics"].get(p["id"]) or ["н/п"])[0],

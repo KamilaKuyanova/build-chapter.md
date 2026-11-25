@@ -26,7 +26,7 @@ python novice_test/report.py
 | Поле | Что записать |
 | --- | --- |
 | `tester` | имя или номер (без фамилий) |
-| `video` | `latyshova_signs` или `basniev_response` |
+| `video` | `latyshova_signs` или `basniev_response` (других роликов нет) |
 | `prediction_correct` | 1 — на паузе с вопросом-предсказанием ответил верно, 0 — нет |
 | `transfer_correct` | 1 — на вопрос в конце (перенос) ответил верно, 0 — нет |
 | `understood_1to5` | «Понял, почему так происходит?» от 1 до 5 |

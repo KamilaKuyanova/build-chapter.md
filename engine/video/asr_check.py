@@ -5,7 +5,7 @@
 WER считается между тем, что должно звучать (текст фраз после prepare_for_speech: числа словами, сокращения раскрыты),
 и тем, что распознано. Синхрон: начало каждой фразы в таймлайне против начала её первого слова в распознавании.
 
-  python engine/video/asr_check.py videos/latyshova_short      # берёт out/video/<id>/audio.wav, дописывает паспорт"""
+  python engine/video/asr_check.py videos/latyshova_signs      # берёт out/video/<id>/audio.wav, дописывает паспорт"""
 import difflib
 import json
 import os

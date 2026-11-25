@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Паспорт ролика в читаемом виде для ментора и жюри: videos/<id>/passport.json -> videos/<id>/passport.md.
-Запуск: python engine/video/passport_md.py videos/latyshova_short"""
+Запуск: python engine/video/passport_md.py videos/latyshova_signs"""
 import json
 import pathlib
 import sys
@@ -39,6 +39,8 @@ def main(d):
     L += ["- **Объекты:** " + "; ".join(esc(o) for o in spec.get("objects", []))]
     L += ["- **Инварианты:**"] + [f"  - {esc(i)}" for i in spec.get("invariants", [])]
     L += ["- **Допущения:**"] + [f"  - {esc(i)}" for i in spec.get("assumptions", [])]
+    if p.get("references"):
+        L += ["- **Референсы:**"] + [f"  - {esc(i)}" for i in p["references"]]
     L += ["", "## Честность", "", "**Преувеличения:** " + "; ".join(esc(x) for x in p["exaggerations"]),
           "", f"**Вопрос-предсказание:** {esc(p['prediction_question'])}", "", f"**Вопрос на перенос:** {esc(p['transfer_question'])}",
           "", f"**Мост к данным и ИТ:** {esc(p['data_it_bridge'])}", "", "## Чек-лист физики", "", "| Пункт | Ответ | Пояснение |", "| --- | --- | --- |"]

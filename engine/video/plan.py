@@ -79,8 +79,8 @@ def prompt(template, chapter, layer, node_id, fmt):
 def anims_prompt(template, chapter, layer, routes):
     """Промпт живых анимаций: видеоузлы главы с утверждениями и каталог сцен."""
     sg, made = domain.load("styleguide.json"), set()
-    for p in (ROOT / "videos").glob("*/video.json"):
-        made.add(json.loads(p.read_text(encoding="utf-8"))["node_id"])
+    for p in (ROOT / "data").glob("*/media_extra.json"):   # узлы, у которых ролик уже стоит в курсе
+        made |= set(json.loads(p.read_text(encoding="utf-8")))
     rows = []
     for n in sorted(layer["nodes"], key=lambda x: x["order"]):
         r = routes.get(n["id"], {})

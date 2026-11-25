@@ -165,7 +165,10 @@ def cmd_build(chapter):
         print("[error] BUILD", p)
     print("Форматы: " + ", ".join(f"{k} {v}" for k, v in Counter(
         r["format"] for r in routing["routes"]).most_common()))
-    return cmd_check(chapter) or bool(builder.problems)
+    bad = cmd_check(chapter)
+    if builder.problems:
+        print(f"Ещё ошибок сборки: {len(builder.problems)} — исправить строки [error] BUILD")
+    return bad or bool(builder.problems)
 
 
 def backup(chapter, name):

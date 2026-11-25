@@ -1,0 +1,335 @@
+{
+ "chapter": "baraboshkin",
+ "routes": [
+  {
+   "node_id": "baraboshkin.delta_parts",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section_views",
+   "why": "пространство; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "baraboshkin.three_types",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "baraboshkin.common_traits",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 7 из 10: изменение во времени, причина и следствие"
+  },
+  {
+   "node_id": "baraboshkin.facies_plain",
+   "format": "карточки",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "baraboshkin.delta_front",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 7 из 10: изменение во времени, причина и следствие"
+  },
+  {
+   "node_id": "baraboshkin.abandonment",
+   "format": "карточки",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "baraboshkin.bay_fill",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, причина и следствие"
+  },
+  {
+   "node_id": "baraboshkin.levee_crevasse",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, причина и следствие"
+  },
+  {
+   "node_id": "baraboshkin.mouth_bar_channels",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 6 из 10: изменение во времени; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "baraboshkin.delta_channels",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "baraboshkin.avulsion",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 7 из 10: изменение во времени, причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "baraboshkin.bank_slides",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 6 из 10: причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "baraboshkin.fluvial_front",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "в геологическое время; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "baraboshkin.fluvial_abandonment",
+   "format": "карточки",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; видеоёмкость 6 из 10: изменение во времени; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "baraboshkin.wave_sections",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 6 из 10: изменение во времени; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "baraboshkin.wave_coast",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 6 из 10: причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "baraboshkin.wave_abandonment",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 6 из 10: изменение во времени, причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "baraboshkin.tide_channels",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "baraboshkin.tide_channel_section",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "baraboshkin.tide_bodies",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 2,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section_views",
+   "why": "пространство; видеоёмкость 7 из 10: изменение во времени, скачок масштаба; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "baraboshkin.tide_interchannel",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "baraboshkin.tide_front",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 2,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section_views",
+   "why": "пространство; видеоёмкость 6 из 10: скачок масштаба; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  }
+ ]
+}

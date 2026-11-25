@@ -1,0 +1,764 @@
+{
+ "chapter": "baraboshkin",
+ "illustrations": [
+  {
+   "id": "baraboshkin.delta_parts.i1",
+   "step_id": "baraboshkin.delta_parts",
+   "node_id": "baraboshkin.delta_parts",
+   "file": "illustrations/baraboshkin.delta_parts.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Из чего состоит дельта реки» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Из чего состоит дельта реки» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.delta_parts#c1",
+    "baraboshkin.delta_parts#c2",
+    "baraboshkin.delta_parts#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.three_types.i1",
+   "step_id": "baraboshkin.three_types",
+   "node_id": "baraboshkin.three_types",
+   "file": "illustrations/baraboshkin.three_types.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Река, волны или прилив: три типа дельт» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Река, волны или прилив: три типа дельт» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.three_types#c1",
+    "baraboshkin.three_types#c2",
+    "baraboshkin.three_types#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.three_types.i2",
+   "step_id": "baraboshkin.three_types",
+   "node_id": "baraboshkin.three_types",
+   "file": "illustrations/baraboshkin.three_types.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Река, волны или прилив: три типа дельт»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Река, волны или прилив: три типа дельт»",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.three_types#c1",
+    "baraboshkin.three_types#c2",
+    "baraboshkin.three_types#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.common_traits.i1",
+   "step_id": "baraboshkin.common_traits",
+   "node_id": "baraboshkin.common_traits",
+   "file": "illustrations/baraboshkin.common_traits.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему слои в дельте повторяются» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему слои в дельте повторяются» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.common_traits#c1",
+    "baraboshkin.common_traits#c2",
+    "baraboshkin.common_traits#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.common_traits.anim",
+   "file": "media/anim_baraboshkin.common_traits.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: дельта продвигается, отмирает и продвигается снова: слои повторяются. 21 с, без звука.",
+   "alt": "Анимация к шагу «Почему слои в дельте повторяются»: дельта продвигается, отмирает и продвигается снова: слои повторяются",
+   "source": "стр. 31, 32; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.common_traits#c1",
+    "baraboshkin.common_traits#c2"
+   ],
+   "prompt": null,
+   "scene": "strata",
+   "step_id": "baraboshkin.common_traits",
+   "node_id": "baraboshkin.common_traits"
+  },
+  {
+   "id": "baraboshkin.facies_plain.i1",
+   "step_id": "baraboshkin.facies_plain",
+   "node_id": "baraboshkin.facies_plain",
+   "file": "illustrations/baraboshkin.facies_plain.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Какие осадки бывают в дельте» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Какие осадки бывают в дельте» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.facies_plain#c1",
+    "baraboshkin.facies_plain#c2",
+    "baraboshkin.facies_plain#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.delta_front.i1",
+   "step_id": "baraboshkin.delta_front",
+   "node_id": "baraboshkin.delta_front",
+   "file": "illustrations/baraboshkin.delta_front.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Фронт дельты: снизу мелкое, сверху песок» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Фронт дельты: снизу мелкое, сверху песок» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.delta_front#c1",
+    "baraboshkin.delta_front#c2",
+    "baraboshkin.delta_front#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.delta_front.i2",
+   "step_id": "baraboshkin.delta_front",
+   "node_id": "baraboshkin.delta_front",
+   "file": "illustrations/baraboshkin.delta_front.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Фронт дельты: снизу мелкое, сверху песок»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Фронт дельты: снизу мелкое, сверху песок»",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.delta_front#c1",
+    "baraboshkin.delta_front#c2",
+    "baraboshkin.delta_front#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.delta_front.anim",
+   "file": "media/anim_baraboshkin.delta_front.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: фронт продвигается: глины внизу, песчаники наверху. 21 с, без звука.",
+   "alt": "Анимация к шагу «Фронт дельты: снизу мелкое, сверху песок»: фронт продвигается: глины внизу, песчаники наверху",
+   "source": "стр. 32, 33; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.delta_front#c1",
+    "baraboshkin.delta_front#c2",
+    "baraboshkin.delta_front#c3"
+   ],
+   "prompt": null,
+   "scene": "strata",
+   "step_id": "baraboshkin.delta_front",
+   "node_id": "baraboshkin.delta_front"
+  },
+  {
+   "id": "baraboshkin.abandonment.i1",
+   "step_id": "baraboshkin.abandonment",
+   "node_id": "baraboshkin.abandonment",
+   "file": "illustrations/baraboshkin.abandonment.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Тонкие слои, по которым сверяют разрезы» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Тонкие слои, по которым сверяют разрезы» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.abandonment#c1",
+    "baraboshkin.abandonment#c2",
+    "baraboshkin.abandonment#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.bay_fill.i1",
+   "step_id": "baraboshkin.bay_fill",
+   "node_id": "baraboshkin.bay_fill",
+   "file": "illustrations/baraboshkin.bay_fill.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как залив в дельте заполняется осадком» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как залив в дельте заполняется осадком» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.bay_fill#c1",
+    "baraboshkin.bay_fill#c2",
+    "baraboshkin.bay_fill#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.bay_fill.anim",
+   "file": "media/anim_baraboshkin.bay_fill.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: залив заполняется снова и снова: глина, потом тонкий песок. 21 с, без звука.",
+   "alt": "Анимация к шагу «Как залив в дельте заполняется осадком»: залив заполняется снова и снова: глина, потом тонкий песок",
+   "source": "стр. 34; допущения: форма и размеры условные, показано взаимное положение; мощность цикла в пределах 4–10 м по тексту",
+   "claim_ids": [
+    "baraboshkin.bay_fill#c1",
+    "baraboshkin.bay_fill#c2",
+    "baraboshkin.bay_fill#c3"
+   ],
+   "prompt": null,
+   "scene": "strata",
+   "step_id": "baraboshkin.bay_fill",
+   "node_id": "baraboshkin.bay_fill"
+  },
+  {
+   "id": "baraboshkin.levee_crevasse.i1",
+   "step_id": "baraboshkin.levee_crevasse",
+   "node_id": "baraboshkin.levee_crevasse",
+   "file": "illustrations/baraboshkin.levee_crevasse.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Прорыв берега: слой за один паводок» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Прорыв берега: слой за один паводок» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.levee_crevasse#c1",
+    "baraboshkin.levee_crevasse#c2",
+    "baraboshkin.levee_crevasse#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.levee_crevasse.anim",
+   "file": "media/anim_baraboshkin.levee_crevasse.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: паводок намывает вал, потом прорывает берег и насыпает конус. 21 с, без звука.",
+   "alt": "Анимация к шагу «Прорыв берега: слой за один паводок»: паводок намывает вал, потом прорывает берег и насыпает конус",
+   "source": "стр. 35; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.levee_crevasse#c1",
+    "baraboshkin.levee_crevasse#c2",
+    "baraboshkin.levee_crevasse#c3",
+    "baraboshkin.levee_crevasse#c4"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "baraboshkin.levee_crevasse",
+   "node_id": "baraboshkin.levee_crevasse"
+  },
+  {
+   "id": "baraboshkin.mouth_bar_channels.i1",
+   "step_id": "baraboshkin.mouth_bar_channels",
+   "node_id": "baraboshkin.mouth_bar_channels",
+   "file": "illustrations/baraboshkin.mouth_bar_channels.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Бар растёт, а канал его размывает» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Бар растёт, а канал его размывает» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.mouth_bar_channels#c1",
+    "baraboshkin.mouth_bar_channels#c2",
+    "baraboshkin.mouth_bar_channels#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.mouth_bar_channels.anim",
+   "file": "media/anim_baraboshkin.mouth_bar_channels.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: бар растёт в устье, канал размывает его середину, тела сливаются. 22 с, без звука.",
+   "alt": "Анимация к шагу «Бар растёт, а канал его размывает»: бар растёт в устье, канал размывает его середину, тела сливаются",
+   "source": "стр. 35; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.mouth_bar_channels#c1",
+    "baraboshkin.mouth_bar_channels#c3"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "baraboshkin.mouth_bar_channels",
+   "node_id": "baraboshkin.mouth_bar_channels"
+  },
+  {
+   "id": "baraboshkin.delta_channels.i1",
+   "step_id": "baraboshkin.delta_channels",
+   "node_id": "baraboshkin.delta_channels",
+   "file": "illustrations/baraboshkin.delta_channels.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Чем рукав дельты отличается от промоины» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Чем рукав дельты отличается от промоины» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.delta_channels#c1",
+    "baraboshkin.delta_channels#c2",
+    "baraboshkin.delta_channels#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.avulsion.i1",
+   "step_id": "baraboshkin.avulsion",
+   "node_id": "baraboshkin.avulsion",
+   "file": "illustrations/baraboshkin.avulsion.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Река бросает русло: след в разрезе» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Река бросает русло: след в разрезе» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.avulsion#c1",
+    "baraboshkin.avulsion#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.avulsion.i2",
+   "step_id": "baraboshkin.avulsion",
+   "node_id": "baraboshkin.avulsion",
+   "file": "illustrations/baraboshkin.avulsion.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Река бросает русло: след в разрезе»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Река бросает русло: след в разрезе»",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.avulsion#c1",
+    "baraboshkin.avulsion#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.avulsion.anim",
+   "file": "media/anim_baraboshkin.avulsion.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: река уходит в новое русло, старый рукав отмирает и зарастает. 21 с, без звука.",
+   "alt": "Анимация к шагу «Река бросает русло: след в разрезе»: река уходит в новое русло, старый рукав отмирает и зарастает",
+   "source": "стр. 37, 38; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.avulsion#c1",
+    "baraboshkin.avulsion#c2"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "baraboshkin.avulsion",
+   "node_id": "baraboshkin.avulsion"
+  },
+  {
+   "id": "baraboshkin.bank_slides.i1",
+   "step_id": "baraboshkin.bank_slides",
+   "node_id": "baraboshkin.bank_slides",
+   "file": "illustrations/baraboshkin.bank_slides.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему песок рукавов такой узкий» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему песок рукавов такой узкий» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.bank_slides#c1",
+    "baraboshkin.bank_slides#c2",
+    "baraboshkin.bank_slides#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.bank_slides.anim",
+   "file": "media/anim_baraboshkin.bank_slides.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: берег сползает под русло, тела рукавов узкие и длинные. 20 с, без звука.",
+   "alt": "Анимация к шагу «Почему песок рукавов такой узкий»: берег сползает под русло, тела рукавов узкие и длинные",
+   "source": "стр. 38, 39; допущения: форма и размеры условные, показано взаимное положение; оползание берега описано в тексте шага, в плане не показано",
+   "claim_ids": [
+    "baraboshkin.bank_slides#c2",
+    "baraboshkin.bank_slides#c3"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "baraboshkin.bank_slides",
+   "node_id": "baraboshkin.bank_slides"
+  },
+  {
+   "id": "baraboshkin.fluvial_front.i1",
+   "step_id": "baraboshkin.fluvial_front",
+   "node_id": "baraboshkin.fluvial_front",
+   "file": "illustrations/baraboshkin.fluvial_front.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Фронт дельты снизу вверх по слоям» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Фронт дельты снизу вверх по слоям» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.fluvial_front#c1",
+    "baraboshkin.fluvial_front#c2",
+    "baraboshkin.fluvial_front#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.fluvial_front.i2",
+   "step_id": "baraboshkin.fluvial_front",
+   "node_id": "baraboshkin.fluvial_front",
+   "file": "illustrations/baraboshkin.fluvial_front.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Фронт дельты снизу вверх по слоям»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Фронт дельты снизу вверх по слоям»",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.fluvial_front#c1",
+    "baraboshkin.fluvial_front#c2",
+    "baraboshkin.fluvial_front#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.fluvial_abandonment.i1",
+   "step_id": "baraboshkin.fluvial_abandonment",
+   "node_id": "baraboshkin.fluvial_abandonment",
+   "file": "illustrations/baraboshkin.fluvial_abandonment.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как выглядит конец дельты в разных местах» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как выглядит конец дельты в разных местах» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.fluvial_abandonment#c1",
+    "baraboshkin.fluvial_abandonment#c2",
+    "baraboshkin.fluvial_abandonment#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.fluvial_abandonment.anim",
+   "file": "media/anim_baraboshkin.fluvial_abandonment.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: дельта отмерла: море накрыло её тонким слоем, слой виден везде. 21 с, без звука.",
+   "alt": "Анимация к шагу «Как выглядит конец дельты в разных местах»: дельта отмерла: море накрыло её тонким слоем, слой виден везде",
+   "source": "стр. 39, 40; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.fluvial_abandonment#c1",
+    "baraboshkin.fluvial_abandonment#c2",
+    "baraboshkin.fluvial_abandonment#c3",
+    "baraboshkin.fluvial_abandonment#c4"
+   ],
+   "prompt": null,
+   "scene": "strata",
+   "step_id": "baraboshkin.fluvial_abandonment",
+   "node_id": "baraboshkin.fluvial_abandonment"
+  },
+  {
+   "id": "baraboshkin.wave_sections.i1",
+   "step_id": "baraboshkin.wave_sections",
+   "node_id": "baraboshkin.wave_sections",
+   "file": "illustrations/baraboshkin.wave_sections.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Волновая дельта похожа на пляж» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Волновая дельта похожа на пляж» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.wave_sections#c1",
+    "baraboshkin.wave_sections#c2",
+    "baraboshkin.wave_sections#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.wave_sections.anim",
+   "file": "media/anim_baraboshkin.wave_sections.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: берег из пляжей закрывает равнину от штормов. 21 с, без звука.",
+   "alt": "Анимация к шагу «Волновая дельта похожа на пляж»: берег из пляжей закрывает равнину от штормов",
+   "source": "стр. 40, 41; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.wave_sections#c1",
+    "baraboshkin.wave_sections#c2",
+    "baraboshkin.wave_sections#c3"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "baraboshkin.wave_sections",
+   "node_id": "baraboshkin.wave_sections"
+  },
+  {
+   "id": "baraboshkin.wave_coast.i1",
+   "step_id": "baraboshkin.wave_coast",
+   "node_id": "baraboshkin.wave_coast",
+   "file": "illustrations/baraboshkin.wave_coast.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему у волновой дельты ровный берег» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему у волновой дельты ровный берег» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.wave_coast#c1",
+    "baraboshkin.wave_coast#c2",
+    "baraboshkin.wave_coast#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.wave_coast.anim",
+   "file": "media/anim_baraboshkin.wave_coast.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: волны растаскивают песок вдоль берега, бар в устье не держится. 21 с, без звука.",
+   "alt": "Анимация к шагу «Почему у волновой дельты ровный берег»: волны растаскивают песок вдоль берега, бар в устье не держится",
+   "source": "стр. 40, 41; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.wave_coast#c1",
+    "baraboshkin.wave_coast#c2",
+    "baraboshkin.wave_coast#c3"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "baraboshkin.wave_coast",
+   "node_id": "baraboshkin.wave_coast"
+  },
+  {
+   "id": "baraboshkin.wave_abandonment.i1",
+   "step_id": "baraboshkin.wave_abandonment",
+   "node_id": "baraboshkin.wave_abandonment",
+   "file": "illustrations/baraboshkin.wave_abandonment.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Волны доедают мёртвую дельту» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Волны доедают мёртвую дельту» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.wave_abandonment#c1"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.wave_abandonment.anim",
+   "file": "media/anim_baraboshkin.wave_abandonment.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: после отмирания волны срезают верх фронта. 18 с, без звука.",
+   "alt": "Анимация к шагу «Волны доедают мёртвую дельту»: после отмирания волны срезают верх фронта",
+   "source": "стр. 41; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.wave_abandonment#c1"
+   ],
+   "prompt": null,
+   "scene": "strata",
+   "step_id": "baraboshkin.wave_abandonment",
+   "node_id": "baraboshkin.wave_abandonment"
+  },
+  {
+   "id": "baraboshkin.tide_channels.i1",
+   "step_id": "baraboshkin.tide_channels",
+   "node_id": "baraboshkin.tide_channels",
+   "file": "illustrations/baraboshkin.tide_channels.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Прилив делает рукав воронкой» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Прилив делает рукав воронкой» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.tide_channels#c1",
+    "baraboshkin.tide_channels#c2",
+    "baraboshkin.tide_channels#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.tide_channels.anim",
+   "file": "media/anim_baraboshkin.tide_channels.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: прилив входит в рукав, подпирает реку, на стыке растут внутренние дельты. 22 с, без звука.",
+   "alt": "Анимация к шагу «Прилив делает рукав воронкой»: прилив входит в рукав, подпирает реку, на стыке растут внутренние дельты",
+   "source": "стр. 41; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.tide_channels#c1",
+    "baraboshkin.tide_channels#c2",
+    "baraboshkin.tide_channels#c3",
+    "baraboshkin.tide_channels#c4"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "baraboshkin.tide_channels",
+   "node_id": "baraboshkin.tide_channels"
+  },
+  {
+   "id": "baraboshkin.tide_channel_section.i1",
+   "step_id": "baraboshkin.tide_channel_section",
+   "node_id": "baraboshkin.tide_channel_section",
+   "file": "illustrations/baraboshkin.tide_channel_section.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как узнать прилив в разрезе рукава» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как узнать прилив в разрезе рукава» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.tide_channel_section#c1",
+    "baraboshkin.tide_channel_section#c2",
+    "baraboshkin.tide_channel_section#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.tide_channel_section.i2",
+   "step_id": "baraboshkin.tide_channel_section",
+   "node_id": "baraboshkin.tide_channel_section",
+   "file": "illustrations/baraboshkin.tide_channel_section.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как узнать прилив в разрезе рукава»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как узнать прилив в разрезе рукава»",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.tide_channel_section#c1",
+    "baraboshkin.tide_channel_section#c2",
+    "baraboshkin.tide_channel_section#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.tide_bodies.i1",
+   "step_id": "baraboshkin.tide_bodies",
+   "node_id": "baraboshkin.tide_bodies",
+   "file": "illustrations/baraboshkin.tide_bodies.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «От чего зависит размер песчаного тела» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «От чего зависит размер песчаного тела» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.tide_bodies#c1",
+    "baraboshkin.tide_bodies#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.tide_bodies.anim",
+   "file": "media/anim_baraboshkin.tide_bodies.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: протока смещается вбок, и песчаное тело становится намного шире протоки. 21 с, без звука.",
+   "alt": "Анимация к шагу «От чего зависит размер песчаного тела»: протока смещается вбок, и песчаное тело становится намного шире протоки",
+   "source": "стр. 43; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.tide_bodies#c1",
+    "baraboshkin.tide_bodies#c2"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "baraboshkin.tide_bodies",
+   "node_id": "baraboshkin.tide_bodies"
+  },
+  {
+   "id": "baraboshkin.tide_interchannel.i1",
+   "step_id": "baraboshkin.tide_interchannel",
+   "node_id": "baraboshkin.tide_interchannel",
+   "file": "illustrations/baraboshkin.tide_interchannel.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что между протоками: климат решает» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что между протоками: климат решает» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.tide_interchannel#c1",
+    "baraboshkin.tide_interchannel#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.tide_front.i1",
+   "step_id": "baraboshkin.tide_front",
+   "node_id": "baraboshkin.tide_front",
+   "file": "illustrations/baraboshkin.tide_front.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Гряды, которые расходятся от устья лучами» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Гряды, которые расходятся от устья лучами» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.tide_front#c1",
+    "baraboshkin.tide_front#c2",
+    "baraboshkin.tide_front#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.tide_front.i2",
+   "step_id": "baraboshkin.tide_front",
+   "node_id": "baraboshkin.tide_front",
+   "file": "illustrations/baraboshkin.tide_front.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Гряды, которые расходятся от устья лучами»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Гряды, которые расходятся от устья лучами»",
+   "source": null,
+   "claim_ids": [
+    "baraboshkin.tide_front#c1",
+    "baraboshkin.tide_front#c2",
+    "baraboshkin.tide_front#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "baraboshkin.tide_front.anim",
+   "file": "media/anim_baraboshkin.tide_front.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: приливные гряды расходятся лучами от устья. 21 с, без звука.",
+   "alt": "Анимация к шагу «Гряды, которые расходятся от устья лучами»: приливные гряды расходятся лучами от устья",
+   "source": "стр. 44; допущения: форма и размеры условные, показано взаимное положение",
+   "claim_ids": [
+    "baraboshkin.tide_front#c1",
+    "baraboshkin.tide_front#c2"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "baraboshkin.tide_front",
+   "node_id": "baraboshkin.tide_front"
+  }
+ ]
+}

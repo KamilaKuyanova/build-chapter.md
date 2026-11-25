@@ -26,6 +26,8 @@ const port = fs.readFileSync(portFile, 'utf8').split('\n')[0].trim();
 const tab = (await (await fetch(`http://127.0.0.1:${port}/json/list`)).json()).find(x => x.type === 'page');
 const ws = new WebSocket(tab.webSocketDebuggerUrl);
 await new Promise((ok, bad) => { ws.onopen = ok; ws.onerror = bad; });
+// обрыв связи с браузером — ошибка, а не вечное ожидание
+ws.onclose = () => { for (const [, bad] of wait.values()) bad(new Error('браузер закрылся')); wait.clear(); };
 let seq = 0, loaded;
 const wait = new Map(), onLoad = new Promise(r => { loaded = r; });
 ws.onmessage = e => {
@@ -69,7 +71,9 @@ try {
     await done;
   }
 } finally {
-  try { await call('Browser.close'); } catch { br.kill(); }
+  // браузер может закрыться раньше, чем ответит: ждём не дольше секунды
+  await Promise.race([call('Browser.close').catch(() => {}), new Promise(r => setTimeout(r, 1000))]);
+  try { br.kill(); } catch { /* уже закрыт */ }
   try { ws.close(); } catch { /* уже закрыт */ }
   for (let i = 0; i < 10; i++) {
     try { fs.rmSync(profile, { recursive: true, force: true }); break; } catch { await new Promise(r => setTimeout(r, 200)); }

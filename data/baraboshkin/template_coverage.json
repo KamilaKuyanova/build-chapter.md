@@ -1,0 +1,251 @@
+{
+ "chapter": "baraboshkin",
+ "templates": {
+  "process_state": {
+   "type": "М",
+   "state": "номер стадии процесса s (непрерывно); величины — функции s",
+   "description": "Процесс как смена состояний с измеримыми величинами (М — механизм, процесс)."
+  },
+  "time_evolution": {
+   "type": "В",
+   "state": "время T; толщина каждого слоя и величина — функции T",
+   "description": "Накопление и преобразование толщи во времени (В — геологическое время)."
+  },
+  "tool_and_curve": {
+   "type": "И",
+   "state": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
+   "description": "Прибор идёт вдоль разреза и пишет кривые (И — косвенное измерение)."
+  },
+  "formula_explorer": {
+   "type": "Ф",
+   "state": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "description": "Формула как управляемая модель: синхронные виды из одного расчёта (Ф — формализм, модель)."
+  },
+  "section_views": {
+   "type": "П",
+   "state": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
+   "description": "Тело в пространстве: план и разрез из одной геометрии (П — пространство)."
+  },
+  "step_procedure": {
+   "type": "Пр",
+   "state": "номер шага k; пройденные шаги накапливаются",
+   "description": "Процедура специалиста по шагам, с накоплением (Пр — процедура)."
+  },
+  "decision_panel": {
+   "type": "Н",
+   "state": "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила",
+   "description": "Решение по правилу с неопределённостью (Н — неопределённость, решение)."
+  },
+  "compare_signs": {
+   "type": "Р",
+   "state": "число открытых признаков k; суммы баллов — функция k",
+   "description": "Распознавание по набору признаков (Р — распознавание): таблица «признак × вариант» с баллами."
+  }
+ },
+ "rows": [
+  {
+   "node_id": "baraboshkin.common_traits",
+   "title": "Почему слои в дельте повторяются",
+   "type": "В",
+   "secondary": "М",
+   "format": "шортс",
+   "video_scores": 7,
+   "template": "strata",
+   "state_model": "номер стадии с долей st; все границы слоёв вычисляются из него",
+   "needs": "последовательность событий во времени",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.delta_front",
+   "title": "Фронт дельты: снизу мелкое, сверху песок",
+   "type": "В",
+   "secondary": "М",
+   "format": "длинное видео",
+   "video_scores": 7,
+   "template": "strata",
+   "state_model": "номер стадии с долей st; все границы слоёв вычисляются из него",
+   "needs": "последовательность событий во времени",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.bay_fill",
+   "title": "Как залив в дельте заполняется осадком",
+   "type": "М",
+   "secondary": "В",
+   "format": "шортс",
+   "video_scores": 7,
+   "template": "strata",
+   "state_model": "номер стадии с долей st; все границы слоёв вычисляются из него",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.levee_crevasse",
+   "title": "Прорыв берега: слой за один паводок",
+   "type": "М",
+   "secondary": "Р",
+   "format": "шортс",
+   "video_scores": 7,
+   "template": "plan",
+   "state_model": "доля роста и превращения каждой фигуры карты; все виды — из одних координат",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.mouth_bar_channels",
+   "title": "Бар растёт, а канал его размывает",
+   "type": "М",
+   "secondary": "В",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "plan",
+   "state_model": "доля роста и превращения каждой фигуры карты; все виды — из одних координат",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.avulsion",
+   "title": "Река бросает русло: след в разрезе",
+   "type": "В",
+   "secondary": "М",
+   "format": "интерактив",
+   "video_scores": 7,
+   "template": "plan",
+   "state_model": "доля роста и превращения каждой фигуры карты; все виды — из одних координат",
+   "needs": "последовательность событий во времени",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.bank_slides",
+   "title": "Почему песок рукавов такой узкий",
+   "type": "М",
+   "secondary": "П",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "plan",
+   "state_model": "доля роста и превращения каждой фигуры карты; все виды — из одних координат",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.fluvial_abandonment",
+   "title": "Как выглядит конец дельты в разных местах",
+   "type": "Р",
+   "secondary": "В",
+   "format": "карточки",
+   "video_scores": 6,
+   "template": "strata",
+   "state_model": "номер стадии с долей st; все границы слоёв вычисляются из него",
+   "needs": "признаки и варианты",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.wave_sections",
+   "title": "Волновая дельта похожа на пляж",
+   "type": "В",
+   "secondary": "М",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "plan",
+   "state_model": "доля роста и превращения каждой фигуры карты; все виды — из одних координат",
+   "needs": "последовательность событий во времени",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.wave_coast",
+   "title": "Почему у волновой дельты ровный берег",
+   "type": "М",
+   "secondary": "П",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "plan",
+   "state_model": "доля роста и превращения каждой фигуры карты; все виды — из одних координат",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.wave_abandonment",
+   "title": "Волны доедают мёртвую дельту",
+   "type": "В",
+   "secondary": "Р",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "strata",
+   "state_model": "номер стадии с долей st; все границы слоёв вычисляются из него",
+   "needs": "последовательность событий во времени",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.tide_channels",
+   "title": "Прилив делает рукав воронкой",
+   "type": "М",
+   "secondary": "П",
+   "format": "интерактив",
+   "video_scores": 7,
+   "template": "plan",
+   "state_model": "доля роста и превращения каждой фигуры карты; все виды — из одних координат",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.tide_bodies",
+   "title": "От чего зависит размер песчаного тела",
+   "type": "П",
+   "secondary": "М",
+   "format": "интерактив",
+   "video_scores": 7,
+   "template": "plan",
+   "state_model": "доля роста и превращения каждой фигуры карты; все виды — из одних координат",
+   "needs": "форма и размеры тела",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "baraboshkin.tide_front",
+   "title": "Гряды, которые расходятся от устья лучами",
+   "type": "П",
+   "secondary": "В",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "plan",
+   "state_model": "доля роста и превращения каждой фигуры карты; все виды — из одних координат",
+   "needs": "форма и размеры тела",
+   "status": "закрывает: живая анимация в курсе",
+   "video": null,
+   "animation_in_course": true
+  }
+ ],
+ "summary": {
+  "video_nodes": 14,
+  "covered": 14,
+  "need_new": 0,
+  "videos_made": 0,
+  "animations_in_course": 14,
+  "uncovered_in_course": 0
+ }
+}

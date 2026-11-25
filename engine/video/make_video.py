@@ -123,7 +123,9 @@ def render_web(name, spec, params, beats, total, W, H, a, out, audio, srt):
     import os
     import shutil
     node = shutil.which("node") or os.path.join(os.environ.get("ProgramFiles", ""), "nodejs", "node.exe")
-    subprocess.run([node, str(HERE / "web" / "render.mjs"), str(path)], check=True)
+    for last in (False, True):   # редкий сбой браузера: вторая попытка
+        if subprocess.run([node, str(HERE / "web" / "render.mjs"), str(path)], check=last).returncode == 0:
+            break
     if not a.preview:
         mux(out, audio, srt, total, silent)
 

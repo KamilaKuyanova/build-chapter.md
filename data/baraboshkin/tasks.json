@@ -1,0 +1,607 @@
+{
+ "chapter": "baraboshkin",
+ "tasks": [
+  {
+   "id": "baraboshkin.delta_parts.t1",
+   "type": "single",
+   "step_id": "baraboshkin.delta_parts",
+   "claim_ids": [
+    "baraboshkin.delta_parts#c3",
+    "baraboshkin.delta_parts#c4"
+   ],
+   "prompt": "В интервале под водой встретили крутой склон из грубых обломков. К какой части дельты он относится?",
+   "explanation": "Крутонаклонная подводная грубообломочная часть — авандельта.",
+   "kind": "understanding",
+   "evidence": "Авандельта — крутонаклонная подводная грубообломочная часть конуса дельты.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "К дельтовой равнине",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "К авандельте",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "К продельте",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "К дельте не относится: она только надводная",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "baraboshkin.three_types.t1",
+   "type": "single",
+   "step_id": "baraboshkin.three_types",
+   "claim_ids": [
+    "baraboshkin.three_types#c2"
+   ],
+   "prompt": "По какому признаку дельты делят на три группы в самой популярной классификации?",
+   "explanation": "Группы выделяют по доминирующему процессу во фронтальной части.",
+   "kind": "understanding",
+   "evidence": "Наиболее популярная классификация делит дельты на три группы по процессу, доминирующему во фронтальной части.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "По процессу, который доминирует во фронте",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "По возрасту пород в дельте",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "По длине реки, которая принесла осадок к морю",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "По площади надводной части",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "baraboshkin.common_traits.t1",
+   "type": "single",
+   "step_id": "baraboshkin.common_traits",
+   "claim_ids": [
+    "baraboshkin.common_traits#c2"
+   ],
+   "prompt": "В скважине один и тот же набор слоёв повторяется четыре раза. Какое объяснение даёт глава для депоцентра дельты?",
+   "explanation": "Повторение вызвано сменой стадий продвижения и отмирания.",
+   "kind": "transfer",
+   "evidence": "Разрезы внутри депоцентра часто повторяются или цикличны из-за повторения стадий продвижения и отмирания дельты или её лопастей.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Пласт разорван и сдвоен",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Дельта или её лопасть несколько раз продвигалась и отмирала",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Осадок каждый раз приносила новая река",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Данные записаны дважды, и лишние слои надо убрать из таблицы как ошибку",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "baraboshkin.common_traits.t2",
+   "type": "gap",
+   "step_id": "baraboshkin.common_traits",
+   "claim_ids": [
+    "baraboshkin.common_traits#c1"
+   ],
+   "prompt": "Место наибольшего накопления осадков у устья крупной реки называется {{1}}.",
+   "explanation": "Депоцентр формируется, потому что тело дельты ограничено по площади.",
+   "kind": "recall",
+   "evidence": "Осадочное тело дельты ограничено по площади, поэтому около устья крупной реки формируется депоцентр.",
+   "answer": [
+    "депоцентр"
+   ]
+  },
+  {
+   "id": "baraboshkin.delta_front.t1",
+   "type": "order",
+   "step_id": "baraboshkin.delta_front",
+   "claim_ids": [
+    "baraboshkin.delta_front#c1",
+    "baraboshkin.delta_front#c2"
+   ],
+   "prompt": "Фронт дельты продвигается в море. Расставьте осадки снизу вверх.",
+   "explanation": "При продвижении фронта разрез чаще всего регрессивный: от мелкозернистого к песчаникам.",
+   "kind": "understanding",
+   "evidence": "Ассоциация фронта дельты наиболее часто регрессивна: от мелкозернистых фаций авандельты или продельты к береговым, где доминируют песчаники.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "переход к более грубым осадкам",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "мелкозернистые фации продельты или авандельты",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "песчаники береговой линии",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o2",
+    "o1",
+    "o3"
+   ]
+  },
+  {
+   "id": "baraboshkin.delta_front.t2",
+   "type": "single",
+   "step_id": "baraboshkin.delta_front",
+   "claim_ids": [
+    "baraboshkin.delta_front#c3"
+   ],
+   "prompt": "Можно ли считать, что разрез фронта дельты всегда грубеет вверх?",
+   "explanation": "Могут быть и обратные, трансгрессивные последовательности.",
+   "kind": "understanding",
+   "evidence": "Могут быть и обратные (трансгрессивные) последовательности в вертикальной смене фаций.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Нет, бывают и обратные последовательности",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Нет, он всегда мельчает вверх",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Да, если дельта приливная",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Да, других последовательностей во фронте не бывает",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "baraboshkin.abandonment.t1",
+   "type": "single",
+   "step_id": "baraboshkin.abandonment",
+   "claim_ids": [
+    "baraboshkin.abandonment#c1",
+    "baraboshkin.abandonment#c2"
+   ],
+   "prompt": "Надо сопоставить две скважины с разным составом дельтовых слоёв. Какие слои взять опорными?",
+   "explanation": "Фации отмирания — маркирующие слои, по ним коррелируют разрезы.",
+   "kind": "data",
+   "evidence": "Фации отмирания — тонкие, латерально выдержанные маркирующие слои, отражающие низкие скорости осадконакопления.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Только толстые песчаники: тонкие слои ничего не значат",
+     "misconception": "misc.thin_bed_absent"
+    },
+    {
+     "id": "o2",
+     "text": "Песчаники промоин",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Разрезы намывных валов",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Тонкие выдержанные слои отмирания",
+     "misconception": null
+    }
+   ],
+   "answer": "o4"
+  },
+  {
+   "id": "baraboshkin.bay_fill.t1",
+   "type": "calc",
+   "step_id": "baraboshkin.bay_fill",
+   "claim_ids": [
+    "baraboshkin.bay_fill#c2"
+   ],
+   "prompt": "Интервал заливов мощностью 40 м сложен циклами по 10 м, это верхний предел мощности цикла. Сколько раз заполнялся залив?",
+   "explanation": "Делим мощность интервала на мощность одного цикла.",
+   "kind": "data",
+   "evidence": "Мощность разрезов 4–10 м, они начинаются с аргиллитов и алевролитов, осаждённых из взвеси во время паводков.",
+   "answer": 4,
+   "tolerance": 0.01,
+   "unit": "раза"
+  },
+  {
+   "id": "baraboshkin.bay_fill.t2",
+   "type": "single",
+   "step_id": "baraboshkin.bay_fill",
+   "claim_ids": [
+    "baraboshkin.bay_fill#c3"
+   ],
+   "prompt": "Чем обычно завершается разрез заполненного залива?",
+   "explanation": "Обычно разрез завершают маломощные песчаники, хотя весь он может быть глинистым.",
+   "kind": "understanding",
+   "evidence": "Аргиллиты и алевролиты могут слагать весь разрез, но обычно он завершается маломощными песчаниками.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Маломощными песчаниками",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Грубым галечником с морской фауной",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Слоем соли",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Мощными известняками",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "baraboshkin.levee_crevasse.t1",
+   "type": "single",
+   "step_id": "baraboshkin.levee_crevasse",
+   "claim_ids": [
+    "baraboshkin.levee_crevasse#c4"
+   ],
+   "prompt": "Слой с размытой подошвой, зёрна мельчают кверху. Модель назвала его турбидитом. Почему это может быть ошибкой?",
+   "explanation": "Конус выноса промоины можно спутать с турбидитами.",
+   "kind": "data",
+   "evidence": "У конуса выноса промоины размер зёрен уменьшается кверху, и его можно спутать с турбидитами.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Такую же последовательность даёт конус выноса промоины",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Турбидиты не встречаются в дельтах",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Размытая подошва бывает только у устьевых баров",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "У турбидита, в отличие от этого слоя, зёрна всегда крупнеют кверху",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "baraboshkin.mouth_bar_channels.t1",
+   "type": "single",
+   "step_id": "baraboshkin.mouth_bar_channels",
+   "claim_ids": [
+    "baraboshkin.mouth_bar_channels#c1"
+   ],
+   "prompt": "Почему в разрезе устьевого бара часто нет середины и верха?",
+   "explanation": "Средние и верхние части часто размываются каналом промоины.",
+   "kind": "understanding",
+   "evidence": "В разрезах устьевых баров размер зёрен постепенно увеличивается кверху, но средние и верхние части часто размываются каналом промоины.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Их размыл канал, который снабжал бар осадком",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Их растворила солёная вода",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Бар растёт сверху вниз",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Верх бара в любой дельте всегда уносит прилив",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "baraboshkin.mouth_bar_channels.t2",
+   "type": "single",
+   "step_id": "baraboshkin.mouth_bar_channels",
+   "claim_ids": [
+    "baraboshkin.mouth_bar_channels#c3"
+   ],
+   "prompt": "В пяти скважинах внутридельтовой области видны тонкие невыдержанные песчаные тела. Какой вывод осторожнее?",
+   "explanation": "Такие тела часто объединяются в обширный пласт песчаника.",
+   "kind": "transfer",
+   "evidence": "Маломощные невыдержанные песчаные тела часто объединяются в обширный пласт песчаника на всю внутридельтовую область.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Каждое тело точно изолировано",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Это один канал, прошедший через все скважины",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Песка в этой области нет",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Они могут быть частями обширного пласта, нужно проверить",
+     "misconception": null
+    }
+   ],
+   "answer": "o4"
+  },
+  {
+   "id": "baraboshkin.avulsion.t1",
+   "type": "order",
+   "step_id": "baraboshkin.avulsion",
+   "claim_ids": [
+    "baraboshkin.avulsion#c1"
+   ],
+   "prompt": "Расставьте события при перехвате рукава.",
+   "explanation": "Перехват ведёт к отмиранию и к уменьшению размера зёрен вверх.",
+   "kind": "understanding",
+   "evidence": "Обычным явлением бывает перехват (авульсия) рукавов, ведущий к их отмиранию и к разрезам с уменьшением зёрен вверх.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "наверху образуются палеопочва и уголь",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "в нём копится всё более мелкий осадок",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "река уходит в новое русло",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "старый рукав отмирает",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o3",
+    "o4",
+    "o2",
+    "o1"
+   ]
+  },
+  {
+   "id": "baraboshkin.delta_channels.t1",
+   "type": "single",
+   "step_id": "baraboshkin.delta_channels",
+   "claim_ids": [
+    "baraboshkin.delta_channels#c3"
+   ],
+   "prompt": "В одном дельтовом комплексе встретили многоярусное песчаное тело рукава. Где оно вероятнее лежит?",
+   "explanation": "Многоярусные тела тяготеют к верхней части равнины.",
+   "kind": "transfer",
+   "evidence": "Тела песчаников могут быть одно- или многоярусными; одноярусные тяготеют к нижней части дельтовой равнины, многоярусные — к верхней.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "В верхней части дельтовой равнины",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "В нижней части дельтовой равнины",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Под устьевым баром",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "В продельте",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "baraboshkin.fluvial_abandonment.t1",
+   "type": "single",
+   "step_id": "baraboshkin.fluvial_abandonment",
+   "claim_ids": [
+    "baraboshkin.fluvial_abandonment#c1",
+    "baraboshkin.fluvial_abandonment#c4"
+   ],
+   "prompt": "Ищем один уровень отмирания в разных частях флювиальной дельты. Как он выглядит?",
+   "explanation": "Во фронте это биотурбация или кварцевые песчаники, на равнине глинистые слои или торф.",
+   "kind": "data",
+   "evidence": "Отмирание в нижней и средней частях фронта фиксируется по интенсивной зоне биотурбации, иногда с тонкими слоями сланца или известняка.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Везде одинаково: как размытая подошва толстого песчаника",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Везде как грубый галечник",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "По-разному: зона биотурбации, песчаник, лигнит или торф",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Везде как слой угля",
+     "misconception": null
+    }
+   ],
+   "answer": "o3"
+  },
+  {
+   "id": "baraboshkin.wave_coast.t1",
+   "type": "multiple",
+   "step_id": "baraboshkin.wave_coast",
+   "claim_ids": [
+    "baraboshkin.wave_coast#c1",
+    "baraboshkin.wave_coast#c2"
+   ],
+   "prompt": "Какие признаки говорят о волновой дельте?",
+   "explanation": "Волны выравнивают берег, устьевые бары не образуются.",
+   "kind": "data",
+   "evidence": "Волны способны перераспределять большую часть осадка, поэтому характерны правильная береговая линия и достаточно крутой склон фронта.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Правильная береговая линия",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Изобаты параллельны берегу",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Гряды лучами от устьев",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Крупные устьевые бары",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o2"
+   ]
+  },
+  {
+   "id": "baraboshkin.tide_channel_section.t1",
+   "type": "single",
+   "step_id": "baraboshkin.tide_channel_section",
+   "claim_ids": [
+    "baraboshkin.tide_channel_section#c3"
+   ],
+   "prompt": "В керне рукава слойки наклонены то в одну, то в другую сторону, фации часто меняются. О чём это говорит?",
+   "explanation": "Бимодальность и частые мелкие перемены отражают колебания приливных течений.",
+   "kind": "data",
+   "evidence": "Характерны бимодальность направления течения и частые мелкомасштабные вертикальные изменения фаций.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "О конусе выноса промоины, который отложился за один паводок",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "О приливных течениях переменного направления",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Об отмирании рукава после перехвата",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "О медленном накоплении в заливе",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "baraboshkin.tide_front.t1",
+   "type": "single",
+   "step_id": "baraboshkin.tide_front",
+   "claim_ids": [
+    "baraboshkin.tide_front#c1"
+   ],
+   "prompt": "На карте песчаные гряды расходятся лучами от устьев рукавов. Какая это дельта?",
+   "explanation": "Радиальные приливные гряды — основная черта фронта приливной дельты.",
+   "kind": "transfer",
+   "evidence": "Основные черты фронта — приливные гряды, радиально расположенные к устьям рукавов; они могут достигать 2 км в длину, 300 м в ширину и 10–22 м в высоту.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "По карте гряд тип дельты определить нельзя",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Приливная",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Флювиальная с отмершими лопастями",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Волновая",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  }
+ ]
+}

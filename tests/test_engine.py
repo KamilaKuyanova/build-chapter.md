@@ -228,6 +228,20 @@ class Nodes(unittest.TestCase):
         self.assertEqual((unit["page"], quote[:12]), (8, "Мокрый песок"))
         self.assertIsNone(locate(by_id, uid("formula"), "Кривая плавно")[1])
 
+    def test_builder_survives_sloppy_answer(self):
+        """null вместо пустого поля, единицы списком, битый узел — не повод ронять сборку всей главы."""
+        from engine.nodes import Builder, sentence
+        b = Builder({"id": "x", "book": "К"}, UNITS)
+        good = {"id": "a", "title": "т", "novice": "н", "why": "п", "diff": ["М"], "topic": "о", "main": "с", "mechanism": [["абзац", [uid("formula")]]],
+                "practice": None, "claims": [], "links": None, "misc": None, "data": ["", "", []], "analogy": ["", ""], "units": None, "terms": None, "video": None}
+        layer = b.layer([{"nodes": [good, {"id": "b"}]}], "тест")
+        self.assertEqual([n["id"] for n in layer["nodes"]], ["x.a"])
+        self.assertTrue(any("узел b не собран" in p for p in b.problems))
+        self.assertEqual(sentence("Раз два.
+- Три часто.", "Раз"), "Раз два.")
+        self.assertEqual(sentence("- раз;
+- два.", "раз"), "раз;")
+
     def test_chunks_lose_nothing(self):
         from engine.nodes import chunks
         got = [u["id"] for c in chunks(UNITS) for u in c]

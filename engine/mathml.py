@@ -227,7 +227,7 @@ def plain(text):
 
 def rich(text):
     """Обычный текст экранируется, формулы внутри него становятся MathML."""
-    out, last, text = [], 0, "" if text is None else str(text)
+    out, last, text = [], 0, "" if text is None else str(text).replace("**", "")   # жирный шрифт md в цитате новичку не нужен
     for m in INLINE.finditer(text):
         out.append(plain(text[last:m.start()]))
         out.append(convert(next(g for g in m.groups() if g is not None)))

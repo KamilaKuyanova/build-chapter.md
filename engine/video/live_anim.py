@@ -103,7 +103,10 @@ def build(d, only=None, preview=False):
         if preview or job.get("out"):
             jp = out / "job.json"
             jp.write_text(json.dumps(job, ensure_ascii=False), encoding="utf-8")
-            r = subprocess.run([node_exe, str(HERE / "web" / "render.mjs"), str(jp)], capture_output=True, text=True, encoding="utf-8", errors="replace")
+            for _ in range(2):   # редкий сбой браузера: вторая попытка
+                r = subprocess.run([node_exe, str(HERE / "web" / "render.mjs"), str(jp)], capture_output=True, text=True, encoding="utf-8", errors="replace")
+                if r.returncode == 0:
+                    break
             if r.returncode != 0:
                 print(f"  [error] {nid}: {r.stderr.strip()[-300:]}")
                 continue

@@ -36,9 +36,14 @@ NEEDS = {
 
 
 def videos_by_node():
-    out = {}
+    """Ролики, которые стоят в курсах: пробные кадры (preview) роликом не считаются."""
+    out, used = {}, set()
+    for m in (ROOT / "data").glob("*/media_extra.json"):
+        used |= {pathlib.Path(x["file"]).stem for r in json.loads(m.read_text(encoding="utf-8")).values() for x in r}
     for p in (ROOT / "videos").glob("*/video.json"):
         v = json.loads(p.read_text(encoding="utf-8"))
+        if v["video_id"] not in used:
+            continue
         out[v["node_id"]] = {"video_id": v["video_id"], "template": v.get("template"), "scene": v.get("scene"), "format": v["format"]}
     return out
 

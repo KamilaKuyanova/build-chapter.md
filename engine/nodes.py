@@ -67,7 +67,7 @@ def sentence(text, start, end=None):
     if end:
         j = text.find(end, i)
         return text[i:j + len(end)] if j >= 0 else None
-    m = re.compile(r"(?<!\b[А-ЯA-Z])(?<!рис)(?<!табл)(?<!см)[.!?](?=\s*$|\s+[А-ЯЁA-Z«\"(\\$])").search(text, i + len(start))
+    m = re.compile(r"(?<!\b[А-ЯA-Z])(?<!рис)(?<!табл)(?<!см)(?:[.!?](?=\s*$|\s*\n|\s+[А-ЯЁA-Z«\"(\\$])|;(?=\s*\n\s*[-•*]))").search(text, i + len(start))
     return text[i:m.end()] if m else text[i:]
 
 
@@ -101,6 +101,11 @@ def hoist_terms(nodes):
                 nodes[first]["terms_introduced"].append(g["term"])
 
 
+def ids_of(x):
+    """Единицы через пробел или списком — модель пишет и так, и так."""
+    return x.split() if isinstance(x, str) else list(x or [])
+
+
 class Builder:
     def __init__(self, spec, units):
         self.spec, self.units = spec, {u["id"]: u for u in units}
@@ -112,7 +117,7 @@ class Builder:
         return slug if slug.startswith(prefix) else prefix + slug
 
     def para(self, p, where):
-        text, ids = p[0], p[1].split()
+        text, ids = p[0], ids_of(p[1])
         pages = [self.units[i]["page"] for i in ids if i in self.units]
         self.problems += [f"{where}: нет единицы {i}" for i in ids if i not in self.units]
         return {"text": text, "units": ids, "page_pdf": pages[0] if pages else None,
@@ -132,6 +137,7 @@ class Builder:
         return out
 
     def node(self, a, order):
+        a = {"data": ["", "", []], "video": [0] * len(VIDEO), **{k: v for k, v in a.items() if v is not None}}
         nid = self.full(a["id"])
         field = lambda text: {"text": text, "by_model": True}
         layers, units = {"topic": field(a["topic"]), "main": field(a["main"])}, set()
@@ -150,14 +156,14 @@ class Builder:
             if not u:
                 self.problems.append(f"{nid}: нет примера {e['n']}")
                 continue
-            own = [u["id"], *e.get("units", "").split()]
+            own = [u["id"], *ids_of(e.get("units"))]
             units.update(own)
             examples.append({"number": str(e["n"]), "page_pdf": u["page"], "condition": e["condition"],
                              "steps": e["steps"], "result": e["result"], "figure": e.get("figure"),
                              "units": own})
         for t in a.get("tasks", []):
             number, figure, more = ((t if isinstance(t, list) else [t]) + [None, None])[:3]
-            rest = [i for i in (more or "").split() if i in self.units]
+            rest = [i for i in ids_of(more) if i in self.units]
             u = self.by_number.get(("task", str(number)))
             if not u:
                 self.problems.append(f"{nid}: нет задачи {number}")
@@ -178,14 +184,15 @@ class Builder:
                              "variables": [{"symbol": v[0], "meaning": v[1], "unit": (v + [None])[2]}
                                            for v in variables], "by_model": True})
         for title, ids, *fixes in a.get("tables", []):
-            own = [self.units[i] for i in ids.split() if i in self.units]
-            self.problems += [f"{nid}: нет единицы таблицы {i}" for i in ids.split() if i not in self.units]
+            ids = ids_of(ids)
+            own = [self.units[i] for i in ids if i in self.units]
+            self.problems += [f"{nid}: нет единицы таблицы {i}" for i in ids if i not in self.units]
             if own:
                 units.update(u["id"] for u in own)
-                tables.append({"title": title, "units": ids.split(), "page_pdf": own[0]["page"],
+                tables.append({"title": title, "units": ids, "page_pdf": own[0]["page"],
                                "markdown": "\n".join(u["text"] for u in own if u["type"] == "table"),
                                "ocr_fixes": fixes[0] if fixes else []})
-        units.update(a.get("units", "").split())
+        units.update(ids_of(a.get("units")))
         known = [self.units[i] for i in units if i in self.units]
         lens, misc = a.get("lens"), a.get("misc")
         return {
@@ -216,8 +223,11 @@ class Builder:
         nodes, uncovered = [], []
         for ans in answers:
             for a in ans["nodes"]:
-                nodes.append(self.node(a, len(nodes) + 1))
-            uncovered += [{"unit": u, "reason": r} for ids, r in ans.get("uncovered", []) for u in ids.split()]
+                try:
+                    nodes.append(self.node(a, len(nodes) + 1))
+                except (KeyError, TypeError, IndexError, ValueError, AttributeError) as e:
+                    self.problems.append(f"узел {a.get('id', '?')} не собран: {type(e).__name__} {e}. Проверить поля этого узла")
+            uncovered += [{"unit": u, "reason": r} for ids, r in ans.get("uncovered", []) for u in ids_of(ids)]
         hoist_terms(nodes)
         return {"chapter": self.spec["id"], "source": self.spec["book"], "generated_by": generated_by,
                 "nodes": nodes, "uncovered": uncovered}

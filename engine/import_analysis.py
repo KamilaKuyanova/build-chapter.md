@@ -31,9 +31,17 @@ def slug(name):
 
 
 def load(path):
-    t = pathlib.Path(path).read_text(encoding="utf-8").strip()
-    t = re.sub(r"^```(?:json)?\s*|\s*```$", "", t)
-    return json.loads(t)
+    t = pathlib.Path(path).read_text(encoding="utf-8-sig").strip()  # utf-8-sig: убирает BOM
+    # файлы организаторов: «# Book analysis…» + заголовок + блок ```json … ```
+    m = re.search(r"```json\s*", t)
+    if m:
+        t = t[m.end():]
+        end = t.rfind("```")
+        if end != -1:
+            t = t[:end]
+    else:
+        t = re.sub(r"^```\s*|\s*```$", "", t)
+    return json.loads(t.strip())
 
 
 def g(d, *keys, default=None):

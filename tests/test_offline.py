@@ -61,5 +61,42 @@ check("нефть и плотная порода обе дают высокое 
 check("плотная порода без отклонения ПС, песчаник с отклонением", abs(c77["SP"]) < 0.2 and c60["SP"] < -0.4)
 check("глубина растёт вниз", fr.y(80) > fr.y(20))
 
+# 5. озвучка и паспорт ролика
+sys.path.insert(0, str(ROOT / "engine" / "video"))
+import speech  # noqa: E402
+import passport_check  # noqa: E402
+sp = speech.prepare_for_speech("Каротаж: ГК равен 2,5, а сопротивление — 16 Ом·м.")
+check("озвучка: аббревиатуры и числа словами, ударения", "гэ ка" in sp and "две целых пять десятых" in sp
+      and "шестнадцать" in sp and "́" in sp)
+check("субтитры SRT формируются", "00:00:00,000 --> 00:00:06,500" in speech.subtitles_srt(
+    [{"t_start": 0, "t_end": 6.5, "text": "Привет"}]))
+
+PH = ["Почему высокое сопротивление пласта ещё не доказывает нефть в породе?",
+      "Гамма-каротаж, ГК, показывает естественное излучение самой породы, а не отражение прибора.",
+      "Нефть плохо проводит ток, поэтому сопротивление нефтеносного песчаника заметно выше.",
+      "Плотная порода без пор тоже проводит ток плохо и даёт высокое сопротивление.",
+      "Значит, по одной кривой сопротивления нефть от плотной породы отличить нельзя.",
+      "Смотрим вместе кривую потенциала собственной поляризации против этих же пластов.",
+      "Песчаник даёт отклонение кривой потенциала, а плотная порода почти не даёт его.",
+      "Выводы делают по комплексу методов, а не по одной кривой сопротивления.",
+      "Какой ещё признак поможет отличить нефтеносный пласт от плотной породы?"]
+pcs = [c["id"] for c in validate_layer.load_json(ROOT / "domain_pack" / "physics_checklist.json")]
+pp = {"video_id": "v1", "node_id": "n1", "node_card": {},
+      "script": [{"t_start": i * 5.5, "t_end": i * 5.5 + 5.0, "text": t, "claim_id": "n1#c1"} for i, t in enumerate(PH)],
+      "sources": [{"claim_id": "n1#c1", "page_or_dataset": "стр. 95"}], "scene_spec": "scene_spec.json",
+      "frames": [{"t": 0, "class": "B", "label": "симуляция"}], "exaggerations": ["нет преувеличений"],
+      "prediction_question": "Что покажет кривая в плотной породе?", "transfer_question": "Как отличить нефть в вашем наборе данных?",
+      "data_it_bridge": "Один признак даёт ложные срабатывания в классификаторе.",
+      "physics_checklist": [{"item": i, "answer": "да"} for i in pcs],
+      "audio_check": {"lufs": -16.0, "asr_wer": 0.05, "sync_max_s": 0.3, "fallback_voice": "ru-RU-SvetlanaNeural"}}
+errs = passport_check.check(pp, "short")
+check("хороший паспорт проходит (проверка): " + "; ".join(errs[:2]), not errs)
+bad = json.loads(json.dumps(pp))
+bad["script"][2]["text"] = "слово " * 20
+bad["script"][3]["claim_id"] = None
+bad["physics_checklist"][0] = {"item": pcs[0], "answer": "нет"}
+e2 = " | ".join(passport_check.check(bad, "short"))
+check("плохой паспорт: длинная фраза, нет claim_id, «нет» без оговорки", "слов (максимум" in e2 and "нет claim_id" in e2 and "без оговорки" in e2)
+
 print("ИТОГО:", "всё хорошо" if not fails else f"провалено {len(fails)}")
 sys.exit(1 if fails else 0)

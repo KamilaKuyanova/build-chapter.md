@@ -1,2 +1,4 @@
 anthropic>=2.14
 jsonschema>=4.26
+num2words>=0.5
+edge-tts>=6.1

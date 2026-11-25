@@ -13,6 +13,7 @@ chapters/
 *.wav
 *.mp3
 data/raw/
+data/analysis/
 data/page_images/
 
 # Секреты

@@ -16,6 +16,13 @@ python engine/build_course.py --nodes data_selftest/nodes --out out/selftest --s
 python engine/check_passport.py templates/video_passport.template.json   # проверка паспорта ролика до рендера
 ```
 
+## Анализы книг организаторов
+Папка «analysis books» с Диска → положить файлы в `data/analysis/` (в git не попадают), затем:
+```
+python engine/import_analysis.py
+```
+Создаёт `data/book_index/*.json` (оглавление со страницами, зависимости глав, определения, параметры с оговорками, слабые разделы), дополняет глоссарий и `domain_pack/legacy_notes.json`. Всё из анализа помечено «не сверено» и обязано подтверждаться цитатой со страницы главы.
+
 ## Структура
 - `data/nodes/` — учебный слой (узлы). Сейчас там ЗАГЛУШКА, не из книги.
 - `engine/` — сборщик курса (движок не знает геологии).

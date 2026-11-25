@@ -33,18 +33,55 @@ def short(s, n):
     return s if len(s) <= n else s[:n].rsplit(" ", 1)[0] + "…"
 
 
-def lines(txt, width, maxl):
-    ls = textwrap.wrap(txt, width=width) or [""]
-    if len(ls) > maxl:
-        ls = ls[:maxl]
-        ls[-1] = ls[-1].rstrip(".,;: ") + "…"
-    return ls
+_FONTS = {}
+
+
+def _font(size, bold=False):
+    """Метрики шрифта для переноса по реальной ширине (Segoe UI, как в браузере; запасной — встроенный)."""
+    key = (size, bold)
+    if key not in _FONTS:
+        from PIL import ImageFont
+        try:
+            _FONTS[key] = ImageFont.truetype("C:/Windows/Fonts/" + ("segoeuib.ttf" if bold else "segoeui.ttf"), size)
+        except OSError:
+            _FONTS[key] = ImageFont.load_default(size)
+    return _FONTS[key]
+
+
+def lines(txt, width_px, maxl, size=24, bold=False):
+    """Перенос по ширине в пикселях с запасом 6 %: строки не выходят за рамку блока."""
+    f, limit = _font(size, bold), width_px * 0.94
+    out, cur = [], ""
+    for w in (txt or "").split():
+        cand = (cur + " " + w).strip()
+        if f.getlength(cand) <= limit:
+            cur = cand
+            continue
+        if cur:
+            out.append(cur)
+        while f.getlength(w) > limit:       # слишком длинное «слово» (формула) режется по символам
+            cut = len(w)
+            while cut > 1 and f.getlength(w[:cut]) > limit:
+                cut -= 1
+            out.append(w[:cut])
+            w = w[cut:]
+        cur = w
+    if cur:
+        out.append(cur)
+    out = out or [""]
+    if len(out) > maxl:
+        out = out[:maxl]
+        while out[-1] and f.getlength(out[-1] + "…") > limit:
+            out[-1] = out[-1][:-1]
+        out[-1] = out[-1].rstrip(".,;: ") + "…"
+    return out
 
 
 def box(x, y, w, h, head, body, color):
     s = [f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{SG["panel"]}" stroke="{color}" stroke-width="3"/>',
          f'<text x="{x + 20}" y="{y + 44}" font-family="Segoe UI" font-size="30" font-weight="700" fill="{color}">{esc(head)}</text>']
-    for k, ln in enumerate(lines(body, 31, 10)):
+    maxl = int((h - 110) // 34)
+    for k, ln in enumerate(lines(body, w - 40, maxl, 24)):
         s.append(f'<text x="{x + 20}" y="{y + 90 + k * 34}" font-family="Segoe UI" font-size="24" fill="{SG["text"]}">{esc(ln)}</text>')
     return "".join(s)
 
@@ -59,9 +96,10 @@ def frame(title, boxes, foot, ytop=170):
     bw = (W - 80 - gap * (n - 1)) / n
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" style="max-width:100%;height:auto">',
          f'<rect width="{W}" height="{H}" fill="{SG["background"]}"/>']
-    for k, ln in enumerate(lines(title, 56, 2)):
+    for k, ln in enumerate(lines(title, W - 80, 2, 40, True)):
         s.append(f'<text x="40" y="{64 + k * 46}" font-family="Segoe UI" font-size="40" font-weight="700" fill="{SG["text"]}">{esc(ln)}</text>')
-    s.append(f'<text x="{W - 40}" y="40" text-anchor="end" font-family="Segoe UI" font-size="26" font-weight="700" '
+    # метка происхождения — внизу справа, чтобы не наезжать на длинный заголовок
+    s.append(f'<text x="{W - 40}" y="{H - 24}" text-anchor="end" font-family="Segoe UI" font-size="26" font-weight="700" '
              f'fill="{SG["provenance"]["схема"]}">схема</text>')
     for k, (head, body, color) in enumerate(boxes):
         x = 40 + k * (bw + gap)

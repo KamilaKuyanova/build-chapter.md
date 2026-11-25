@@ -237,10 +237,8 @@ class Nodes(unittest.TestCase):
         layer = b.layer([{"nodes": [good, {"id": "b"}]}], "тест")
         self.assertEqual([n["id"] for n in layer["nodes"]], ["x.a"])
         self.assertTrue(any("узел b не собран" in p for p in b.problems))
-        self.assertEqual(sentence("Раз два.
-- Три часто.", "Раз"), "Раз два.")
-        self.assertEqual(sentence("- раз;
-- два.", "раз"), "раз;")
+        self.assertEqual(sentence("Раз два.\n- Три часто.", "Раз"), "Раз два.")
+        self.assertEqual(sentence("- раз;\n- два.", "раз"), "раз;")
 
     def test_chunks_lose_nothing(self):
         from engine.nodes import chunks

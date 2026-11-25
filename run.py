@@ -1,9 +1,16 @@
 """Конвейер «глава → курс». Нужен только Python 3.10+, сторонних библиотек нет.
 
+  python run.py add <глава> <файл.md> [ru|en] [домен]   новая глава из готового md-фрагмента
+  python run.py status <глава>                    что сделано и какой шаг следующий
   python run.py units [глава|train|control|all]   нарезать на единицы  -> work/<глава>/units.json
   python run.py check <глава>                     проверить work/<глава>/layer.json, таблица покрытия
   python run.py next <глава>                      следующая порция -> prompts/NN.md, ответ модели -> answers/NN.json
   python run.py build <глава>                     ответы -> layer.json, routing.json, проверка
+  python run.py tasks <глава>                     промпт заданий -> work/<глава>/tasks_prompt.md
+  python run.py tasks-build <глава>               work/<глава>/tasks_answer.json -> data/<глава>/tasks.json, проверка ключей
+  python run.py domain <глава>                    промпт доменного пакета -> work/<глава>/domain_prompt.md
+  python run.py domain-build <глава>              work/<глава>/domain_answer.json -> domains/<домен>/
+  python run.py rebuild <глава>                   слой, задания и курс заново одной командой
   python run.py course <глава>                    слой -> data/<глава>/, курс -> out/<глава>/index.html
   python run.py review <package.json>             промпты проверки чужого пакета -> work/review_<пакет>/
   python run.py review-build <package.json>       ответы -> work/review_<пакет>/review.json
@@ -12,12 +19,14 @@
 import csv
 import datetime
 import json
+import os
 import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
 
-from engine import nodes as nodes_mod, review as review_mod, route as route_mod
+from engine import nodes as nodes_mod, review as review_mod, route as route_mod, tasks as tasks_mod
+from engine import domain as domain_mod
 from engine.check import check_layer
 from engine.schema import validate
 from engine.units import build_units, needs_cover
@@ -155,6 +164,130 @@ def cmd_build(chapter):
     return cmd_check(chapter) or bool(builder.problems)
 
 
+def backup(chapter, name):
+    """Ответы модели храним и в data/<глава>/answers: work/ в git не входит."""
+    src, dst = ROOT / "work" / chapter / name, ROOT / "data" / chapter / "answers" / name
+    if src.exists():
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_text(src.read_text(encoding="utf-8-sig"), encoding="utf-8")
+
+
+def restore(chapter):
+    """На чужом компьютере work/ пуста: берём ответы из data/<глава>/answers."""
+    saved, work = ROOT / "data" / chapter / "answers", ROOT / "work" / chapter
+    if not saved.exists():
+        return
+    for path in saved.glob("*.json"):
+        dst = (work / path.name) if path.name.startswith(("tasks", "domain")) else (work / "answers" / path.name)
+        if not dst.exists():
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            dst.write_text(path.read_text(encoding="utf-8"), encoding="utf-8")
+
+
+def cmd_add(chapter, file, lang="ru", domain="geology"):
+    """Новая глава: файл копируется в input/new, запись — в chapters.json. Код не меняется."""
+    src = Path(file).resolve()
+    dst = ROOT / "input" / "new" / src.name
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if src != dst:
+        dst.write_text(src.read_text(encoding="utf-8-sig"), encoding="utf-8")
+    cfg = load(ROOT / "chapters.json")
+    cfg["chapters"] = [c for c in cfg["chapters"] if c["id"] != chapter]
+    title = next((l.strip("# *") for l in dst.read_text(encoding="utf-8").splitlines() if l.startswith("#")), src.stem)
+    cfg["chapters"].append({"id": chapter, "set": "test", "lang": lang, "domain": domain,
+                            "book": f"../new/{src.name}", "title": title})
+    save(ROOT / "chapters.json", cfg)
+    cmd_units(chapter)
+
+
+def cmd_status(chapter):
+    work, data = ROOT / "work" / chapter, ROOT / "data" / chapter
+    _, (spec,) = chapter_specs(chapter)
+    have = lambda p: "есть" if p.exists() else "НЕТ"
+    parts = len(nodes_mod.chunks(load(work / "units.json"))) if (work / "units.json").exists() else 0
+    done = len(list((work / "answers").glob("*.json"))) if (work / "answers").exists() else 0
+    print(f"{chapter}: {spec['title']} | язык {spec.get('lang', 'ru')}, домен {spec.get('domain', 'geology')}")
+    print(f"  порций слоя: {done} из {parts}; layer.json {have(work / 'layer.json')}")
+    tasks = len(load(data / "tasks.json")["tasks"]) if (data / "tasks.json").exists() else 0
+    pics = len(load(data / "illustrations.json")["illustrations"]) if (data / "illustrations.json").exists() else 0
+    print(f"  заданий {tasks}, иллюстраций {pics}, курс {have(ROOT / 'out' / chapter / 'index.html')}")
+    step = (f"run.py units {chapter}" if not parts else f"run.py next {chapter}" if done < parts
+            else f"run.py build {chapter}" if not (work / "layer.json").exists()
+            else f"run.py tasks {chapter}" if not tasks else f"run.py rebuild {chapter}")
+    print("  дальше: python " + step)
+
+
+def cmd_domain(chapter):
+    _, (spec,) = chapter_specs(chapter)
+    name, work = spec.get("domain", "geology"), ROOT / "work" / chapter
+    text = domain_mod.prompt((ROOT / "prompts" / "domain.md").read_text(encoding="utf-8"), name, spec["title"],
+                             domain_dir(name), load(work / "units.json"))
+    (work / "domain_prompt.md").write_text(text, encoding="utf-8")
+    (work / "domain_started.txt").write_text(datetime.datetime.now().isoformat(timespec="minutes"), encoding="utf-8")
+    print(f"work/{chapter}/domain_prompt.md, ответ в work/{chapter}/domain_answer.json. Время пошло.")
+
+
+def cmd_domain_build(chapter):
+    _, (spec,) = chapter_specs(chapter)
+    name, work = spec.get("domain", "geology"), ROOT / "work" / chapter
+    answer = nodes_mod.parse_answer((work / "domain_answer.json").read_text(encoding="utf-8-sig"))
+    added, errors = domain_mod.merge(domain_dir(name), answer, {u["page"] for u in load(work / "units.json")})
+    for err in errors:
+        print("[error]", err)
+    print(f"domains/{name}: добавлено " + (", ".join(f"{k} {v}" for k, v in added.items()) or "ничего"))
+    started = work / "domain_started.txt"
+    if started.exists():
+        spent = datetime.datetime.now() - datetime.datetime.fromisoformat(started.read_text(encoding="utf-8").strip())
+        log = ROOT / "domains" / "time_log.csv"
+        new = not log.exists()
+        log.parent.mkdir(exist_ok=True)
+        with open(log, "a", newline="", encoding="utf-8") as f:
+            out = csv.writer(f)
+            if new:
+                out.writerow(["time", "domain", "chapter", "minutes"])
+            out.writerow([datetime.datetime.now().isoformat(timespec="minutes"), name, chapter, round(spent.total_seconds() / 60)])
+        print(f"Время на пакет: {round(spent.total_seconds() / 60)} мин, записано в domains/time_log.csv")
+    backup(chapter, "domain_answer.json")
+    return 1 if errors else 0
+
+
+def cmd_rebuild(chapter):
+    if not (ROOT / "work" / chapter / "units.json").exists():
+        cmd_units(chapter)
+    restore(chapter)
+    bad = cmd_build(chapter)
+    if (ROOT / "work" / chapter / "tasks_answer.json").exists():
+        bad = cmd_tasks_build(chapter) or bad
+    return cmd_course(chapter) or bad
+
+
+def cmd_tasks(chapter):
+    work = ROOT / "work" / chapter
+    text = tasks_mod.prompt((ROOT / "prompts" / "tasks.md").read_text(encoding="utf-8"), load(work / "layer.json"))
+    (work / "tasks_prompt.md").write_text(text, encoding="utf-8")
+    print(f"work/{chapter}/tasks_prompt.md, ответ в work/{chapter}/tasks_answer.json")
+
+
+def cmd_tasks_build(chapter):
+    work = ROOT / "work" / chapter
+    _, (spec,) = chapter_specs(chapter)
+    layer = load(work / "layer.json")
+    answer = nodes_mod.parse_answer((work / "tasks_answer.json").read_text(encoding="utf-8-sig"))
+    doc, problems = tasks_mod.build(layer, answer)
+    found = [("error", "сборка", p) for p in problems]
+    found += [("error", "схема", e) for e in validate(doc, schemas()["task"])]
+    found += tasks_mod.check(layer, doc, misconceptions(spec.get("domain", "geology")))
+    for level, tid, message in found:
+        print(f"[{level}] {tid}: {message}")
+    save(ROOT / "data" / chapter / "tasks.json", doc)
+    backup(chapter, "tasks_answer.json")
+    levels = Counter(x[0] for x in found)
+    print(f"Заданий {len(doc['tasks'])}: " + ", ".join(f"{k} {v}" for k, v in Counter(
+        t["type"] for t in doc["tasks"]).most_common())
+        + f"; на шагов {len({t['step_id'] for t in doc['tasks']})}; ошибок {levels['error']}, сомнений {levels['suspect']}")
+    return 1 if levels["error"] else 0
+
+
 def cmd_course(chapter, *flags):
     """Слой кладём в data/<глава>/, рядом ждём tasks.json и illustrations.json от части Б."""
     work, data = ROOT / "work" / chapter, ROOT / "data" / chapter
@@ -162,11 +295,17 @@ def cmd_course(chapter, *flags):
     for name in ("layer.json", "routing.json", "coverage.json"):
         if (work / name).exists():
             save(data / name, load(work / name))
+    for path in sorted((work / "answers").glob("*.json")):
+        dst = data / "answers" / path.name
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_text(path.read_text(encoding="utf-8-sig"), encoding="utf-8")
     for name, key in (("tasks.json", "tasks"), ("illustrations.json", "illustrations")):
         if not (data / name).exists():
             save(data / name, {"chapter": chapter, key: []})
     return subprocess.run([sys.executable, str(ROOT / "engine" / "build_course.py"), "--dir", str(data),
-                           "--out", str(ROOT / "out" / chapter), "--title", spec["title"], *flags]).returncode
+                           "--out", str(ROOT / "out" / chapter), "--title", spec["title"], *flags],
+                          env={**os.environ, "COURSE_DOMAIN_DIR": domain_dir(spec.get("domain", "geology"))
+                               .relative_to(ROOT).as_posix()}).returncode
 
 
 def review_setup(package_path, domain):
@@ -218,7 +357,9 @@ def cmd_log(chapter, file, minutes, people, run_no, what, why):
     print("Записано в manual_edits.csv")
 
 
-COMMANDS = {"units": cmd_units, "next": cmd_next, "build": cmd_build, "check": cmd_check, "course": cmd_course,
+COMMANDS = {"units": cmd_units, "next": cmd_next, "build": cmd_build, "check": cmd_check, "course": cmd_course, "add": cmd_add, "status": cmd_status, "rebuild": cmd_rebuild,
+            "domain": cmd_domain, "domain-build": cmd_domain_build,
+            "tasks": cmd_tasks, "tasks-build": cmd_tasks_build,
             "review": cmd_review, "review-build": cmd_review_build, "log": cmd_log}
 
 if __name__ == "__main__":

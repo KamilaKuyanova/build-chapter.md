@@ -13,6 +13,7 @@
 """
 import argparse
 import json
+import os
 import pathlib
 import sys
 
@@ -21,6 +22,7 @@ import nodetext  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SCHEMAS = ROOT / "schema" / "official"
+PACK = ROOT / os.environ.get("COURSE_DOMAIN_DIR", "domain_pack")
 
 
 def load_json(p):
@@ -33,7 +35,7 @@ def schema_errors(data, schema_name, label):
 
 
 def misconception_ids():
-    return {m["id"] for m in load_json(ROOT / "domain_pack" / "misconceptions.json")}
+    return {m["id"] for m in load_json(PACK / "misconceptions.json")}
 
 
 def check_layer(layer):

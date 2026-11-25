@@ -287,5 +287,81 @@ class Formulas(unittest.TestCase):
         self.assertIn("p999.01", b.problems[0])
 
 
+class Domain(unittest.TestCase):
+    def test_merge_adds_and_checks(self):
+        import tempfile
+        from engine.domain import merge, rows
+        with tempfile.TemporaryDirectory() as d:
+            folder = Path(d) / "x"
+            ans = {"glossary": [{"ru": "Раствор", "note": "жидкость", "page": 9}, {"ru": "Шлам", "note": "о", "page": 99}],
+                   "misconceptions": [{"id": "misc.a", "text": "т"}, {"id": "b", "text": "т"}],
+                   "it_bridges": [{"term": "x", "analogy": "а"}]}
+            added, errors = merge(folder, ans, {8, 9})
+            self.assertEqual(added, {"glossary": 1, "misconceptions": 1})
+            self.assertEqual(len(errors), 3)
+            self.assertEqual(merge(folder, ans, {8, 9})[0], {})
+            self.assertEqual([x["id"] for x in rows(folder, "misconceptions")], ["misc.a"])
+
+
+class Math(unittest.TestCase):
+    def ok(self, tex, *parts):
+        import xml.etree.ElementTree as ET
+        from engine.mathml import convert
+        got = convert(tex)
+        self.assertTrue(got.startswith("<math"), got)
+        ET.fromstring(got)
+        for p in parts:
+            self.assertIn(p, got)
+
+    def test_formulas(self):
+        self.ok(r"$$\frac{\partial p}{\partial t} = \kappa \frac{\partial^2 p}{\partial x^2}. \quad (23.19)$$", "<mfrac>", "κ")
+        self.ok(r"\[ \eta_ {\mathrm{np}} ^ {*} = \mathrm{Q} ^ {*} / \Delta p \tag {1.1} \]", "<msubsup>", "(1.1)")
+        self.ok(r"$p = \left[ 1 - e^{-x^2/4} \right] \sqrt{2t}$", "<msqrt>")
+        self.ok(r"$$\begin{aligned} a &= b; \\ c &= 2,5 \end{aligned}$$", "<mtable", "<mn>2,5</mn>")
+        self.ok(r"$\int_0^{\infty} \rho \, dp \geqslant 0$", "∫", "≥")
+
+    def test_broken_stays_code(self):
+        from engine.mathml import convert, rich
+        self.assertEqual(convert(r"$\frac{1}{$"), r"<code>\frac{1}{</code>")
+        self.assertEqual(convert(r"$\неведома$")[:6], "<code>")
+        self.assertEqual(rich("a < b"), "a &lt; b")
+        self.assertIn("<math", rich(r"где \( k_{n} \) и <b>"))
+        self.assertIn("&lt;b&gt;", rich(r"где \( k_{n} \) и <b>"))
+
+
+class Tasks(unittest.TestCase):
+    def make(self, **change):
+        from engine import tasks
+        base = {"s": "wet_sand", "c": [1], "t": "single", "k": "understanding", "q": "Что с песком?",
+                "o": ["Мокрый темнее", "Мокрый светлее", "Цвет не меняется"], "e": "Влага."}
+        doc, problems = tasks.build(make_layer(), {"tasks": [{**base, **change}]})
+        return doc, problems, [m for _, i, m in tasks.check(make_layer(), doc) if i != "задания"]
+
+    def test_good(self):
+        doc, problems, bad = self.make()
+        t = doc["tasks"][0]
+        self.assertEqual((problems, bad), ([], []))
+        self.assertEqual(next(o["text"] for o in t["options"] if o["id"] == t["answer"]), "Мокрый темнее")
+
+    def test_bad_keys_are_found(self):
+        for change, part in (({"o": ["Нет", "Мокрый песок обычно темнее сухого", "Да"]}, "верное утверждение"),
+                             ({"q": "Что верно для шага?"}, "из какого шага"),
+                             ({"o": ["Мокрый темнее…", "Б", "В"]}, "многоточием"),
+                             ({"o": ["При 99 % темнее", "Б", "В"]}, "числа, которых нет"),
+                             ({"t": "order", "o": ["Признак: а", "Правило: б", "Вывод: в"]}, "выдаёт порядок"),
+                             ({"t": "gap", "q": "Песок {{1}}", "a": ["зелёный"], "o": []}, "нет в тексте"),
+                             ({"t": "multiple", "n": 1}, "от двух верных"),
+                             ({"ev": "чего нет"}, "evidence")):
+            with self.subTest(part):
+                self.assertTrue(any(part in m for m in self.make(**change)[2]), self.make(**change)[2])
+
+    def test_calc_is_recomputed(self):
+        ok = {"t": "calc", "o": [], "a": 9, "f": "13.5-4.5", "u": "м"}
+        self.assertEqual(self.make(**ok)[1], [])
+        self.assertTrue(self.make(**{**ok, "a": 8})[1])
+        with self.assertRaises(ValueError):
+            self.make(**{**ok, "f": "__import__('os')"})
+
+
 if __name__ == "__main__":
     unittest.main()

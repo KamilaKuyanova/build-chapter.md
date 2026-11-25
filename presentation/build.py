@@ -79,14 +79,27 @@ def media():
         print("  ", dst.name)
 
 
-def single():
-    """Одна страница со всем внутри: out/Защита.html можно унести на флешке."""
+def stills():
+    """Кадры вместо роликов: для версии по ссылке."""
+    out, ff = {}, ffmpeg()
+    for p in sorted((HERE / "media").glob("*.mp4")):
+        img = ROOT / "out" / "deck_stills" / f"{p.stem}.jpg"
+        img.parent.mkdir(parents=True, exist_ok=True)
+        subprocess.run([ff, "-v", "error", "-y", "-ss", "8", "-i", str(p), "-frames:v", "1", "-q:v", "4", str(img)], check=True)
+        out[f"media/{img.name}"] = img
+    return out
+
+
+def single(link=False):
+    """Одна страница со всем внутри: out/Защита.html — на флешку, link — для ссылки, без роликов."""
     page = (HERE / "index.html").read_text(encoding="utf-8")
-    files = sorted([*(HERE / "media").glob("*.mp4"), *(HERE / "img").glob("*.jpg")])
-    data = {f"{p.parent.name}/{p.name}": base64.b64encode(p.read_bytes()).decode() for p in files}
-    code = "window.MEDIA = " + json.dumps(data) + ";\n" + "\n".join((HERE / f).read_text(encoding="utf-8") for f in ("facts.js", "gl.js", "deck.js"))
+    files = {f"{p.parent.name}/{p.name}": p for p in [*(HERE / "media").glob("*.mp4"), *(HERE / "img").glob("*.jpg")]}
+    if link:
+        files = {**{k: p for k, p in files.items() if not k.endswith("mp4")}, **stills()}
+    data = {k: base64.b64encode(p.read_bytes()).decode() for k, p in files.items()}
+    code = ("window.STILLS = true;\n" if link else "") + "window.MEDIA = " + json.dumps(data) + ";\n" + "\n".join((HERE / f).read_text(encoding="utf-8") for f in ("facts.js", "gl.js", "deck.js"))
     page = page.replace('<script src="facts.js"></script><script src="gl.js"></script><script src="deck.js"></script>', "<script>" + code.replace("</script", "<\\/script") + "</script>")
-    out = ROOT / "out" / "Защита.html"
+    out = ROOT / "out" / ("glava-kurs.html" if link else "Защита.html")
     out.parent.mkdir(exist_ok=True)
     out.write_text(page, encoding="utf-8")
     print(f"{out.relative_to(ROOT)}: {out.stat().st_size // 2 ** 20} МБ")
@@ -104,6 +117,8 @@ def main():
     print("facts.js:", total, "| тестовых глав:", len(facts["test"]))
     media()
     single()
+    if "link" in sys.argv:
+        single(link=True)
     if "shots" in sys.argv:
         subprocess.run([shutil.which("node") or "node", str(HERE / "shots.mjs")], check=True, cwd=ROOT)
 

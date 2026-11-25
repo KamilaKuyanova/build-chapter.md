@@ -1,5 +1,7 @@
 // Слайды: переходы, 3D-состояние каждого слайда, подписи слоёв, заметки докладчика.
-const M = p => { const d = (window.MEDIA || {})[p]; if (!d) return p; const b = atob(d), a = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return URL.createObjectURL(new Blob([a], { type: p.endsWith('mp4') ? 'video/mp4' : 'image/jpeg' })); };
+const M = p => { const d = (window.MEDIA || {})[p]; if (!d) return p; if (p.endsWith('jpg')) return 'data:image/jpeg;base64,' + d; const b = atob(d), a = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return URL.createObjectURL(new Blob([a], { type: 'video/mp4' })); };
+// версия для ссылки: ролики по ТЗ не публикуем, вместо них кадры
+if (window.STILLS) { const v = document.getElementById('short'), im = new Image(); im.id = 'short'; im.alt = 'Кадр ролика'; im.src = 'media/short.jpg'; v.replaceWith(im); im.setAttribute('src', 'media/short.jpg'); }
 if (window.MEDIA) document.querySelectorAll('img,#short').forEach(e => e.src = M(e.getAttribute('src')));
 const F = window.FACTS, $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const get = path => path.split('.').reduce((o, k) => o && o[k], F);
@@ -10,7 +12,7 @@ $$('.wipe').forEach(e => { e.innerHTML = e.textContent.trim().split(/\s+/).map((
 $$('.num').forEach(e => { const v = String(isNaN(e.dataset.n) ? get(e.dataset.n) : e.dataset.n); e.innerHTML = [...v].map(d => `<span data-d="${d}">${'0123456789'.split('').map(x => `<em>${x}</em>`).join('')}</span>`).join('') + (e.dataset.suf ? `<span><em>${e.dataset.suf}</em></span>` : ''); });
 $('#ticks').innerHTML = ['Цитата знак в знак', 'Страница книги', 'Числа из своей единицы', 'Оговорки и условия', 'Направление и отрицание', 'Термин объяснён до первого использования', 'Покрытие каждой единицы'].map((s, i) => `<div class="tick" style="--d:${i}"><span>${s}</span><svg viewBox="0 0 26 26"><path d="M4 14l6 6L22 6"/></svg></div>`).join('');
 $('#bars').innerHTML = F.train.map((c, i) => `<div class="rv" style="--d:${i + 2}"><div style="display:flex;justify-content:space-between;font-size:21px"><span>${c.title.split(',')[0]}</span><span>${c.covered}/${c.units}</span></div><div class="bar"><i style="--k:${c.covered / c.units};--d:${i}"></i></div></div>`).join('');
-const url = {}, loop = i => `<video muted loop playsinline preload="metadata" src="${url[i] = url[i] || M(`media/loop_${String(i).padStart(2, '0')}.mp4`)}"></video>`, half = [0, 1, 2, 3, 4, 5];
+const url = {}, loop = i => window.STILLS ? `<img alt="" src="${url[i] = url[i] || M(`media/loop_${String(i).padStart(2, '0')}.jpg`)}">` : `<video muted loop playsinline preload="metadata" src="${url[i] = url[i] || M(`media/loop_${String(i).padStart(2, '0')}.mp4`)}"></video>`, half = [0, 1, 2, 3, 4, 5];
 $('#r1').innerHTML = [...half, ...half].map(loop).join(''); $('#r2').innerHTML = [...half, ...half].map(i => loop(i + 6)).join('');
 const sv = F.videos.find(v => v.format === 'short'), lv = F.videos.find(v => v.format !== 'short'), ru = (x, n = 1) => x.toFixed(n).replace('.', ',');
 $('#pred').textContent = sv ? sv.prediction : '';
@@ -88,7 +90,7 @@ function go(n) {
   if (name === 'Конвейер') { $$('.lay').forEach(l => l.classList.remove('vis', 'hot')); [0, 1, 2, 3, 4, 5].forEach(i => later(900 + i * 1250, () => { GLX.T.hot = i; $$('.lay').forEach(l => { const k = +l.dataset.l; l.classList.toggle('hot', k === i); if (k <= i) l.classList.add('vis'); }); })); later(9000, () => { GLX.T.hot = -1; $$('.lay').forEach(l => l.classList.add('hot')); }); }
   if (name === 'Финал') { const cmd = 'python run.py rebuild latyshova video'; $('#type').textContent = ''; GLX.S.wipe = 0; [...cmd].forEach((ch, i) => later(1400 + i * 55, () => $('#type').textContent += ch)); later(500, () => GLX.T.wipe = 1.1); }
   $('#notes').innerHTML = `<small>${name}</small><br>${NOTES[name] || ''}`;
-  history.replaceState(null, '', '#' + (n + 1));
+  try { history.replaceState(null, '', '#' + (n + 1)); } catch (e) { /* во встроенном окне нельзя */ }
 }
 const next = () => { const s = slides[cur], k = +(s.dataset.steps || 0); if (+s.dataset.s < k) s.dataset.s = +s.dataset.s + 1; else go(cur + 1); };
 const back = () => { const s = slides[cur]; if (+s.dataset.s > 0) s.dataset.s = +s.dataset.s - 1; else go(cur - 1); };

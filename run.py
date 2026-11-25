@@ -4,6 +4,7 @@
   python run.py check <глава>                     проверить work/<глава>/layer.json, таблица покрытия
   python run.py next <глава>                      следующая порция -> prompts/NN.md, ответ модели -> answers/NN.json
   python run.py build <глава>                     ответы -> layer.json, routing.json, проверка
+  python run.py course <глава>                    собрать курс -> out/<глава>/index.html
   python run.py review <package.json>             промпты проверки чужого пакета -> work/review_<пакет>/
   python run.py review-build <package.json>       ответы -> work/review_<пакет>/review.json
   python run.py log <глава> <файл> <минуты> <людей> <прогон> "<что>" "<почему>"   ручная правка
@@ -11,11 +12,12 @@
 import csv
 import datetime
 import json
+import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
 
-from engine import nodes as nodes_mod, review as review_mod, route as route_mod
+from engine import nodes as nodes_mod, review as review_mod, route as route_mod, to_course
 from engine.check import check_layer
 from engine.schema import validate
 from engine.units import build_units, needs_cover
@@ -149,6 +151,22 @@ def cmd_build(chapter):
     return cmd_check(chapter) or bool(builder.problems)
 
 
+def cmd_course(chapter, *flags):
+    work = ROOT / "work" / chapter
+    _, (spec,) = chapter_specs(chapter)
+    optional = lambda name, key: load(work / name)[key] if (work / name).exists() else []
+    steps = to_course.steps(load(work / "layer.json"), load(work / "routing.json"),
+                            optional("tasks.json", "tasks"), optional("illustrations.json", "illustrations"), work)
+    folder = work / "steps"
+    folder.mkdir(exist_ok=True)
+    for old in folder.glob("*.json"):
+        old.unlink()
+    for s in steps:
+        save(folder / f"{s['order']:03d}.json", s)
+    return subprocess.run([sys.executable, str(ROOT / "engine" / "build_course.py"), "--nodes", str(folder),
+                           "--out", str(ROOT / "out" / chapter), "--title", spec["title"], *flags]).returncode
+
+
 def review_setup(package_path, domain):
     package_path = Path(package_path).resolve()
     package = load(package_path)
@@ -198,7 +216,7 @@ def cmd_log(chapter, file, minutes, people, run_no, what, why):
     print("Записано в manual_edits.csv")
 
 
-COMMANDS = {"units": cmd_units, "next": cmd_next, "build": cmd_build, "check": cmd_check,
+COMMANDS = {"units": cmd_units, "next": cmd_next, "build": cmd_build, "check": cmd_check, "course": cmd_course,
             "review": cmd_review, "review-build": cmd_review_build, "log": cmd_log}
 
 if __name__ == "__main__":

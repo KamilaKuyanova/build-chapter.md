@@ -1,0 +1,557 @@
+{
+  "_status": "ЧЕРНОВИК. Расширить из глоссариев и таблицы обозначений, выданных на старте. Определения сверять с книгой (страница обязательна).",
+  "terms": [
+    {
+      "ru": "водонефтяной контакт",
+      "abbr": "ВНК",
+      "en": "oil-water contact (OWC)",
+      "page": null
+    },
+    {
+      "ru": "гамма-каротаж",
+      "abbr": "ГК",
+      "en": "gamma ray log",
+      "page": null
+    },
+    {
+      "ru": "потенциал собственной поляризации",
+      "abbr": "ПС",
+      "en": "spontaneous potential (SP)",
+      "page": null
+    },
+    {
+      "ru": "удельное сопротивление пластовой воды",
+      "abbr": "Rw",
+      "en": "formation water resistivity",
+      "page": null
+    },
+    {
+      "ru": "водонасыщенность",
+      "abbr": "Sw",
+      "en": "water saturation",
+      "page": null
+    },
+    {
+      "ru": "Темпеститы",
+      "abbr": null,
+      "en": "tempestites",
+      "page": null,
+      "chapter": "1.6.1",
+      "note": "Определение и последовательность текстурных признаков (эрозионное основание, базальные отложения с обломками и раковинами, горизонтальная или бугорчатая слоистость, косая слоистость ряби, отсутствие биотурбаций); 5 критериев отличия от турбидитов.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Биотурбитовая текстура",
+      "abbr": null,
+      "en": "bioturbated texture",
+      "page": null,
+      "chapter": "2.2.1",
+      "note": "Операционное определение: более 75% объёма породы переработано организмами — биотурбитовая текстура; в противном случае — нарушенная биотурбациями (burrowed).",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Турбидиты",
+      "abbr": null,
+      "en": "turbidites",
+      "page": null,
+      "chapter": "1.7.4",
+      "note": "Последовательность Боумы (Ta–Te) и модификации: грубозернистые (R1–R3, S1–S3) и мелкозернистые (T0–T8); указано, что полный разрез встречается редко.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Конденсированный разрез",
+      "abbr": null,
+      "en": "condensed section",
+      "page": null,
+      "chapter": "1.6.3",
+      "note": "Маломощные геологические тела большого стратиграфического диапазона: обилие глауконита, фосфориты, остатки беспозвоночных, интенсивная биотурбация, мощность от сантиметров до первых метров.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Дизоксийные условия",
+      "abbr": null,
+      "en": "dysoxic conditions",
+      "page": null,
+      "chapter": "1.8.7",
+      "note": "Промежуточное состояние между оксийными и аноксийными условиями с ограниченной поставкой кислорода; макроскопические признаки: биотурбации Chondrites, конкреции пирита и сидерита, тонкая ламинарная слоистость.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Дебриты",
+      "abbr": null,
+      "en": "debrites",
+      "page": null,
+      "chapter": "1.7.4",
+      "note": "Отложения обломочных потоков и олистостром: смешанный литологический состав, размытая подошва, слабая сортировка, структуры обезвоживания; перемещаются по пологим склонам (1–2°) на сотни километров.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Цемент (в обломочных породах)",
+      "abbr": null,
+      "en": "cement",
+      "page": null,
+      "chapter": "2.3.1",
+      "note": "Полная классификация: базальный, поровый, пленочный, контактовый; по структуре: пелитоморфный, микро-, мелко-, средне-, крупно-, гигантокристаллический; по ориентировке: обрастания, нарастания, прорастания. Оговорка: цемента в обломочной породе всегда меньше половины.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Алеврит",
+      "abbr": null,
+      "en": "silt",
+      "page": null,
+      "chapter": "2.2.1–2.3",
+      "note": "Промежуточная фракция между песком и глиной; книга приводит обе шкалы (табл. 2.1 и 2.2) рядом, что делает её удобным терминологическим мостом.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Пористость активная",
+      "abbr": null,
+      "en": "effective porosity",
+      "page": null,
+      "chapter": "Глава 1 §2",
+      "note": "Определяется как отношение объёма сообщающихся пор к общему объёму элемента; подчёркивается отличие от полной пористости.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Просветность",
+      "abbr": null,
+      "en": "areal porosity",
+      "page": null,
+      "chapter": "Глава 1 §2",
+      "note": "Определена как отношение площади активных пор к площади сечения; показано, что для изотропной среды просветность равна пористости.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Скорость фильтрации",
+      "abbr": null,
+      "en": "Darcy velocity / superficial velocity",
+      "page": null,
+      "chapter": "Глава 1 §3",
+      "note": "Вектор, проекция которого на нормаль к площадке равна отношению расхода жидкости к полной площади площадки (не только к площади пор).",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Проницаемость",
+      "abbr": null,
+      "en": "permeability",
+      "page": null,
+      "chapter": "Глава 1 §3",
+      "note": "Геометрическая характеристика пористой среды, не зависящая от свойств жидкости; вводится через закон Дарси.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Коэффициент пьезопроводности",
+      "abbr": null,
+      "en": "hydraulic diffusivity",
+      "page": null,
+      "chapter": "Глава 1 §4",
+      "note": "ϰ = (k0/(m0·μ0))·(1/Km + 1/Kp)^-1. Определяет скорость перераспределения давления в упругом режиме.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Насыщенность",
+      "abbr": null,
+      "en": "saturation",
+      "page": null,
+      "chapter": "Глава 4 §1",
+      "note": "Доля объёма пор, занятая данной фазой; вводится также активная и пассивная насыщенность.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Относительная фазовая проницаемость",
+      "abbr": null,
+      "en": "relative permeability",
+      "page": null,
+      "chapter": "Глава 4 §1",
+      "note": "Безразмерные функции насыщенности, связывающие скорость фильтрации фазы с градиентом давления (закон Маскета-Леверетта).",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Функция Баклея-Леверетта",
+      "abbr": null,
+      "en": "Buckley-Leverett fractional flow function",
+      "page": null,
+      "chapter": "Глава 4 §2",
+      "note": "F(s) = f1/(f1 + μ0·f2) — доля вытесняющей фазы в суммарном потоке при пренебрежении капиллярными силами.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Капиллярное давление",
+      "abbr": null,
+      "en": "capillary pressure",
+      "page": null,
+      "chapter": "Глава 4 §1",
+      "note": "Разность давлений между фазами, определяемая кривизной межфазной поверхности; функция насыщенности.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Функция Леверетта",
+      "abbr": null,
+      "en": "Leverett J-function",
+      "page": null,
+      "chapter": "Глава 4 §1",
+      "note": "J(s) = P_c·√k/(α·√m·cos θ). Безразмерная форма капиллярного давления.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Предельный градиент давления",
+      "abbr": null,
+      "en": "threshold pressure gradient",
+      "page": null,
+      "chapter": "Глава 3 §1",
+      "note": "Минимальный градиент давления, при котором начинается фильтрация вязкопластичной жидкости.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Стабилизированная зона",
+      "abbr": null,
+      "en": "stabilized zone",
+      "page": null,
+      "chapter": "Глава 4 §3",
+      "note": "Область перехода насыщенности на фронте вытеснения, в которой распределение насыщенности стационарно в движущейся системе координат.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Активная примесь",
+      "abbr": null,
+      "en": "active agent / active additive",
+      "page": null,
+      "chapter": "Глава 5 §2",
+      "note": "Компонент, переносимый потоком и влияющий на гидродинамику (изменяет фазовые проницаемости, вязкости, капиллярное давление).",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Упругий запас жидкости",
+      "abbr": null,
+      "en": null,
+      "page": null,
+      "chapter": "Глава XXIII",
+      "note": "ΔV_з = β* V0 Δp.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Коэффициент упругоемкости пласта β*",
+      "abbr": null,
+      "en": "bulk compressibility (formation compressibility)",
+      "page": null,
+      "chapter": "Глава XXIII",
+      "note": "β* = mβ_ж + β_с.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Функция Лейбензона",
+      "abbr": null,
+      "en": "Leybenzon function / pseudo-pressure",
+      "page": null,
+      "chapter": "Глава XIX",
+      "note": "P = ∫ρ(p)dp; для газа P ~ p².",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Параметр Дарси",
+      "abbr": null,
+      "en": null,
+      "page": null,
+      "chapter": "Глава XVIII",
+      "note": "Da = 1 при справедливости закона Дарси.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Двухчленный закон фильтрации (Форхгеймера)",
+      "abbr": null,
+      "en": "Forchheimer equation",
+      "page": null,
+      "chapter": "Глава XVIII",
+      "note": "grad p = -(μ/k)w - βρ/√k |w|w.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Истинное газосодержание",
+      "abbr": null,
+      "en": "true volumetric gas fraction / liquid holdup related",
+      "page": null,
+      "chapter": "Глава XVII",
+      "note": "φ = S_g/S; отличается от расходного газосодержания β.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Тиксотропия / реопексия",
+      "abbr": null,
+      "en": "thixotropy / rheopexy",
+      "page": null,
+      "chapter": "Глава XVI",
+      "note": "Классификация неньютоновских жидкостей по изменению напряжения во времени.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Коэффициент пористости (общая, открытая, эффективная)",
+      "abbr": null,
+      "en": "porosity (total, effective, secondary)",
+      "page": null,
+      "chapter": "Глава II",
+      "note": "Лучшее в книге определение: физический смысл, формулы, лабораторные методы определения.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Коэффициент нефтегазонасыщения Кнг",
+      "abbr": null,
+      "en": "hydrocarbon saturation (oil/gas saturation)",
+      "page": null,
+      "chapter": "Глава III",
+      "note": null,
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Относительная глинистость ηгл",
+      "abbr": null,
+      "en": "relative shale volume (shale fraction of matrix)",
+      "page": null,
+      "chapter": "Глава IV",
+      "note": "Определение через Кгл/(Кгл+Кп) и связь с αсп.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Параметр пористости Pп",
+      "abbr": null,
+      "en": "formation factor F",
+      "page": null,
+      "chapter": "Глава II",
+      "note": null,
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Параметр насыщения Pн",
+      "abbr": null,
+      "en": "resistivity index",
+      "page": null,
+      "chapter": "Глава III",
+      "note": null,
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Эффективная мощность hэф",
+      "abbr": null,
+      "en": "net pay thickness",
+      "page": null,
+      "chapter": "Глава I",
+      "note": null,
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Водонефтяной контакт (ВНК)",
+      "abbr": null,
+      "en": "oil-water contact (OWC)",
+      "page": null,
+      "chapter": "Глава I",
+      "note": "Рассмотрены переходная зона, зеркало воды, отличие ВНК от ГВК и ГНК.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Коэффициент проницаемости Кпр",
+      "abbr": null,
+      "en": "permeability",
+      "page": null,
+      "chapter": "Глава VI",
+      "note": null,
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Водородный индекс (ВИ)",
+      "abbr": null,
+      "en": "hydrogen index",
+      "page": null,
+      "chapter": "Глава II",
+      "note": null,
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Декремент затухания поля тепловых нейтронов λ",
+      "abbr": null,
+      "en": "thermal neutron decay rate (Sigma)",
+      "page": null,
+      "chapter": "Глава III",
+      "note": null,
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Природный резервуар",
+      "abbr": null,
+      "en": "natural reservoir / reservoir rock body (в западной литературе нет строгого аналога; часто reservoir=collector, trap=ловушка)",
+      "page": null,
+      "chapter": "Глава 2",
+      "note": "Чёткое определение с обсуждением разных трактовок объёма (включать или не включать экранирующие толщи).",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Коллектор / полуколлектор / антиколлектор",
+      "abbr": null,
+      "en": "reservoir rock / semi-reservoir (leaky seal) / non-reservoir (seal rock)",
+      "page": null,
+      "chapter": "Глава 2",
+      "note": "Разделение по способности пропускать флюиды: при разработке (коллектор), в геологическом времени (полуколлектор), практически никогда (антиколлектор).",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Пористость общая, открытая, эффективная",
+      "abbr": null,
+      "en": "total porosity, connected/open porosity, effective porosity",
+      "page": null,
+      "chapter": "Глава 3",
+      "note": "Даны формулы коэффициентов и разъяснено, что «пористость» в быту = коэффициент пористости.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Проницаемость абсолютная, эффективная (фазовая)",
+      "abbr": null,
+      "en": "absolute permeability, effective (phase) permeability",
+      "page": null,
+      "chapter": "Глава 3",
+      "note": "Подчёркивается векторность проницаемости и анизотропия пласта.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Остаточная водонасыщенность",
+      "abbr": null,
+      "en": "irreducible water saturation",
+      "page": null,
+      "chapter": "Глава 3",
+      "note": "Включает плёночную, капиллярную воду, воду в тупиковых порах; связь с пористостью, проницаемостью и литологией.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Ложная покрышка (полупокрышка)",
+      "abbr": null,
+      "en": "false caprock / leaky seal / semi-seal",
+      "page": null,
+      "chapter": "Глава 7",
+      "note": "Определяется роль в ограничении высоты залежи: породы-полуколлекторы, пропускающие УВ в геологическом времени.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Массивный, пластовый, литологически ограниченный природный резервуар",
+      "abbr": null,
+      "en": "massive reservoir, layered (stratified) reservoir, stratigraphic/lithologically trapped reservoir",
+      "page": null,
+      "chapter": "Главы 2, 13",
+      "note": "Ключевое различие — характер внутрирезервуарной миграции (вертикальная, латеральная, ограниченная).",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Биогерм, биостром, риф",
+      "abbr": null,
+      "en": "bioherm, biostrome, reef",
+      "page": null,
+      "chapter": "Глава 10",
+      "note": "Разделение по форме, положению в рельефе и мощности по отношению к синхронным отложениям; риф — волноустойчивая карбонатная постройка.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Песчаниковидные доломиты",
+      "abbr": null,
+      "en": "sandy-looking dolomites (sucrosic dolomite)",
+      "page": null,
+      "chapter": "Главы 5, 12",
+      "note": "Катагенетические доломиты с высокой межкристаллической пористостью (до 19,4 %), важные коллекторы доманиковых фаций.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Листоватый коллектор (баженовский тип)",
+      "abbr": null,
+      "en": "fissile/shaly reservoir (Bazhenov-type)",
+      "page": null,
+      "chapter": "Глава 12",
+      "note": "Коллектор создан природным флюидоразрывом; горизонтальные микротрещины с раскрытостью 0,01–0,05 мм.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Коэффициент нефтегазонасыщения",
+      "abbr": null,
+      "en": "hydrocarbon saturation",
+      "page": null,
+      "chapter": "Глава I, §1",
+      "note": "Определяется как kнг = 1 − kв; связь с параметром насыщения Pн = aн/kв^n.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Параметр насыщения",
+      "abbr": null,
+      "en": "resistivity index",
+      "page": null,
+      "chapter": "Глава I, §1",
+      "note": "Ключевой параметр для оценки характера насыщения коллектора.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Параметр пористости",
+      "abbr": null,
+      "en": "formation resistivity factor",
+      "page": null,
+      "chapter": "Глава I, §1",
+      "note": "Pп = ρвп/ρв = aм/kп^m — связь с пористостью.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Статическая амплитуда СП",
+      "abbr": null,
+      "en": "static SP",
+      "page": null,
+      "chapter": "Глава II, §8",
+      "note": "ΔE = −kСП·lg(ρф/ρв); максимальное значение ΔEmax ≈ −70·lg(ρф/ρв) для чистого песчаника среди глин.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Эффективная толщина коллектора",
+      "abbr": null,
+      "en": "net pay thickness",
+      "page": null,
+      "chapter": "Глава V, §20",
+      "note": "Толщина продуктивных интервалов, удовлетворяющих критериям коллектора и продуктивности (Кп ≥ Кп*, Кн ≥ Кн* и др.).",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Индекс свободного флюида (ИСФ)",
+      "abbr": null,
+      "en": "free fluid index (FFI)",
+      "page": null,
+      "chapter": "Глава IV, §16",
+      "note": "Параметр ЯМР, пропорциональный эффективной пористости; коллекторы с ИСФ > 1%.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Эквивалентная влажность (водородный индекс)",
+      "abbr": null,
+      "en": "hydrogen index",
+      "page": null,
+      "chapter": "Глава III, §14",
+      "note": "w = отношение объёмной концентрации водорода в среде к концентрации в пресной воде; для чистых пород w ≈ Кп.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Приведенные газопоказания",
+      "abbr": null,
+      "en": "normalized gas readings",
+      "page": null,
+      "chapter": "Глава VI",
+      "note": "Γпр = k·E·Γсум — объём газа при нормальных условиях, отнесённый к единице объёма выбуренной породы.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Относительная амплитуда СП",
+      "abbr": null,
+      "en": "SP ratio (SSP/SSPmax)",
+      "page": null,
+      "chapter": "Глава II, §8",
+      "note": "αСП = ΔE/ΔEmax = kСП/kСПmax; используется как показатель относительной глинистости.",
+      "status": "from_analysis_unverified"
+    },
+    {
+      "ru": "Коэффициент поверхностной проводимости",
+      "abbr": null,
+      "en": "surface conductivity coefficient (no direct equivalent)",
+      "page": null,
+      "chapter": "Глава I, §1",
+      "note": "Используется для оценки ρзп в глинистых коллекторах.",
+      "status": "from_analysis_unverified"
+    }
+  ]
+}

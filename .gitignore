@@ -1,15 +1,30 @@
-# Главы, сканы и всё, что из них нарезано, публиковать нельзя (ТЗ, «Требования к инструментам»)
+# Сборка
+out/
+__pycache__/
+*.pyc
+node_modules/
+
+# ТЗ: главы и ролики не публикуются. Книги, сканы, видео и нарезанный из них текст в репозиторий не класть.
 input/
 work/
 materials/
 tz.txt
 tz_docx.txt
+books/
+books_md/
+chapters/
 *.pdf
-*.mp4
 *.docx
+*.mp4
+*.mov
+*.wav
+*.mp3
+data/raw/
+data/analysis/
+analysis books/
+data/page_images/
 
-__pycache__/
-*.pyc
-node_modules/
+# Секреты и личные настройки
 .env
-.claude/
+*.key
+.claude/settings.local.json

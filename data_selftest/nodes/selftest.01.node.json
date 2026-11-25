@@ -1,0 +1,199 @@
+{
+  "_selftest": true,
+  "id": "selftest.01",
+  "order": 1,
+  "title": "Самотест: источник у абзаца",
+  "book_title": "Самотест шаблона",
+  "difficulty": {
+    "primary": "procedure"
+  },
+  "core": {
+    "essence": {
+      "text": "Суть: проверяем, что шаблон показывает страницу у каждого абзаца.",
+      "claims": [
+        "a1"
+      ]
+    },
+    "mechanism": {
+      "text": "Механизм самотеста: текст берётся из узла, а не из вёрстки вручную.",
+      "claims": [
+        "a1"
+      ]
+    },
+    "practice": {
+      "text": "Практика: сборщик помечает абзацы без источника красным.",
+      "claims": [
+        "a2"
+      ]
+    },
+    "nuances": {
+      "text": "Нюанс: страница у утверждения обязательна.",
+      "claims": [
+        "a3"
+      ]
+    }
+  },
+  "claims": [
+    {
+      "id": "a1",
+      "kind": "observation",
+      "text": "Наблюдение самотеста",
+      "quote": "Вымышленная цитата для самотеста",
+      "page": 11,
+      "origin": "author"
+    },
+    {
+      "id": "a2",
+      "kind": "conclusion",
+      "text": "Вывод самотеста",
+      "quote": "Вымышленная цитата для самотеста",
+      "page": 12,
+      "origin": "author"
+    },
+    {
+      "id": "a3",
+      "kind": "assumption",
+      "text": "Допущение самотеста",
+      "quote": "Вымышленная цитата для самотеста",
+      "page": 13,
+      "origin": "author"
+    }
+  ],
+  "misconception": "Заблуждение самотеста: страницы можно не указывать",
+  "data_meaning": "Для данных: без страницы утверждение нельзя проверить.",
+  "it_analogy": {
+    "analogy": "Ссылка на источник — как комментарий с адресом в коде.",
+    "breaks_where": "Страница книги не заменяет проверку смысла."
+  },
+  "worked_examples": [
+    {
+      "condition": "Условие самотеста: 2 + 3",
+      "steps": [
+        "Складываем",
+        "Получаем 5"
+      ],
+      "result": "5",
+      "page": 11
+    }
+  ],
+  "book_problems": [
+    {
+      "number": "1",
+      "text": "Задача самотеста",
+      "figure": "рис. 1",
+      "page": 12
+    }
+  ],
+  "links": [],
+  "illustrations": [
+    {
+      "file": "chart.svg",
+      "alt": "Линия растёт слева направо",
+      "class": "A",
+      "label": "схема",
+      "caption": "Схема самотеста, нарисована кодом."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ae1",
+      "type": "single",
+      "claim_id": "a1",
+      "explanation": "Пояснение в одну фразу.",
+      "question": "2+2?",
+      "options": [
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "ae2",
+      "type": "single",
+      "claim_id": "a1",
+      "explanation": "Пояснение в одну фразу.",
+      "question": "Столица России?",
+      "options": [
+        "Москва",
+        "Казань"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "ae3",
+      "type": "multi",
+      "claim_id": "a1",
+      "explanation": "Пояснение в одну фразу.",
+      "question": "Чётные числа?",
+      "options": [
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "ae4",
+      "type": "multi",
+      "claim_id": "a1",
+      "explanation": "Пояснение в одну фразу.",
+      "question": "Цвета радуги?",
+      "options": [
+        "красный",
+        "чёрный",
+        "синий"
+      ],
+      "answer": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "ae5",
+      "type": "order",
+      "claim_id": "a1",
+      "explanation": "Пояснение в одну фразу.",
+      "question": "Расставьте по возрастанию",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": "ae6",
+      "type": "fill",
+      "claim_id": "a1",
+      "explanation": "Пояснение в одну фразу.",
+      "question": "Вода кипит при ___ °C (при норм. давлении)",
+      "answer": [
+        "100"
+      ]
+    },
+    {
+      "id": "ae7",
+      "type": "calc",
+      "claim_id": "a1",
+      "explanation": "Пояснение в одну фразу.",
+      "question": "Сколько будет 12 / 4?",
+      "answer": 3,
+      "tolerance": 0.01,
+      "unit": ""
+    },
+    {
+      "id": "ae8",
+      "type": "calc",
+      "claim_id": "a1",
+      "explanation": "Пояснение в одну фразу.",
+      "question": "Сколько будет 2.5 * 2?",
+      "answer": 5,
+      "tolerance": 0.01,
+      "unit": ""
+    }
+  ]
+}

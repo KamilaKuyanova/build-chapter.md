@@ -219,5 +219,31 @@ class Review(unittest.TestCase):
         self.assertEqual(len(dropped), 3)
 
 
+class Course(unittest.TestCase):
+    def test_steps_match_builder_schema(self):
+        from engine.route import route
+        from engine.schema import validate
+        from engine.to_course import steps
+        layer = make_layer()
+        layer["nodes"][0]["video_scores"] = dict.fromkeys(
+            ("time", "invisible", "scale", "counterintuitive", "cause_effect"), 1)
+        options = [{"id": "a", "text": "А"}, {"id": "b", "text": "Б"}]
+        base = {"step_id": "t.wet_sand", "claim_ids": ["t.wet_sand#c1"], "prompt": "Песок {{1}}?",
+                "explanation": "Так.", "options": options}
+        tasks = [{**base, "id": "1", "type": "single", "answer": "b"},
+                 {**base, "id": "2", "type": "multiple", "answer": ["a", "b"]},
+                 {**base, "id": "3", "type": "order", "answer": ["b", "a"]},
+                 {**base, "id": "4", "type": "gap", "answer": ["тёмный"]},
+                 {**base, "id": "5", "type": "calc", "answer": 2, "unit": "м"}]
+        picture = {"id": "i", "step_id": "t.wet_sand", "file": "a.svg", "frame_class": "A",
+                   "origin": "code_from_data", "label": "схема", "caption": "Песок", "alt": "Песок"}
+        (got,) = steps(layer, route(layer), tasks, [picture], ROOT)
+        schema = json.loads((ROOT / "schema" / "course_step.schema.json").read_text(encoding="utf-8"))
+        self.assertEqual(validate(got, schema), [])
+        self.assertEqual([x.get("answer") for x in got["exercises"]], [1, [0, 1], None, ["тёмный"], 2])
+        self.assertEqual(got["exercises"][2]["options"], ["Б", "А"])
+        self.assertIn("____", got["exercises"][3]["question"])
+
+
 if __name__ == "__main__":
     unittest.main()

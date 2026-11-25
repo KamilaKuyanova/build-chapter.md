@@ -15,10 +15,11 @@ import sys
 import textwrap
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SG = domain.load("styleguide.json")
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import nodetext  # noqa: E402
 import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
+
+SG = domain.load("styleguide.json")
 
 W, H = 1280, 720
 

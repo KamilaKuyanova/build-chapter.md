@@ -54,7 +54,8 @@
    "state_model": "число открытых признаков k; суммы баллов — функция k",
    "needs": "признаки и варианты",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.reef_types",
@@ -67,7 +68,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.clastic_limestone",
@@ -80,7 +82,8 @@
    "state_model": "число открытых признаков k; суммы баллов — функция k",
    "needs": "признаки и варианты",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.reef_zonality",
@@ -93,7 +96,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.primary_porosity",
@@ -106,7 +110,8 @@
    "state_model": "число открытых признаков k; суммы баллов — функция k",
    "needs": "признаки и варианты",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.primary_loss",
@@ -119,7 +124,8 @@
    "state_model": "время T; толщина каждого слоя и величина — функции T",
    "needs": "последовательность событий во времени",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.secondary_porosity",
@@ -132,7 +138,8 @@
    "state_model": "время T; толщина каждого слоя и величина — функции T",
    "needs": "последовательность событий во времени",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.rainbow_a",
@@ -145,7 +152,8 @@
    "state_model": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
    "needs": "отклики прибора на породы/флюиды",
    "status": "закрывает, но нужно дописать параметры по главе",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.atoll_reservoir",
@@ -158,7 +166,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.edge_fractures",
@@ -171,7 +180,8 @@
    "state_model": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
    "needs": "отклики прибора на породы/флюиды",
    "status": "закрывает, но нужно дописать параметры по главе",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.karachaganak_zones",
@@ -184,7 +194,8 @@
    "state_model": "время T; толщина каждого слоя и величина — функции T",
    "needs": "последовательность событий во времени",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.system_reservoir",
@@ -197,7 +208,8 @@
    "state_model": "время T; толщина каждого слоя и величина — функции T",
    "needs": "последовательность событий во времени",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.layers_paleogeography",
@@ -210,7 +222,8 @@
    "state_model": "время T; толщина каждого слоя и величина — функции T",
    "needs": "последовательность событий во времени",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.layers_lens",
@@ -223,7 +236,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.karachaganak_layers",
@@ -236,7 +250,8 @@
    "state_model": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
    "needs": "отклики прибора на породы/флюиды",
    "status": "закрывает, но нужно дописать параметры по главе",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.reservoir_flow",
@@ -249,7 +264,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.seal_formation",
@@ -262,7 +278,8 @@
    "state_model": "время T; толщина каждого слоя и величина — функции T",
    "needs": "последовательность событий во времени",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.trap_height_single",
@@ -275,7 +292,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.asym_traps",
@@ -288,7 +306,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.structural_traps",
@@ -301,7 +320,8 @@
    "state_model": "время T; толщина каждого слоя и величина — функции T",
    "needs": "последовательность событий во времени",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.reef_deposits",
@@ -314,7 +334,8 @@
    "state_model": "число открытых признаков k; суммы баллов — функция k",
    "needs": "признаки и варианты",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.deposit_height",
@@ -327,7 +348,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.group_atoll",
@@ -340,7 +362,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.group_asym",
@@ -353,7 +376,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.critical_direction",
@@ -366,7 +390,8 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "kuznetsov.volume_grid",
@@ -379,13 +404,16 @@
    "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
    "needs": "форма и размеры тела",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   }
  ],
  "summary": {
   "video_nodes": 26,
   "covered": 26,
   "need_new": 0,
-  "videos_made": 0
+  "videos_made": 0,
+  "animations_in_course": 26,
+  "uncovered_in_course": 0
  }
 }

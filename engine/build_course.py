@@ -165,7 +165,10 @@ def render_illustrations(node, ills):
         fname = pathlib.Path(i["file"]).name
         lab = f' · {e(i["label"])}' if i.get("label") else ""
         src = f' · {e(i["source"])}' if i.get("source") else ""
-        if fname.lower().endswith(".mp4"):
+        if fname.lower().endswith(".mp4") and fname.startswith("anim_"):   # анимация логики шага: без звука, петлёй
+            media = (f'<video autoplay muted loop playsinline controls preload="metadata" src="assets/{e(fname)}" '
+                     f'aria-label="{e(i["alt"])}" style="max-width:100%"></video>')
+        elif fname.lower().endswith(".mp4"):
             vtt = pathlib.Path(fname).with_suffix(".vtt").name
             media = (f'<video controls preload="metadata" playsinline src="assets/{e(fname)}" aria-label="{e(i["alt"])}" '
                      f'style="max-width:100%;max-height:80vh"><track kind="subtitles" srclang="ru" label="Русские субтитры" '

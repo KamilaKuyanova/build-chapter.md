@@ -54,7 +54,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.water_loss",
@@ -67,7 +68,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.rock_signs_table",
@@ -84,7 +86,8 @@
     "video_id": "latyshova_short",
     "template": "tool_and_curve",
     "format": "short"
-   }
+   },
+   "animation_in_course": false
   },
   {
    "node_id": "latyshova.transitional_rocks",
@@ -97,7 +100,8 @@
    "state_model": "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила",
    "needs": "правило с порогами и случаи",
    "status": "закрывает, но нужно дописать параметры по главе",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.direct_signs",
@@ -110,7 +114,8 @@
    "state_model": "число открытых признаков k; суммы баллов — функция k",
    "needs": "признаки и варианты",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.signs_fade",
@@ -123,7 +128,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.dynamic_methods",
@@ -136,7 +142,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.three_flow_intervals",
@@ -149,7 +156,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.owc_transition",
@@ -162,7 +170,8 @@
    "state_model": "номер шага k; пройденные шаги накапливаются",
    "needs": "шаги процедуры по порядку",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.goc_neutron",
@@ -175,7 +184,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.carbonate_features",
@@ -188,7 +198,8 @@
    "state_model": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
    "needs": "отклики прибора на породы/флюиды",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "latyshova.normalization",
@@ -201,13 +212,16 @@
    "state_model": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
    "needs": "отклики прибора на породы/флюиды",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   }
  ],
  "summary": {
   "video_nodes": 12,
   "covered": 12,
   "need_new": 0,
-  "videos_made": 1
+  "videos_made": 1,
+  "animations_in_course": 11,
+  "uncovered_in_course": 0
  }
 }

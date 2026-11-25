@@ -74,6 +74,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.reef_proper.anim",
+   "file": "media/anim_kuznetsov.reef_proper.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Как отличить риф от холма и пласта»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.reef_proper#c1",
+    "kuznetsov.reef_proper#c2",
+    "kuznetsov.reef_proper#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.reef_proper",
+   "node_id": "kuznetsov.reef_proper"
+  },
+  {
    "id": "kuznetsov.reef_types.i1",
    "step_id": "kuznetsov.reef_types",
    "node_id": "kuznetsov.reef_types",
@@ -90,6 +108,24 @@
     "kuznetsov.reef_types#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_types.anim",
+   "file": "media/anim_kuznetsov.reef_types.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Два основных типа рифов»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.reef_types#c1",
+    "kuznetsov.reef_types#c2",
+    "kuznetsov.reef_types#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.reef_types",
+   "node_id": "kuznetsov.reef_types"
   },
   {
    "id": "kuznetsov.bioherm_limestone.i1",
@@ -128,6 +164,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.clastic_limestone.anim",
+   "file": "media/anim_kuznetsov.clastic_limestone.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Риф больше чем наполовину из обломков»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.clastic_limestone#c1",
+    "kuznetsov.clastic_limestone#c2",
+    "kuznetsov.clastic_limestone#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.clastic_limestone",
+   "node_id": "kuznetsov.clastic_limestone"
+  },
+  {
    "id": "kuznetsov.reef_zonality.i1",
    "step_id": "kuznetsov.reef_zonality",
    "node_id": "kuznetsov.reef_zonality",
@@ -144,6 +198,24 @@
     "kuznetsov.reef_zonality#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_zonality.anim",
+   "file": "media/anim_kuznetsov.reef_zonality.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему породы рифа лежат зонами»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.reef_zonality#c1",
+    "kuznetsov.reef_zonality#c2",
+    "kuznetsov.reef_zonality#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.reef_zonality",
+   "node_id": "kuznetsov.reef_zonality"
   },
   {
    "id": "kuznetsov.dome_zonality.i1",
@@ -218,6 +290,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.primary_porosity.anim",
+   "file": "media/anim_kuznetsov.primary_porosity.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Откуда в рифе берутся пустоты»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.primary_porosity#c1",
+    "kuznetsov.primary_porosity#c2",
+    "kuznetsov.primary_porosity#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.primary_porosity",
+   "node_id": "kuznetsov.primary_porosity"
+  },
+  {
    "id": "kuznetsov.primary_loss.i1",
    "step_id": "kuznetsov.primary_loss",
    "node_id": "kuznetsov.primary_loss",
@@ -233,6 +323,23 @@
     "kuznetsov.primary_loss#c2"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.primary_loss.anim",
+   "file": "media/anim_kuznetsov.primary_loss.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 9 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Риф теряет пустоты, пока растёт»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.primary_loss#c1",
+    "kuznetsov.primary_loss#c2"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.primary_loss",
+   "node_id": "kuznetsov.primary_loss"
   },
   {
    "id": "kuznetsov.secondary_porosity.i1",
@@ -251,6 +358,24 @@
     "kuznetsov.secondary_porosity#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.secondary_porosity.anim",
+   "file": "media/anim_kuznetsov.secondary_porosity.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Как вода создаёт в рифе каверны»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.secondary_porosity#c1",
+    "kuznetsov.secondary_porosity#c2",
+    "kuznetsov.secondary_porosity#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.secondary_porosity",
+   "node_id": "kuznetsov.secondary_porosity"
   },
   {
    "id": "kuznetsov.dome_reservoir.i1",
@@ -307,6 +432,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.rainbow_a.anim",
+   "file": "media/anim_kuznetsov.rainbow_a.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Один риф — пять групп коллекторов»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.rainbow_a#c1",
+    "kuznetsov.rainbow_a#c2",
+    "kuznetsov.rainbow_a#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.rainbow_a",
+   "node_id": "kuznetsov.rainbow_a"
+  },
+  {
    "id": "kuznetsov.atoll_reservoir.i1",
    "step_id": "kuznetsov.atoll_reservoir",
    "node_id": "kuznetsov.atoll_reservoir",
@@ -325,6 +468,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.atoll_reservoir.anim",
+   "file": "media/anim_kuznetsov.atoll_reservoir.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «В крупном рифе лучшее — по краю»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.atoll_reservoir#c1",
+    "kuznetsov.atoll_reservoir#c2",
+    "kuznetsov.atoll_reservoir#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.atoll_reservoir",
+   "node_id": "kuznetsov.atoll_reservoir"
+  },
+  {
    "id": "kuznetsov.edge_fractures.i1",
    "step_id": "kuznetsov.edge_fractures",
    "node_id": "kuznetsov.edge_fractures",
@@ -341,6 +502,24 @@
     "kuznetsov.edge_fractures#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.edge_fractures.anim",
+   "file": "media/anim_kuznetsov.edge_fractures.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему край рифа даёт рекордные притоки»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.edge_fractures#c1",
+    "kuznetsov.edge_fractures#c2",
+    "kuznetsov.edge_fractures#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.edge_fractures",
+   "node_id": "kuznetsov.edge_fractures"
   },
   {
    "id": "kuznetsov.tengiz.i1",
@@ -396,6 +575,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.karachaganak_zones.anim",
+   "file": "media/anim_kuznetsov.karachaganak_zones.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Один риф менял форму со временем»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.karachaganak_zones#c1",
+    "kuznetsov.karachaganak_zones#c2",
+    "kuznetsov.karachaganak_zones#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.karachaganak_zones",
+   "node_id": "kuznetsov.karachaganak_zones"
+  },
+  {
    "id": "kuznetsov.system_reservoir.i1",
    "step_id": "kuznetsov.system_reservoir",
    "node_id": "kuznetsov.system_reservoir",
@@ -430,6 +627,24 @@
     "kuznetsov.system_reservoir#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.system_reservoir.anim",
+   "file": "media/anim_kuznetsov.system_reservoir.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Шуртан: коллектор движется вслед за гребнем»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.system_reservoir#c1",
+    "kuznetsov.system_reservoir#c2",
+    "kuznetsov.system_reservoir#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.system_reservoir",
+   "node_id": "kuznetsov.system_reservoir"
   },
   {
    "id": "kuznetsov.vertical_heterogeneity.i1",
@@ -486,6 +701,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.layers_paleogeography.anim",
+   "file": "media/anim_kuznetsov.layers_paleogeography.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Риф тонул, мелел и становился островом»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.layers_paleogeography#c1",
+    "kuznetsov.layers_paleogeography#c2",
+    "kuznetsov.layers_paleogeography#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.layers_paleogeography",
+   "node_id": "kuznetsov.layers_paleogeography"
+  },
+  {
    "id": "kuznetsov.layers_lens.i1",
    "step_id": "kuznetsov.layers_lens",
    "node_id": "kuznetsov.layers_lens",
@@ -502,6 +735,24 @@
     "kuznetsov.layers_lens#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.layers_lens.anim",
+   "file": "media/anim_kuznetsov.layers_lens.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Коллектор в рифе лежит линзами»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.layers_lens#c1",
+    "kuznetsov.layers_lens#c2",
+    "kuznetsov.layers_lens#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.layers_lens",
+   "node_id": "kuznetsov.layers_lens"
   },
   {
    "id": "kuznetsov.karachaganak_layers.i1",
@@ -522,6 +773,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.karachaganak_layers.anim",
+   "file": "media/anim_kuznetsov.karachaganak_layers.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Плотная пачка — ещё не перегородка»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.karachaganak_layers#c1",
+    "kuznetsov.karachaganak_layers#c2",
+    "kuznetsov.karachaganak_layers#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.karachaganak_layers",
+   "node_id": "kuznetsov.karachaganak_layers"
+  },
+  {
    "id": "kuznetsov.reservoir_flow.i1",
    "step_id": "kuznetsov.reservoir_flow",
    "node_id": "kuznetsov.reservoir_flow",
@@ -540,6 +809,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.reservoir_flow.anim",
+   "file": "media/anim_kuznetsov.reservoir_flow.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Как форма рифа управляет движением нефти»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.reservoir_flow#c1",
+    "kuznetsov.reservoir_flow#c2",
+    "kuznetsov.reservoir_flow#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.reservoir_flow",
+   "node_id": "kuznetsov.reservoir_flow"
+  },
+  {
    "id": "kuznetsov.seal_formation.i1",
    "step_id": "kuznetsov.seal_formation",
    "node_id": "kuznetsov.seal_formation",
@@ -556,6 +843,24 @@
     "kuznetsov.seal_formation#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.seal_formation.anim",
+   "file": "media/anim_kuznetsov.seal_formation.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Море ушло — и риф накрыло крышкой»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.seal_formation#c1",
+    "kuznetsov.seal_formation#c2",
+    "kuznetsov.seal_formation#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.seal_formation",
+   "node_id": "kuznetsov.seal_formation"
   },
   {
    "id": "kuznetsov.trap_groups.i1",
@@ -611,6 +916,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.trap_height_single.anim",
+   "file": "media/anim_kuznetsov.trap_height_single.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «От чего зависит высота ловушки рифа»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.trap_height_single#c1",
+    "kuznetsov.trap_height_single#c2",
+    "kuznetsov.trap_height_single#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.trap_height_single",
+   "node_id": "kuznetsov.trap_height_single"
+  },
+  {
    "id": "kuznetsov.trap_shapes.i1",
    "step_id": "kuznetsov.trap_shapes",
    "node_id": "kuznetsov.trap_shapes",
@@ -647,6 +970,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.asym_traps.anim",
+   "file": "media/anim_kuznetsov.asym_traps.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему ловушка цепочки рифов низкая»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.asym_traps#c1",
+    "kuznetsov.asym_traps#c2",
+    "kuznetsov.asym_traps#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.asym_traps",
+   "node_id": "kuznetsov.asym_traps"
+  },
+  {
    "id": "kuznetsov.structural_traps.i1",
    "step_id": "kuznetsov.structural_traps",
    "node_id": "kuznetsov.structural_traps",
@@ -663,6 +1004,24 @@
     "kuznetsov.structural_traps#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.structural_traps.anim",
+   "file": "media/anim_kuznetsov.structural_traps.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Когда складка поднимает готовый риф»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.structural_traps#c1",
+    "kuznetsov.structural_traps#c2",
+    "kuznetsov.structural_traps#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.structural_traps",
+   "node_id": "kuznetsov.structural_traps"
   },
   {
    "id": "kuznetsov.structural_reef_reservoir.i1",
@@ -700,6 +1059,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.reef_deposits.anim",
+   "file": "media/anim_kuznetsov.reef_deposits.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Какими бывают залежи в рифах»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.reef_deposits#c1",
+    "kuznetsov.reef_deposits#c2",
+    "kuznetsov.reef_deposits#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.reef_deposits",
+   "node_id": "kuznetsov.reef_deposits"
+  },
+  {
    "id": "kuznetsov.deposit_height.i1",
    "step_id": "kuznetsov.deposit_height",
    "node_id": "kuznetsov.deposit_height",
@@ -716,6 +1093,24 @@
     "kuznetsov.deposit_height#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.deposit_height.anim",
+   "file": "media/anim_kuznetsov.deposit_height.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Какой высоты может быть залежь»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.deposit_height#c1",
+    "kuznetsov.deposit_height#c2",
+    "kuznetsov.deposit_height#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.deposit_height",
+   "node_id": "kuznetsov.deposit_height"
   },
   {
    "id": "kuznetsov.exploration_strategy.i1",
@@ -808,6 +1203,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.group_atoll.anim",
+   "file": "media/anim_kuznetsov.group_atoll.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Группа вторая: начни с края»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.group_atoll#c1",
+    "kuznetsov.group_atoll#c2",
+    "kuznetsov.group_atoll#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.group_atoll",
+   "node_id": "kuznetsov.group_atoll"
+  },
+  {
    "id": "kuznetsov.group_asym.i1",
    "step_id": "kuznetsov.group_asym",
    "node_id": "kuznetsov.group_asym",
@@ -824,6 +1237,24 @@
     "kuznetsov.group_asym#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.group_asym.anim",
+   "file": "media/anim_kuznetsov.group_asym.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Группа третья: сложны и ловушка, и резервуар»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.group_asym#c1",
+    "kuznetsov.group_asym#c2",
+    "kuznetsov.group_asym#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.group_asym",
+   "node_id": "kuznetsov.group_asym"
   },
   {
    "id": "kuznetsov.critical_direction.i1",
@@ -862,6 +1293,24 @@
    "prompt": null
   },
   {
+   "id": "kuznetsov.critical_direction.anim",
+   "file": "media/anim_kuznetsov.critical_direction.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Где ловушка может протечь»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.critical_direction#c1",
+    "kuznetsov.critical_direction#c2",
+    "kuznetsov.critical_direction#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.critical_direction",
+   "node_id": "kuznetsov.critical_direction"
+  },
+  {
    "id": "kuznetsov.volume_grid.i1",
    "step_id": "kuznetsov.volume_grid",
    "node_id": "kuznetsov.volume_grid",
@@ -878,6 +1327,24 @@
     "kuznetsov.volume_grid#c3"
    ],
    "prompt": null
+  },
+  {
+   "id": "kuznetsov.volume_grid.anim",
+   "file": "media/anim_kuznetsov.volume_grid.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему равномерная сетка скважин не годится»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "kuznetsov.volume_grid#c1",
+    "kuznetsov.volume_grid#c2",
+    "kuznetsov.volume_grid#c3"
+   ],
+   "prompt": null,
+   "step_id": "kuznetsov.volume_grid",
+   "node_id": "kuznetsov.volume_grid"
   },
   {
    "id": "kuznetsov.well_layout.i1",

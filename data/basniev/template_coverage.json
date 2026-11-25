@@ -54,7 +54,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.elastic_drive",
@@ -67,7 +68,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.slow_redistribution",
@@ -84,7 +86,8 @@
     "video_id": "basniev_long",
     "template": "formula_explorer",
     "format": "long"
-   }
+   },
+   "animation_in_course": false
   },
   {
    "node_id": "basniev.piezo_equation",
@@ -97,7 +100,8 @@
    "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
    "needs": "формула главы с параметром",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.piezo_coefficient",
@@ -110,7 +114,8 @@
    "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
    "needs": "формула главы с параметром",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.gallery_pressure_setup",
@@ -123,7 +128,8 @@
    "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
    "needs": "формула главы с параметром",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.self_similar",
@@ -136,7 +142,8 @@
    "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
    "needs": "формула главы с параметром",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.erf_solution",
@@ -149,7 +156,8 @@
    "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
    "needs": "формула главы с параметром",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.gallery_rate",
@@ -162,7 +170,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.gallery_pressure_law",
@@ -175,7 +184,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.basic_formula",
@@ -188,7 +198,8 @@
    "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
    "needs": "формула главы с параметром",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.flow_profile",
@@ -201,7 +212,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.point_sink_error",
@@ -214,7 +226,8 @@
    "state_model": "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила",
    "needs": "правило с порогами и случаи",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.piezometric_curves",
@@ -227,7 +240,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.psss_idea",
@@ -240,7 +254,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.psss_phases",
@@ -253,7 +268,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.psss_front_linear",
@@ -266,7 +282,8 @@
    "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
    "needs": "формула главы с параметром",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.psss_radial_setup",
@@ -279,7 +296,8 @@
    "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
    "needs": "формула главы с параметром",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.psss_radial_front",
@@ -292,7 +310,8 @@
    "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
    "needs": "стадии процесса и величины, которые меняются",
    "status": "закрывает",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   },
   {
    "node_id": "basniev.psss_radial_pressure",
@@ -305,13 +324,16 @@
    "state_model": "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила",
    "needs": "правило с порогами и случаи",
    "status": "закрывает, но нужно дописать параметры по главе",
-   "video": null
+   "video": null,
+   "animation_in_course": true
   }
  ],
  "summary": {
   "video_nodes": 20,
   "covered": 20,
   "need_new": 0,
-  "videos_made": 1
+  "videos_made": 1,
+  "animations_in_course": 19,
+  "uncovered_in_course": 0
  }
 }

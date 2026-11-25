@@ -1,0 +1,200 @@
+{
+ "latyshova.borehole_wall": [
+  {
+   "id": "latyshova.borehole_wall.anim",
+   "file": "media/anim_latyshova.borehole_wall.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Что раствор делает со стенкой скважины»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.borehole_wall#c1",
+    "latyshova.borehole_wall#c2",
+    "latyshova.borehole_wall#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.water_loss": [
+  {
+   "id": "latyshova.water_loss.anim",
+   "file": "media/anim_latyshova.water_loss.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему водоотдача раствора важнее всего»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.water_loss#c1",
+    "latyshova.water_loss#c2",
+    "latyshova.water_loss#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.transitional_rocks": [
+  {
+   "id": "latyshova.transitional_rocks.anim",
+   "file": "media/anim_latyshova.transitional_rocks.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему природа не вписывается в таблицу»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.transitional_rocks#c1",
+    "latyshova.transitional_rocks#c2",
+    "latyshova.transitional_rocks#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.direct_signs": [
+  {
+   "id": "latyshova.direct_signs.anim",
+   "file": "media/anim_latyshova.direct_signs.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «По каким следам находят коллектор»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.direct_signs#c1",
+    "latyshova.direct_signs#c2",
+    "latyshova.direct_signs#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.signs_fade": [
+  {
+   "id": "latyshova.signs_fade.anim",
+   "file": "media/anim_latyshova.signs_fade.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Когда признаки коллектора исчезают»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.signs_fade#c1",
+    "latyshova.signs_fade#c2",
+    "latyshova.signs_fade#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.dynamic_methods": [
+  {
+   "id": "latyshova.dynamic_methods.anim",
+   "file": "media/anim_latyshova.dynamic_methods.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Что делать, если одного замера мало»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.dynamic_methods#c1",
+    "latyshova.dynamic_methods#c2",
+    "latyshova.dynamic_methods#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.three_flow_intervals": [
+  {
+   "id": "latyshova.three_flow_intervals.anim",
+   "file": "media/anim_latyshova.three_flow_intervals.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (шаги примера автора), 12 с, без звука.",
+   "alt": "Анимация: шаги примера автора для шага «Когда из пласта потечёт вода»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.three_flow_intervals#c1",
+    "latyshova.three_flow_intervals#c2",
+    "latyshova.three_flow_intervals#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.owc_transition": [
+  {
+   "id": "latyshova.owc_transition.anim",
+   "file": "media/anim_latyshova.owc_transition.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Где провести границу нефти и воды»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.owc_transition#c1",
+    "latyshova.owc_transition#c2",
+    "latyshova.owc_transition#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.goc_neutron": [
+  {
+   "id": "latyshova.goc_neutron.anim",
+   "file": "media/anim_latyshova.goc_neutron.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Как найти границу газа и нефти»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.goc_neutron#c1",
+    "latyshova.goc_neutron#c2",
+    "latyshova.goc_neutron#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.carbonate_features": [
+  {
+   "id": "latyshova.carbonate_features.anim",
+   "file": "media/anim_latyshova.carbonate_features.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Чем сложнее коллекторы в известняках»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.carbonate_features#c1",
+    "latyshova.carbonate_features#c2",
+    "latyshova.carbonate_features#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "latyshova.normalization": [
+  {
+   "id": "latyshova.normalization.anim",
+   "file": "media/anim_latyshova.normalization.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Как наложить две кривые и увидеть нефть»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "latyshova.normalization#c1",
+    "latyshova.normalization#c2",
+    "latyshova.normalization#c3"
+   ],
+   "prompt": null
+  }
+ ]
+}

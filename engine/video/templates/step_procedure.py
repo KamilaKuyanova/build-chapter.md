@@ -32,9 +32,11 @@ def render(t, beats, params, W, H):
     dr.rounded_rectangle([x0, y0, x1, y0 + 20], radius=10, fill=rgb(SG["panel"]))
     dr.rounded_rectangle([x0, y0, x0 + (x1 - x0) * (k + 1) / len(steps), y0 + 20], radius=10, fill=rgb(color("measurement")))
     y = y0 + 60
-    row_h = (y1 - y - 20) / len(steps)
+    compact = 104   # свёрнутые шаги — одной строкой, текущий раскрыт на всё оставшееся место
+    active_h = max(compact, (y1 - y - 20) - compact * (len(steps) - 1))
     for i, s in enumerate(steps):
         active, done = i == cur, i < k - 0.02
+        row_h = active_h if active else compact
         h = row_h - 16
         dr.rounded_rectangle([x0, y, x1, y + h], radius=18, fill=rgb(SG["panel"]),
                              outline=rgb(color("measurement") if active else SG["muted"]), width=5 if active else 2)
@@ -44,7 +46,12 @@ def render(t, beats, params, W, H):
         else:
             text(dr, (x0 + 52, y + 52), str(i + 1), 40, True, SG["background"] if active else SG["muted"], anchor="mm")
         text(dr, (x0 + 110, y + 26), s["name"], 46, True, SG["text"] if (done or active) else SG["muted"])
-        if active or (L["vertical"] is False and done):
+        if not active and done and h < 150:   # свёрнутый пройденный шаг: начало текста справа от названия
+            nx = x0 + 130 + font(46, True).getlength(s["name"])
+            first = wrap(s["detail"], 34, x1 - nx - 30)[:1]
+            if first:
+                text(dr, (nx, y + 34), first[0] + ("…" if len(wrap(s["detail"], 34, x1 - nx - 30)) > 1 else ""), 34, fill=SG["muted"])
+        elif active:
             yy = y + 86
             for ln in wrap(s["detail"], 40, x1 - x0 - 140)[: max(1, int((h - 90) // 48))]:
                 text(dr, (x0 + 110, yy), ln, 40, fill=SG["text"] if active else SG["muted"])

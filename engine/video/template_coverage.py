@@ -48,6 +48,8 @@ def build(d):
     layer = json.loads((d / "layer.json").read_text(encoding="utf-8-sig"))
     routes = {r["node_id"]: r for r in json.loads((d / "routing.json").read_text(encoding="utf-8-sig"))["routes"]}
     made = videos_by_node()
+    anim_p = d / "anim_extra.json"
+    anims = set(json.loads(anim_p.read_text(encoding="utf-8"))) if anim_p.exists() else set()
     rows = []
     for n in sorted(layer["nodes"], key=lambda x: x["order"]):
         r = routes.get(n["id"], {})
@@ -67,21 +69,25 @@ def build(d):
                        video=made.get(n["id"]))
         else:
             row.update(template=None, state_model=None, needs=None, status="нужен новый шаблон", video=made.get(n["id"]))
+        row["animation_in_course"] = n["id"] in anims   # ТЗ: видеоузел без ролика закрывается в курсе анимацией
         rows.append(row)
     return {"chapter": layer["chapter"], "templates": templates.registry(), "rows": rows,
             "summary": {"video_nodes": len(rows), "covered": sum(1 for r in rows if r["template"]),
                         "need_new": sum(1 for r in rows if not r["template"]),
-                        "videos_made": sum(1 for r in rows if r["video"])}}
+                        "videos_made": sum(1 for r in rows if r["video"]),
+                        "animations_in_course": sum(1 for r in rows if r.get("animation_in_course")),
+                        "uncovered_in_course": sum(1 for r in rows if not r["video"] and not r.get("animation_in_course"))}}
 
 
 def to_md(rep):
     s = rep["summary"]
     lines = [f"# Покрытие шаблонами сцен: {rep['chapter']}", "",
              f"Видеоёмких узлов: {s['video_nodes']}; закрыто шаблонами: {s['covered']}; нужен новый: {s['need_new']}; "
-             f"роликов собрано: {s['videos_made']}.", "",
-             "| Узел | Тип | Формат | Шаблон | Модель состояния | Статус | Ролик |", "| --- | --- | --- | --- | --- | --- | --- |"]
+             f"роликов собрано: {s['videos_made']}; закрыто в курсе анимацией: {s['animations_in_course']}; "
+             f"не закрыто ничем: {s['uncovered_in_course']}.", "",
+             "| Узел | Тип | Формат | Шаблон | Модель состояния | Статус | Ролик / анимация |", "| --- | --- | --- | --- | --- | --- | --- |"]
     for r in rep["rows"]:
-        v = r["video"]["video_id"] if r["video"] else "—"
+        v = r["video"]["video_id"] if r["video"] else ("анимация в курсе" if r.get("animation_in_course") else "—")
         lines.append(f"| {r['title']} (`{r['node_id']}`) | {r['type']}{'/' + r['secondary'] if r['secondary'] else ''} | "
                      f"{r['format'] or '—'} | {r['template'] or '—'} | {r['state_model'] or '—'} | {r['status']} | {v} |")
     return "\n".join(lines) + "\n"

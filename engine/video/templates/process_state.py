@@ -51,8 +51,10 @@ def render(t, beats, params, W, H):
         dr.ellipse([x - 38, cy - 38, x + 38, cy + 38], fill=rgb(fill) if isinstance(fill, str) else fill,
                    outline=rgb(SG["text"]), width=3)
         text(dr, (x, cy), str(k + 1), 44, True, SG["background"] if abs(s - k) < 0.5 else SG["text"], anchor="mm")
-        for j, ln in enumerate(wrap(st[k]["name"], 40, (x1 - x0) / max(1, n) - 10, True)[:2]):
-            text(dr, (x, cy + 60 + j * 46), ln, 40, True, SG["text"] if done else SG["muted"], anchor="ma")
+        if abs(s - k) < 0.5 or n <= 3:   # подпись стадии — у текущей (при многих стадиях подписи не наезжают)
+            for j, ln in enumerate(wrap(st[k]["name"], 40, max(220, (x1 - x0) / max(1, n) - 10), True)[:2]):
+                text(dr, (min(max(x, x0 + 110), x1 - 110), cy + 60 + j * 46), ln, 40, True,
+                     SG["text"] if done else SG["muted"], anchor="ma")
     px = xs[0] + (xs[-1] - xs[0]) * s / max(1, n - 1)
     dr.polygon([(px - 18, cy - 70), (px + 18, cy - 70), (px, cy - 46)], fill=rgb(SG["text"]))
     k = int(round(s))
@@ -63,7 +65,25 @@ def render(t, beats, params, W, H):
     # величины как функции стадии
     sx0, sy0, sx1, sy1 = L["side"]
     dr.rectangle([sx0, sy0, sx1, sy1], fill=rgb(SG["panel"]))
-    qs = params["quantities"]
+    qs = params.get("quantities") or []
+    if not qs:   # без числовых величин: на втором виде накапливается цепочка «причина → следствие» из текста шага
+        yy = sy0 + 26
+        text(dr, (sx0 + 30, yy), params.get("chain_title", "Цепочка шага"), 40, True, SG["muted"])
+        yy += 64
+        for k2 in range(min(n, int(s + 0.5) + 1)):
+            active = k2 == int(round(s))
+            text(dr, (sx0 + 30, yy), f"{k2 + 1}.", 38, True, color("measurement") if active else SG["muted"])
+            for ln in wrap(st[k2]["note"], 36, sx1 - sx0 - 120)[:3]:
+                text(dr, (sx0 + 90, yy), ln, 36, active, SG["text"] if active else SG["muted"])
+                yy += 46
+            yy += 18
+            if yy > sy1 - 60:
+                break
+        if beat.get("card"):
+            c = beat["card"]
+            card(dr, (W * 0.1, H * 0.22, W * 0.9, H * 0.72), c[0], c[1:], 46, color("measurement"))
+        caption(dr, W, H, b.get("on_screen", ""), L["caption_bottom"], L["caption_size"])
+        return im
     gx0, gx1 = sx0 + 40, sx1 - 40
     gy0, gy1 = sy0 + 70 + 46 * len(qs), sy1 - 60
     for j, q in enumerate(qs):

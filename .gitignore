@@ -1,0 +1,20 @@
+# Сборка
+out/
+__pycache__/
+*.pyc
+
+# ТЗ: главы и ролики не публикуются. Книги, сканы и видео в репозиторий не класть.
+books/
+books_md/
+chapters/
+*.pdf
+*.mp4
+*.mov
+*.wav
+*.mp3
+data/raw/
+data/page_images/
+
+# Секреты
+.env
+*.key

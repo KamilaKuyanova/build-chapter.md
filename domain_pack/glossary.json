@@ -1,0 +1,10 @@
+{
+  "_status": "ЧЕРНОВИК. Расширить из глоссариев и таблицы обозначений, выданных на старте. Определения сверять с книгой (страница обязательна).",
+  "terms": [
+    {"ru": "водонефтяной контакт", "abbr": "ВНК", "en": "oil-water contact (OWC)", "page": null},
+    {"ru": "гамма-каротаж", "abbr": "ГК", "en": "gamma ray log", "page": null},
+    {"ru": "потенциал собственной поляризации", "abbr": "ПС", "en": "spontaneous potential (SP)", "page": null},
+    {"ru": "удельное сопротивление пластовой воды", "abbr": "Rw", "en": "formation water resistivity", "page": null},
+    {"ru": "водонасыщенность", "abbr": "Sw", "en": "water saturation", "page": null}
+  ]
+}

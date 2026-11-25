@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--mut:#5f5e5a;--card:#fff;--line:#d9d6cc;--acc:#1f5f8b;--bad:#b3261e;--ok:#1b7a3d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16181a;--fg:#ececea;--mut:#a5a39c;--card:#202326;--line:#3a3e42;--acc:#7ab8e6;--bad:#ff8a80;--ok:#6fd08c}}
+:root[data-theme="dark"]{--bg:#16181a;--fg:#ececea;--mut:#a5a39c;--card:#202326;--line:#3a3e42;--acc:#7ab8e6;--bad:#ff8a80;--ok:#6fd08c}
+*{box-sizing:border-box}
+html{font-size:16px}
+body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:var(--card);padding:8px;z-index:9}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--card)}
+header strong{margin-right:auto}
+nav.main a,.stepnav a{margin-right:12px}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--acc)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+button{font:inherit;padding:8px 14px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:8px;cursor:pointer;min-height:44px}
+h2{margin-top:0}
+.blk{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:4px 16px 8px;margin:12px 0;overflow-x:auto}
+.blk h3{font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.essence{font-size:1.1rem}
+.meta{color:var(--mut);font-size:.9rem}
+.src{font-size:.85rem;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:0 6px;white-space:nowrap}
+.bad{color:var(--bad);font-weight:600;border-color:var(--bad)}
+blockquote{margin:6px 0;padding-left:12px;border-left:3px solid var(--line);color:var(--mut)}
+.tag{font-size:.8rem;color:var(--mut)}
+img{max-width:100%;height:auto}
+table{border-collapse:collapse}td,th{border:1px solid var(--line);padding:4px 8px}
+.quiz{border:1px dashed var(--line);border-radius:8px;padding:10px;margin:10px 0}
+.quiz label{display:block;padding:6px 0}
+.quiz .res{margin-top:8px;font-weight:600}.quiz .res.ok{color:var(--ok)}.quiz .res.no{color:var(--bad)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 16px;margin:10px 0}
+.stepnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0}
+.ok::after{content:"✓ пройден";color:var(--ok);font-size:.85rem}
+.ok:empty::after{content:""}
+progress{width:min(100%,20rem)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{header,.stepnav,button,progress{display:none}.view{display:block!important}#path,#cards,#map,.step{display:none!important}#notes{display:block!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">К содержанию</a>
+<header>
+  <strong>{{TITLE}}</strong>
+  <nav class="main" aria-label="Разделы">
+    <a href="#/path">Путь</a><a href="#/cards">Карточки</a><a href="#/notes">Конспект</a><a href="#/map">Карта связей</a>
+  </nav>
+  <button id="theme" type="button" aria-label="Переключить тему">Тема</button>
+</header>
+<main id="content" tabindex="-1">
+{{BODY}}
+</main>
+<noscript><p style="padding:16px">Включите JavaScript для навигации и заданий; весь текст курса доступен выше.</p></noscript>
+<script>
+(function(){
+var ORDER={{ORDER}};
+var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(x){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}}};
+var state=LS.get('course',{done:{},last:null,cards:{}});
+function save(){LS.set('course',state)}
+var views=document.querySelectorAll('.view');
+function show(id){
+  views.forEach(function(v){v.hidden=true});
+  var el=document.getElementById(id);if(!el){el=document.getElementById('path')}
+  el.hidden=false;window.scrollTo(0,0);document.getElementById('content').focus({preventScroll:true});
+}
+function route(){
+  var h=location.hash||'#/path';
+  var m=h.match(/^#\/step\/(.+?)(-prev|-next)?$/);
+  if(h==='#/resume'){var t=state.last||ORDER[0];location.hash='#/step/'+t;return}
+  if(m){
+    var id=m[1],i=ORDER.indexOf(id);
+    if(m[2]==='-prev'&&i>0)id=ORDER[i-1];if(m[2]==='-next'&&i<ORDER.length-1)id=ORDER[i+1];
+    if(m[2]){location.hash='#/step/'+id;return}
+    state.last=id;save();show('step-'+id);return;
+  }
+  show(h.replace('#/','')||'path');
+  updateProgress();
+}
+function updateProgress(){
+  var n=Object.keys(state.done).length,p=Math.round(100*n/ORDER.length);
+  document.getElementById('prog').value=p;document.getElementById('progtxt').textContent=n+' из '+ORDER.length+' шагов';
+  document.querySelectorAll('[data-ok]').forEach(function(s){s.className=state.done[s.dataset.ok]?'ok':''});
+}
+document.addEventListener('click',function(ev){
+  var b=ev.target.closest('button');if(!b)return;
+  if(b.dataset.done){state.done[b.dataset.done]=true;save();updateProgress();b.textContent='Пройден ✓'}
+  if(b.dataset.know){state.cards[b.dataset.know]='know';save()}
+  if(b.dataset.repeat){state.cards[b.dataset.repeat]='repeat';save()}
+});
+document.getElementById('theme').addEventListener('click',function(){
+  var r=document.documentElement,cur=r.getAttribute('data-theme');
+  var dark=cur?cur==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+  r.setAttribute('data-theme',dark?'light':'dark');
+});
+/* --- задания: single, multi, order, fill, calc --- */
+function el(t,a,h){var x=document.createElement(t);for(var k in(a||{}))x.setAttribute(k,a[k]);if(h!=null)x.textContent=h;return x}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function buildQuiz(q){
+  var ex=JSON.parse(q.getAttribute('data-ex'));
+  var uid='q'+Math.random().toString(36).slice(2);
+  q.appendChild(el('p',{},ex.question));
+  var get;
+  if(ex.type==='single'||ex.type==='multi'){
+    ex.options.forEach(function(o,i){
+      var l=el('label'),inp=el('input',{type:ex.type==='single'?'radio':'checkbox',name:uid,value:i});
+      l.appendChild(inp);l.appendChild(document.createTextNode(' '+o));q.appendChild(l)});
+    get=function(){var r=[];q.querySelectorAll('input:checked').forEach(function(i){r.push(+i.value)});return r};
+  }else if(ex.type==='order'){
+    var items=shuffle(ex.options),ul=el('ol');
+    function draw(){ul.textContent='';items.forEach(function(o,i){
+      var li=el('li',{},o+' ');
+      var up=el('button',{type:'button','aria-label':'Выше'},'↑'),dn=el('button',{type:'button','aria-label':'Ниже'},'↓');
+      up.onclick=function(){if(i>0){var t=items[i-1];items[i-1]=items[i];items[i]=t;draw()}};
+      dn.onclick=function(){if(i<items.length-1){var t=items[i+1];items[i+1]=items[i];items[i]=t;draw()}};
+      li.appendChild(up);li.appendChild(dn);ul.appendChild(li)})}
+    draw();q.appendChild(ul);get=function(){return items};
+  }else{
+    var inp=el('input',{type:'text','aria-label':'Ответ',autocomplete:'off'});q.appendChild(inp);
+    if(ex.unit)q.appendChild(document.createTextNode(' '+ex.unit));
+    get=function(){return inp.value.trim()};
+  }
+  var btn=el('button',{type:'button'},'Проверить'),res=el('div',{class:'res','aria-live':'polite'});
+  btn.onclick=function(){
+    var v=get(),ok=false;
+    if(ex.type==='single')ok=v.length===1&&v[0]===ex.answer;
+    else if(ex.type==='multi')ok=JSON.stringify(v.slice().sort())===JSON.stringify(ex.answer.slice().sort());
+    else if(ex.type==='order')ok=JSON.stringify(v)===JSON.stringify(ex.options);
+    else if(ex.type==='fill')ok=ex.answer.some(function(a){return a.toLowerCase()===String(v).toLowerCase()});
+    else if(ex.type==='calc'){var n=parseFloat(String(v).replace(',','.'));ok=!isNaN(n)&&Math.abs(n-ex.answer)<=(ex.tolerance||0)}
+    var shown;
+    if(ex.type==='single')shown=ex.options[ex.answer];
+    else if(ex.type==='multi')shown=ex.answer.map(function(i){return ex.options[i]}).join('; ');
+    else if(ex.type==='order')shown=ex.options.join(' → ');
+    else if(ex.type==='fill')shown=ex.answer[0];else shown=ex.answer+(ex.unit?' '+ex.unit:'');
+    res.className='res '+(ok?'ok':'no');
+    res.textContent=(ok?'Верно. ':'Неверно. Правильный ответ: '+shown+'. ')+(ex.explanation||'');
+  };
+  q.appendChild(btn);q.appendChild(res);
+}
+document.querySelectorAll('.quiz').forEach(buildQuiz);
+window.addEventListener('hashchange',route);route();
+})();
+</script>
+</body>
+</html>

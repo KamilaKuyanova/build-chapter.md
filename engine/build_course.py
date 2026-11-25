@@ -211,6 +211,7 @@ def render_step(node, i, total, tasks, ills, route, glossary):
            f'<a href="#/step/{e(node["id"])}-next">Дальше →</a></nav>')
     return f"""
 <article class="view step" id="step-{e(node['id'])}" data-id="{e(node['id'])}" hidden>
+  <div class="lessonbar" aria-hidden="true"><span style="width:{round(100 * i / total)}%"></span></div>
   <p class="meta">{meta}</p>
   <h2>{e(novice(node))}</h2>
   <p class="meta">{e(node['title'])}. {e(nodetext._f(ly.get('topic')))}</p>
@@ -237,16 +238,28 @@ def render_step(node, i, total, tasks, ills, route, glossary):
 
 
 def render_cards(nodes):
+    """Карточки с переворотом: лицо — понятие, оборот — суть шага; по одной (колода) или списком."""
     cards = "".join(
-        f'<div class="card" data-card="{e(n["id"])}"><span class="card-mark" aria-live="polite"></span><h3>{e(novice(n))}</h3>'
-        f'<details><summary>Показать ответ</summary><p>{e(nodetext._f(n["layers"].get("main")))}</p></details>'
-        f'<button type="button" data-know="{e(n["id"])}" aria-pressed="false">Знаю</button> '
-        f'<button type="button" data-repeat="{e(n["id"])}" aria-pressed="false">Повторить</button></div>'
+        f'<div class="card" data-card="{e(n["id"])}"><span class="card-mark" aria-live="polite"></span>'
+        f'<div class="fc" role="button" tabindex="0" aria-pressed="false" aria-label="Перевернуть карточку">'
+        f'<div class="fc-in"><div class="fc-face fc-front"><span class="fc-k">Понятие</span><h3>{e(novice(n))}</h3>'
+        f'<span class="fc-hint">Нажми, чтобы перевернуть</span></div>'
+        f'<div class="fc-face fc-back"><span class="fc-k">Суть</span><p>{e(nodetext._f(n["layers"].get("main")))}</p>'
+        f'<a href="#/step/{e(n["id"])}">Открыть шаг</a></div></div></div>'
+        f'<div class="fc-act"><button type="button" class="b-rep" data-repeat="{e(n["id"])}" aria-pressed="false">↻ Повторить</button>'
+        f'<button type="button" class="b-know" data-know="{e(n["id"])}" aria-pressed="false">✓ Знаю</button></div></div>'
         for n in nodes)
     bar = ('<div class="cardbar"><span id="cardstat"></span> '
-           '<button type="button" id="cardfilter" aria-pressed="false">Показать только «повторить»</button> '
-           '<button type="button" id="cardreset">Сбросить отметки</button></div>')
-    return f'<section class="view" id="cards" hidden><h2>Карточки</h2>{bar}{cards}</section>'
+           '<button type="button" id="cardmode" aria-pressed="false">Списком</button> '
+           '<button type="button" id="cardshuffle">Перемешать</button> '
+           '<button type="button" id="cardfilter" aria-pressed="false">Только «повторить»</button> '
+           '<button type="button" id="cardreset">Сбросить</button></div>'
+           '<div class="coach"><div class="mascot" data-m="core" data-mood="think" aria-hidden="true"></div>'
+           '<p class="bubble">Переворачивай карточку и отвечай честно. Знаешь — свайп вправо, '
+           'надо повторить — влево. Клавиши: пробел, ← и →.</p></div>'
+           '<div class="deckbar"><button type="button" id="cardprev" aria-label="Предыдущая">←</button>'
+           '<span id="cardpos" aria-live="polite"></span><button type="button" id="cardnext" aria-label="Следующая">→</button></div>')
+    return f'<section class="view" id="cards" hidden><h2>Карточки</h2>{bar}<div id="deck">{cards}</div></section>'
 
 
 def render_notes(nodes):
@@ -269,12 +282,23 @@ def render_map(nodes):
 
 
 def render_path(nodes):
+    """Путь змейкой: кружок на каждый шаг, ничего не заперто (новичок может открыть любой шаг)."""
+    import math
     items = "".join(
-        f'<li><a href="#/step/{e(n["id"])}">{e(novice(n))}</a> <span class="meta">≈{minutes(n)} мин</span> '
-        f'<span data-ok="{e(n["id"])}"></span></li>' for n in nodes)
-    return ('<section class="view" id="path"><h2>Путь по главе</h2><p><progress id="prog" max="100" value="0"></progress> '
-            '<span id="progtxt"></span> <a href="#/resume">Продолжить с места остановки</a></p>'
-            f'<ol>{items}</ol></section>')
+        f'<li class="tnode" data-node="{e(n["id"])}" style="--x:{round(62 * math.sin(k * 0.85))}px">'
+        f'<a class="dot" href="#/step/{e(n["id"])}" aria-label="Шаг {k + 1}: {e(novice(n))}"><span>{k + 1}</span></a>'
+        f'<span class="tlabel"><a href="#/step/{e(n["id"])}">{e(novice(n))}</a> <span class="meta">≈{minutes(n)} мин</span> '
+        f'<span data-ok="{e(n["id"])}"></span></span></li>' for k, n in enumerate(nodes))
+    hero = ('<div class="hero"><div class="band" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>'
+            '<div class="hero-card"><div class="coach"><div class="mascot" data-m="drop" data-mood="happy" aria-hidden="true"></div>'
+            '<p class="bubble" id="greet">Привет! Я Капля. Пройдём главу вместе — по шагу за раз.</p></div>'
+            '<div class="stats"><span title="Дней подряд">🔥 <b id="streak">0</b> дн.</span>'
+            '<span title="Очки опыта">⚡ <b id="xp">0</b> XP</span>'
+            '<span title="Верно с первой попытки">🎯 <b id="acc">—</b></span></div>'
+            '<p class="progline"><progress id="prog" max="100" value="0"></progress> <span id="progtxt"></span></p>'
+            '<a class="btn go" href="#/resume">Продолжить</a></div></div>')
+    return (f'<section class="view" id="path"><h2>Путь по главе</h2>{hero}'
+            f'<ol class="trail">{items}</ol></section>')
 
 
 def main():

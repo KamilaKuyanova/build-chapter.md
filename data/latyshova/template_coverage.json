@@ -78,13 +78,13 @@
    "secondary": "И",
    "format": "практикум на данных",
    "video_scores": 2,
-   "template": "tool_and_curve",
-   "state_model": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
-   "needs": "отклики прибора на породы/флюиды",
+   "template": "compare_signs",
+   "state_model": "число открытых признаков k; суммы баллов — функция k",
+   "needs": "признаки и варианты",
    "status": "закрывает",
    "video": {
-    "video_id": "latyshova_short",
-    "template": "tool_and_curve",
+    "video_id": "latyshova_signs",
+    "template": null,
     "format": "short"
    },
    "animation_in_course": false

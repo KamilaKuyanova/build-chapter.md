@@ -24,6 +24,7 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "engine"))
 import speech  # noqa: E402
 import tts  # noqa: E402
+import asr  # noqa: E402
 import sys as _sys_d  # noqa: E402
 _sys_d.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[1]))
 import domain  # noqa: E402  доменный пакет по имени домена (DOMAIN)
@@ -237,6 +238,9 @@ def main():
               for b in beats]
     for s in script:
         s.setdefault("claim_id", None)
+    heard = asr.check(audio, beats, spec.get("check_by_ear", []))
+    if heard["asr_wer"] is not None:
+        print(f"  распознавание: ошибок {heard['asr_wer']:.1%}, терминов потеряно {heard['asr_terms_lost'] or 'нет'}")
     passport = {
         "video_id": spec["video_id"], "node_id": spec["node_id"], "format": spec["format"],
         "node_card": {"id": node["id"], "title": node["title"], "title_novice": node.get("title_novice"),
@@ -256,8 +260,7 @@ def main():
                         "wpm": round(speech.wpm(beats), 1), "lufs": lufs, "sync_max_s": sync_max(beats, lens),
                         "sync_note": "по меткам слов: от начала слота фразы до её первого слова и от последнего звука до конца слота"
                         if said["words"] else "слот фразы равен длительности её озвучки; кадр берёт состояние из того же таймлайна",
-                        "asr_wer": None, "asr_note": "распознавание речи локальной моделью ещё не подключено",
-                        "check_by_ear": spec.get("check_by_ear", [])},
+                        **heard, "check_by_ear": spec.get("check_by_ear", [])},
         "duration_sec": round(total, 1),
     }
     (vdir / "passport.json").write_text(json.dumps(passport, ensure_ascii=False, indent=1), encoding="utf-8")

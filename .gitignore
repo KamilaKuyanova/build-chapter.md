@@ -31,3 +31,4 @@ data/page_images/
 .claude/settings.local.json
 novice_test/results/
 
+models/

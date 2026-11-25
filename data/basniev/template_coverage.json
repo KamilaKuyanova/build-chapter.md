@@ -78,13 +78,13 @@
    "secondary": "В",
    "format": "шортс",
    "video_scores": 7,
-   "template": "formula_explorer",
-   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
-   "needs": "формула главы с параметром",
-   "status": "закрывает, но нужно дописать параметры по главе",
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
    "video": {
-    "video_id": "basniev_long",
-    "template": "formula_explorer",
+    "video_id": "basniev_response",
+    "template": null,
     "format": "long"
    },
    "animation_in_course": false

@@ -99,6 +99,8 @@ python tests/preview_scenes.py               # показ сцен бурени�
 
 ## Озвучка
 
+Готовая дорожка проверяется локальным распознаванием речи: `python engine/video/asr.py videos/<id>` (делается и само при сборке). Модель ставится один раз: `python engine/video/asr.py --download`.
+
 Порядок голосов серии: `domain_pack/voices.json`, берётся первый сработавший (`engine/video/tts.py`: ElevenLabs, Piper, голоса Windows).
 
 Основной голос — ElevenLabs (`"voice": "elevenlabs:<voice_id>"` в `videos/<ролик>/video.json`, ключ в `ELEVENLABS_API_KEY`,

@@ -26,6 +26,8 @@
 | Git | 2.56.1 | версии | нет |
 | FFmpeg | 9.1 (или imageio-ffmpeg 9.0.2) | сборка видео, громкость −16 LUFS (ebur128), субтитры | нет |
 | Pillow | 12.0.0 | кадры роликов | нет |
+| faster-whisper, модель small | 1.2.1 | проверка озвучки распознаванием речи | нет, локально |
+| Edge (headless) и Node.js | Edge из Windows, Node 26.13.1 | кадры сцен роликов | нет |
 | num2words | 0.5 | числа словами для озвучки | нет |
 | jsonschema | 4.26.0 | только `tests/make_selftest.py`; проверка форматов в конвейере своя (`engine/schema.py`) | нет |
 

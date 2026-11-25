@@ -322,13 +322,23 @@
  ],
  "audio_check": {
   "voice": "Microsoft Pavel (winrt, локально, Windows)",
-  "fallback_voice": "ru_RU-dmitri-medium (piper)",
+  "fallback_voice": "onwK4e9ZLuTAKqWW03F9 (elevenlabs)",
   "wpm": 126.8,
   "lufs": -16.3,
   "sync_max_s": 0.08,
   "sync_note": "по меткам слов: от начала слота фразы до её первого слова и от последнего звука до конца слота",
-  "asr_wer": null,
-  "asr_note": "распознавание речи локальной моделью ещё не подключено",
+  "asr_wer": 0.049,
+  "asr_note": "faster-whisper small, локально; слов 123, расхождений 6; синхрон по услышанным словам, фраз 12 из 12",
+  "asr_errors": [
+   "максимальное → максимальные",
+   "естественное → естественная",
+   "известняка → известника",
+   "и → —",
+   "те → идти",
+   "средние → среднее"
+  ],
+  "asr_terms_lost": [],
+  "asr_sync_s": 0.38,
   "check_by_ear": [
    "сопротивление",
    "нейтронные",

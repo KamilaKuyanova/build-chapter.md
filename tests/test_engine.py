@@ -336,6 +336,11 @@ class Video(unittest.TestCase):
             self.assertTrue(any(part in e for e in errors), part)
         self.assertTrue(any("40" in w for w in warn))
 
+    def test_asr_compares_words(self):
+        import asr
+        errs, diff = asr.align(asr.norm("Плотный известняк, 2 раза!"), asr.norm("плотный известник два раза"))
+        self.assertEqual((errs, diff), (1, [("известняк", "известник")]))
+
     def test_changed_claim_replaces_phrase(self):
         import make_video
         spec = {"script": [{"text": "Старый текст", "claim_id": "x.a#c1"}], "claims_at": {"x.a#c1": "Старое утверждение"}}

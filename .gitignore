@@ -1,0 +1,15 @@
+# Главы, сканы и всё, что из них нарезано, публиковать нельзя (ТЗ, «Требования к инструментам»)
+input/
+work/
+materials/
+tz.txt
+tz_docx.txt
+*.pdf
+*.mp4
+*.docx
+
+__pycache__/
+*.pyc
+node_modules/
+.env
+.claude/

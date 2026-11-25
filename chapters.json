@@ -1,0 +1,24 @@
+{
+  "books_dir": "input/books md",
+  "chapters": [
+    {"id": "latyshova", "set": "train", "lang": "ru", "book": "train_latyshova.md",
+     "title": "Латышова (1991), гл. V §17–20",
+     "parts": [{"pages": [90, 108], "start": "^# Глава V\\s*$", "stop": "^# § 21"}]},
+    {"id": "basniev", "set": "train", "lang": "ru", "book": "train_basniev.md",
+     "title": "Басниев и др. (2005), гл. XXIII и гл. XXIV §1",
+     "parts": [{"pages": [474, 500], "stop": "^## §2\\. Метод А\\.М\\.Пирвердяна"}]},
+    {"id": "kuznetsov", "set": "train", "lang": "ru", "book": "train_kuznetsov.md",
+     "title": "Кузнецов (2012), гл. 10 §10.1–10.4",
+     "parts": [{"pages": [200, 222]}]},
+    {"id": "vendelshtein", "set": "control", "lang": "ru", "book": "ctrl_vendelshtein.md",
+     "title": "Вендельштейн, Резванов (1978), гл. I",
+     "parts": [{"pages": [9, 14], "start": "^Косвенные количественные признаки"},
+               {"pages": [20, 30], "start": "^## ОЦЕНКА ХАРАКТЕРА НАСЫЩЕНИЯ"}]},
+    {"id": "barenblatt", "set": "control", "lang": "ru", "book": "ctrl_barenblatt.md",
+     "title": "Баренблатт, Ентов, Рыжик (1984), §4",
+     "parts": [{"pages": [38, 51], "start": "^## § 4\\.", "stop": "^## § 5\\."}]},
+    {"id": "baraboshkin", "set": "control", "lang": "ru", "book": "ctrl_baraboshkin_b.md",
+     "title": "Барабошкин (2007), §1.2 «Дельты»",
+     "parts": [{"pages": [30, 44], "start": "^## 1\\.2 Дельты", "stop": "^## 1\\.3 "}]}
+  ]
+}

@@ -122,7 +122,7 @@ ul.notes{list-style:none;padding:0}ul.notes li{background:var(--card);border-top
 .mapbox{position:relative}#arcs{position:absolute;left:0;top:0;width:86px;height:100%;overflow:visible}#arcs path{fill:none;stroke:var(--line);stroke-width:2;transition:stroke .2s}#arcs path.on{stroke:var(--blue);stroke-width:3.4}#arcs circle{fill:var(--bg);stroke:var(--mut);stroke-width:2}#arcs circle.on{fill:var(--blue);stroke:var(--blue)}
 ul.map{list-style:none;padding:0 0 0 92px;margin:14px 0}ul.map li{padding:11px 14px;border-top:1.5px dashed var(--line);transition:background .2s}ul.map li.on{background:color-mix(in srgb,var(--blue) 14%,var(--card))}ul.map li.me{background:var(--card);box-shadow:inset 4px 0 0 var(--blue)}ul.map a{color:inherit;text-decoration:none;display:block;min-height:28px}ul.map b{font-weight:500}ul.map span{color:var(--mut);font-size:1rem;line-height:1.35;display:block;overflow-wrap:anywhere}
 @media (max-width:560px){ul.map{padding-left:64px}#arcs{width:60px}}
-#toast{position:fixed;z-index:60;left:50%;bottom:96px;transform:translate(-50%,160%);background:#06080c;color:#fff;display:flex;align-items:center;gap:14px;padding:14px 20px;transition:transform .6s var(--ease);max-width:calc(100vw - 32px);box-shadow:0 18px 44px rgba(0,8,30,.4);visibility:hidden}#toast.on{transform:translate(-50%,0);visibility:visible}#toast i{width:10px;height:10px;background:var(--blue);flex:none}
+#toast{position:fixed;width:max-content;z-index:60;left:50%;bottom:96px;transform:translate(-50%,160%);background:#06080c;color:#fff;display:flex;align-items:center;gap:14px;padding:14px 20px;transition:transform .6s var(--ease);max-width:calc(100vw - 32px);box-shadow:0 18px 44px rgba(0,8,30,.4);visibility:hidden}#toast.on{transform:translate(-50%,0);visibility:visible}#toast i{width:10px;height:10px;background:var(--blue);flex:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media print{header.top,nav.main,.stepnav,button,progress,#toast{display:none!important}body,body::before{background:#fff!important;color:#000}.view{display:block!important}#path,#cards,#map,.step{display:none!important}#notes{display:block!important}ul.notes li{break-inside:avoid;padding:6px 0}}
 </style>
@@ -394,6 +394,9 @@ function buildQuiz(q){
     var rec=state.answers[t.id];
     if(!rec)state.answers[t.id]={first:ok,tries:1,ok:ok,type:t.type,step:t.step_id};else{rec.tries++;rec.ok=ok}
     save();afterAnswer(t,ok);
+    q.classList.toggle('right',ok);q.classList.toggle('wrong',!ok);
+    if(t.type==='single'||t.type==='multiple'){var rightIds=[].concat(t.answer);q.querySelectorAll('label').forEach(function(l){var i=l.querySelector('input');
+      l.classList.toggle('good',rightIds.indexOf(i.value)>=0);l.classList.toggle('miss',i.checked&&rightIds.indexOf(i.value)<0)})}
     q.classList.toggle('right',ok);q.classList.toggle('wrong',!ok);
     if(t.type==='single'||t.type==='multiple'){var rightIds=[].concat(t.answer);q.querySelectorAll('label').forEach(function(l){var i=l.querySelector('input');
       l.classList.toggle('good',rightIds.indexOf(i.value)>=0);l.classList.toggle('miss',i.checked&&rightIds.indexOf(i.value)<0)})}

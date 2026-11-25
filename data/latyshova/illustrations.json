@@ -1,4 +1,1045 @@
 {
  "chapter": "latyshova",
- "illustrations": []
+ "illustrations": [
+  {
+   "id": "latyshova.gis_tasks.i1",
+   "step_id": "latyshova.gis_tasks",
+   "node_id": "latyshova.gis_tasks",
+   "file": "illustrations/latyshova.gis_tasks.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Какие задачи решает каротаж скважины»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Какие задачи решает каротаж скважины»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.gis_tasks#c1",
+    "latyshova.gis_tasks#c2",
+    "latyshova.gis_tasks#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.complex_and_fluid.i1",
+   "step_id": "latyshova.complex_and_fluid",
+   "node_id": "latyshova.complex_and_fluid",
+   "file": "illustrations/latyshova.complex_and_fluid.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему набор методов выбирают заново»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему набор методов выбирают заново»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.complex_and_fluid#c1",
+    "latyshova.complex_and_fluid#c2",
+    "latyshova.complex_and_fluid#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.borehole_wall.i1",
+   "step_id": "latyshova.borehole_wall",
+   "node_id": "latyshova.borehole_wall",
+   "file": "illustrations/latyshova.borehole_wall.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Что раствор делает со стенкой скважины»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Что раствор делает со стенкой скважины»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.borehole_wall#c1",
+    "latyshova.borehole_wall#c2",
+    "latyshova.borehole_wall#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.borehole_wall.i2",
+   "step_id": "latyshova.borehole_wall",
+   "node_id": "latyshova.borehole_wall",
+   "file": "illustrations/latyshova.borehole_wall.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Что раствор делает со стенкой скважины»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Что раствор делает со стенкой скважины»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.borehole_wall#c1",
+    "latyshova.borehole_wall#c2",
+    "latyshova.borehole_wall#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.water_loss.i1",
+   "step_id": "latyshova.water_loss",
+   "node_id": "latyshova.water_loss",
+   "file": "illustrations/latyshova.water_loss.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему водоотдача раствора важнее всего»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему водоотдача раствора важнее всего»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.water_loss#c1",
+    "latyshova.water_loss#c2",
+    "latyshova.water_loss#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.mud_density_salinity.i1",
+   "step_id": "latyshova.mud_density_salinity",
+   "node_id": "latyshova.mud_density_salinity",
+   "file": "illustrations/latyshova.mud_density_salinity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как плотность и соль меняют показания»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как плотность и соль меняют показания»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.mud_density_salinity#c1",
+    "latyshova.mud_density_salinity#c2",
+    "latyshova.mud_density_salinity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.other_fluids.i1",
+   "step_id": "latyshova.other_fluids",
+   "node_id": "latyshova.other_fluids",
+   "file": "illustrations/latyshova.other_fluids.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Что меняют вода и нефтяной раствор»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Что меняют вода и нефтяной раствор»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.other_fluids#c1",
+    "latyshova.other_fluids#c2",
+    "latyshova.other_fluids#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.section_types.i1",
+   "step_id": "latyshova.section_types",
+   "node_id": "latyshova.section_types",
+   "file": "illustrations/latyshova.section_types.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Какие бывают разрезы скважин»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Какие бывают разрезы скважин»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.section_types#c1",
+    "latyshova.section_types#c2",
+    "latyshova.section_types#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.pore_types.i1",
+   "step_id": "latyshova.pore_types",
+   "node_id": "latyshova.pore_types",
+   "file": "illustrations/latyshova.pore_types.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Чем отличаются пустоты в породах»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Чем отличаются пустоты в породах»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.pore_types#c1",
+    "latyshova.pore_types#c2",
+    "latyshova.pore_types#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.intergranular_classes.i1",
+   "step_id": "latyshova.intergranular_classes",
+   "node_id": "latyshova.intergranular_classes",
+   "file": "illustrations/latyshova.intergranular_classes.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «На какие группы делит коллекторы геофизик»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «На какие группы делит коллекторы геофизик»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.intergranular_classes#c1",
+    "latyshova.intergranular_classes#c2",
+    "latyshova.intergranular_classes#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.method_groups.i1",
+   "step_id": "latyshova.method_groups",
+   "node_id": "latyshova.method_groups",
+   "file": "illustrations/latyshova.method_groups.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Какой метод на какой вопрос отвечает»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Какой метод на какой вопрос отвечает»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.method_groups#c1",
+    "latyshova.method_groups#c2",
+    "latyshova.method_groups#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.clay_methods.i1",
+   "step_id": "latyshova.clay_methods",
+   "node_id": "latyshova.clay_methods",
+   "file": "illustrations/latyshova.clay_methods.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как СП и гамма находят глину»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как СП и гамма находят глину»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.clay_methods#c1",
+    "latyshova.clay_methods#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.productivity_methods.i1",
+   "step_id": "latyshova.productivity_methods",
+   "node_id": "latyshova.productivity_methods",
+   "file": "illustrations/latyshova.productivity_methods.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как понять, есть ли в пласте нефть»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как понять, есть ли в пласте нефть»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.productivity_methods#c1",
+    "latyshova.productivity_methods#c2",
+    "latyshova.productivity_methods#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.productivity_methods.i2",
+   "step_id": "latyshova.productivity_methods",
+   "node_id": "latyshova.productivity_methods",
+   "file": "illustrations/latyshova.productivity_methods.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как понять, есть ли в пласте нефть»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как понять, есть ли в пласте нефть»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.productivity_methods#c1",
+    "latyshova.productivity_methods#c2",
+    "latyshova.productivity_methods#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.method_crossover.i1",
+   "step_id": "latyshova.method_crossover",
+   "node_id": "latyshova.method_crossover",
+   "file": "illustrations/latyshova.method_crossover.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему методы подсказывают больше, чем обещают»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему методы подсказывают больше, чем обещают»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.method_crossover#c1",
+    "latyshova.method_crossover#c2",
+    "latyshova.method_crossover#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.section_building.i1",
+   "step_id": "latyshova.section_building",
+   "node_id": "latyshova.section_building",
+   "file": "illustrations/latyshova.section_building.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как по кривым строят разрез скважины»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как по кривым строят разрез скважины»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.section_building#c1",
+    "latyshova.section_building#c2",
+    "latyshova.section_building#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.rock_signs_table.i1",
+   "step_id": "latyshova.rock_signs_table",
+   "node_id": "latyshova.rock_signs_table",
+   "file": "illustrations/latyshova.rock_signs_table.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «По каким признакам узнают породу»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «По каким признакам узнают породу»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.rock_signs_table#c1",
+    "latyshova.rock_signs_table#c2",
+    "latyshova.rock_signs_table#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.rock_signs_table.i2",
+   "step_id": "latyshova.rock_signs_table",
+   "node_id": "latyshova.rock_signs_table",
+   "file": "illustrations/latyshova.rock_signs_table.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «По каким признакам узнают породу»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «По каким признакам узнают породу»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.rock_signs_table#c1",
+    "latyshova.rock_signs_table#c2",
+    "latyshova.rock_signs_table#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.transitional_rocks.i1",
+   "step_id": "latyshova.transitional_rocks",
+   "node_id": "latyshova.transitional_rocks",
+   "file": "illustrations/latyshova.transitional_rocks.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему природа не вписывается в таблицу»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему природа не вписывается в таблицу»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.transitional_rocks#c1",
+    "latyshova.transitional_rocks#c2",
+    "latyshova.transitional_rocks#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.when_enough.i1",
+   "step_id": "latyshova.when_enough",
+   "node_id": "latyshova.when_enough",
+   "file": "illustrations/latyshova.when_enough.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда хватает нескольких кривых»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда хватает нескольких кривых»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.when_enough#c1",
+    "latyshova.when_enough#c2",
+    "latyshova.when_enough#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.direct_signs.i1",
+   "step_id": "latyshova.direct_signs",
+   "node_id": "latyshova.direct_signs",
+   "file": "illustrations/latyshova.direct_signs.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «По каким следам находят коллектор»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «По каким следам находят коллектор»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.direct_signs#c1",
+    "latyshova.direct_signs#c2",
+    "latyshova.direct_signs#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.direct_signs.i2",
+   "step_id": "latyshova.direct_signs",
+   "node_id": "latyshova.direct_signs",
+   "file": "illustrations/latyshova.direct_signs.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «По каким следам находят коллектор»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «По каким следам находят коллектор»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.direct_signs#c1",
+    "latyshova.direct_signs#c2",
+    "latyshova.direct_signs#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.signs_fade.i1",
+   "step_id": "latyshova.signs_fade",
+   "node_id": "latyshova.signs_fade",
+   "file": "illustrations/latyshova.signs_fade.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда признаки коллектора исчезают»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда признаки коллектора исчезают»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.signs_fade#c1",
+    "latyshova.signs_fade#c2",
+    "latyshova.signs_fade#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.radial_gradient.i1",
+   "step_id": "latyshova.radial_gradient",
+   "node_id": "latyshova.radial_gradient",
+   "file": "illustrations/latyshova.radial_gradient.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как увидеть проникновение по двум зондам»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как увидеть проникновение по двум зондам»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.radial_gradient#c1",
+    "latyshova.radial_gradient#c2",
+    "latyshova.radial_gradient#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.dynamic_methods.i1",
+   "step_id": "latyshova.dynamic_methods",
+   "node_id": "latyshova.dynamic_methods",
+   "file": "illustrations/latyshova.dynamic_methods.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Что делать, если одного замера мало»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Что делать, если одного замера мало»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.dynamic_methods#c1",
+    "latyshova.dynamic_methods#c2",
+    "latyshova.dynamic_methods#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.critical_permeability.i1",
+   "step_id": "latyshova.critical_permeability",
+   "node_id": "latyshova.critical_permeability",
+   "file": "illustrations/latyshova.critical_permeability.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему граница коллектора зависит от экономики»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему граница коллектора зависит от экономики»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.critical_permeability#c1",
+    "latyshova.critical_permeability#c2",
+    "latyshova.critical_permeability#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.critical_permeability.i2",
+   "step_id": "latyshova.critical_permeability",
+   "node_id": "latyshova.critical_permeability",
+   "file": "illustrations/latyshova.critical_permeability.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Почему граница коллектора зависит от экономики»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Почему граница коллектора зависит от экономики»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.critical_permeability#c1",
+    "latyshova.critical_permeability#c2",
+    "latyshova.critical_permeability#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.threshold_procedure.i1",
+   "step_id": "latyshova.threshold_procedure",
+   "node_id": "latyshova.threshold_procedure",
+   "file": "illustrations/latyshova.threshold_procedure.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как от дебита перейти к порогу»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как от дебита перейти к порогу»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.threshold_procedure#c1",
+    "latyshova.threshold_procedure#c2",
+    "latyshova.threshold_procedure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.threshold_procedure.i2",
+   "step_id": "latyshova.threshold_procedure",
+   "node_id": "latyshova.threshold_procedure",
+   "file": "illustrations/latyshova.threshold_procedure.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как от дебита перейти к порогу»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как от дебита перейти к порогу»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.threshold_procedure#c1",
+    "latyshova.threshold_procedure#c2",
+    "latyshova.threshold_procedure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.saturation_parameter.i1",
+   "step_id": "latyshova.saturation_parameter",
+   "node_id": "latyshova.saturation_parameter",
+   "file": "illustrations/latyshova.saturation_parameter.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Сколько методов нужно, чтобы найти нефть»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Сколько методов нужно, чтобы найти нефть»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.saturation_parameter#c1",
+    "latyshova.saturation_parameter#c2",
+    "latyshova.saturation_parameter#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.clean_reservoir_resistivity.i1",
+   "step_id": "latyshova.clean_reservoir_resistivity",
+   "node_id": "latyshova.clean_reservoir_resistivity",
+   "file": "illustrations/latyshova.clean_reservoir_resistivity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда хватает одного сопротивления»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда хватает одного сопротивления»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.clean_reservoir_resistivity#c1",
+    "latyshova.clean_reservoir_resistivity#c2",
+    "latyshova.clean_reservoir_resistivity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.resistivity_porosity_crossplot.i1",
+   "step_id": "latyshova.resistivity_porosity_crossplot",
+   "node_id": "latyshova.resistivity_porosity_crossplot",
+   "file": "illustrations/latyshova.resistivity_porosity_crossplot.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Зачем сравнивать сопротивление с пористостью»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Зачем сравнивать сопротивление с пористостью»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.resistivity_porosity_crossplot#c1",
+    "latyshova.resistivity_porosity_crossplot#c2",
+    "latyshova.resistivity_porosity_crossplot#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.chart69_structure.i1",
+   "step_id": "latyshova.chart69_structure",
+   "node_id": "latyshova.chart69_structure",
+   "file": "illustrations/latyshova.chart69_structure.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как устроен график для поиска нефти»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как устроен график для поиска нефти»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.chart69_structure#c1",
+    "latyshova.chart69_structure#c2",
+    "latyshova.chart69_structure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.chart69_use.i1",
+   "step_id": "latyshova.chart69_use",
+   "node_id": "latyshova.chart69_use",
+   "file": "illustrations/latyshova.chart69_use.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как по двум числам узнать насыщение»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как по двум числам узнать насыщение»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.chart69_use#c1",
+    "latyshova.chart69_use#c2",
+    "latyshova.chart69_use#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.chart69_use.i2",
+   "step_id": "latyshova.chart69_use",
+   "node_id": "latyshova.chart69_use",
+   "file": "illustrations/latyshova.chart69_use.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как по двум числам узнать насыщение»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как по двум числам узнать насыщение»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.chart69_use#c1",
+    "latyshova.chart69_use#c2",
+    "latyshova.chart69_use#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.critical_saturation.i1",
+   "step_id": "latyshova.critical_saturation",
+   "node_id": "latyshova.critical_saturation",
+   "file": "illustrations/latyshova.critical_saturation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Где граница между нефтью и водой»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Где граница между нефтью и водой»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.critical_saturation#c1",
+    "latyshova.critical_saturation#c2",
+    "latyshova.critical_saturation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.critical_saturation.i2",
+   "step_id": "latyshova.critical_saturation",
+   "node_id": "latyshova.critical_saturation",
+   "file": "illustrations/latyshova.critical_saturation.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Где граница между нефтью и водой»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Где граница между нефтью и водой»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.critical_saturation#c1",
+    "latyshova.critical_saturation#c2",
+    "latyshova.critical_saturation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.two_ways_critical.i1",
+   "step_id": "latyshova.two_ways_critical",
+   "node_id": "latyshova.two_ways_critical",
+   "file": "illustrations/latyshova.two_ways_critical.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Откуда берут критические значения насыщения»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Откуда берут критические значения насыщения»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.two_ways_critical#c1",
+    "latyshova.two_ways_critical#c2",
+    "latyshova.two_ways_critical#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.three_flow_intervals.i1",
+   "step_id": "latyshova.three_flow_intervals",
+   "node_id": "latyshova.three_flow_intervals",
+   "file": "illustrations/latyshova.three_flow_intervals.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда из пласта потечёт вода»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда из пласта потечёт вода»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.three_flow_intervals#c1",
+    "latyshova.three_flow_intervals#c2",
+    "latyshova.three_flow_intervals#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.saturation_bounds.i1",
+   "step_id": "latyshova.saturation_bounds",
+   "node_id": "latyshova.saturation_bounds",
+   "file": "illustrations/latyshova.saturation_bounds.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Три порога и три ответа о нефти»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Три порога и три ответа о нефти»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.saturation_bounds#c1",
+    "latyshova.saturation_bounds#c2",
+    "latyshova.saturation_bounds#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.saturation_bounds.i2",
+   "step_id": "latyshova.saturation_bounds",
+   "node_id": "latyshova.saturation_bounds",
+   "file": "illustrations/latyshova.saturation_bounds.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Три порога и три ответа о нефти»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Три порога и три ответа о нефти»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.saturation_bounds#c1",
+    "latyshova.saturation_bounds#c2",
+    "latyshova.saturation_bounds#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.clay_saturation_family.i1",
+   "step_id": "latyshova.clay_saturation_family",
+   "node_id": "latyshova.clay_saturation_family",
+   "file": "illustrations/latyshova.clay_saturation_family.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему у глинистого пласта свои пороги»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему у глинистого пласта свои пороги»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.clay_saturation_family#c1",
+    "latyshova.clay_saturation_family#c2",
+    "latyshova.clay_saturation_family#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.example53.i1",
+   "step_id": "latyshova.example53",
+   "node_id": "latyshova.example53",
+   "file": "illustrations/latyshova.example53.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Шесть пластов и шесть разных ответов»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Шесть пластов и шесть разных ответов»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.example53#c1",
+    "latyshova.example53#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.example53.i2",
+   "step_id": "latyshova.example53",
+   "node_id": "latyshova.example53",
+   "file": "illustrations/latyshova.example53.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Шесть пластов и шесть разных ответов»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Шесть пластов и шесть разных ответов»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.example53#c1",
+    "latyshova.example53#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.effective_thickness.i1",
+   "step_id": "latyshova.effective_thickness",
+   "node_id": "latyshova.effective_thickness",
+   "file": "illustrations/latyshova.effective_thickness.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Какая часть пласта отдаст нефть»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Какая часть пласта отдаст нефть»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.effective_thickness#c1",
+    "latyshova.effective_thickness#c2",
+    "latyshova.effective_thickness#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.owc_transition.i1",
+   "step_id": "latyshova.owc_transition",
+   "node_id": "latyshova.owc_transition",
+   "file": "illustrations/latyshova.owc_transition.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Где провести границу нефти и воды»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Где провести границу нефти и воды»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.owc_transition#c1",
+    "latyshova.owc_transition#c2",
+    "latyshova.owc_transition#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.owc_transition.i2",
+   "step_id": "latyshova.owc_transition",
+   "node_id": "latyshova.owc_transition",
+   "file": "illustrations/latyshova.owc_transition.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Где провести границу нефти и воды»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Где провести границу нефти и воды»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.owc_transition#c1",
+    "latyshova.owc_transition#c2",
+    "latyshova.owc_transition#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.goc_neutron.i1",
+   "step_id": "latyshova.goc_neutron",
+   "node_id": "latyshova.goc_neutron",
+   "file": "illustrations/latyshova.goc_neutron.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как найти границу газа и нефти»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как найти границу газа и нефти»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.goc_neutron#c1",
+    "latyshova.goc_neutron#c2",
+    "latyshova.goc_neutron#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.nonreservoir_layers.i1",
+   "step_id": "latyshova.nonreservoir_layers",
+   "node_id": "latyshova.nonreservoir_layers",
+   "file": "illustrations/latyshova.nonreservoir_layers.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Какие прослои надо вычесть из пласта»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Какие прослои надо вычесть из пласта»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.nonreservoir_layers#c1",
+    "latyshova.nonreservoir_layers#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.thin_pack_thickness.i1",
+   "step_id": "latyshova.thin_pack_thickness",
+   "node_id": "latyshova.thin_pack_thickness",
+   "file": "illustrations/latyshova.thin_pack_thickness.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как измерить то, чего не видно»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как измерить то, чего не видно»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.thin_pack_thickness#c1",
+    "latyshova.thin_pack_thickness#c2",
+    "latyshova.thin_pack_thickness#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.two_kinds_layers.i1",
+   "step_id": "latyshova.two_kinds_layers",
+   "node_id": "latyshova.two_kinds_layers",
+   "file": "illustrations/latyshova.two_kinds_layers.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда в пачке два вида помех»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда в пачке два вида помех»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.two_kinds_layers#c1",
+    "latyshova.two_kinds_layers#c2",
+    "latyshova.two_kinds_layers#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.thickness_tasks.i1",
+   "step_id": "latyshova.thickness_tasks",
+   "node_id": "latyshova.thickness_tasks",
+   "file": "illustrations/latyshova.thickness_tasks.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Задачи книги на эффективную толщину»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Задачи книги на эффективную толщину»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.thickness_tasks#c1",
+    "latyshova.thickness_tasks#c2",
+    "latyshova.thickness_tasks#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.carbonate_features.i1",
+   "step_id": "latyshova.carbonate_features",
+   "node_id": "latyshova.carbonate_features",
+   "file": "illustrations/latyshova.carbonate_features.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Чем сложнее коллекторы в известняках»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Чем сложнее коллекторы в известняках»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.carbonate_features#c1",
+    "latyshova.carbonate_features#c2",
+    "latyshova.carbonate_features#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.normalization.i1",
+   "step_id": "latyshova.normalization",
+   "node_id": "latyshova.normalization",
+   "file": "illustrations/latyshova.normalization.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как наложить две кривые и увидеть нефть»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как наложить две кривые и увидеть нефть»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.normalization#c1",
+    "latyshova.normalization#c2",
+    "latyshova.normalization#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.normalization.i2",
+   "step_id": "latyshova.normalization",
+   "node_id": "latyshova.normalization",
+   "file": "illustrations/latyshova.normalization.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как наложить две кривые и увидеть нефть»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как наложить две кривые и увидеть нефть»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.normalization#c1",
+    "latyshova.normalization#c2",
+    "latyshova.normalization#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.example54.i1",
+   "step_id": "latyshova.example54",
+   "node_id": "latyshova.example54",
+   "file": "illustrations/latyshova.example54.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Сколько метров нефти в известняке»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Сколько метров нефти в известняке»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.example54#c1",
+    "latyshova.example54#c2",
+    "latyshova.example54#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.i1",
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate",
+   "file": "illustrations/latyshova.critical_porosity_carbonate.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему у известняков нет единого порога»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему у известняков нет единого порога»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.critical_porosity_carbonate.i2",
+   "step_id": "latyshova.critical_porosity_carbonate",
+   "node_id": "latyshova.critical_porosity_carbonate",
+   "file": "illustrations/latyshova.critical_porosity_carbonate.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Почему у известняков нет единого порога»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Почему у известняков нет единого порога»",
+   "source": null,
+   "claim_ids": [
+    "latyshova.critical_porosity_carbonate#c1",
+    "latyshova.critical_porosity_carbonate#c2",
+    "latyshova.critical_porosity_carbonate#c3"
+   ],
+   "prompt": null
+  }
+ ]
 }

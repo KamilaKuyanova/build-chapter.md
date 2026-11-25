@@ -1,4 +1,919 @@
 {
  "chapter": "kuznetsov",
- "illustrations": []
+ "illustrations": [
+  {
+   "id": "kuznetsov.reef_interest.i1",
+   "step_id": "kuznetsov.reef_interest",
+   "node_id": "kuznetsov.reef_interest",
+   "file": "illustrations/kuznetsov.reef_interest.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему нефтяники охотятся за рифами»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему нефтяники охотятся за рифами»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.reef_interest#c1",
+    "kuznetsov.reef_interest#c2",
+    "kuznetsov.reef_interest#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.buildups.i1",
+   "step_id": "kuznetsov.buildups",
+   "node_id": "kuznetsov.buildups",
+   "file": "illustrations/kuznetsov.buildups.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Не всякая постройка организмов — риф»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Не всякая постройка организмов — риф»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.buildups#c1",
+    "kuznetsov.buildups#c2",
+    "kuznetsov.buildups#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_proper.i1",
+   "step_id": "kuznetsov.reef_proper",
+   "node_id": "kuznetsov.reef_proper",
+   "file": "illustrations/kuznetsov.reef_proper.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как отличить риф от холма и пласта»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как отличить риф от холма и пласта»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.reef_proper#c1",
+    "kuznetsov.reef_proper#c2",
+    "kuznetsov.reef_proper#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_proper.i2",
+   "step_id": "kuznetsov.reef_proper",
+   "node_id": "kuznetsov.reef_proper",
+   "file": "illustrations/kuznetsov.reef_proper.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как отличить риф от холма и пласта»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как отличить риф от холма и пласта»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.reef_proper#c1",
+    "kuznetsov.reef_proper#c2",
+    "kuznetsov.reef_proper#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_types.i1",
+   "step_id": "kuznetsov.reef_types",
+   "node_id": "kuznetsov.reef_types",
+   "file": "illustrations/kuznetsov.reef_types.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Два основных типа рифов»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Два основных типа рифов»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.reef_types#c1",
+    "kuznetsov.reef_types#c2",
+    "kuznetsov.reef_types#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.bioherm_limestone.i1",
+   "step_id": "kuznetsov.bioherm_limestone",
+   "node_id": "kuznetsov.bioherm_limestone",
+   "file": "illustrations/kuznetsov.bioherm_limestone.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Каркас рифа занимает малую часть рифа»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Каркас рифа занимает малую часть рифа»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.bioherm_limestone#c1",
+    "kuznetsov.bioherm_limestone#c2",
+    "kuznetsov.bioherm_limestone#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.clastic_limestone.i1",
+   "step_id": "kuznetsov.clastic_limestone",
+   "node_id": "kuznetsov.clastic_limestone",
+   "file": "illustrations/kuznetsov.clastic_limestone.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Риф больше чем наполовину из обломков»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Риф больше чем наполовину из обломков»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.clastic_limestone#c1",
+    "kuznetsov.clastic_limestone#c2",
+    "kuznetsov.clastic_limestone#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_zonality.i1",
+   "step_id": "kuznetsov.reef_zonality",
+   "node_id": "kuznetsov.reef_zonality",
+   "file": "illustrations/kuznetsov.reef_zonality.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему породы рифа лежат зонами»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему породы рифа лежат зонами»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.reef_zonality#c1",
+    "kuznetsov.reef_zonality#c2",
+    "kuznetsov.reef_zonality#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.dome_zonality.i1",
+   "step_id": "kuznetsov.dome_zonality",
+   "node_id": "kuznetsov.dome_zonality",
+   "file": "illustrations/kuznetsov.dome_zonality.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Из чего сложен риф-купол»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Из чего сложен риф-купол»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.dome_zonality#c1",
+    "kuznetsov.dome_zonality#c2",
+    "kuznetsov.dome_zonality#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.atoll_zonality.i1",
+   "step_id": "kuznetsov.atoll_zonality",
+   "node_id": "kuznetsov.atoll_zonality",
+   "file": "illustrations/kuznetsov.atoll_zonality.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Риф-кольцо с лагуной внутри»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Риф-кольцо с лагуной внутри»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.atoll_zonality#c1",
+    "kuznetsov.atoll_zonality#c2",
+    "kuznetsov.atoll_zonality#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.system_zonality.i1",
+   "step_id": "kuznetsov.system_zonality",
+   "node_id": "kuznetsov.system_zonality",
+   "file": "illustrations/kuznetsov.system_zonality.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Цепочка рифов как половина атолла»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Цепочка рифов как половина атолла»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.system_zonality#c1",
+    "kuznetsov.system_zonality#c2",
+    "kuznetsov.system_zonality#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.primary_porosity.i1",
+   "step_id": "kuznetsov.primary_porosity",
+   "node_id": "kuznetsov.primary_porosity",
+   "file": "illustrations/kuznetsov.primary_porosity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Откуда в рифе берутся пустоты»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Откуда в рифе берутся пустоты»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.primary_porosity#c1",
+    "kuznetsov.primary_porosity#c2",
+    "kuznetsov.primary_porosity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.primary_loss.i1",
+   "step_id": "kuznetsov.primary_loss",
+   "node_id": "kuznetsov.primary_loss",
+   "file": "illustrations/kuznetsov.primary_loss.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Риф теряет пустоты, пока растёт»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Риф теряет пустоты, пока растёт»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.primary_loss#c1",
+    "kuznetsov.primary_loss#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.secondary_porosity.i1",
+   "step_id": "kuznetsov.secondary_porosity",
+   "node_id": "kuznetsov.secondary_porosity",
+   "file": "illustrations/kuznetsov.secondary_porosity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как вода создаёт в рифе каверны»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как вода создаёт в рифе каверны»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.secondary_porosity#c1",
+    "kuznetsov.secondary_porosity#c2",
+    "kuznetsov.secondary_porosity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.dome_reservoir.i1",
+   "step_id": "kuznetsov.dome_reservoir",
+   "node_id": "kuznetsov.dome_reservoir",
+   "file": "illustrations/kuznetsov.dome_reservoir.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «В рифе-куполе лучшее — в центре»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «В рифе-куполе лучшее — в центре»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.dome_reservoir#c1",
+    "kuznetsov.dome_reservoir#c2",
+    "kuznetsov.dome_reservoir#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.rainbow_a.i1",
+   "step_id": "kuznetsov.rainbow_a",
+   "node_id": "kuznetsov.rainbow_a",
+   "file": "illustrations/kuznetsov.rainbow_a.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Один риф — пять групп коллекторов»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Один риф — пять групп коллекторов»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.rainbow_a#c1",
+    "kuznetsov.rainbow_a#c2",
+    "kuznetsov.rainbow_a#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.rainbow_a.i2",
+   "step_id": "kuznetsov.rainbow_a",
+   "node_id": "kuznetsov.rainbow_a",
+   "file": "illustrations/kuznetsov.rainbow_a.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Один риф — пять групп коллекторов»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Один риф — пять групп коллекторов»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.rainbow_a#c1",
+    "kuznetsov.rainbow_a#c2",
+    "kuznetsov.rainbow_a#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.atoll_reservoir.i1",
+   "step_id": "kuznetsov.atoll_reservoir",
+   "node_id": "kuznetsov.atoll_reservoir",
+   "file": "illustrations/kuznetsov.atoll_reservoir.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «В крупном рифе лучшее — по краю»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «В крупном рифе лучшее — по краю»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.atoll_reservoir#c1",
+    "kuznetsov.atoll_reservoir#c2",
+    "kuznetsov.atoll_reservoir#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.edge_fractures.i1",
+   "step_id": "kuznetsov.edge_fractures",
+   "node_id": "kuznetsov.edge_fractures",
+   "file": "illustrations/kuznetsov.edge_fractures.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему край рифа даёт рекордные притоки»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему край рифа даёт рекордные притоки»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.edge_fractures#c1",
+    "kuznetsov.edge_fractures#c2",
+    "kuznetsov.edge_fractures#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.tengiz.i1",
+   "step_id": "kuznetsov.tengiz",
+   "node_id": "kuznetsov.tengiz",
+   "file": "illustrations/kuznetsov.tengiz.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Тенгиз: пористость лежит кольцом»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Тенгиз: пористость лежит кольцом»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.tengiz#c1",
+    "kuznetsov.tengiz#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.karachaganak_zones.i1",
+   "step_id": "kuznetsov.karachaganak_zones",
+   "node_id": "kuznetsov.karachaganak_zones",
+   "file": "illustrations/kuznetsov.karachaganak_zones.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Один риф менял форму со временем»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Один риф менял форму со временем»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.karachaganak_zones#c1",
+    "kuznetsov.karachaganak_zones#c2",
+    "kuznetsov.karachaganak_zones#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.karachaganak_zones.i2",
+   "step_id": "kuznetsov.karachaganak_zones",
+   "node_id": "kuznetsov.karachaganak_zones",
+   "file": "illustrations/kuznetsov.karachaganak_zones.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Один риф менял форму со временем»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Один риф менял форму со временем»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.karachaganak_zones#c1",
+    "kuznetsov.karachaganak_zones#c2",
+    "kuznetsov.karachaganak_zones#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.system_reservoir.i1",
+   "step_id": "kuznetsov.system_reservoir",
+   "node_id": "kuznetsov.system_reservoir",
+   "file": "illustrations/kuznetsov.system_reservoir.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Шуртан: коллектор движется вслед за гребнем»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Шуртан: коллектор движется вслед за гребнем»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.system_reservoir#c1",
+    "kuznetsov.system_reservoir#c2",
+    "kuznetsov.system_reservoir#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.system_reservoir.i2",
+   "step_id": "kuznetsov.system_reservoir",
+   "node_id": "kuznetsov.system_reservoir",
+   "file": "illustrations/kuznetsov.system_reservoir.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Шуртан: коллектор движется вслед за гребнем»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Шуртан: коллектор движется вслед за гребнем»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.system_reservoir#c1",
+    "kuznetsov.system_reservoir#c2",
+    "kuznetsov.system_reservoir#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.vertical_heterogeneity.i1",
+   "step_id": "kuznetsov.vertical_heterogeneity",
+   "node_id": "kuznetsov.vertical_heterogeneity",
+   "file": "illustrations/kuznetsov.vertical_heterogeneity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Большой риф не однородная глыба»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Большой риф не однородная глыба»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.vertical_heterogeneity#c1",
+    "kuznetsov.vertical_heterogeneity#c2",
+    "kuznetsov.vertical_heterogeneity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.layers_paleogeography.i1",
+   "step_id": "kuznetsov.layers_paleogeography",
+   "node_id": "kuznetsov.layers_paleogeography",
+   "file": "illustrations/kuznetsov.layers_paleogeography.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Риф тонул, мелел и становился островом»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Риф тонул, мелел и становился островом»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.layers_paleogeography#c1",
+    "kuznetsov.layers_paleogeography#c2",
+    "kuznetsov.layers_paleogeography#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.layers_paleogeography.i2",
+   "step_id": "kuznetsov.layers_paleogeography",
+   "node_id": "kuznetsov.layers_paleogeography",
+   "file": "illustrations/kuznetsov.layers_paleogeography.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Риф тонул, мелел и становился островом»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Риф тонул, мелел и становился островом»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.layers_paleogeography#c1",
+    "kuznetsov.layers_paleogeography#c2",
+    "kuznetsov.layers_paleogeography#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.layers_lens.i1",
+   "step_id": "kuznetsov.layers_lens",
+   "node_id": "kuznetsov.layers_lens",
+   "file": "illustrations/kuznetsov.layers_lens.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Коллектор в рифе лежит линзами»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Коллектор в рифе лежит линзами»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.layers_lens#c1",
+    "kuznetsov.layers_lens#c2",
+    "kuznetsov.layers_lens#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.karachaganak_layers.i1",
+   "step_id": "kuznetsov.karachaganak_layers",
+   "node_id": "kuznetsov.karachaganak_layers",
+   "file": "illustrations/kuznetsov.karachaganak_layers.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Плотная пачка — ещё не перегородка»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Плотная пачка — ещё не перегородка»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.karachaganak_layers#c1",
+    "kuznetsov.karachaganak_layers#c2",
+    "kuznetsov.karachaganak_layers#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.reservoir_flow.i1",
+   "step_id": "kuznetsov.reservoir_flow",
+   "node_id": "kuznetsov.reservoir_flow",
+   "file": "illustrations/kuznetsov.reservoir_flow.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Как форма рифа управляет движением нефти»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Как форма рифа управляет движением нефти»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.reservoir_flow#c1",
+    "kuznetsov.reservoir_flow#c2",
+    "kuznetsov.reservoir_flow#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.seal_formation.i1",
+   "step_id": "kuznetsov.seal_formation",
+   "node_id": "kuznetsov.seal_formation",
+   "file": "illustrations/kuznetsov.seal_formation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Море ушло — и риф накрыло крышкой»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Море ушло — и риф накрыло крышкой»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.seal_formation#c1",
+    "kuznetsov.seal_formation#c2",
+    "kuznetsov.seal_formation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.trap_groups.i1",
+   "step_id": "kuznetsov.trap_groups",
+   "node_id": "kuznetsov.trap_groups",
+   "file": "illustrations/kuznetsov.trap_groups.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «На какие группы делят ловушки рифа»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «На какие группы делят ловушки рифа»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.trap_groups#c1",
+    "kuznetsov.trap_groups#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.trap_height_single.i1",
+   "step_id": "kuznetsov.trap_height_single",
+   "node_id": "kuznetsov.trap_height_single",
+   "file": "illustrations/kuznetsov.trap_height_single.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «От чего зависит высота ловушки рифа»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «От чего зависит высота ловушки рифа»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.trap_height_single#c1",
+    "kuznetsov.trap_height_single#c2",
+    "kuznetsov.trap_height_single#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.trap_height_single.i2",
+   "step_id": "kuznetsov.trap_height_single",
+   "node_id": "kuznetsov.trap_height_single",
+   "file": "illustrations/kuznetsov.trap_height_single.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «От чего зависит высота ловушки рифа»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «От чего зависит высота ловушки рифа»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.trap_height_single#c1",
+    "kuznetsov.trap_height_single#c2",
+    "kuznetsov.trap_height_single#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.trap_shapes.i1",
+   "step_id": "kuznetsov.trap_shapes",
+   "node_id": "kuznetsov.trap_shapes",
+   "file": "illustrations/kuznetsov.trap_shapes.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Четыре формы рифовых ловушек»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Четыре формы рифовых ловушек»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.trap_shapes#c1",
+    "kuznetsov.trap_shapes#c2",
+    "kuznetsov.trap_shapes#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.asym_traps.i1",
+   "step_id": "kuznetsov.asym_traps",
+   "node_id": "kuznetsov.asym_traps",
+   "file": "illustrations/kuznetsov.asym_traps.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему ловушка цепочки рифов низкая»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему ловушка цепочки рифов низкая»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.asym_traps#c1",
+    "kuznetsov.asym_traps#c2",
+    "kuznetsov.asym_traps#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.structural_traps.i1",
+   "step_id": "kuznetsov.structural_traps",
+   "node_id": "kuznetsov.structural_traps",
+   "file": "illustrations/kuznetsov.structural_traps.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда складка поднимает готовый риф»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда складка поднимает готовый риф»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.structural_traps#c1",
+    "kuznetsov.structural_traps#c2",
+    "kuznetsov.structural_traps#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.structural_reef_reservoir.i1",
+   "step_id": "kuznetsov.structural_reef_reservoir",
+   "node_id": "kuznetsov.structural_reef_reservoir",
+   "file": "illustrations/kuznetsov.structural_reef_reservoir.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Когда ловушку создаёт складка, а не риф»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Когда ловушку создаёт складка, а не риф»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.structural_reef_reservoir#c1",
+    "kuznetsov.structural_reef_reservoir#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_deposits.i1",
+   "step_id": "kuznetsov.reef_deposits",
+   "node_id": "kuznetsov.reef_deposits",
+   "file": "illustrations/kuznetsov.reef_deposits.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Какими бывают залежи в рифах»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Какими бывают залежи в рифах»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.reef_deposits#c1",
+    "kuznetsov.reef_deposits#c2",
+    "kuznetsov.reef_deposits#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.deposit_height.i1",
+   "step_id": "kuznetsov.deposit_height",
+   "node_id": "kuznetsov.deposit_height",
+   "file": "illustrations/kuznetsov.deposit_height.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Какой высоты может быть залежь»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Какой высоты может быть залежь»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.deposit_height#c1",
+    "kuznetsov.deposit_height#c2",
+    "kuznetsov.deposit_height#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.exploration_strategy.i1",
+   "step_id": "kuznetsov.exploration_strategy",
+   "node_id": "kuznetsov.exploration_strategy",
+   "file": "illustrations/kuznetsov.exploration_strategy.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Сначала тип рифа, потом место скважины»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Сначала тип рифа, потом место скважины»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.exploration_strategy#c1",
+    "kuznetsov.exploration_strategy#c2",
+    "kuznetsov.exploration_strategy#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.exploration_strategy.i2",
+   "step_id": "kuznetsov.exploration_strategy",
+   "node_id": "kuznetsov.exploration_strategy",
+   "file": "illustrations/kuznetsov.exploration_strategy.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Сначала тип рифа, потом место скважины»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Сначала тип рифа, потом место скважины»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.exploration_strategy#c1",
+    "kuznetsov.exploration_strategy#c2",
+    "kuznetsov.exploration_strategy#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.group_dome.i1",
+   "step_id": "kuznetsov.group_dome",
+   "node_id": "kuznetsov.group_dome",
+   "file": "illustrations/kuznetsov.group_dome.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Группа первая: бури в вершину купола»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Группа первая: бури в вершину купола»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.group_dome#c1",
+    "kuznetsov.group_dome#c2",
+    "kuznetsov.group_dome#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.group_atoll.i1",
+   "step_id": "kuznetsov.group_atoll",
+   "node_id": "kuznetsov.group_atoll",
+   "file": "illustrations/kuznetsov.group_atoll.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Группа вторая: начни с края»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Группа вторая: начни с края»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.group_atoll#c1",
+    "kuznetsov.group_atoll#c2",
+    "kuznetsov.group_atoll#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.group_atoll.i2",
+   "step_id": "kuznetsov.group_atoll",
+   "node_id": "kuznetsov.group_atoll",
+   "file": "illustrations/kuznetsov.group_atoll.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Группа вторая: начни с края»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Группа вторая: начни с края»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.group_atoll#c1",
+    "kuznetsov.group_atoll#c2",
+    "kuznetsov.group_atoll#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.group_asym.i1",
+   "step_id": "kuznetsov.group_asym",
+   "node_id": "kuznetsov.group_asym",
+   "file": "illustrations/kuznetsov.group_asym.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Группа третья: сложны и ловушка, и резервуар»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Группа третья: сложны и ловушка, и резервуар»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.group_asym#c1",
+    "kuznetsov.group_asym#c2",
+    "kuznetsov.group_asym#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.critical_direction.i1",
+   "step_id": "kuznetsov.critical_direction",
+   "node_id": "kuznetsov.critical_direction",
+   "file": "illustrations/kuznetsov.critical_direction.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Где ловушка может протечь»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Где ловушка может протечь»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.critical_direction#c1",
+    "kuznetsov.critical_direction#c2",
+    "kuznetsov.critical_direction#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.critical_direction.i2",
+   "step_id": "kuznetsov.critical_direction",
+   "node_id": "kuznetsov.critical_direction",
+   "file": "illustrations/kuznetsov.critical_direction.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Где ловушка может протечь»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Где ловушка может протечь»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.critical_direction#c1",
+    "kuznetsov.critical_direction#c2",
+    "kuznetsov.critical_direction#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.volume_grid.i1",
+   "step_id": "kuznetsov.volume_grid",
+   "node_id": "kuznetsov.volume_grid",
+   "file": "illustrations/kuznetsov.volume_grid.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Почему равномерная сетка скважин не годится»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Почему равномерная сетка скважин не годится»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.volume_grid#c1",
+    "kuznetsov.volume_grid#c2",
+    "kuznetsov.volume_grid#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.well_layout.i1",
+   "step_id": "kuznetsov.well_layout",
+   "node_id": "kuznetsov.well_layout",
+   "file": "illustrations/kuznetsov.well_layout.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема шага «Какую схему скважин выбрать»: механизм, практика, нюансы — по тексту главы.",
+   "alt": "Схема шага «Какую схему скважин выбрать»: три блока — механизм, практика и нюансы, стрелки слева направо",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.well_layout#c1",
+    "kuznetsov.well_layout#c2",
+    "kuznetsov.well_layout#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.well_layout.i2",
+   "step_id": "kuznetsov.well_layout",
+   "node_id": "kuznetsov.well_layout",
+   "file": "illustrations/kuznetsov.well_layout.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Какую схему скважин выбрать»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Какую схему скважин выбрать»",
+   "source": null,
+   "claim_ids": [
+    "kuznetsov.well_layout#c1",
+    "kuznetsov.well_layout#c2",
+    "kuznetsov.well_layout#c3"
+   ],
+   "prompt": null
+  }
+ ]
 }

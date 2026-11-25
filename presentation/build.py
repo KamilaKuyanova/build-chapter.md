@@ -116,11 +116,11 @@ def main():
     (HERE / "facts.js").write_text("window.FACTS = " + json.dumps(facts, ensure_ascii=False, indent=1) + ";\n", encoding="utf-8")
     print("facts.js:", total, "| тестовых глав:", len(facts["test"]))
     media()
+    if "shots" in sys.argv:
+        subprocess.run([shutil.which("node") or "node", str(HERE / "shots.mjs")], check=True, cwd=ROOT)
     single()
     if "link" in sys.argv:
         single(link=True)
-    if "shots" in sys.argv:
-        subprocess.run([shutil.which("node") or "node", str(HERE / "shots.mjs")], check=True, cwd=ROOT)
 
 
 if __name__ == "__main__":

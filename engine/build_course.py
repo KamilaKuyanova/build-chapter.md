@@ -342,7 +342,7 @@ def render_path(nodes, parts, tasks, routing, title):
     return f"""
 <section class="view" id="path">
   <div class="hero"><canvas id="iso" aria-hidden="true"></canvas><div class="in">
-    <p class="lab">Путь по главе</p><h1>{e(title)}</h1>
+    <p class="lab" id="herolab">Путь по главе</p><h1>{e(title)}</h1>
     <div class="stat"><div><b id="st-steps">0/{len(nodes)}</b><span id="progtxt">шагов пройдено</span></div><div><b id="st-tasks">—</b><span>верно с первого раза</span></div><div><b id="st-cards">0/{len(nodes)}</b><span>карточек «знаю»</span></div></div>
     <progress id="prog" max="100" value="0" aria-label="Пройдено курса"></progress>
     <a class="cta" href="#/resume"><b><span id="ctatxt">Начать</span><small id="ctastep">{e(novice(nodes[0]))}</small></b><i>→</i></a>
@@ -365,7 +365,9 @@ def render_cards(nodes):
     trainer = ('<div id="trainer" hidden><div class="deck"><button type="button" class="flip" id="flip" aria-live="polite">'
                '<span class="face f1"><span class="lab">Вопрос</span><b id="fq"></b><small>Нажмите, чтобы увидеть ответ</small></span>'
                '<span class="face f2"><span class="lab">Ответ</span><span id="fa"></span></span></button></div>'
-               '<div class="tbtn"><button type="button" id="trep">Повторить</button><span id="tpos"></span><button type="button" id="tknow">Знаю</button></div></div>')
+               '<div class="tbtn"><button type="button" id="trep">Повторить</button><span id="tpos"></span><button type="button" id="tknow">Знаю</button></div>'
+               '<div class="tnav"><button type="button" id="tprev" aria-label="Предыдущая">←</button><button type="button" id="tmix">Перемешать</button>'
+               '<button type="button" id="tnext" aria-label="Следующая">→</button></div><p class="thint">Свайп вправо — знаю, влево — повторить. Клавиши: пробел, ← и →.</p></div>')
     return f'<section class="view" id="cards" hidden><p class="lab">Тренажёр</p><h2>Карточки</h2>{trainer}<h3 class="sub">Все карточки</h3>{bar}<div class="cgrid">{cards}</div></section>'
 
 

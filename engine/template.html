@@ -112,7 +112,7 @@ table{border-collapse:collapse}td,th{border:1px solid var(--line);padding:6px 10
 .sub{font-weight:400;font-size:1.5rem;letter-spacing:-.02em;margin:34px 0 10px}
 .deck{perspective:1600px;margin:8px 0 14px}.flip{display:grid;width:100%;min-height:330px;padding:0;border:0;background:none;transform-style:preserve-3d;transition:transform .75s var(--ease);text-align:left}.flip.on{transform:rotateY(180deg)}.flip:active{transform:none}.flip.on:active{transform:rotateY(180deg)}
 .face{grid-area:1/1;backface-visibility:hidden;display:flex;flex-direction:column;gap:14px;padding:26px 24px;background:linear-gradient(165deg,#02060d 0,#05204d 60%,#0a4ba8 100%);color:#fff;border:1.5px dashed rgba(255,255,255,.3)}.face .lab{color:#b9cbe4}.f1 b{font-weight:400;font-size:clamp(1.7rem,6.6vw,2.5rem);line-height:1.12;letter-spacing:-.028em;margin:auto 0}.f1 small{font-size:1rem;color:#b9cbe4}.f2{transform:rotateY(180deg);background:var(--card);color:var(--fg);border-color:var(--line);font-size:1.18rem;line-height:1.45}.f2 .lab{color:var(--mut)}
-.tbtn{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}.tbtn button{min-height:56px}#tknow{background:var(--blue);color:#fff;border-color:var(--blue)}#tpos{color:var(--mut);min-width:4.5em;text-align:center}
+.tbtn{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}.tbtn button{min-height:56px}#tknow{background:var(--blue);color:#fff;border-color:var(--blue)}#tpos{color:var(--mut);min-width:4.5em;text-align:center}.tnav{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin-top:12px}.tnav button{min-width:56px}.thint{color:var(--mut);margin:10px 0 0}.flip{touch-action:pan-y}.deck{transition:transform .25s var(--ease)}
 .cardbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 16px}#cardstat{color:var(--mut);margin-right:auto}
 .cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,20rem),1fr));gap:14px}
 .card{position:relative;background:var(--card);padding:18px;border-top:1.5px dashed var(--line);border-left:5px solid transparent}.card h3{font-weight:500;font-size:1.16rem;line-height:1.28;letter-spacing:-.01em;margin:0 0 6px;padding-right:6.4rem}.card.is-know{border-left-color:var(--ok)}.card.is-repeat{border-left-color:#e0a800}.card-mark{position:absolute;top:18px;right:16px;font-size:1rem;color:var(--mut)}.card.is-know .card-mark{color:var(--ok)}.card.is-repeat .card-mark{color:var(--amb)}
@@ -151,11 +151,16 @@ var ORDER={{ORDER}};
 var MISC={{MISC}};
 var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(x){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}}};
 var state=LS.get('course:'+document.title,{done:{},last:null,cards:{}});
-state.done=state.done||{};state.cards=state.cards||{};state.seen=state.seen||{};state.answers=state.answers||{};
+state.done=state.done||{};state.cards=state.cards||{};state.seen=state.seen||{};state.answers=state.answers||{};state.days=state.days||{};
 function save(){LS.set('course:'+document.title,state)}
 function $(id){return document.getElementById(id)}
 function all(s,r){return [].slice.call((r||document).querySelectorAll(s))}
 var views=document.querySelectorAll('.view'),shown='';
+/* серия дней и опыт: только для мотивации, хранится в браузере */
+function ymd(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+state.days[ymd(new Date())]=1;save();
+function streak(){var n=0,d=new Date();while(state.days[ymd(d)]){n++;d.setDate(d.getDate()-1)}return n}
+function xp(){var a=state.answers,s=0;for(var k in a)if(a[k].ok)s+=a[k].first?10:5;return s+20*Object.keys(state.done).length}
 /* какие задания у шага: по ним загорается вторая пластина */
 var TASKS={};all('.step').forEach(function(a){TASKS[a.dataset.id]=all('.quiz',a).map(function(q){return JSON.parse(q.getAttribute('data-ex')).id})});
 function nextStep(){var l=state.last;if(l&&ORDER.indexOf(l)>=0&&!state.done[l])return l;for(var i=0;i<ORDER.length;i++)if(!state.done[ORDER[i]])return ORDER[i];return ORDER[ORDER.length-1]}
@@ -166,7 +171,7 @@ function show(id){
   el.hidden=false;shown=el.id;
   var sec=el.id.indexOf('step-')===0?'step':el.id;
   document.body.className='p-'+sec;
-  all('nav.main a').forEach(function(a){a.classList.toggle('cur',a.dataset.nav===sec||(sec==='step'&&a.dataset.nav==='path'))});
+  all('nav.main a').forEach(function(a){var on=a.dataset.nav===sec||(sec==='step'&&a.dataset.nav==='path');a.classList.toggle('cur',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   var back=el.id==='path'&&from.indexOf('step-')===0?document.querySelector('[data-node="'+from.slice(5)+'"]'):null;
   if(el.id==='path')drawPath();
   if(el.id==='map')drawArcs();
@@ -192,7 +197,7 @@ function route(){
 function solved(id){var t=TASKS[id]||[];return t.length>0&&t.every(function(x){return state.answers[x]&&state.answers[x].ok})}
 function updateProgress(){
   var n=ORDER.filter(function(x){return state.done[x]}).length,p=Math.round(100*n/ORDER.length),cur=nextStep();
-  $('prog').value=p;$('st-steps').textContent=n+'/'+ORDER.length;
+  $('prog').value=p;var dn=streak();$('herolab').textContent='Путь по главе · серия '+dn+' '+(dn%10===1&&dn%100!==11?'день':dn%10>1&&dn%10<5&&(dn%100<10||dn%100>20)?'дня':'дней')+' · '+xp()+' XP';$('st-steps').textContent=n+'/'+ORDER.length;
   var a=Object.keys(state.answers).map(function(k){return state.answers[k]});
   $('st-tasks').textContent=a.length?Math.round(100*a.filter(function(x){return x.first}).length/a.length)+' %':'—';
   $('st-cards').textContent=ORDER.filter(function(x){return state.cards[x]==='know'}).length+'/'+ORDER.length;
@@ -283,8 +288,19 @@ function face(){
   $('fq').textContent=c.querySelector('h3').textContent;$('tpos').textContent=(qi+1)+' из '+queue.length;
   $('fa').textContent=c.querySelector('details p').textContent;
 }
-function mark(v){state.cards[queue[qi]]=v;save();paintCards();qi=(qi+1)%queue.length;face()}
-$('flip').addEventListener('click',function(){this.classList.toggle('on')});
+function go(d){qi=(qi+d+queue.length)%queue.length;face()}
+function mark(v){state.cards[queue[qi]]=v;save();paintCards();if(qi===queue.length-1)toast('Колода пройдена. Знаю: '+ORDER.filter(function(x){return state.cards[x]==='know'}).length);go(1)}
+var flipB=$('flip'),sx=null,sdx=0,swiped=false;
+flipB.addEventListener('click',function(){if(swiped){swiped=false;return}this.classList.toggle('on')});
+/* свайп: вправо — «знаю», влево — «повторить»; клавиши: пробел — переворот, стрелки — листать */
+flipB.addEventListener('pointerdown',function(e){if(e.button)return;sx=e.clientX;sdx=0});
+flipB.addEventListener('pointermove',function(e){if(sx===null)return;sdx=e.clientX-sx;if(Math.abs(sdx)>8)flipB.parentNode.style.transform='translateX('+sdx+'px) rotate('+sdx/30+'deg)'});
+function swEnd(){if(sx===null)return;sx=null;flipB.parentNode.style.transform='';if(Math.abs(sdx)>70){swiped=true;setTimeout(function(){swiped=false},60);mark(sdx>0?'know':'repeat')}}
+flipB.addEventListener('pointerup',swEnd);flipB.addEventListener('pointerleave',swEnd);flipB.addEventListener('pointercancel',function(){sx=null;flipB.parentNode.style.transform=''});
+$('tprev').addEventListener('click',function(){go(-1)});$('tnext').addEventListener('click',function(){go(1)});
+$('tmix').addEventListener('click',function(){queue=shuffle(queue);qi=0;face();toast('Карточки перемешаны')});
+document.addEventListener('keydown',function(e){if(shown!=='cards'||(e.target.closest&&e.target.closest('input,a,summary,.card')))return;
+  if(e.key===' '&&e.target.tagName!=='BUTTON'){e.preventDefault();flipB.classList.toggle('on')}else if(e.key==='ArrowRight'){e.preventDefault();go(1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}});
 $('tknow').addEventListener('click',function(){mark('know')});$('trep').addEventListener('click',function(){mark('repeat')});
 function toast(t){var b=$('toast');b.querySelector('span').textContent=t;b.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){b.classList.remove('on')},2600)}
 function afterAnswer(t,ok){if(ok&&solved(t.step_id))toast('Все задания шага решены: вторая пластина горит')}
@@ -378,6 +394,9 @@ function buildQuiz(q){
     var rec=state.answers[t.id];
     if(!rec)state.answers[t.id]={first:ok,tries:1,ok:ok,type:t.type,step:t.step_id};else{rec.tries++;rec.ok=ok}
     save();afterAnswer(t,ok);
+    q.classList.toggle('right',ok);q.classList.toggle('wrong',!ok);
+    if(t.type==='single'||t.type==='multiple'){var rightIds=[].concat(t.answer);q.querySelectorAll('label').forEach(function(l){var i=l.querySelector('input');
+      l.classList.toggle('good',rightIds.indexOf(i.value)>=0);l.classList.toggle('miss',i.checked&&rightIds.indexOf(i.value)<0)})}
     q.classList.toggle('right',ok);q.classList.toggle('wrong',!ok);
     if(t.type==='single'||t.type==='multiple'){var rightIds=[].concat(t.answer);q.querySelectorAll('label').forEach(function(l){var i=l.querySelector('input');
       l.classList.toggle('good',rightIds.indexOf(i.value)>=0);l.classList.toggle('miss',i.checked&&rightIds.indexOf(i.value)<0)})}

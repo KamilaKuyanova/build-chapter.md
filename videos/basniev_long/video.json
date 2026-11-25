@@ -3,7 +3,6 @@
  "chapter": "basniev",
  "node_id": "basniev.slow_redistribution",
  "format": "long",
- "scene": "scene_pressure",
  "voice": "Microsoft Pavel",
  "fallback_voice": "Microsoft Irina",
  "rate": 1,
@@ -278,5 +277,19 @@
   "каппа",
   "фильтрации",
   "перераспределение"
- ]
+ ],
+ "template": "formula_explorer",
+ "params": {
+  "model": "radial_diffusion",
+  "kappa": 1.0,
+  "r_view": 400.0,
+  "r_obs": 200.0,
+  "t_max": 21600.0,
+  "source_note": "κ = 1 м²/с · основная формула упругого режима, стр. 491",
+  "assumptions": [
+   "однородный бесконечный пласт, точечный сток с постоянным дебитом (условия основной формулы, стр. 491)",
+   "однофазная упругая жидкость; давление выше давления насыщения (стр. 474)",
+   "κ = 1 м²/с из типичного диапазона 0,1–5 м²/с (стр. 481)"
+  ]
+ }
 }

@@ -109,7 +109,17 @@ def main():
     for ph in spec["script"]:
         if ph.get("claim_id") and ph["claim_id"] not in claims:
             raise SystemExit(f"утверждение {ph['claim_id']} нет в слое {spec['chapter']}")
-    scene = __import__(spec["scene"])
+    import templates
+    tpl = templates.load(spec["template"])
+    params = spec.get("params") or tpl.EXAMPLE
+    W, H = (1080, 1920) if spec["format"] == "short" else (1920, 1080)
+
+    class scene:  # единый интерфейс: кадр и спецификация из шаблона с параметрами ролика
+        SPEC = dict(tpl.spec(params), template=spec["template"])
+
+        @staticmethod
+        def render(t, beats):
+            return tpl.render(t, beats, params, W, H)
 
     # 1. озвучка
     texts = [speech.prepare_for_speech(p["text"]).replace(speech.ACUTE, "") for p in spec["script"]]
@@ -144,7 +154,6 @@ def main():
     (out / "video.vtt").write_text("WEBVTT\n\n" + re.sub(r"(\d{2}:\d{2}:\d{2}),(\d{3})", r"\1.\2", srt_text), encoding="utf-8")
 
     # 5. кадры -> видео
-    W, H = scene.W, scene.H
     previews = [beats[k]["t_start"] + 0.8 * (beats[k]["t_end"] - beats[k]["t_start"]) for k in range(len(beats))]
     for k, tp in enumerate(previews):
         if k % 3 == 0 or k == len(previews) - 1:

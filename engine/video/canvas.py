@@ -47,7 +47,7 @@ def text(d, xy, s, size=44, bold=False, fill=None, anchor="la"):
 def wrap(s, size, width_px, bold=False):
     f = font(size, bold)
     avg = f.getlength("абвгдежзик") / 10
-    return textwrap.wrap(s, width=max(8, int(width_px / avg)))
+    return textwrap.wrap(s, width=max(8, int(width_px / avg)), break_long_words=False)
 
 
 def caption(d, w, h, s, safe_bottom, size=48):
@@ -67,6 +67,76 @@ def caption(d, w, h, s, safe_bottom, size=48):
 
 def provenance(d, x, y, label="симуляция", size=44):
     d.text((x, y), label, font=font(size, True), fill=rgb(SG["provenance"][label]))
+
+
+def track(beats, t, key, default=0.0, log=False):
+    """Модель состояния из сценария: у фразы beat[key] = [от, до] — значение плавно идёт за время фразы и держится после."""
+    import math
+    v = default
+    for b in beats:
+        rng = (b.get("beat") or {}).get(key)
+        if rng is None:
+            continue
+        if not isinstance(rng, (list, tuple)):
+            rng = [rng, rng]
+        if t >= b["t_end"]:
+            v = rng[1]
+        elif t >= b["t_start"]:
+            p = (t - b["t_start"]) / max(0.01, b["t_end"] - b["t_start"])
+            if log and rng[0] > 0 and rng[1] > 0:
+                v = math.exp(math.log(rng[0]) + (math.log(rng[1]) - math.log(rng[0])) * p)
+            else:
+                p = p * p * (3 - 2 * p)
+                v = rng[0] + (rng[1] - rng[0]) * p
+            break
+        else:
+            break
+    return v
+
+
+def current(beats, t):
+    cur = None
+    for b in beats:
+        if b["t_start"] - 0.05 <= t:
+            cur = b
+    return cur or beats[0]
+
+
+def layout(W, H):
+    """Области кадра: шапка, основная, вторая (синхронный вид), низ под подпись. 9:16 — столбиком, 16:9 — рядом."""
+    if H > W:
+        sz = SG["safe_zone"]
+        top, bot, side = sz["top"], sz["bottom"], sz["side"]
+        head = (side, top - 20, W - side, top + 140)
+        body_y0, body_y1 = top + 170, H - bot - 170
+        mid = body_y0 + (body_y1 - body_y0) * 0.55
+        return {"head": head, "main": (side, body_y0, W - side, mid - 20), "side": (side, mid + 20, W - side, body_y1),
+                "caption_bottom": bot, "caption_size": 48, "vertical": True}
+    return {"head": (60, 20, W - 60, 150), "main": (60, 170, W * 0.42, H - 150), "side": (W * 0.42 + 40, 170, W - 60, H - 150),
+            "caption_bottom": 40, "caption_size": 46, "vertical": False}
+
+
+def header(d, L, title, note=None, label="симуляция"):
+    x0, y0, x1, y1 = L["head"]
+    provenance(d, x0, y0 + 10, label)
+    size = 48 if not L["vertical"] else 44
+    for i, ln in enumerate(wrap(title, size, x1 - x0, True)[:2]):
+        d.text((x0, y0 + 66 + i * (size + 8)), ln, font=font(size, True), fill=rgb(SG["text"]))
+    if note:
+        if L["vertical"]:   # в 9:16 источник — под меткой, справа, мелкой строкой не налезая на заголовок
+            d.text((x1, y0 + 14), note[:60], font=font(30), fill=rgb(SG["muted"]), anchor="ra")
+        else:
+            d.text((x1, y0 + 14), note, font=font(38), fill=rgb(SG["muted"]), anchor="ra")
+
+
+def color(key):
+    """Цвет по ключу стайлгайда: 'lithology.sand', 'fluids.oil', 'curves.GR', 'measurement', 'uncertainty' или #hex."""
+    if key.startswith("#"):
+        return key
+    node = SG
+    for part in key.split("."):
+        node = node[part]
+    return node["color"] if isinstance(node, dict) else node
 
 
 def card(d, box, title, lines, size=46, accent=None):

@@ -1,0 +1,317 @@
+{
+ "chapter": "basniev",
+ "templates": {
+  "process_state": {
+   "type": "М",
+   "state": "номер стадии процесса s (непрерывно); величины — функции s",
+   "description": "Процесс как смена состояний с измеримыми величинами (М — механизм, процесс)."
+  },
+  "time_evolution": {
+   "type": "В",
+   "state": "время T; толщина каждого слоя и величина — функции T",
+   "description": "Накопление и преобразование толщи во времени (В — геологическое время)."
+  },
+  "tool_and_curve": {
+   "type": "И",
+   "state": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
+   "description": "Прибор идёт вдоль разреза и пишет кривые (И — косвенное измерение)."
+  },
+  "formula_explorer": {
+   "type": "Ф",
+   "state": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "description": "Формула как управляемая модель: синхронные виды из одного расчёта (Ф — формализм, модель)."
+  },
+  "section_views": {
+   "type": "П",
+   "state": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
+   "description": "Тело в пространстве: план и разрез из одной геометрии (П — пространство)."
+  },
+  "step_procedure": {
+   "type": "Пр",
+   "state": "номер шага k; пройденные шаги накапливаются",
+   "description": "Процедура специалиста по шагам, с накоплением (Пр — процедура)."
+  },
+  "decision_panel": {
+   "type": "Н",
+   "state": "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила",
+   "description": "Решение по правилу с неопределённостью (Н — неопределённость, решение)."
+  },
+  "compare_signs": {
+   "type": "Р",
+   "state": "число открытых признаков k; суммы баллов — функция k",
+   "description": "Распознавание по набору признаков (Р — распознавание): таблица «признак × вариант» с баллами."
+  }
+ },
+ "rows": [
+  {
+   "node_id": "basniev.unsteady_processes",
+   "title": "Что движется, когда скважину пустили",
+   "type": "М",
+   "secondary": "Ф",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.elastic_drive",
+   "title": "Как сжатый пласт выталкивает жидкость",
+   "type": "М",
+   "secondary": "П",
+   "format": "шортс",
+   "video_scores": 9,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.slow_redistribution",
+   "title": "Почему пласт отвечает медленно",
+   "type": "М",
+   "secondary": "В",
+   "format": "шортс",
+   "video_scores": 7,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает, но нужно дописать параметры по главе",
+   "video": {
+    "video_id": "basniev_long",
+    "template": "formula_explorer",
+    "format": "long"
+   }
+  },
+  {
+   "node_id": "basniev.piezo_equation",
+   "title": "Главное уравнение всей главы",
+   "type": "Ф",
+   "secondary": "М",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.piezo_coefficient",
+   "title": "Число, которое задаёт темп пласта",
+   "type": "Ф",
+   "secondary": "М",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.gallery_pressure_setup",
+   "title": "Первая задача: галерея в пласте",
+   "type": "Ф",
+   "secondary": "П",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.self_similar",
+   "title": "Две переменные сливаются в одну",
+   "type": "Ф",
+   "secondary": "М",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.erf_solution",
+   "title": "Как выглядит давление вдоль пласта",
+   "type": "Ф",
+   "secondary": "П",
+   "format": "шортс",
+   "video_scores": 7,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.gallery_rate",
+   "title": "Почему дебит падает со временем",
+   "type": "М",
+   "secondary": "Ф",
+   "format": "шортс",
+   "video_scores": 7,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.gallery_pressure_law",
+   "title": "Где формула теряет смысл",
+   "type": "М",
+   "secondary": "Ф",
+   "format": "длинное видео",
+   "video_scores": 8,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.basic_formula",
+   "title": "Формула, ради которой всё выводили",
+   "type": "Ф",
+   "secondary": "М",
+   "format": "шортс",
+   "video_scores": 8,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.flow_profile",
+   "title": "Где поток уже установился",
+   "type": "М",
+   "secondary": "Ф",
+   "format": "шортс",
+   "video_scores": 7,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.point_sink_error",
+   "title": "Насколько врёт нулевой радиус",
+   "type": "Н",
+   "secondary": "Ф",
+   "format": "практикум на данных",
+   "video_scores": 6,
+   "template": "decision_panel",
+   "state_model": "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила",
+   "needs": "правило с порогами и случаи",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.piezometric_curves",
+   "title": "Форма воронки давления у скважины",
+   "type": "М",
+   "secondary": "П",
+   "format": "шортс",
+   "video_scores": 7,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.psss_idea",
+   "title": "Движение как череда замерших кадров",
+   "type": "М",
+   "secondary": "Ф",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.psss_phases",
+   "title": "Пока граница бежит и когда дошла",
+   "type": "М",
+   "secondary": "П",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.psss_front_linear",
+   "title": "Как быстро бежит граница возмущения",
+   "type": "Ф",
+   "secondary": "М",
+   "format": "шортс",
+   "video_scores": 9,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.psss_radial_setup",
+   "title": "Тот же приём вокруг скважины",
+   "type": "Ф",
+   "secondary": "П",
+   "format": "интерактив",
+   "video_scores": 7,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.psss_radial_front",
+   "title": "Радиус возмущения растёт всё медленнее",
+   "type": "М",
+   "secondary": "Ф",
+   "format": "длинное видео",
+   "video_scores": 9,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null
+  },
+  {
+   "node_id": "basniev.psss_radial_pressure",
+   "title": "Насколько точна радиальная формула",
+   "type": "Н",
+   "secondary": "Ф",
+   "format": "практикум на данных",
+   "video_scores": 6,
+   "template": "decision_panel",
+   "state_model": "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила",
+   "needs": "правило с порогами и случаи",
+   "status": "закрывает, но нужно дописать параметры по главе",
+   "video": null
+  }
+ ],
+ "summary": {
+  "video_nodes": 20,
+  "covered": 20,
+  "need_new": 0,
+  "videos_made": 1
+ }
+}

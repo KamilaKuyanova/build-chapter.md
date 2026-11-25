@@ -10,7 +10,8 @@
 | Учебный слой | Claude (Anthropic API) | claude-opus-5-5 | облако | текст единиц главы | переменная `LLM_MODEL` |
 | Курс и задания | Claude (Anthropic API) | claude-opus-5-5 | облако | текст шага | переменная `LLM_MODEL` |
 | Модуль проверки | Claude (Anthropic API) | claude-opus-5-5 | облако | текст пакета проверки | переменная `LLM_MODEL` |
-| Озвучка | Microsoft Pavel (Windows OneCore, ru-RU) | системный голос Windows 11 | локально | ничего | `voice` в `videos/<id>/video.json`; запасной — Microsoft Irina (локально); онлайн-голоса Microsoft через edge-tts поддержаны, но ru-RU на момент сборки не отдают звук |
+| Озвучка (основная) | ElevenLabs, модель eleven_multilingual_v2 | голос: ЗАПОЛНИТЬ voice_id | облако | только текст сценария | `voice` в `videos/<id>/video.json` (`elevenlabs:<voice_id>`); использование разрешено организаторами (со слов команды) |
+| Озвучка (запасная) | Microsoft Pavel (Windows OneCore, ru-RU) | системный голос Windows 11 | локально | ничего | `voice` в `videos/<id>/video.json`; запасной — Microsoft Irina (локально); онлайн-голоса Microsoft через edge-tts поддержаны, но ru-RU на момент сборки не отдают звук |
 | Иллюстрации и кадры роликов | нет (детерминированная графика кодом) | — | локально | ничего | — |
 
 Запасная модель при отказе классификаторов безопасности: `LLM_FALLBACK_MODEL` (по умолчанию claude-opus-4-8).

@@ -58,6 +58,48 @@ def sapi_synth(phrases, out_dir, voice, fallback, rate):
     return paths, (r.stdout.strip().splitlines() or [voice])[-1]
 
 
+def elevenlabs_synth(phrases, out_dir, voice_id, model_id="eleven_multilingual_v2"):
+    """Озвучка ElevenLabs (облако): наружу уходит только текст сценария. Ключ — переменная ELEVENLABS_API_KEY.
+    Возвращает пути wav (mp3 сервиса переводится в wav для замера длительности и сведения)."""
+    import json as _json
+    import os
+    import urllib.error
+    import urllib.request
+    key = os.environ.get("ELEVENLABS_API_KEY")
+    if not key:
+        raise RuntimeError("не задан ELEVENLABS_API_KEY")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    paths = []
+    for i, txt in enumerate(phrases):
+        mp3, wav = out_dir / f"phrase_{i:03d}.mp3", out_dir / f"phrase_{i:03d}.wav"
+        req = urllib.request.Request(
+            f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
+            data=_json.dumps({"text": txt, "model_id": model_id}).encode("utf-8"),
+            headers={"xi-api-key": key, "Content-Type": "application/json", "Accept": "audio/mpeg"})
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                mp3.write_bytes(r.read())
+        except urllib.error.HTTPError as e:
+            raise RuntimeError(f"ElevenLabs {e.code}: {e.read()[:200]!r}")
+        subprocess.run([ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(mp3), "-ac", "1", "-ar", "22050", str(wav)],
+                       check=True)
+        paths.append(wav)
+    return paths
+
+
+def synth(spec, texts, out_dir):
+    """Голос серии: elevenlabs:<voice_id> или локальный Microsoft (SAPI). При отказе облака вся серия переозвучивается
+    запасным голосом (ТЗ: один голос на серию, при отказе допустима замена голоса всей серии)."""
+    voice = spec["voice"]
+    if voice.startswith("elevenlabs:"):
+        try:
+            return elevenlabs_synth(texts, out_dir, voice.split(":", 1)[1], spec.get("eleven_model", "eleven_multilingual_v2")), voice
+        except Exception as e:  # noqa: BLE001
+            print(f"  ! ElevenLabs не сработал ({e}); вся серия озвучивается запасным голосом {spec['fallback_voice']}")
+            return sapi_synth(texts, out_dir, spec["fallback_voice"], spec["fallback_voice"], spec.get("rate", 1))
+    return sapi_synth(texts, out_dir, voice, spec["fallback_voice"], spec.get("rate", 1))
+
+
 def speech_len(path, thr=500):
     """Длительность речи без хвостовой тишины, с."""
     with wave.open(str(path)) as w:
@@ -125,8 +167,10 @@ def main():
             return tpl.render(t, beats, params, W, H)
 
     # 1. озвучка
-    texts = [speech.prepare_for_speech(p["text"]).replace(speech.ACUTE, "") for p in spec["script"]]
-    wavs, used_voice = sapi_synth(texts, out / "voice", spec["voice"], spec["fallback_voice"], spec.get("rate", 1))
+    keep_stress = spec["voice"].startswith("elevenlabs:") and spec.get("stress_marks", True)   # знак ударения U+0301
+    texts = [speech.prepare_for_speech(p["text"]) if keep_stress else speech.prepare_for_speech(p["text"]).replace(speech.ACUTE, "")
+             for p in spec["script"]]
+    wavs, used_voice = synth(spec, texts, out / "voice")
     lens = [speech_len(w) for w in wavs]
 
     # 2. таймлайн из длительностей озвучки (синхрон по построению)
@@ -196,7 +240,8 @@ def main():
         "data_it_bridge": spec["data_it_bridge"],
         "physics_checklist": [{"item": p["id"], "answer": (spec["physics"].get(p["id"]) or ["н/п"])[0],
                                "note": (spec["physics"].get(p["id"]) or ["н/п", "к сцене не относится"])[-1]} for p in pcs],
-        "audio_check": {"voice": used_voice + " (локально, Windows)", "fallback_voice": spec["fallback_voice"],
+        "audio_check": {"voice": used_voice + (" (облако ElevenLabs, наружу только текст сценария)" if used_voice.startswith("elevenlabs:")
+                                               else " (локально, Windows)"), "fallback_voice": spec["fallback_voice"],
                         "wpm": round(speech.wpm(beats), 1), "lufs": lufs, "sync_max_s": 0.0,
                         "sync_note": "слот фразы равен длительности её озвучки; кадр берёт состояние из того же таймлайна",
                         "asr_wer": None, "asr_note": "распознавание речи локальной моделью ещё не подключено",

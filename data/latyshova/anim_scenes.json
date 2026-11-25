@@ -1,0 +1,1558 @@
+{
+ "bases": {},
+ "nodes": {
+  "latyshova.borehole_wall": {
+   "what": "стенка скважины: корка в коллекторе, номинал в плотной породе, каверна в глине",
+   "script": [
+    {
+     "head": "Ствол *только пробурен*",
+     "claim": "c1",
+     "sec": 3,
+     "beat": {
+      "d": 15,
+      "inv": 0,
+      "cake": 0,
+      "bx": 430,
+      "cam": 11.5,
+      "span": 27,
+      "tool": 0,
+      "tracks": 0
+     }
+    },
+    {
+     "head": "Коллектор: *корка и проникновение*",
+     "claim": "c1",
+     "sec": 4.6,
+     "beat": {
+      "inv": 1,
+      "cake": 1,
+      "ease": 3,
+      "call": [
+       {
+        "d": 7.5,
+        "at": 40,
+        "dx": 250,
+        "dy": -30,
+        "text": "корка"
+       }
+      ]
+     }
+    },
+    {
+     "head": "Плотная порода: *диаметр тот же*",
+     "claim": "c2",
+     "sec": 3.8,
+     "beat": {
+      "call": [
+       {
+        "d": 15,
+        "dx": 250,
+        "dy": -40,
+        "text": "номинал"
+       }
+      ]
+     }
+    },
+    {
+     "head": "Глина: *каверна*",
+     "claim": "c3",
+     "sec": 3.8,
+     "beat": {
+      "call": [
+       {
+        "d": 22.2,
+        "at": 62,
+        "dx": 250,
+        "dy": -40,
+        "text": "вымыло"
+       }
+      ]
+     }
+    }
+   ],
+   "scene": "log_run",
+   "params": {
+    "depth": 30,
+    "curves": [
+     {
+      "key": "RES",
+      "name": "сопротивление",
+      "color": "curves.RES"
+     }
+    ],
+    "layers": [
+     {
+      "id": "s",
+      "top": 0,
+      "bot": 10,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "песчаник"
+      ],
+      "values": {
+       "RES": 0.5
+      },
+      "invaded": true,
+      "cake": true
+     },
+     {
+      "id": "d",
+      "top": 10,
+      "bot": 20,
+      "rock": "limestone",
+      "color": "lithology.limestone",
+      "name": [
+       "плотная",
+       "порода"
+      ],
+      "values": {
+       "RES": 0.5
+      }
+     },
+     {
+      "id": "c",
+      "top": 20,
+      "bot": 30,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "RES": 0.5
+      },
+      "hole": "wide"
+     }
+    ],
+    "assumptions": [
+     "значения кривых и толщины слоёв условные, показано направление изменения",
+     "корка и зона показаны в масштабе диаметра ствола"
+    ],
+    "label": "схема",
+    "note": "ствол шире ≈ в 12 раз",
+    "name_x": 960,
+    "track_x": 1230,
+    "start": 29.5
+   }
+  },
+  "latyshova.water_loss": {
+   "what": "при низкой водоотдаче корка и проникновение малы, при высокой велики",
+   "script": [
+    {
+     "head": "Водоотдача *ниже, лучше*",
+     "claim": "c1",
+     "sec": 3.2,
+     "beat": {
+      "d": 15,
+      "inv": 0.1,
+      "cake": 0.2,
+      "bx": 430,
+      "cam": 11.5,
+      "span": 27,
+      "tool": 0,
+      "tracks": 0
+     }
+    },
+    {
+     "head": "4–8 см³/ч: *корка тонкая*",
+     "claim": "c2",
+     "sec": 4.2,
+     "beat": {
+      "inv": 0.35,
+      "cake": 0.55,
+      "ease": 2.5
+     }
+    },
+    {
+     "head": "Виден *сам пласт*",
+     "claim": "c3",
+     "sec": 3.4,
+     "beat": {
+      "call": [
+       {
+        "d": 15,
+        "at": 170,
+        "dx": 270,
+        "dy": -110,
+        "text": "не тронут"
+       }
+      ]
+     }
+    },
+    {
+     "head": "20 см³/ч: *толстая корка*",
+     "claim": "c4",
+     "sec": 4.6,
+     "beat": {
+      "inv": 2.2,
+      "cake": 2,
+      "ease": 3.2
+     }
+    },
+    {
+     "head": "Проникновение *глубокое*",
+     "claim": "c4",
+     "sec": 3.4,
+     "beat": {
+      "call": [
+       {
+        "d": 15,
+        "at": 200,
+        "dx": 270,
+        "dy": -110,
+        "text": "фильтрат"
+       }
+      ]
+     }
+    }
+   ],
+   "scene": "log_run",
+   "params": {
+    "depth": 30,
+    "curves": [
+     {
+      "key": "RES",
+      "name": "сопротивление",
+      "color": "curves.RES"
+     }
+    ],
+    "layers": [
+     {
+      "id": "c1",
+      "top": 0,
+      "bot": 7,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "RES": 0.2,
+       "CAL": 0.85,
+       "MZ": 0.06
+      },
+      "hole": "wide"
+     },
+     {
+      "id": "s",
+      "top": 7,
+      "bot": 23,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "коллектор"
+      ],
+      "values": {
+       "RES": 0.55,
+       "CAL": 0.3,
+       "MZ": 0.4
+      },
+      "invaded": true,
+      "cake": true,
+      "fluid": "fluids.oil"
+     },
+     {
+      "id": "c2",
+      "top": 23,
+      "bot": 30,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "RES": 0.2,
+       "CAL": 0.85,
+       "MZ": 0.06
+      },
+      "hole": "wide"
+     }
+    ],
+    "assumptions": [
+     "значения кривых и толщины слоёв условные, показано направление изменения"
+    ],
+    "label": "схема",
+    "note": "ствол шире ≈ в 12 раз",
+    "name_x": 960,
+    "track_x": 1230,
+    "start": 29.5
+   }
+  },
+  "latyshova.direct_signs": {
+   "what": "прямые признаки коллектора: сужение диаметра, расхождение микрозондов, проникновение",
+   "script": [
+    {
+     "head": "Чем выдаёт себя *коллектор?*",
+     "claim": "c2",
+     "sec": 3.4,
+     "beat": {
+      "d": [
+       28,
+       24
+      ],
+      "inv": 1,
+      "bx": 430,
+      "cam": 11.5,
+      "span": 27
+     }
+    },
+    {
+     "head": "Диаметр *сузился*",
+     "claim": "c3",
+     "sec": 4.6,
+     "beat": {
+      "d": [
+       24,
+       15
+      ],
+      "hl": [
+       "CAL"
+      ],
+      "chips": {
+       "CAL": "уже"
+      },
+      "chip_at": {
+       "CAL": 0.6
+      }
+     }
+    },
+    {
+     "head": "Микрозонды *разошлись*",
+     "claim": "c3",
+     "sec": 4,
+     "beat": {
+      "d": [
+       15,
+       13
+      ],
+      "hl": [
+       "MZ"
+      ],
+      "chips": {
+       "MZ": "есть"
+      }
+     }
+    },
+    {
+     "head": "Есть *зона проникновения*",
+     "claim": "c3",
+     "sec": 4,
+     "beat": {
+      "d": 13,
+      "call": [
+       {
+        "d": 17,
+        "at": 80,
+        "dx": 270,
+        "dy": 60,
+        "text": "фильтрат"
+       }
+      ]
+     }
+    },
+    {
+     "head": "Но градиент *виден не всегда*",
+     "claim": "c4",
+     "sec": 3.4,
+     "beat": {}
+    }
+   ],
+   "scene": "log_run",
+   "params": {
+    "depth": 30,
+    "curves": [
+     {
+      "key": "CAL",
+      "name": "диаметр",
+      "color": "curves.CALIPER"
+     },
+     {
+      "key": "MZ",
+      "name": "разница микрозондов",
+      "color": "curves.DENSITY"
+     }
+    ],
+    "layers": [
+     {
+      "id": "c1",
+      "top": 0,
+      "bot": 7,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "RES": 0.2,
+       "CAL": 0.85,
+       "MZ": 0.06
+      },
+      "hole": "wide"
+     },
+     {
+      "id": "s",
+      "top": 7,
+      "bot": 23,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "коллектор"
+      ],
+      "values": {
+       "RES": 0.55,
+       "CAL": 0.3,
+       "MZ": 0.4
+      },
+      "invaded": true,
+      "cake": true,
+      "fluid": "fluids.oil"
+     },
+     {
+      "id": "c2",
+      "top": 23,
+      "bot": 30,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "RES": 0.2,
+       "CAL": 0.85,
+       "MZ": 0.06
+      },
+      "hole": "wide"
+     }
+    ],
+    "assumptions": [
+     "значения кривых и толщины слоёв условные, показано направление изменения"
+    ],
+    "label": "схема",
+    "note": "ствол шире ≈ в 12 раз",
+    "name_x": 960,
+    "track_x": 1230,
+    "start": 29.5
+   }
+  },
+  "latyshova.signs_fade": {
+   "what": "корка растёт: разница микрозондов сначала больше, потом меньше",
+   "script": [
+    {
+     "head": "Корка *до 1 см*",
+     "claim": "c1",
+     "sec": 3.6,
+     "beat": {
+      "d": 8,
+      "inv": 0.6,
+      "cake": 0.6,
+      "phase": 0,
+      "bx": 430,
+      "cam": 11.5,
+      "span": 27
+     }
+    },
+    {
+     "head": "Разница *растёт*",
+     "claim": "c2",
+     "sec": 4.2,
+     "beat": {
+      "cake": 1.1,
+      "inv": 1,
+      "phase": 1,
+      "ease": 2.6,
+      "hl": [
+       "MZ"
+      ]
+     }
+    },
+    {
+     "head": "Корка *3–4 см*",
+     "claim": "c1",
+     "sec": 4,
+     "beat": {
+      "cake": 2,
+      "inv": 1.8,
+      "phase": 0.6,
+      "ease": 2.6,
+      "call": [
+       {
+        "d": 17,
+        "at": 30,
+        "dx": 260,
+        "dy": 50,
+        "text": "корка"
+       }
+      ]
+     }
+    },
+    {
+     "head": "Разница *падает*",
+     "claim": "c2",
+     "sec": 3.8,
+     "beat": {
+      "phase": -0.3,
+      "ease": 2.4,
+      "hl": [
+       "MZ"
+      ]
+     }
+    },
+    {
+     "head": "Техническая вода: *признаков нет*",
+     "claim": "c5",
+     "sec": 4.2,
+     "beat": {
+      "cake": 0,
+      "inv": 0.1,
+      "phase": -0.72,
+      "ease": 2.6
+     }
+    }
+   ],
+   "scene": "log_run",
+   "params": {
+    "depth": 30,
+    "curves": [
+     {
+      "key": "MZ",
+      "name": "разница микрозондов",
+      "color": "curves.DENSITY"
+     }
+    ],
+    "layers": [
+     {
+      "id": "c1",
+      "top": 0,
+      "bot": 7,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "MZ": 0.06
+      },
+      "hole": "wide"
+     },
+     {
+      "id": "s",
+      "top": 7,
+      "bot": 23,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "коллектор"
+      ],
+      "values": {
+       "MZ": 0.4
+      },
+      "invaded": true,
+      "cake": true,
+      "fluid": "fluids.oil",
+      "values2": {
+       "MZ": 0.85
+      }
+     },
+     {
+      "id": "c2",
+      "top": 23,
+      "bot": 30,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "MZ": 0.06
+      },
+      "hole": "wide"
+     }
+    ],
+    "assumptions": [
+     "значения кривых и толщины слоёв условные, показано направление изменения",
+     "ход разницы условный: сначала рост, потом спад"
+    ],
+    "label": "схема",
+    "note": "ствол шире ≈ в 12 раз",
+    "name_x": 960,
+    "track_x": 1230,
+    "start": 29.5
+   }
+  },
+  "latyshova.transitional_rocks": {
+   "what": "переходные породы: признаки сдвигаются между чистыми типами",
+   "script": [
+    {
+     "head": "Чистая глина: *всё ясно*",
+     "claim": "c1",
+     "sec": 3.6,
+     "beat": {
+      "d": [
+       29,
+       26
+      ],
+      "bx": 430,
+      "cam": 11.5,
+      "span": 27
+     }
+    },
+    {
+     "head": "Песчаная глина: *сопротивление выше*",
+     "claim": "c1",
+     "sec": 4.2,
+     "beat": {
+      "d": [
+       26,
+       19
+      ],
+      "hl": [
+       "RES"
+      ]
+     }
+    },
+    {
+     "head": "Глинистый песчаник: *сопротивление ниже*",
+     "claim": "c2",
+     "sec": 4.4,
+     "beat": {
+      "d": [
+       19,
+       11
+      ],
+      "hl": [
+       "RES"
+      ]
+     }
+    },
+    {
+     "head": "И СП *слабее*",
+     "claim": "c2",
+     "sec": 3.6,
+     "beat": {
+      "d": 11,
+      "hl": [
+       "SP"
+      ]
+     }
+    },
+    {
+     "head": "Чистый песчаник: *для сравнения*",
+     "claim": "c2",
+     "sec": 4,
+     "beat": {
+      "d": [
+       11,
+       4
+      ]
+     }
+    },
+    {
+     "head": "Много глины: *коллектор теряется*",
+     "claim": "c3",
+     "sec": 3.6,
+     "beat": {
+      "band": "ss"
+     }
+    }
+   ],
+   "scene": "log_run",
+   "params": {
+    "depth": 30,
+    "curves": [
+     {
+      "key": "RES",
+      "name": "сопротивление",
+      "color": "curves.RES"
+     },
+     {
+      "key": "SP",
+      "name": "СП",
+      "color": "curves.SP"
+     }
+    ],
+    "layers": [
+     {
+      "id": "s",
+      "top": 0,
+      "bot": 8,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "песчаник",
+       "с нефтью"
+      ],
+      "values": {
+       "RES": 0.9,
+       "SP": 0.1
+      },
+      "fluid": "fluids.oil",
+      "invaded": true,
+      "cake": true
+     },
+     {
+      "id": "ss",
+      "top": 8,
+      "bot": 16,
+      "rock": "sand",
+      "color": "lithology.reef",
+      "name": [
+       "глинистый",
+       "песчаник"
+      ],
+      "values": {
+       "RES": 0.5,
+       "SP": 0.42
+      },
+      "invaded": true,
+      "cake": 0.5
+     },
+     {
+      "id": "sc",
+      "top": 16,
+      "bot": 23,
+      "rock": "clay",
+      "color": "lithology.dense",
+      "name": [
+       "песчаная",
+       "глина"
+      ],
+      "values": {
+       "RES": 0.34,
+       "SP": 0.72
+      }
+     },
+     {
+      "id": "c",
+      "top": 23,
+      "bot": 30,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "RES": 0.15,
+       "SP": 0.92
+      },
+      "hole": "wide"
+     }
+    ],
+    "assumptions": [
+     "значения кривых и толщины слоёв условные, показано направление изменения"
+    ],
+    "label": "схема",
+    "note": "ствол шире ≈ в 12 раз",
+    "name_x": 960,
+    "track_x": 1230,
+    "start": 29.5
+   }
+  },
+  "latyshova.dynamic_methods": {
+   "what": "повторный замер: изменились показания только там, где есть проникновение",
+   "script": [
+    {
+     "head": "Одного замера *мало*",
+     "claim": "c1",
+     "sec": 3.6,
+     "beat": {
+      "d": [
+       26,
+       4
+      ],
+      "inv": 0.15,
+      "cake": 0.3,
+      "phase": 0,
+      "bx": 430,
+      "cam": 11.5,
+      "span": 27
+     }
+    },
+    {
+     "head": "Зона проникновения *растёт*",
+     "claim": "c2",
+     "sec": 4.4,
+     "beat": {
+      "d": 4,
+      "inv": 1.5,
+      "cake": 1,
+      "ease": 3
+     }
+    },
+    {
+     "head": "Второй замер: *показание другое*",
+     "claim": "c2",
+     "sec": 4.4,
+     "beat": {
+      "phase": 1,
+      "ghost": 1,
+      "ease": 2.6,
+      "hl": [
+       "RES"
+      ]
+     }
+    },
+    {
+     "head": "Изменилось *только в коллекторе*",
+     "claim": "c2",
+     "sec": 4,
+     "beat": {
+      "band": "s"
+     }
+    },
+    {
+     "head": "Работает и для *сложных пород*",
+     "claim": "c4",
+     "sec": 3.2,
+     "beat": {}
+    }
+   ],
+   "scene": "log_run",
+   "params": {
+    "depth": 30,
+    "curves": [
+     {
+      "key": "RES",
+      "name": "сопротивление",
+      "color": "curves.RES"
+     }
+    ],
+    "layers": [
+     {
+      "id": "c1",
+      "top": 0,
+      "bot": 7,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "RES": 0.3
+      },
+      "hole": "wide"
+     },
+     {
+      "id": "s",
+      "top": 7,
+      "bot": 23,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "коллектор"
+      ],
+      "values": {
+       "RES": 0.36
+      },
+      "invaded": true,
+      "cake": true,
+      "values2": {
+       "RES": 0.75
+      }
+     },
+     {
+      "id": "c2",
+      "top": 23,
+      "bot": 30,
+      "rock": "clay",
+      "color": "lithology.shale",
+      "name": [
+       "глина"
+      ],
+      "values": {
+       "RES": 0.3
+      },
+      "hole": "wide"
+     }
+    ],
+    "assumptions": [
+     "значения кривых и толщины слоёв условные, показано направление изменения",
+     "направление изменения показания условное"
+    ],
+    "label": "схема",
+    "note": "ствол шире ≈ в 12 раз",
+    "name_x": 960,
+    "track_x": 1230,
+    "start": 29.5
+   }
+  },
+  "latyshova.owc_transition": {
+   "what": "граница нефти и воды по критическому сопротивлению в переходной зоне",
+   "script": [
+    {
+     "head": "Нефть, вода *и зона между*",
+     "claim": "c1",
+     "sec": 4.6,
+     "beat": {
+      "d": [
+       28,
+       4
+      ],
+      "bx": 430,
+      "cam": 11.5,
+      "span": 27
+     }
+    },
+    {
+     "head": "Находят *кровлю и подошву*",
+     "claim": "c1",
+     "sec": 4,
+     "beat": {
+      "d": 4,
+      "call": [
+       {
+        "d": 9,
+        "dx": 300,
+        "dy": -40,
+        "text": "кровля зоны"
+       },
+       {
+        "d": 21,
+        "dx": 300,
+        "dy": 60,
+        "text": "зеркало воды"
+       }
+      ]
+     }
+    },
+    {
+     "head": "Сопротивление: *линейный закон*",
+     "claim": "c2",
+     "sec": 4,
+     "beat": {
+      "hl": [
+       "RES"
+      ]
+     }
+    },
+    {
+     "head": "Ищут *критическое*",
+     "claim": "c3",
+     "sec": 4,
+     "beat": {
+      "d": [
+       4,
+       15
+      ],
+      "chips": {
+       "RES": "крит."
+      },
+      "hl": [
+       "RES"
+      ]
+     }
+    },
+    {
+     "head": "Через него *проводят ВНК*",
+     "claim": "c1",
+     "sec": 4,
+     "beat": {
+      "d": 15,
+      "band": "t3"
+     }
+    }
+   ],
+   "scene": "log_run",
+   "params": {
+    "depth": 30,
+    "curves": [
+     {
+      "key": "RES",
+      "name": "сопротивление",
+      "color": "curves.RES"
+     }
+    ],
+    "layers": [
+     {
+      "id": "o",
+      "top": 0,
+      "bot": 9,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "нефть"
+      ],
+      "values": {
+       "RES": 0.9
+      },
+      "fluid": "fluids.oil",
+      "invaded": true,
+      "cake": true
+     },
+     {
+      "id": "t0",
+      "top": 9,
+      "bot": 11,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [],
+      "values": {
+       "RES": 0.78
+      },
+      "fluid": "fluids.oil",
+      "invaded": true,
+      "cake": true,
+      "flat_top": true
+     },
+     {
+      "id": "t1",
+      "top": 11,
+      "bot": 13,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [],
+      "values": {
+       "RES": 0.65
+      },
+      "fluid": "fluids.oil",
+      "invaded": true,
+      "cake": true,
+      "flat_top": true
+     },
+     {
+      "id": "t2",
+      "top": 13,
+      "bot": 15,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "переходная"
+      ],
+      "values": {
+       "RES": 0.52
+      },
+      "fluid": "fluids.filtrate",
+      "invaded": true,
+      "cake": true,
+      "flat_top": true
+     },
+     {
+      "id": "t3",
+      "top": 15,
+      "bot": 17,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [],
+      "values": {
+       "RES": 0.39
+      },
+      "fluid": "fluids.water",
+      "invaded": true,
+      "cake": true,
+      "flat_top": true
+     },
+     {
+      "id": "t4",
+      "top": 17,
+      "bot": 19,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [],
+      "values": {
+       "RES": 0.26
+      },
+      "fluid": "fluids.water",
+      "invaded": true,
+      "cake": true,
+      "flat_top": true
+     },
+     {
+      "id": "t5",
+      "top": 19,
+      "bot": 21,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [],
+      "values": {
+       "RES": 0.13
+      },
+      "fluid": "fluids.water",
+      "invaded": true,
+      "cake": true,
+      "flat_top": true
+     },
+     {
+      "id": "w",
+      "top": 21,
+      "bot": 30,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "вода"
+      ],
+      "values": {
+       "RES": 0.06
+      },
+      "fluid": "fluids.water",
+      "invaded": true,
+      "cake": true,
+      "flat_top": true
+     }
+    ],
+    "assumptions": [
+     "значения кривых и толщины слоёв условные, показано направление изменения",
+     "место критического сопротивления условное"
+    ],
+    "label": "схема",
+    "note": "ствол шире ≈ в 12 раз",
+    "name_x": 960,
+    "track_x": 1230,
+    "start": 29.5
+   }
+  },
+  "latyshova.goc_neutron": {
+   "what": "газ проявляется на нейтронных методах, когда зона проникновения расформировалась",
+   "script": [
+    {
+     "head": "Фильтрат *закрыл газ*",
+     "claim": "c2",
+     "sec": 4.2,
+     "beat": {
+      "d": [
+       27,
+       3
+      ],
+      "inv": 1.6,
+      "phase": 0,
+      "bx": 430,
+      "cam": 11.5,
+      "span": 27
+     }
+    },
+    {
+     "head": "Зона *расформировывается*",
+     "claim": "c2",
+     "sec": 4.6,
+     "beat": {
+      "d": 3,
+      "inv": 0.1,
+      "ease": 3.4
+     }
+    },
+    {
+     "head": "Показания *растут*",
+     "claim": "c2",
+     "sec": 4,
+     "beat": {
+      "phase": 1,
+      "ghost": 1,
+      "ease": 2.8,
+      "hl": [
+       "NEU"
+      ]
+     }
+    },
+    {
+     "head": "Стабильны: *вот ГНК*",
+     "claim": "c1",
+     "sec": 4,
+     "beat": {
+      "band": "g"
+     }
+    },
+    {
+     "head": "Мала проницаемость: *ждать дольше*",
+     "claim": "c3",
+     "sec": 3.4,
+     "beat": {}
+    }
+   ],
+   "scene": "log_run",
+   "params": {
+    "depth": 30,
+    "curves": [
+     {
+      "key": "NEU",
+      "name": "нейтронные",
+      "color": "curves.NEUTRON"
+     }
+    ],
+    "layers": [
+     {
+      "id": "g",
+      "top": 0,
+      "bot": 13,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "газ"
+      ],
+      "values": {
+       "NEU": 0.42
+      },
+      "fluid": "fluids.gas",
+      "invaded": true,
+      "values2": {
+       "NEU": 0.9
+      }
+     },
+     {
+      "id": "o",
+      "top": 13,
+      "bot": 30,
+      "rock": "sand",
+      "color": "lithology.sand",
+      "name": [
+       "нефть"
+      ],
+      "values": {
+       "NEU": 0.4
+      },
+      "fluid": "fluids.oil",
+      "invaded": true,
+      "flat_top": true
+     }
+    ],
+    "assumptions": [
+     "значения кривых и толщины слоёв условные, показано направление изменения",
+     "колонна обсаженной скважины не нарисована"
+    ],
+    "label": "схема",
+    "note": "ствол шире ≈ в 12 раз",
+    "name_x": 960,
+    "track_x": 1230,
+    "start": 29.5
+   }
+  },
+  "latyshova.carbonate_features": {
+   "what": "карбонаты: гамма не различает коллектор, проникновение глубже",
+   "script": [
+    {
+     "head": "Принципы *те же*",
+     "claim": "c1",
+     "sec": 3.6,
+     "beat": {
+      "d": [
+       28,
+       4
+      ],
+      "inv": 0.6,
+      "bx": 430,
+      "cam": 11.5,
+      "span": 27
+     }
+    },
+    {
+     "head": "Гамма *почти не различает*",
+     "claim": "c4",
+     "sec": 4,
+     "beat": {
+      "d": 4,
+      "hl": [
+       "GR"
+      ]
+     }
+    },
+    {
+     "head": "Проникновение *глубже*",
+     "claim": "c3",
+     "sec": 4.6,
+     "beat": {
+      "inv": 2,
+      "ease": 3,
+      "call": [
+       {
+        "d": 16,
+        "at": 180,
+        "dx": 280,
+        "dy": 110,
+        "text": "фильтрат"
+       }
+      ]
+     }
+    },
+    {
+     "head": "Пористость низкая *и изменчивая*",
+     "claim": "c2",
+     "sec": 3.6,
+     "beat": {}
+    }
+   ],
+   "scene": "log_run",
+   "params": {
+    "depth": 30,
+    "curves": [
+     {
+      "key": "RES",
+      "name": "сопротивление",
+      "color": "curves.RES"
+     },
+     {
+      "key": "GR",
+      "name": "гамма",
+      "color": "curves.GR",
+      "physics": "natural"
+     }
+    ],
+    "layers": [
+     {
+      "id": "d1",
+      "top": 0,
+      "bot": 8,
+      "rock": "limestone",
+      "color": "lithology.limestone",
+      "name": [
+       "плотный",
+       "известняк"
+      ],
+      "values": {
+       "RES": 0.92,
+       "GR": 0.12
+      }
+     },
+     {
+      "id": "p",
+      "top": 8,
+      "bot": 22,
+      "rock": "reef",
+      "color": "lithology.reef",
+      "name": [
+       "пористый",
+       "известняк"
+      ],
+      "values": {
+       "RES": 0.6,
+       "GR": 0.12
+      },
+      "invaded": true,
+      "inv": 1
+     },
+     {
+      "id": "d2",
+      "top": 22,
+      "bot": 30,
+      "rock": "limestone",
+      "color": "lithology.limestone",
+      "name": [
+       "плотный",
+       "известняк"
+      ],
+      "values": {
+       "RES": 0.92,
+       "GR": 0.12
+      }
+     }
+    ],
+    "assumptions": [
+     "значения кривых и толщины слоёв условные, показано направление изменения"
+    ],
+    "label": "схема",
+    "note": "ствол шире ≈ в 12 раз",
+    "name_x": 960,
+    "track_x": 1230,
+    "start": 29.5
+   }
+  },
+  "latyshova.three_flow_intervals": {
+   "what": "по водонасыщению: течёт нефть, нефть с водой, вода",
+   "script": [
+    {
+     "head": "Воды мало: *течёт нефть*",
+     "claim": "c2",
+     "sec": 4.2,
+     "beat": {
+      "p": [
+       0.06,
+       0.24
+      ],
+      "c1": 1,
+      "front": 1
+     }
+    },
+    {
+     "head": "Середина: *нефть с водой*",
+     "claim": "c2",
+     "sec": 4.4,
+     "beat": {
+      "p": [
+       0.24,
+       0.6
+      ]
+     }
+    },
+    {
+     "head": "Воды много: *течёт вода*",
+     "claim": "c2",
+     "sec": 4.2,
+     "beat": {
+      "p": [
+       0.6,
+       0.92
+      ]
+     }
+    },
+    {
+     "head": "Критические значения *на краях*",
+     "claim": "c3",
+     "sec": 4,
+     "beat": {
+      "marks": 1
+     }
+    },
+    {
+     "head": "Между ними *неоднозначно*",
+     "claim": "c3",
+     "sec": 3.4,
+     "beat": {
+      "p": 0.5
+     }
+    }
+   ],
+   "scene": "curve",
+   "params": {
+    "label": "схема",
+    "x": [
+     0,
+     1
+    ],
+    "y": [
+     0,
+     1.1
+    ],
+    "xname": "водонасыщение, доля",
+    "yname": "относительная проницаемость",
+    "xticks": [
+     0,
+     0.5,
+     1
+    ],
+    "yticks": [
+     0,
+     0.5,
+     1
+    ],
+    "p": {
+     "kind": "num",
+     "hide": true
+    },
+    "note": "кривые условные",
+    "curves": [
+     {
+      "expr": "x > 0.75 ? 0 : pow((0.75-x)/0.75,2)",
+      "name": "нефть",
+      "color": "fluids.oil"
+     },
+     {
+      "expr": "x < 0.25 ? 0 : pow((x-0.25)/0.75,2.2)",
+      "name": "вода",
+      "color": "fluids.water"
+     }
+    ],
+    "strip": {
+     "expr": "x",
+     "name": "доля воды растёт вправо",
+     "wall": false
+    },
+    "front": "p",
+    "marks": [
+     {
+      "x": 0.25,
+      "curve": 1,
+      "text": "вода ещё не течёт",
+      "dx": -40,
+      "dy": -120
+     },
+     {
+      "x": 0.75,
+      "curve": 0,
+      "text": "нефть уже не течёт",
+      "dx": -60,
+      "dy": -190
+     }
+    ],
+    "assumptions": [
+     "вид кривых и критические значения условные"
+    ]
+   }
+  },
+  "latyshova.normalization": {
+   "what": "две кривые совмещают: в водоносных совпали, в продуктивных разошлись",
+   "script": [
+    {
+     "head": "Две кривые: *сопротивление и пористость*",
+     "claim": "c1",
+     "sec": 4,
+     "beat": {
+      "p": 0,
+      "c1": 1
+     }
+    },
+    {
+     "head": "Совместили: *совпали*",
+     "claim": "c2",
+     "sec": 3.8,
+     "beat": {
+      "p": 0
+     }
+    },
+    {
+     "head": "А здесь *разошлись*",
+     "claim": "c3",
+     "sec": 4.6,
+     "beat": {
+      "p": [
+       0,
+       1
+      ],
+      "marks": 1
+     }
+    },
+    {
+     "head": "Расхождение: *продуктивный пласт*",
+     "claim": "c3",
+     "sec": 4,
+     "beat": {}
+    },
+    {
+     "head": "Лучше при *однородном составе*",
+     "claim": "c5",
+     "sec": 3.2,
+     "beat": {}
+    }
+   ],
+   "scene": "curve",
+   "params": {
+    "label": "схема",
+    "x": [
+     0,
+     60
+    ],
+    "y": [
+     0,
+     1.1
+    ],
+    "xname": "глубина, условно",
+    "yname": "показание, условно",
+    "p": {
+     "kind": "num",
+     "hide": true
+    },
+    "note": "кривые условные",
+    "curves": [
+     {
+      "expr": "0.42+0.16*sin(x/4)+0.34*p*exp(-pow((x-42)/6,6))",
+      "name": "сопротивление",
+      "color": "curves.RES"
+     },
+     {
+      "expr": "0.42+0.16*sin(x/4)",
+      "name": "пористость",
+      "color": "curves.NEUTRON"
+     }
+    ],
+    "marks": [
+     {
+      "x": 42,
+      "curve": 0,
+      "text": "коллектор с нефтью",
+      "dx": -330,
+      "dy": -70
+     }
+    ],
+    "assumptions": [
+     "кривые условные; случай с пресным фильтратом оговорён в тексте шага"
+    ]
+   }
+  }
+ }
+}

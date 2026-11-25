@@ -76,6 +76,34 @@ def prompt(template, chapter, layer, node_id, fmt):
     return re.sub(r"\{\{(\w+)\}\}", lambda m: fill[m.group(1)], template)
 
 
+def anims_prompt(template, chapter, layer, routes):
+    """Промпт живых анимаций: видеоузлы главы с утверждениями и каталог сцен."""
+    sg, made = domain.load("styleguide.json"), set()
+    for p in (ROOT / "videos").glob("*/video.json"):
+        made.add(json.loads(p.read_text(encoding="utf-8"))["node_id"])
+    rows = []
+    for n in sorted(layer["nodes"], key=lambda x: x["order"]):
+        r = routes.get(n["id"], {})
+        sc = r.get("video_scores") or n.get("video_scores") or {}
+        video = r.get("format") in ("шортс", "длинное видео") or (sum(sc.values()) >= 6 and max(sc.values() or [0]) == 2)
+        if not video or n["id"] in made:
+            continue
+        kind = {"observation": "наблюдение", "inference": "вывод", "assumption": "допущение"}
+        rows.append(f"### `{n['id']}` {n.get('title_novice') or n['title']} (тип {n['difficulty']['primary']}, {r.get('format')}, стр. {n['pages'][:3]})\n"
+                    + "\n".join(f"- {c['id'].split('#')[1]} ({kind.get(c['kind'], c['kind'])}): {c['text']}" for c in n["claims"]))
+    cat = [f"### `{k}`\nКогда: {s['when']}\nПараметры: {s['params_doc']}\nКлючи кадра (`beat`): {s['beat_doc']}\n" for k, s in scenes().items()]
+    ex = json.loads((ROOT / "data" / "kuznetsov" / "anim_scenes.json").read_text(encoding="utf-8"))
+    keep = ("kuznetsov.trap_height_single", "kuznetsov.secondary_porosity", "kuznetsov.group_atoll")
+    bas = json.loads((ROOT / "data" / "basniev" / "anim_scenes.json").read_text(encoding="utf-8"))
+    ex = {"bases": {k: ex["bases"][k] for k in ("trap", "reef", "atoll")}, "nodes": {k: ex["nodes"][k] for k in keep}}
+    ex["bases"]["gal"] = bas["bases"]["gal"]
+    ex["nodes"]["basniev.erf_solution"] = bas["nodes"]["basniev.erf_solution"]
+    fill = {"CHAPTER": chapter, "SCENES": "\n".join(cat), "NODES": "\n\n".join(rows) or "видеоузлов без ролика нет",
+            "COLORS": ", ".join(f"{g}.{k} ({v['ru']})" for g in ("lithology", "fluids", "curves") for k, v in sg[g].items()),
+            "EXAMPLE": json.dumps(ex, ensure_ascii=False)}
+    return re.sub(r"\{\{(\w+)\}\}", lambda m: fill[m.group(1)], template), len(rows)
+
+
 def numbers(text):
     """Числа фразы: цифрами и словами («одна десятая» → 0.1 не разбираем, берём части)."""
     t = text.lower().replace(",", ".")

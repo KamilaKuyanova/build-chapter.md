@@ -32,3 +32,4 @@ data/page_images/
 novice_test/results/
 
 models/
+*.hash

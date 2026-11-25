@@ -57,7 +57,7 @@ try {
   for (const s of job.shots || []) fs.writeFileSync(s.file, await frame(s.t, 0.9));
   if (job.out) {
     const ff = spawn(job.ffmpeg || 'ffmpeg', ['-y', '-hide_banner', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(job.fps),
-      '-c:v', 'mjpeg', '-i', '-', '-vf', 'format=yuv420p', '-c:v', 'libx264', '-preset', 'medium', '-crf', String(job.crf || 23),
+      '-c:v', 'mjpeg', '-i', '-', '-vf', (job.scale ? `scale=${job.scale}:-2,` : '') + 'format=yuv420p', '-c:v', 'libx264', '-preset', 'medium', '-crf', String(job.crf || 23),
       '-movflags', '+faststart', job.out], { stdio: ['pipe', 'inherit', 'inherit'] });
     const done = new Promise((ok, bad) => ff.on('close', c => (c === 0 ? ok() : bad(new Error('ffmpeg ' + c)))));
     const n = Math.ceil(job.total * job.fps);

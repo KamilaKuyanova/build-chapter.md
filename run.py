@@ -12,6 +12,8 @@
   python run.py domain-build <глава>              work/<глава>/domain_answer.json -> domains/<домен>/
   python run.py video <глава> <узел> [short|long] промпт ролика -> work/<глава>/video_prompt.md
   python run.py video-build <глава> [preview]     work/<глава>/video_answer.json -> проверка, ролик, паспорт, курс
+  python run.py anims <глава>                     промпт живых анимаций видеоузлов -> work/<глава>/anims_prompt.md
+  python run.py anims-build <глава> [preview]     work/<глава>/anims_answer.json -> проверка, петли в data/<глава>/media
   python run.py rebuild <глава> [video]           слой, задания, (ролики) и курс заново одной командой
   python run.py course <глава>                    слой -> data/<глава>/, курс -> out/<глава>/index.html
   python run.py review <package.json>             промпты проверки чужого пакета -> work/review_<пакет>/
@@ -180,7 +182,7 @@ def restore(chapter):
     if not saved.exists():
         return
     for path in saved.glob("*.json"):
-        dst = (work / path.name) if path.name.startswith(("tasks", "domain", "video")) else (work / "answers" / path.name)
+        dst = (work / path.name) if path.name.startswith(("tasks", "domain", "video", "anims")) else (work / "answers" / path.name)
         if not dst.exists():
             dst.parent.mkdir(parents=True, exist_ok=True)
             dst.write_text(path.read_text(encoding="utf-8"), encoding="utf-8")
@@ -290,6 +292,32 @@ def cmd_video_build(chapter, mode=""):
     save(ROOT / "data" / chapter / "layer.json", layer)
     backup(chapter, "video_answer.json")
     return build_video(folder, doc["format"], chapter, spec, mode)
+
+
+def cmd_anims(chapter):
+    _, (spec,) = chapter_specs(chapter)
+    work, plan = ROOT / "work" / chapter, video_mod(spec.get("domain", "geology"))
+    routes = {r["node_id"]: r for r in load(work / "routing.json")["routes"]}
+    text, n = plan.anims_prompt((ROOT / "prompts" / "anims.md").read_text(encoding="utf-8"), chapter, load(work / "layer.json"), routes)
+    (work / "anims_prompt.md").write_text(text, encoding="utf-8")
+    print(f"work/{chapter}/anims_prompt.md: узлов {n}, {len(text) // 1000} тыс. знаков; ответ в work/{chapter}/anims_answer.json, "
+          f"потом: python run.py anims-build {chapter}")
+
+
+def cmd_anims_build(chapter, mode=""):
+    _, (spec,) = chapter_specs(chapter)
+    work, data = ROOT / "work" / chapter, ROOT / "data" / chapter
+    video_mod(spec.get("domain", "geology"))
+    import live_anim
+    doc = nodes_mod.parse_answer((work / "anims_answer.json").read_text(encoding="utf-8-sig"))
+    layer = load(work / "layer.json")
+    for e in live_anim.check(doc, layer):
+        print("[error]", e)
+    save(data / "layer.json", layer)
+    save(data / "anim_scenes.json", doc)
+    backup(chapter, "anims_answer.json")
+    made = live_anim.build(data, preview=mode == "preview")
+    print(f"{chapter}: живых анимаций {len(made)}" + (f", кадры в out/anim/{chapter}" if mode == "preview" else ""))
 
 
 def build_video(folder, fmt, chapter, spec, mode=""):
@@ -430,7 +458,7 @@ def cmd_log(chapter, file, minutes, people, run_no, what, why):
 
 
 COMMANDS = {"units": cmd_units, "next": cmd_next, "build": cmd_build, "check": cmd_check, "course": cmd_course, "add": cmd_add, "status": cmd_status, "rebuild": cmd_rebuild,
-            "domain": cmd_domain, "domain-build": cmd_domain_build, "video": cmd_video, "video-build": cmd_video_build,
+            "domain": cmd_domain, "domain-build": cmd_domain_build, "anims": cmd_anims, "anims-build": cmd_anims_build, "video": cmd_video, "video-build": cmd_video_build,
             "tasks": cmd_tasks, "tasks-build": cmd_tasks_build,
             "review": cmd_review, "review-build": cmd_review_build, "log": cmd_log}
 

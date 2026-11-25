@@ -3,7 +3,6 @@
 метка происхождения на каждом кадре."""
 import json
 import pathlib
-import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -54,9 +53,14 @@ def text(d, xy, s, size=44, bold=False, fill=None, anchor="la"):
 
 
 def wrap(s, size, width_px, bold=False):
-    f = font(size, bold)
-    avg = f.getlength("абвгдежзик") / 10
-    return textwrap.wrap(s, width=max(8, int(width_px / avg)), break_long_words=False)
+    f, out, line = font(size, bold), [], ""   # по настоящей ширине строки: текст не вылезает за рамку
+    for w in s.split():
+        if line and f.getlength(line + " " + w) > width_px:
+            out.append(line)
+            line = w
+        else:
+            line = (line + " " + w).strip()
+    return out + [line] if line else out
 
 
 def caption(d, w, h, s, safe_bottom, size=48):

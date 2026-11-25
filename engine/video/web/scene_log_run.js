@@ -4,7 +4,7 @@
 const U = 40, NOM = 46; // точек мира на единицу глубины; радиус ствола
 const Scene = {
   setup(S) {
-    const P = S.P, K = 1.4, W = 1500;
+    const P = S.P, K = S.vert ? 1.4 : 1.15, W = S.vert ? 1500 : 3000;
     this.K = K; this.w2 = W / 2;
     const c = new OffscreenCanvas(W * K, (P.depth + 60) * U * K), x = c.getContext('2d');
     x.scale(K, K);
@@ -28,19 +28,19 @@ const Scene = {
     this.curveN = noise1(9);
   },
   layer(S, d) { return S.P.layers.find(l => d >= l.top && d < l.bot) || S.P.layers[S.P.layers.length - 1]; },
-  wall(S, d) { // радиус ствола: каверна в глине, номинал в плотной породе, глинистая корка в коллекторе снаружи не видна
+  wall(S, d, side = 0) { // радиус ствола: каверна в глине, номинал в плотной породе, глинистая корка в коллекторе снаружи не видна
     let r = 0, w = 0;
     for (const [dd, k] of [[-0.7, 1], [0, 2], [0.7, 1]]) {
       const L = this.layer(S, d + dd);
-      r += k * (L.hole === 'wide' ? NOM + 15 + this.holeN(d * 1.1) * 8 : NOM + this.holeN(d * 2) * 1.2);
+      r += k * (L.hole === 'wide' ? NOM + 15 + this.holeN(d * 1.1 + side * 37) * 8 : NOM + this.holeN(d * 2 + side * 37) * 1.2);
       w += k;
     }
     return r / w;
   },
   value(S, key, d) {
-    const A = S.P.layers;
-    let v = A[0].values[key];
-    for (let i = 1; i < A.length; i++) v += (A[i].values[key] - A[i - 1].values[key]) / (1 + Math.exp(-(d - A[i].top) / 0.45));
+    const A = S.P.layers, g = i => lerp(A[i].values[key], (A[i].values2 || A[i].values)[key], this.phase || 0);
+    let v = g(0);
+    for (let i = 1; i < A.length; i++) v += (g(i) - g(i - 1)) / (1 + Math.exp(-(d - A[i].top) / 0.45));
     return clamp(v + this.curveN(d * 1.7 + key.length * 31) * 0.018, 0.02, 0.985);
   },
   view(S, t) {
@@ -50,6 +50,7 @@ const Scene = {
   },
   draw(x, t, S) {
     const V = this.view(S, t), { W, H } = S, z = V.z, d = S.track(t, 'd', S.P.depth);
+    this.phase = S.track(t, 'phase', 0); this.inv = S.track(t, 'inv', 1); this.cakeK = S.track(t, 'cake', this.inv);
     this.V = V; this.d = d;
     x.fillStyle = '#0b1015'; x.fillRect(0, 0, W, H);
     const K = this.K, w2 = this.w2;
@@ -82,9 +83,8 @@ const Scene = {
     const z = V.z, d0 = V.depth(-60), d1 = V.depth(S.H + 60), st = Math.max(0.12, (d1 - d0) / 260);
     for (const L of S.P.layers) { // фильтрат раствора вошёл в проницаемый пласт
       if (!L.invaded || L.bot < d0 || L.top > d1) continue;
-      const r = V.bx + NOM * z;
       for (const s of [-1, 1]) {
-        const a = V.bx + s * NOM * z, b = V.bx + s * (NOM + 95) * z, g = x.createLinearGradient(a, 0, b, 0);
+        const wide = (L.inv || 1) * 95 * this.inv, a = V.bx + s * NOM * z, b = V.bx + s * (NOM + Math.max(2, wide)) * z, g = x.createLinearGradient(a, 0, b, 0);
         g.addColorStop(0, rgba(S.color('fluids.filtrate'), 0.5)); g.addColorStop(1, rgba(S.color('fluids.filtrate'), 0));
         x.fillStyle = g; x.fillRect(Math.min(a, b), V.y(L.top), Math.abs(b - a), (L.bot - L.top) * U * z);
       }
@@ -92,7 +92,7 @@ const Scene = {
     x.save();
     x.beginPath();
     for (let d = d0; d <= d1; d += st) x.lineTo(V.bx - this.wall(S, d) * z, V.y(d));
-    for (let d = d1; d >= d0; d -= st) x.lineTo(V.bx + this.wall(S, d + 50) * z, V.y(d));
+    for (let d = d1; d >= d0; d -= st) x.lineTo(V.bx + this.wall(S, d, 1) * z, V.y(d));
     x.closePath();
     const R = (NOM + 22) * z, g = x.createLinearGradient(V.bx - R, 0, V.bx + R, 0), m = S.color('fluids.mud');
     g.addColorStop(0, mix(m, '#000000', 0.62)); g.addColorStop(0.42, mix(m, '#d8c8ae', 0.12)); g.addColorStop(0.6, mix(m, '#000000', 0.05)); g.addColorStop(1, mix(m, '#000000', 0.66));
@@ -113,13 +113,14 @@ const Scene = {
         x.fillStyle = mix(m, '#cdb48c', 0.55);
         x.beginPath();
         const a = Math.max(L.top, d0), b = Math.min(L.bot, d1);
-        for (let d = a; d <= b; d += st) x.lineTo(V.bx + s * (NOM - 8 - this.holeN(d * 1.6 + s) * 2) * z, V.y(d));
+        for (let d = a; d <= b; d += st) x.lineTo(V.bx + s * (NOM - (8 + this.holeN(d * 1.6 + s) * 2) * this.cakeK * (L.cake === true ? 1 : L.cake)) * z, V.y(d));
         x.lineTo(V.bx + s * (NOM + 6) * z, V.y(b)); x.lineTo(V.bx + s * (NOM + 6) * z, V.y(a)); x.closePath(); x.fill();
       }
     }
     x.restore();
   },
   tool(x, t, S, V, d) {
+    if (S.track(t, 'tool', 1) < 0.5) return;
     const z = V.z, cx = V.bx + Math.sin(t * 0.7) * 1.2 * z, y = V.y(d), r = 23 * z, half = 190 * z;
     x.save();
     x.strokeStyle = '#0d0f12'; x.lineWidth = 9 * z;
@@ -195,6 +196,14 @@ const Scene = {
         x.strokeStyle = col; x.lineWidth = on && hl ? 9 : 7; x.lineJoin = 'round';
         x.shadowColor = col; x.shadowBlur = on ? 14 : 0; x.stroke(); x.shadowBlur = 0;
       }
+      const gh = S.track(t, 'ghost', 0);
+      if (gh > 0.02 && yb > ya) { // бледная кривая первого замера
+        const keep = this.phase; this.phase = 0;
+        x.save(); x.globalAlpha *= gh; x.beginPath();
+        for (let y = ya; y <= yb; y += 4) x.lineTo(px(this.value(S, c.key, V.depth(y))), y);
+        x.strokeStyle = '#95A5A6'; x.lineWidth = 5; x.setLineDash([16, 12]); x.stroke(); x.restore();
+        this.phase = keep;
+      }
       const yt = V.y(d), v = this.value(S, c.key, d);
       x.setLineDash([6, 8]); x.strokeStyle = 'rgba(255,255,255,.35)'; x.lineWidth = 2;
       x.beginPath(); x.moveTo(i ? X - 18 : V.bx + 30 * V.z, yt); x.lineTo(px(v), yt); x.stroke(); x.setLineDash([]);
@@ -208,10 +217,11 @@ const Scene = {
     const A = S.track(t, 'labels', 1);
     const under = S.shown(t, "lens", 0.6, 0.3), cmp = 1 - S.shown(t, "compare"), cur = this.layer(S, d);
     S.P.layers.forEach(L => {
+      if (!L.name || !L.name.length) return;
       const open = L.hidden ? S.track(t, L.hidden, 0) : 1, name = open > 0.5 ? L.name : ['?'];
       const a = A * cmp * smooth((L.bot - 1 - d) / 2.5) * (L.hidden ? Math.max(0.15, Math.abs(open * 2 - 1)) : 1) * (L === cur ? 1 - under : 1);
       if (a <= 0.01) return;
-      const y0 = Math.max(V.y(L.top), S.vert ? 560 : 120), y1 = Math.min(V.y(L.bot), S.H - 375), need = name.length * 52 + 10;
+      const y0 = Math.max(V.y(L.top), S.vert ? 560 : 270), y1 = Math.min(V.y(L.bot), S.H - (S.vert ? 375 : 60)), need = name.length * 52 + 10;
       if (y1 - y0 < need) return;
       const y = clamp(V.y((L.top + L.bot) / 2), y0 + need / 2, y1 - need / 2), w = Math.max(...name.map(s => measure(x, s, 44, 700))) + 30, X = S.P.name_x || 318;
       x.save();
@@ -224,14 +234,15 @@ const Scene = {
   },
   overlay(x, t, S) {
     const { W, H } = S, V = this.V, d = this.d, N = S.at(t);
-    let g = x.createLinearGradient(0, 0, 0, 640);
+    let g = x.createLinearGradient(0, 0, 0, S.vert ? 640 : 1);
     g.addColorStop(0, 'rgba(6,10,14,.94)'); g.addColorStop(0.66, 'rgba(6,10,14,.80)'); g.addColorStop(1, 'rgba(6,10,14,0)');
-    x.fillStyle = g; x.fillRect(0, 0, W, 640);
+    x.fillStyle = g; x.fillRect(0, 0, W, S.vert ? 640 : 0);
     // названия кривых стоят под заголовком и не уезжают с камерой
     const A = S.track(t, 'tracks', 1) * (1 - S.shown(t, 'compare'));
     S.P.curves.forEach((c, i) => {
       const [X, w] = this.trackBox(S, i), col = S.color(c.color);
-      label(x, c.name, X + w / 2 + 16, Math.min(1080, V.y(d) - 120), { size: 44, w: 700, color: mix(col, '#ffffff', 0.15), rot: -Math.PI / 2, a: A * smooth((V.y(d) - 860) / 160) });
+      const yn = S.vert ? Math.min(1080, V.y(d) - 120) : H - 30;
+      label(x, c.name, S.vert ? X + w / 2 + 16 : X + w - 18, yn, { size: 44, w: 700, color: mix(col, '#ffffff', 0.15), rot: -Math.PI / 2, a: S.vert ? A * smooth((V.y(d) - 860) / 160) : A });
     });
     // величины словами прямо у точки кривой
     S.P.curves.forEach((c, i) => {
@@ -254,6 +265,11 @@ const Scene = {
       lens(x, q.x, q.y, q.r, V.bx + (NOM + 34) * V.z, V.y(d) - 60, k, (c, r) => this.pore(c, r, q.kind, S, t), { cap: q.cap });
     });
     this.compare(x, t, S);
+    S.beats.forEach((b, j) => {
+      const list = (b.beat || {}).call || [], end = S.beats[j + 1] ? S.beats[j + 1].t_start : S.job.total + 1;
+      list.forEach((c, i) => { const k = Math.min((t - b.t_start - 0.3 - i * 0.7) / 0.6, (end - t) / 0.25); if (k > 0) callout(x, V.bx + (c.at === undefined ? NOM : c.at) * V.z, V.y(c.d), V.bx + (c.dx === undefined ? 150 : c.dx) * V.z, V.y(c.d) + (c.dy || 0), c.text, k, {}); });
+    });
+    if (!S.vert) { Stage.frameText(x, t, S.P.note); return; }
     // вопрос-предсказание: отсчёт паузы
     const pr = N.b.prediction ? clamp((t - N.b.t_end) / Math.max(0.1, N.left + t - N.b.t_end)) : 0;
     if (N.b.prediction && t > N.b.t_end) {

@@ -1,0 +1,21 @@
+{
+ "difficulty_type": "Ф",
+ "state_model": "один параметр p (обычно время); полоса пласта, кривая и граница считаются одной формулой при этом p",
+ "objects": [
+  "полоса пласта",
+  "галерея или скважина",
+  "график",
+  "бледные прошлые положения кривой",
+  "граница возмущённой области"
+ ],
+ "invariants": [
+  "полоса и кривая считаются при одном p",
+  "точка полосы стоит над своей точкой графика",
+  "оси подписаны",
+  "жидкость движется туда, где давление ниже"
+ ],
+ "when": "формула или закон главы: как кривая меняется со временем или с параметром, где формула теряет смысл (тип Ф)",
+ "params_doc": "x, y — пределы; xlog; xname, yname; xticks, yticks; p {kind: time|num, name, unit, hide}; curves [{expr от x и p: exp log sqrt erf E1 pow min max, color, name, dash}]; ghosts [p]; ghosts_all; draw_to_p (кривая рисуется до p); strip {expr 0..1, name}; front — формула границы от p; marks [{x, curve, text, dx, dy}]; label, source, assumptions",
+ "beat_doc": "p или lp (десятичный логарифм) — число или [от, до]; c0, c1, c2 0..1; ghosts, strip, front, marks, zero 0..1; recap 1; head",
+ "example": "data/basniev/anim_scenes.json"
+}

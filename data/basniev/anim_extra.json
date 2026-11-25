@@ -5,16 +5,18 @@
    "file": "media/anim_basniev.unsteady_processes.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Что движется, когда скважину пустили»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: после пуска скважины давление перераспределяется. 21 с, без звука.",
+   "alt": "Анимация к шагу «Что движется, когда скважину пустили»: после пуска скважины давление перераспределяется",
+   "source": "стр. 474; допущения: однородный пласт, постоянный дебит; пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные; толщина пласта 20 м условная",
    "claim_ids": [
     "basniev.unsteady_processes#c1",
     "basniev.unsteady_processes#c2",
-    "basniev.unsteady_processes#c3"
+    "basniev.unsteady_processes#c4",
+    "basniev.unsteady_processes#c5"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "pressure"
   }
  ],
  "basniev.elastic_drive": [
@@ -23,16 +25,17 @@
    "file": "media/anim_basniev.elastic_drive.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Как сжатый пласт выталкивает жидкость»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: движение начинается у забоя, поры сжимаются, жидкость расширяется. 22 с, без звука.",
+   "alt": "Анимация к шагу «Как сжатый пласт выталкивает жидкость»: движение начинается у забоя, поры сжимаются, жидкость расширяется",
+   "source": "стр. 474; допущения: однородный пласт, постоянный дебит; пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные; толщина пласта 20 м условная",
    "claim_ids": [
     "basniev.elastic_drive#c1",
     "basniev.elastic_drive#c2",
     "basniev.elastic_drive#c3"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "pressure"
   }
  ],
  "basniev.piezo_equation": [
@@ -41,16 +44,16 @@
    "file": "media/anim_basniev.piezo_equation.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Главное уравнение всей главы»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: уравнение пьезопроводности: давление сглаживается, как тепло. 14 с, без звука.",
+   "alt": "Анимация к шагу «Главное уравнение всей главы»: уравнение пьезопроводности: давление сглаживается, как тепло",
+   "source": "стр. 476, 480; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные",
    "claim_ids": [
-    "basniev.piezo_equation#c1",
-    "basniev.piezo_equation#c2",
-    "basniev.piezo_equation#c3"
+    "basniev.piezo_equation#c3",
+    "basniev.piezo_equation#c5"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.piezo_coefficient": [
@@ -59,16 +62,17 @@
    "file": "media/anim_basniev.piezo_coefficient.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Число, которое задаёт темп пласта»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: больше пьезопроводность — прогиб расходится быстрее. 17 с, без звука.",
+   "alt": "Анимация к шагу «Число, которое задаёт темп пласта»: больше пьезопроводность — прогиб расходится быстрее",
+   "source": "стр. 480, 481; допущения: однородный пласт, постоянный дебит; пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные; толщина пласта 20 м условная",
    "claim_ids": [
     "basniev.piezo_coefficient#c1",
     "basniev.piezo_coefficient#c2",
     "basniev.piezo_coefficient#c3"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "pressure"
   }
  ],
  "basniev.gallery_pressure_setup": [
@@ -77,16 +81,18 @@
    "file": "media/anim_basniev.gallery_pressure_setup.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Первая задача: галерея в пласте»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: на галерее давление мгновенно снизили и держат. 16 с, без звука.",
+   "alt": "Анимация к шагу «Первая задача: галерея в пласте»: на галерее давление мгновенно снизили и держат",
+   "source": "стр. 481, 482; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные",
    "claim_ids": [
-    "basniev.gallery_pressure_setup#c1",
     "basniev.gallery_pressure_setup#c2",
-    "basniev.gallery_pressure_setup#c3"
+    "basniev.gallery_pressure_setup#c3",
+    "basniev.gallery_pressure_setup#c4",
+    "basniev.gallery_pressure_setup#c5"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.self_similar": [
@@ -95,16 +101,17 @@
    "file": "media/anim_basniev.self_similar.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Две переменные сливаются в одну»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: кривые разного времени сливаются в одну. 14 с, без звука.",
+   "alt": "Анимация к шагу «Две переменные сливаются в одну»: кривые разного времени сливаются в одну",
+   "source": "стр. 482; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные",
    "claim_ids": [
     "basniev.self_similar#c1",
     "basniev.self_similar#c2",
     "basniev.self_similar#c3"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.erf_solution": [
@@ -113,16 +120,16 @@
    "file": "media/anim_basniev.erf_solution.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Как выглядит давление вдоль пласта»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: давление вдоль пласта в разные моменты после пуска галереи. 19 с, без звука.",
+   "alt": "Анимация к шагу «Как выглядит давление вдоль пласта»: давление вдоль пласта в разные моменты после пуска галереи",
+   "source": "стр. 483, 484; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные",
    "claim_ids": [
     "basniev.erf_solution#c1",
-    "basniev.erf_solution#c2",
-    "basniev.erf_solution#c3"
+    "basniev.erf_solution#c2"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.gallery_rate": [
@@ -131,16 +138,16 @@
    "file": "media/anim_basniev.gallery_rate.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Почему дебит падает со временем»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: дебит галереи быстро падает и стремится к нулю. 14 с, без звука.",
+   "alt": "Анимация к шагу «Почему дебит падает со временем»: дебит галереи быстро падает и стремится к нулю",
+   "source": "стр. 484, 485; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные",
    "claim_ids": [
-    "basniev.gallery_rate#c1",
     "basniev.gallery_rate#c2",
     "basniev.gallery_rate#c3"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.gallery_pressure_law": [
@@ -149,16 +156,18 @@
    "file": "media/anim_basniev.gallery_pressure_law.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Где формула теряет смысл»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: расчётное давление на галерее уходит ниже нуля. 20 с, без звука.",
+   "alt": "Анимация к шагу «Где формула теряет смысл»: расчётное давление на галерее уходит ниже нуля",
+   "source": "стр. 487, 488; допущения: коэффициент падения условный, показан вид закона",
    "claim_ids": [
-    "basniev.gallery_pressure_law#c1",
     "basniev.gallery_pressure_law#c2",
-    "basniev.gallery_pressure_law#c3"
+    "basniev.gallery_pressure_law#c3",
+    "basniev.gallery_pressure_law#c4",
+    "basniev.gallery_pressure_law#c5"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.basic_formula": [
@@ -167,16 +176,17 @@
    "file": "media/anim_basniev.basic_formula.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Формула, ради которой всё выводили»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: основная формула даёт давление в любой точке. 24 с, без звука.",
+   "alt": "Анимация к шагу «Формула, ради которой всё выводили»: основная формула даёт давление в любой точке",
+   "source": "стр. 490, 491; допущения: однородный пласт, постоянный дебит; пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные; толщина пласта 20 м условная",
    "claim_ids": [
-    "basniev.basic_formula#c1",
     "basniev.basic_formula#c2",
-    "basniev.basic_formula#c3"
+    "basniev.basic_formula#c3",
+    "basniev.basic_formula#c4"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "pressure"
   }
  ],
  "basniev.flow_profile": [
@@ -185,15 +195,16 @@
    "file": "media/anim_basniev.flow_profile.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 9 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Где поток уже установился»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: у скважины поток быстро становится установившимся. 14 с, без звука.",
+   "alt": "Анимация к шагу «Где поток уже установился»: у скважины поток быстро становится установившимся",
+   "source": "стр. 492; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные",
    "claim_ids": [
     "basniev.flow_profile#c1",
     "basniev.flow_profile#c2"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.point_sink_error": [
@@ -203,15 +214,17 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Насколько врёт нулевой радиус»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "caption": "Анимация: ошибка основной формулы быстро падает. 17 с, без звука.",
+   "alt": "Анимация к шагу «Насколько врёт нулевой радиус»: ошибка основной формулы быстро падает",
+   "source": "стр. 492; допущения: по книге известны две точки: 25 и 100; линия между ними проведена условно",
    "claim_ids": [
     "basniev.point_sink_error#c1",
     "basniev.point_sink_error#c2",
-    "basniev.point_sink_error#c3"
+    "basniev.point_sink_error#c3",
+    "basniev.point_sink_error#c4"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.piezometric_curves": [
@@ -220,16 +233,17 @@
    "file": "media/anim_basniev.piezometric_curves.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Форма воронки давления у скважины»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: вблизи забоя кривые давления параллельны. 17 с, без звука.",
+   "alt": "Анимация к шагу «Форма воронки давления у скважины»: вблизи забоя кривые давления параллельны",
+   "source": "стр. 493; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные",
    "claim_ids": [
     "basniev.piezometric_curves#c1",
-    "basniev.piezometric_curves#c2",
-    "basniev.piezometric_curves#c3"
+    "basniev.piezometric_curves#c3",
+    "basniev.piezometric_curves#c4"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.psss_idea": [
@@ -238,16 +252,19 @@
    "file": "media/anim_basniev.psss_idea.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Движение как череда замерших кадров»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: пласт делят на возмущённую и невозмущённую области. 21 с, без звука.",
+   "alt": "Анимация к шагу «Движение как череда замерших кадров»: пласт делят на возмущённую и невозмущённую области",
+   "source": "стр. 494; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные; постоянный дебит галереи, глубина падения условная",
    "claim_ids": [
-    "basniev.psss_idea#c1",
     "basniev.psss_idea#c2",
-    "basniev.psss_idea#c3"
+    "basniev.psss_idea#c3",
+    "basniev.psss_idea#c4",
+    "basniev.psss_idea#c5",
+    "basniev.psss_idea#c6"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.psss_phases": [
@@ -256,16 +273,17 @@
    "file": "media/anim_basniev.psss_phases.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Пока граница бежит и когда дошла»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: первая фаза: граница бежит; вторая: дошла до края пласта. 18 с, без звука.",
+   "alt": "Анимация к шагу «Пока граница бежит и когда дошла»: первая фаза: граница бежит; вторая: дошла до края пласта",
+   "source": "стр. 495; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные; правый край графика принят за границу пласта",
    "claim_ids": [
     "basniev.psss_phases#c1",
     "basniev.psss_phases#c2",
     "basniev.psss_phases#c3"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.psss_front_linear": [
@@ -274,16 +292,16 @@
    "file": "media/anim_basniev.psss_front_linear.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Как быстро бежит граница возмущения»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: граница возмущения бежит всё медленнее. 17 с, без звука.",
+   "alt": "Анимация к шагу «Как быстро бежит граница возмущения»: граница возмущения бежит всё медленнее",
+   "source": "стр. 495, 496; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные",
    "claim_ids": [
-    "basniev.psss_front_linear#c1",
-    "basniev.psss_front_linear#c2",
-    "basniev.psss_front_linear#c3"
+    "basniev.psss_front_linear#c4",
+    "basniev.psss_front_linear#c5"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.psss_radial_setup": [
@@ -292,16 +310,17 @@
    "file": "media/anim_basniev.psss_radial_setup.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Тот же приём вокруг скважины»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: возмущённая область вокруг скважины, дальше начальное давление. 17 с, без звука.",
+   "alt": "Анимация к шагу «Тот же приём вокруг скважины»: возмущённая область вокруг скважины, дальше начальное давление",
+   "source": "стр. 492, 497, 498; допущения: однородный пласт, постоянный дебит; пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные; толщина пласта 20 м условная",
    "claim_ids": [
     "basniev.psss_radial_setup#c1",
     "basniev.psss_radial_setup#c2",
-    "basniev.psss_radial_setup#c3"
+    "basniev.psss_radial_setup#c4"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "pressure"
   }
  ],
  "basniev.psss_radial_front": [
@@ -310,16 +329,16 @@
    "file": "media/anim_basniev.psss_radial_front.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Радиус возмущения растёт всё медленнее»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: радиус возмущения растёт как корень из времени. 17 с, без звука.",
+   "alt": "Анимация к шагу «Радиус возмущения растёт всё медленнее»: радиус возмущения растёт как корень из времени",
+   "source": "стр. 498; допущения: пьезопроводность 1 м²/с из типичного диапазона (стр. 481), остальные параметры условные; радиус скважины 0,1 м условный",
    "claim_ids": [
     "basniev.psss_radial_front#c1",
-    "basniev.psss_radial_front#c2",
     "basniev.psss_radial_front#c3"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ],
  "basniev.psss_radial_pressure": [
@@ -328,16 +347,17 @@
    "file": "media/anim_basniev.psss_radial_pressure.mp4",
    "frame_class": "B",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Насколько точна радиальная формула»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "label": "симуляция",
+   "caption": "Анимация: погрешность метода падает со временем. 17 с, без звука.",
+   "alt": "Анимация к шагу «Насколько точна радиальная формула»: погрешность метода падает со временем",
+   "source": "стр. 499; допущения: расчёт по формулам главы, три точки совпадают с книгой",
    "claim_ids": [
     "basniev.psss_radial_pressure#c1",
     "basniev.psss_radial_pressure#c2",
     "basniev.psss_radial_pressure#c3"
    ],
-   "prompt": null
+   "prompt": null,
+   "scene": "curve"
   }
  ]
 }

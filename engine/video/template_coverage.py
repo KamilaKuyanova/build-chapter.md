@@ -39,7 +39,7 @@ def videos_by_node():
     out = {}
     for p in (ROOT / "videos").glob("*/video.json"):
         v = json.loads(p.read_text(encoding="utf-8"))
-        out[v["node_id"]] = {"video_id": v["video_id"], "template": v.get("template"), "format": v["format"]}
+        out[v["node_id"]] = {"video_id": v["video_id"], "template": v.get("template"), "scene": v.get("scene"), "format": v["format"]}
     return out
 
 
@@ -50,6 +50,14 @@ def build(d):
     made = videos_by_node()
     anim_p = d / "anim_extra.json"
     anims = set(json.loads(anim_p.read_text(encoding="utf-8"))) if anim_p.exists() else set()
+    live = {}   # живые сцены: имя сцены и её модель состояния
+    sp = d / "anim_scenes.json"
+    if sp.exists():
+        doc = json.loads(sp.read_text(encoding="utf-8"))
+        for nid, x in doc["nodes"].items():
+            name = x.get("scene") or (doc.get("bases", {}).get(x.get("base")) or {}).get("scene")
+            if name:
+                live[nid] = (name, json.loads((HERE / "web" / f"scene_{name}.json").read_text(encoding="utf-8"))["state_model"])
     rows = []
     for n in sorted(layer["nodes"], key=lambda x: x["order"]):
         r = routes.get(n["id"], {})
@@ -69,6 +77,11 @@ def build(d):
                        video=made.get(n["id"]))
         else:
             row.update(template=None, state_model=None, needs=None, status="нужен новый шаблон", video=made.get(n["id"]))
+        sc_name = (row["video"] or {}).get("scene")
+        if sc_name:
+            row.update(template=sc_name, state_model=json.loads((HERE / "web" / f"scene_{sc_name}.json").read_text(encoding="utf-8"))["state_model"], status="закрывает: ролик")
+        if n["id"] in live and not row["video"]:
+            row.update(template=live[n["id"]][0], state_model=live[n["id"]][1], status="закрывает: живая анимация в курсе")
         row["animation_in_course"] = n["id"] in anims   # ТЗ: видеоузел без ролика закрывается в курсе анимацией
         rows.append(row)
     return {"chapter": layer["chapter"], "templates": templates.registry(), "rows": rows,

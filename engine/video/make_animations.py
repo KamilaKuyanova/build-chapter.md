@@ -2,7 +2,8 @@
 """Анимации логики шага для видеоёмких узлов без ролика (ТЗ: «в главе без ролика узлы, которым маршрутизация дала видео,
 закрываются в курсе интерактивом или анимацией»). Без звука, короткая петля, кадры кодом (класс B, метка «схема»).
 
-Параметры берутся только из текста узла — новых фактов и чисел нет:
+Если для узла есть описание живой сцены (data/<глава>/anim_scenes.json), петлю рисует engine/video/live_anim.py.
+Иначе текстовая петля; параметры берутся только из текста узла — новых фактов и чисел нет:
 - есть decision_on_data  -> step_procedure: признаки → правило → вывод (→ контрпример);
 - есть разобранный пример -> step_procedure: шаги примера автора и итог;
 - иначе                  -> process_state: утверждения шага по порядку (наблюдение → вывод → допущение) со страницами.
@@ -82,17 +83,24 @@ def main():
     ap.add_argument("--dir", required=True)
     ap.add_argument("--fps", type=int, default=10)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--no-live", action="store_true", help="только текстовые петли")
     a = ap.parse_args()
     d = pathlib.Path(a.dir)
     rep = template_coverage.build(d)
     nodes = {n["id"]: n for n in json.loads((d / "layer.json").read_text(encoding="utf-8-sig"))["nodes"]}
     media = d / "media"
     media.mkdir(exist_ok=True)
+    import live_anim
+    live = {} if a.no_live else live_anim.build(d)
     extra, done = {}, 0
     for row in rep["rows"]:
         if row["video"]:
             continue   # у узла есть ролик
         node = nodes[row["node_id"]]
+        if node["id"] in live:
+            extra[node["id"]] = live[node["id"]]
+            done += 1
+            continue
         tpl, params, what = spec_for(node)
         out = media / f"anim_{node['id']}.mp4"
         secs = render(tpl, params, out, a.fps)
@@ -106,7 +114,7 @@ def main():
         if a.limit and done >= a.limit:
             break
     (d / "anim_extra.json").write_text(json.dumps(extra, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"{d.name}: анимаций {done}")
+    print(f"{d.name}: анимаций {done}, из них живых сцен {len(set(live) & set(extra))}")
 
 
 if __name__ == "__main__":

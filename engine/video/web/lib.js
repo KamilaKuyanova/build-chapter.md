@@ -362,7 +362,7 @@ function blob(x, cx, cy, s, a) {
 }
 // Крупный план пор: зёрна, плёнка на зёрнах и заполнение между ними; без пор — сомкнутые кристаллы.
 const Pores = {
-  grains(x, r, base, fill, film, seed, flow = 0) {
+  grains(x, r, base, fill, film, seed, flow = 0, o = {}) { // o.grow — цемент на зёрнах 0..1, o.vug — каверны 0..1
     const q = rng(seed), G = [];
     for (let gy = -3; gy <= 3; gy++) for (let gx = -3; gx <= 3; gx++) G.push([gx * r * 0.46 + (gy & 1) * r * 0.23 + (q() - 0.5) * r * 0.1, gy * r * 0.42 + (q() - 0.5) * r * 0.1, r * (0.2 + q() * 0.05), q() * 6]);
     x.fillStyle = fill; x.fillRect(-r, -r, 2 * r, 2 * r);
@@ -374,11 +374,12 @@ const Pores = {
       }
     }
     for (const [gx, gy, s, a] of G) {
-      if (film) { x.fillStyle = film; blob(x, gx, gy, s * 1.12, a); x.fill(); }
+      if (film) { x.fillStyle = film; blob(x, gx, gy, s * (o.grow ? 1 + 0.42 * o.grow : 1.12), a); x.fill(); }
       const g = x.createRadialGradient(gx - s * 0.35, gy - s * 0.4, s * 0.1, gx, gy, s * 1.1);
       g.addColorStop(0, mix(base, '#ffffff', 0.45)); g.addColorStop(0.6, base); g.addColorStop(1, mix(base, '#4b3512', 0.55));
       x.fillStyle = g; blob(x, gx, gy, s, a); x.fill();
     }
+    if (o.vug) for (const [vx, vy, vs] of [[-0.3, -0.15, 0.36], [0.38, 0.3, 0.44], [0.1, -0.6, 0.26], [-0.55, 0.5, 0.22]]) { x.fillStyle = fill; blob(x, vx * r, vy * r, vs * r * o.vug, vs * 9); x.fill(); x.strokeStyle = 'rgba(20,24,28,.5)'; x.lineWidth = 4; x.stroke(); }
   },
   crystals(x, r, base, seed) {
     const q = rng(seed), n = 6, st = 2.6 * r / n, pt = [];

@@ -59,7 +59,7 @@ def render(t, beats, params, W, H):
     dr.polygon([(px - 18, cy - 70), (px + 18, cy - 70), (px, cy - 46)], fill=rgb(SG["text"]))
     k = int(round(s))
     yy = cy + 180
-    for ln in wrap(st[k]["note"], 44, x1 - x0 - 20)[:4]:
+    for ln in wrap(st[k]["note"], 44, x1 - x0 - 20)[:10]:
         text(dr, (x0 + 10, yy), ln, 44)
         yy += 56
     # величины как функции стадии
@@ -73,7 +73,7 @@ def render(t, beats, params, W, H):
         for k2 in range(min(n, int(s + 0.5) + 1)):
             active = k2 == int(round(s))
             text(dr, (sx0 + 30, yy), f"{k2 + 1}.", 38, True, color("measurement") if active else SG["muted"])
-            for ln in wrap(st[k2]["note"], 36, sx1 - sx0 - 120)[:3]:
+            for ln in wrap(st[k2]["note"], 36, sx1 - sx0 - 130, active)[:6 if active else 2]:
                 text(dr, (sx0 + 90, yy), ln, 36, active, SG["text"] if active else SG["muted"])
                 yy += 46
             yy += 18

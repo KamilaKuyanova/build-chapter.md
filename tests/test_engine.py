@@ -336,6 +336,18 @@ class Video(unittest.TestCase):
             self.assertTrue(any(part in e for e in errors), part)
         self.assertTrue(any("40" in w for w in warn))
 
+    def test_live_animation_checked(self):
+        import live_anim
+        ok = {"bases": {"b": {"scene": "curve", "params": {"assumptions": ["условно"]}}},
+              "nodes": {"x.a": {"base": "b", "what": "песок", "script": [{"head": "Сухой *песок*", "claim": "c1", "beat": {}}, {"head": "Мокрый темнее", "claim": "c1", "beat": {}}]}}}
+        self.assertEqual(live_anim.check(ok, self.LAYER), [])
+        bad = copy.deepcopy(ok)
+        bad["nodes"]["x.a"]["script"][0] = {"head": "κ = 5", "claim": "c7", "beat": {}}
+        bad["nodes"]["x.a"]["params"] = {"assumptions": []}
+        errs = " ".join(live_anim.check(bad, self.LAYER))
+        for part in ("нет утверждения c7", "формула", "допущения"):
+            self.assertIn(part, errs)
+
     def test_asr_compares_words(self):
         import asr
         errs, diff = asr.align(asr.norm("Плотный известняк, 2 раза!"), asr.norm("плотный известник два раза"))

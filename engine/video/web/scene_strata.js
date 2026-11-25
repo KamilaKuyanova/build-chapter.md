@@ -66,17 +66,34 @@ const Scene = {
       const hl = S.shown(t, 'hl', 0.4, 0.3, L);
       if (hl > 0.01) { x.save(); x.globalAlpha = hl; x.fillStyle = 'rgba(241,196,15,.20)'; x.fill(); x.strokeStyle = '#F1C40F'; x.lineWidth = 7; x.stroke(); x.restore(); }
     }
-    const fk = S.track(t, 'fluid', 0);
-    if (fk > 0.02) (P.fluids || []).forEach(f => { // заполнение коллектора под покрышкой: газ над нефтью, нефть над водой, контакты горизонтальны
+    (P.zones || []).forEach((Z, n) => { // зоны внутри слоя: часть ширины и часть толщины
+      const a = S.track(t, 'z_' + Z.id, 0), i = M.ids.indexOf(Z.layer); if (a < 0.02 || i < 1) return;
+      const up = M.bounds[i], lo = M.bounds[i - 1], q = (j, k) => lerp(lo[j], up[j], k), pts = [];
+      M.us.forEach((u, j) => { if (u >= Z.from && u <= Z.to) pts.push(j); });
+      x.save(); x.globalAlpha = a; x.beginPath();
+      pts.forEach(j => x.lineTo(X(M.us[j]), Y(q(j, Z.top === undefined ? 1 : Z.top))));
+      pts.slice().reverse().forEach(j => x.lineTo(X(M.us[j]), Y(q(j, Z.bot || 0)))); x.closePath();
+      if (Z.kind !== 'cracks') { x.fillStyle = rgba(S.color(Z.color || 'measurement'), Z.alpha || 0.55); x.fill(); }
+      x.save(); x.clip();
+      const r = rng(40 + n);
+      if (Z.kind === 'cracks') for (let k = 0; k < 46; k++) { const j = pts[Math.floor(r() * pts.length)]; let cx = X(M.us[j]), cy = Y(q(j, r())); x.strokeStyle = 'rgba(255,255,255,.85)'; x.lineWidth = 3; x.beginPath(); x.moveTo(cx, cy); for (let s2 = 0; s2 < 5; s2++) { cx += (r() - 0.5) * 26; cy += 16 + r() * 18; x.lineTo(cx, cy); } x.stroke(); }
+      if (Z.kind === 'vugs') for (let k = 0; k < 70; k++) { const j = pts[Math.floor(r() * pts.length)], s2 = 5 + r() * 16; x.fillStyle = 'rgba(12,16,20,.78)'; blob(x, X(M.us[j]), Y(q(j, r())), s2 * a, r() * 6); x.fill(); }
+      x.restore();
+      if (Z.kind !== 'cracks') { x.strokeStyle = S.color(Z.color || 'measurement'); x.lineWidth = 4; x.stroke(); }
+      x.restore();
+    });
+    (P.arrows || []).forEach(A => { const a = S.track(t, 'a_' + A.id, 0); if (a < 0.02) return; x.save(); x.globalAlpha = a; x.strokeStyle = S.color(A.color || 'measurement'); x.lineWidth = 9; x.setLineDash([26, 18]); x.lineDashOffset = -t * 70; x.beginPath(); A.pts.forEach(q => x.lineTo(X(q[0]), Y(q[1]))); x.stroke(); x.setLineDash([]); const n = A.pts.length, e = A.pts[n - 1], s2 = A.pts[n - 2], an = Math.atan2(Y(e[1]) - Y(s2[1]), X(e[0]) - X(s2[0])); x.translate(X(e[0]), Y(e[1])); x.rotate(an); x.fillStyle = x.strokeStyle; x.beginPath(); x.moveTo(26, 0); x.lineTo(-14, -20); x.lineTo(-14, 20); x.closePath(); x.fill(); x.restore(); });
+    (P.fluids || []).forEach(f => {
+      const fk = S.track(t, f.id ? 'f_' + f.id : 'fluid', 0); if (fk < 0.02) return;
+ // заполнение коллектора под покрышкой: газ над нефтью, нефть над водой, контакты горизонтальны
       const i = M.ids.indexOf(f.layer); if (i < 1) return;
-      const up = M.bounds[i], lo = M.bounds[i - 1], zc2 = lerp(Math.max(...up), f.contact, fk);
+      const up = M.bounds[i], lo = M.bounds[i - 1], peak = Math.max(...M.us.map((u, j) => u >= f.from && u <= f.to ? up[j] : -1e9)), cz = lerp(peak, f.contact, fk), zc2 = 0, tilt = f.tilt || 0, at = u => cz + (u - (f.from + f.to) / 2) * tilt;
       x.save(); x.beginPath();
-      M.us.forEach((u, j) => { if (u >= f.from && u <= f.to) x.lineTo(X(u), Y(Math.max(up[j], zc2))); });
-      for (let j = NX; j >= 0; j--) if (M.us[j] >= f.from && M.us[j] <= f.to) x.lineTo(X(M.us[j]), Y(Math.max(zc2, lo[j])));
+      M.us.forEach((u, j) => { if (u >= f.from && u <= f.to) x.lineTo(X(u), Y(Math.max(up[j], at(u)))); });
+      for (let j = NX; j >= 0; j--) if (M.us[j] >= f.from && M.us[j] <= f.to) x.lineTo(X(M.us[j]), Y(Math.max(at(M.us[j]), lo[j])));
       x.closePath(); x.fillStyle = rgba(S.color(f.color), 0.66); x.fill(); x.restore();
     });
-    const wk = S.track(t, 'wells', 0);
-    if (wk > 0.02) (P.wells || []).forEach(w => { const z0 = prof(top.map((z, j) => [M.us[j], z]), w.x), y0 = Y(z0), y1 = lerp(y0, Y(w.to), wk); x.fillStyle = '#10151b'; x.fillRect(X(w.x) - 9, y0 - 70, 18, y1 - y0 + 70); x.fillStyle = '#dfe6ec'; x.fillRect(X(w.x) - 4, y0 - 70, 8, y1 - y0 + 70); });
+    (P.wells || []).forEach(w => { const wk = S.track(t, w.id ? 'w_' + w.id : 'wells', 0); if (wk < 0.02) return; const z0 = prof(top.map((z, j) => [M.us[j], z]), w.x), y0 = Y(z0), y1 = lerp(y0, Y(w.to), wk); x.fillStyle = '#10151b'; x.fillRect(X(w.x) - 9, y0 - 70, 18, y1 - y0 + 70); x.fillStyle = '#dfe6ec'; x.fillRect(X(w.x) - 4, y0 - 70, 8, y1 - y0 + 70); });
   },
   overlay(x, t, S) {
     const { X, Y, M, ve } = this.v;
@@ -92,7 +109,7 @@ const Scene = {
         callout(x, px, Y(z), tx, Y(z) + (c.dy || -120), c.text, k, { align: tx > S.W * 0.6 ? 'right' : 'left' });
       });
       const l = (b.beat || {}).lens;
-      if (l) { const k = Math.min((t - b.t_start - (l.delay || 0.5)) / 0.5, (end - t) / 0.25), n = M.ids.indexOf(l.layer), q = Math.round(l.at * NX); if (k > 0 && n >= 0) lens(x, l.x, l.y, l.r, X(l.at), Y((M.bounds[n][q] + M.bounds[Math.max(0, n - 1)][q]) / 2), k, (c, r) => l.kind === 'crystals' ? Pores.crystals(c, r, S.color(l.color || 'lithology.limestone'), 21) : Pores.grains(c, r, S.color(l.color || 'lithology.sand'), S.color(l.fluid || 'fluids.water'), l.film ? S.color('fluids.water') : null, 33), { cap: l.cap }); }
+      if (l) { const k = Math.min((t - b.t_start - (l.delay || 0.5)) / 0.5, (end - t) / 0.25), n = M.ids.indexOf(l.layer), q = Math.round(l.at * NX); if (k > 0 && n >= 0) lens(x, l.x, l.y, l.r, X(l.at), Y((M.bounds[n][q] + M.bounds[Math.max(0, n - 1)][q]) / 2), k, (c, r) => l.kind === 'crystals' ? Pores.crystals(c, r, S.color(l.color || 'lithology.limestone'), 21) : Pores.grains(c, r, S.color(l.color || 'lithology.sand'), S.color(l.fluid || 'fluids.water'), l.film ? S.color('fluids.water') : l.cement ? mix(S.color(l.color || 'lithology.sand'), '#f3efe6', 0.55) : null, 33, 0, { grow: l.cement ? lerp(l.cement[0], l.cement[1], smooth((t - b.t_start - 1) / Math.max(1, b.t_end - b.t_start - 1))) : 0, vug: l.vug ? lerp(l.vug[0], l.vug[1], smooth((t - b.t_start - 1) / Math.max(1, b.t_end - b.t_start - 1))) : 0 }), { cap: l.cap }); }
     });
     const n = ve < 1.15 ? 1 : ve < 10 ? Math.round(ve * 2) / 2 : Math.round(ve / 5) * 5;
     Stage.frameText(x, t, n === 1 ? 'истинный масштаб' : `высота увеличена × ${String(n).replace('.', ',')}`);

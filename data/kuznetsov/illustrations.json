@@ -79,15 +79,15 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Как отличить риф от холма и пласта»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "caption": "Анимация: риф растёт быстрее, чем копятся осадки вокруг, и возвышается над ними. 18 с, без звука.",
+   "alt": "Анимация к шагу «Как отличить риф от холма и пласта»: риф растёт быстрее, чем копятся осадки вокруг, и возвышается над ними",
+   "source": "стр. 201, 202; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.reef_proper#c1",
-    "kuznetsov.reef_proper#c2",
-    "kuznetsov.reef_proper#c3"
+    "kuznetsov.reef_proper#c2"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.reef_proper",
    "node_id": "kuznetsov.reef_proper"
   },
@@ -115,15 +115,17 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Два основных типа рифов»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: одиночный симметричный риф и рифовая система на перегибе дна. 17 с, без звука.",
+   "alt": "Анимация к шагу «Два основных типа рифов»: одиночный симметричный риф и рифовая система на перегибе дна",
+   "source": "стр. 201, 202; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.reef_types#c1",
     "kuznetsov.reef_types#c2",
-    "kuznetsov.reef_types#c3"
+    "kuznetsov.reef_types#c4",
+    "kuznetsov.reef_types#c5"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.reef_types",
    "node_id": "kuznetsov.reef_types"
   },
@@ -169,15 +171,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Риф больше чем наполовину из обломков»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: большая часть рифа — обломки, крупные обломки лежат на крутых склонах. 21 с, без звука.",
+   "alt": "Анимация к шагу «Риф больше чем наполовину из обломков»: большая часть рифа — обломки, крупные обломки лежат на крутых склонах",
+   "source": "стр. 202, 203; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.clastic_limestone#c1",
-    "kuznetsov.clastic_limestone#c2",
-    "kuznetsov.clastic_limestone#c3"
+    "kuznetsov.clastic_limestone#c3",
+    "kuznetsov.clastic_limestone#c4"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.clastic_limestone",
    "node_id": "kuznetsov.clastic_limestone"
   },
@@ -205,15 +208,15 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Почему породы рифа лежат зонами»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: зоны рифа: ядро, склоны, шлейф. 21 с, без звука.",
+   "alt": "Анимация к шагу «Почему породы рифа лежат зонами»: зоны рифа: ядро, склоны, шлейф",
+   "source": "стр. 203; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.reef_zonality#c1",
-    "kuznetsov.reef_zonality#c2",
-    "kuznetsov.reef_zonality#c3"
+    "kuznetsov.reef_zonality#c2"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.reef_zonality",
    "node_id": "kuznetsov.reef_zonality"
   },
@@ -295,15 +298,17 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Откуда в рифе берутся пустоты»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: первичные пустоты рифа: между остатками и внутри скелетов. 17 с, без звука.",
+   "alt": "Анимация к шагу «Откуда в рифе берутся пустоты»: первичные пустоты рифа: между остатками и внутри скелетов",
+   "source": "стр. 204, 205; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.primary_porosity#c1",
     "kuznetsov.primary_porosity#c2",
-    "kuznetsov.primary_porosity#c3"
+    "kuznetsov.primary_porosity#c3",
+    "kuznetsov.primary_porosity#c4"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.primary_porosity",
    "node_id": "kuznetsov.primary_porosity"
   },
@@ -330,14 +335,15 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 9 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Риф теряет пустоты, пока растёт»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: поры рифа сужаются ещё во время роста. 16 с, без звука.",
+   "alt": "Анимация к шагу «Риф теряет пустоты, пока растёт»: поры рифа сужаются ещё во время роста",
+   "source": "стр. 205; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.primary_loss#c1",
     "kuznetsov.primary_loss#c2"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.primary_loss",
    "node_id": "kuznetsov.primary_loss"
   },
@@ -365,15 +371,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Как вода создаёт в рифе каверны»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: риф выходит из моря, вода растворяет породу и создаёт каверны. 18 с, без звука.",
+   "alt": "Анимация к шагу «Как вода создаёт в рифе каверны»: риф выходит из моря, вода растворяет породу и создаёт каверны",
+   "source": "стр. 205; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.secondary_porosity#c1",
-    "kuznetsov.secondary_porosity#c2",
-    "kuznetsov.secondary_porosity#c3"
+    "kuznetsov.secondary_porosity#c3",
+    "kuznetsov.secondary_porosity#c4"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.secondary_porosity",
    "node_id": "kuznetsov.secondary_porosity"
   },
@@ -437,15 +444,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Один риф — пять групп коллекторов»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "caption": "Анимация: Рейнбоу «А»: газ 60 м, нефть 90 м, ядро и шлейф. 20 с, без звука.",
+   "alt": "Анимация к шагу «Один риф — пять групп коллекторов»: Рейнбоу «А»: газ 60 м, нефть 90 м, ядро и шлейф",
+   "source": "стр. 205, 206, 207; допущения: мощность рифа 225 м, газ 60 м и нефть 90 м по тексту; ширина рифа и покрышка условные",
    "claim_ids": [
     "kuznetsov.rainbow_a#c1",
     "kuznetsov.rainbow_a#c2",
     "kuznetsov.rainbow_a#c3"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.rainbow_a",
    "node_id": "kuznetsov.rainbow_a"
   },
@@ -473,15 +481,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «В крупном рифе лучшее — по краю»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: в атолле лучшие породы по краю, в лагуне хуже. 17 с, без звука.",
+   "alt": "Анимация к шагу «В крупном рифе лучшее — по краю»: в атолле лучшие породы по краю, в лагуне хуже",
+   "source": "стр. 207; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.atoll_reservoir#c1",
-    "kuznetsov.atoll_reservoir#c2",
-    "kuznetsov.atoll_reservoir#c3"
+    "kuznetsov.atoll_reservoir#c3",
+    "kuznetsov.atoll_reservoir#c5"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.atoll_reservoir",
    "node_id": "kuznetsov.atoll_reservoir"
   },
@@ -509,15 +518,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Почему край рифа даёт рекордные притоки»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: край рифа: высокие дебиты и трещины. 13 с, без звука.",
+   "alt": "Анимация к шагу «Почему край рифа даёт рекордные притоки»: край рифа: высокие дебиты и трещины",
+   "source": "стр. 207; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.edge_fractures#c1",
     "kuznetsov.edge_fractures#c2",
     "kuznetsov.edge_fractures#c3"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.edge_fractures",
    "node_id": "kuznetsov.edge_fractures"
   },
@@ -580,15 +590,18 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Один риф менял форму со временем»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "caption": "Анимация: Карачаганак: атолл внизу, купол сверху, коллектор меняет место. 22 с, без звука.",
+   "alt": "Анимация к шагу «Один риф менял форму со временем»: Карачаганак: атолл внизу, купол сверху, коллектор меняет место",
+   "source": "стр. 209; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм; проценты эффективной мощности по тексту",
    "claim_ids": [
     "kuznetsov.karachaganak_zones#c1",
     "kuznetsov.karachaganak_zones#c2",
-    "kuznetsov.karachaganak_zones#c3"
+    "kuznetsov.karachaganak_zones#c5",
+    "kuznetsov.karachaganak_zones#c6",
+    "kuznetsov.karachaganak_zones#c7"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.karachaganak_zones",
    "node_id": "kuznetsov.karachaganak_zones"
   },
@@ -634,15 +647,15 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Шуртан: коллектор движется вслед за гребнем»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "caption": "Анимация: Шуртан: зона лучших пород смещается вслед за гребнем. 21 с, без звука.",
+   "alt": "Анимация к шагу «Шуртан: коллектор движется вслед за гребнем»: Шуртан: зона лучших пород смещается вслед за гребнем",
+   "source": "стр. 209, 211; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм; сторона смещения гребня (к впадине) условная",
    "claim_ids": [
     "kuznetsov.system_reservoir#c1",
-    "kuznetsov.system_reservoir#c2",
-    "kuznetsov.system_reservoir#c3"
+    "kuznetsov.system_reservoir#c2"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.system_reservoir",
    "node_id": "kuznetsov.system_reservoir"
   },
@@ -706,15 +719,18 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Риф тонул, мелел и становился островом»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "caption": "Анимация: риф тонет, мелеет и становится островом, карст ложится слоями. 26 с, без звука.",
+   "alt": "Анимация к шагу «Риф тонул, мелел и становился островом»: риф тонет, мелеет и становится островом, карст ложится слоями",
+   "source": "стр. 209, 212, 214; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм; число циклов условное",
    "claim_ids": [
     "kuznetsov.layers_paleogeography#c1",
     "kuznetsov.layers_paleogeography#c2",
-    "kuznetsov.layers_paleogeography#c3"
+    "kuznetsov.layers_paleogeography#c3",
+    "kuznetsov.layers_paleogeography#c4",
+    "kuznetsov.layers_paleogeography#c5"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.layers_paleogeography",
    "node_id": "kuznetsov.layers_paleogeography"
   },
@@ -742,15 +758,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Коллектор в рифе лежит линзами»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: коллекторы в рифе лежат линзами и пластами. 21 с, без звука.",
+   "alt": "Анимация к шагу «Коллектор в рифе лежит линзами»: коллекторы в рифе лежат линзами и пластами",
+   "source": "стр. 208, 212, 213; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.layers_lens#c1",
-    "kuznetsov.layers_lens#c2",
-    "kuznetsov.layers_lens#c3"
+    "kuznetsov.layers_lens#c3",
+    "kuznetsov.layers_lens#c5"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.layers_lens",
    "node_id": "kuznetsov.layers_lens"
   },
@@ -778,15 +795,17 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 15 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Плотная пачка — ещё не перегородка»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: плотные пачки делят коллектор, но в них есть трещины. 21 с, без звука.",
+   "alt": "Анимация к шагу «Плотная пачка — ещё не перегородка»: плотные пачки делят коллектор, но в них есть трещины",
+   "source": "стр. 214; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.karachaganak_layers#c1",
     "kuznetsov.karachaganak_layers#c2",
-    "kuznetsov.karachaganak_layers#c3"
+    "kuznetsov.karachaganak_layers#c3",
+    "kuznetsov.karachaganak_layers#c4"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.karachaganak_layers",
    "node_id": "kuznetsov.karachaganak_layers"
   },
@@ -814,15 +833,17 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Как форма рифа управляет движением нефти»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: в атолле движение идёт по кольцу, в центре затруднено. 20 с, без звука.",
+   "alt": "Анимация к шагу «Как форма рифа управляет движением нефти»: в атолле движение идёт по кольцу, в центре затруднено",
+   "source": "стр. 214, 216; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
-    "kuznetsov.reservoir_flow#c1",
     "kuznetsov.reservoir_flow#c2",
-    "kuznetsov.reservoir_flow#c3"
+    "kuznetsov.reservoir_flow#c5",
+    "kuznetsov.reservoir_flow#c6",
+    "kuznetsov.reservoir_flow#c8"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.reservoir_flow",
    "node_id": "kuznetsov.reservoir_flow"
   },
@@ -850,15 +871,17 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Море ушло — и риф накрыло крышкой»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: море поднимается — растёт риф, море падает — его накрывает соль или глина. 25 с, без звука.",
+   "alt": "Анимация к шагу «Море ушло — и риф накрыло крышкой»: море поднимается — растёт риф, море падает — его накрывает соль или глина",
+   "source": "стр. 216; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
-    "kuznetsov.seal_formation#c1",
     "kuznetsov.seal_formation#c2",
-    "kuznetsov.seal_formation#c3"
+    "kuznetsov.seal_formation#c3",
+    "kuznetsov.seal_formation#c4",
+    "kuznetsov.seal_formation#c6"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.seal_formation",
    "node_id": "kuznetsov.seal_formation"
   },
@@ -921,15 +944,17 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «От чего зависит высота ловушки рифа»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "caption": "Анимация: высота ловушки: превышение рифа над соседями, а с непроницаемым соседом больше. 22 с, без звука.",
+   "alt": "Анимация к шагу «От чего зависит высота ловушки рифа»: высота ловушки: превышение рифа над соседями, а с непроницаемым соседом больше",
+   "source": "стр. 218; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.trap_height_single#c1",
     "kuznetsov.trap_height_single#c2",
-    "kuznetsov.trap_height_single#c3"
+    "kuznetsov.trap_height_single#c3",
+    "kuznetsov.trap_height_single#c4"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.trap_height_single",
    "node_id": "kuznetsov.trap_height_single"
   },
@@ -975,15 +1000,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Почему ловушка цепочки рифов низкая»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: у рифовой цепочки превышение над тылом мало, экран добавляет высоту. 22 с, без звука.",
+   "alt": "Анимация к шагу «Почему ловушка цепочки рифов низкая»: у рифовой цепочки превышение над тылом мало, экран добавляет высоту",
+   "source": "стр. 218; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм; слева зарифовая область, справа впадина",
    "claim_ids": [
     "kuznetsov.asym_traps#c1",
     "kuznetsov.asym_traps#c2",
     "kuznetsov.asym_traps#c3"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.asym_traps",
    "node_id": "kuznetsov.asym_traps"
   },
@@ -1011,15 +1037,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Когда складка поднимает готовый риф»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: складка поднимает готовый риф, ловушка растёт, при наклоне смещается. 18 с, без звука.",
+   "alt": "Анимация к шагу «Когда складка поднимает готовый риф»: складка поднимает готовый риф, ловушка растёт, при наклоне смещается",
+   "source": "стр. 218, 219; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.structural_traps#c1",
     "kuznetsov.structural_traps#c2",
     "kuznetsov.structural_traps#c3"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.structural_traps",
    "node_id": "kuznetsov.structural_traps"
   },
@@ -1064,15 +1091,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Какими бывают залежи в рифах»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: массивная залежь и висячая залежь с наклонным контактом. 18 с, без звука.",
+   "alt": "Анимация к шагу «Какими бывают залежи в рифах»: массивная залежь и висячая залежь с наклонным контактом",
+   "source": "стр. 219; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.reef_deposits#c1",
     "kuznetsov.reef_deposits#c2",
     "kuznetsov.reef_deposits#c3"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.reef_deposits",
    "node_id": "kuznetsov.reef_deposits"
   },
@@ -1100,15 +1128,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Какой высоты может быть залежь»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: предел высоты залежи зависит от типа ловушки. 14 с, без звука.",
+   "alt": "Анимация к шагу «Какой высоты может быть залежь»: предел высоты залежи зависит от типа ловушки",
+   "source": "стр. 219, 220; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
-    "kuznetsov.deposit_height#c1",
     "kuznetsov.deposit_height#c2",
-    "kuznetsov.deposit_height#c3"
+    "kuznetsov.deposit_height#c3",
+    "kuznetsov.deposit_height#c6"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.deposit_height",
    "node_id": "kuznetsov.deposit_height"
   },
@@ -1208,15 +1237,17 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Группа вторая: начни с края»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "caption": "Анимация: у атоллов лучшие зоны по краю: там и первые скважины. 17 с, без звука.",
+   "alt": "Анимация к шагу «Группа вторая: начни с края»: у атоллов лучшие зоны по краю: там и первые скважины",
+   "source": "стр. 220, 221; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
-    "kuznetsov.group_atoll#c1",
     "kuznetsov.group_atoll#c2",
-    "kuznetsov.group_atoll#c3"
+    "kuznetsov.group_atoll#c4",
+    "kuznetsov.group_atoll#c5",
+    "kuznetsov.group_atoll#c6"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.group_atoll",
    "node_id": "kuznetsov.group_atoll"
   },
@@ -1244,15 +1275,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Группа третья: сложны и ловушка, и резервуар»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: у рифовых цепочек лучшие породы в гребне и к фронту. 21 с, без звука.",
+   "alt": "Анимация к шагу «Группа третья: сложны и ловушка, и резервуар»: у рифовых цепочек лучшие породы в гребне и к фронту",
+   "source": "стр. 221; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм; слева зарифовая область, справа впадина",
    "claim_ids": [
-    "kuznetsov.group_asym#c1",
     "kuznetsov.group_asym#c2",
-    "kuznetsov.group_asym#c3"
+    "kuznetsov.group_asym#c4",
+    "kuznetsov.group_asym#c5"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.group_asym",
    "node_id": "kuznetsov.group_asym"
   },
@@ -1298,15 +1330,16 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
-   "alt": "Анимация: признаки → правило → вывод для шага «Где ловушка может протечь»; текст шага на экране",
-   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "caption": "Анимация: слабое место ловушки в тылу рифа, наклон его ослабляет. 18 с, без звука.",
+   "alt": "Анимация к шагу «Где ловушка может протечь»: слабое место ловушки в тылу рифа, наклон его ослабляет",
+   "source": "стр. 221; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм; слева зарифовая область, справа впадина",
    "claim_ids": [
     "kuznetsov.critical_direction#c1",
     "kuznetsov.critical_direction#c2",
     "kuznetsov.critical_direction#c3"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.critical_direction",
    "node_id": "kuznetsov.critical_direction"
   },
@@ -1334,15 +1367,17 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
-   "alt": "Анимация: утверждения шага по порядку для шага «Почему равномерная сетка скважин не годится»; текст шага на экране",
-   "source": "шаблон process_state; текст и страницы — из слоя",
+   "caption": "Анимация: равномерная сетка скважин плохо освещает объём массивной залежи. 18 с, без звука.",
+   "alt": "Анимация к шагу «Почему равномерная сетка скважин не годится»: равномерная сетка скважин плохо освещает объём массивной залежи",
+   "source": "стр. 221, 222; допущения: размеры, толщины и уровни моря условные, показано взаимное положение; обломки в лупе считаются по 5 мм",
    "claim_ids": [
     "kuznetsov.volume_grid#c1",
     "kuznetsov.volume_grid#c2",
-    "kuznetsov.volume_grid#c3"
+    "kuznetsov.volume_grid#c4",
+    "kuznetsov.volume_grid#c5"
    ],
    "prompt": null,
+   "scene": "strata",
    "step_id": "kuznetsov.volume_grid",
    "node_id": "kuznetsov.volume_grid"
   },

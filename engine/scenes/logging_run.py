@@ -58,7 +58,7 @@ class Frame:
         self.w, self.h = w, h
         sz = SG["safe_zone"]
         self.top, self.bottom, self.side = sz["top"], h - sz["bottom"], sz["side"]
-        self.y0, self.y1 = self.top + 120, self.bottom - 40  # область глубины
+        self.y0, self.y1 = self.top + 200, self.bottom - 40  # область глубины (под двумя строками подписей)
         self.bx0, self.bx1 = self.side, self.side + 230  # ствол и разрез
         self.tracks = []
         tx = self.bx1 + 60
@@ -73,6 +73,7 @@ class Frame:
         s, c = [], SG
         add = s.append
         add(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.w} {self.h}" width="{self.w}" height="{self.h}" '
+            f'style="max-width:100%;height:auto" '
             f'role="img" aria-label="Каротажный прибор на глубине {d:.0f} условных единиц; кривые построены до этой глубины">')
         add(f'<rect width="{self.w}" height="{self.h}" fill="{c["background"]}"/>')
         # метка происхождения (на самом кадре) и условность шкалы

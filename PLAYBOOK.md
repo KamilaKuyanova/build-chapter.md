@@ -31,8 +31,8 @@ python run.py add ГЛАВА "путь к файлу.md" en geology
 3. **Слой.** Открыть новую сессию Claude в папке проекта и написать: «Сделай слой главы ГЛАВА по PLAYBOOK.md». Claude повторяет, пока порции не кончатся: `python run.py next ГЛАВА` → прочитать `work/ГЛАВА/prompts/NN.md` → записать `work/ГЛАВА/answers/NN.json` → `python run.py build ГЛАВА` → исправить свои ошибки.
 4. **Домен** (только для главы другого домена): `python run.py domain ГЛАВА` → ответ в `work/ГЛАВА/domain_answer.json` → `python run.py domain-build ГЛАВА`. Время пишется само в `domains/time_log.csv`. Делать **до** слоя, чтобы заблуждения домена попали в узлы.
 5. **Задания:** `python run.py tasks ГЛАВА` → ответ в `work/ГЛАВА/tasks_answer.json` → `python run.py tasks-build ГЛАВА`.
-6. **Картинки:** `python engine/gen_illustrations.py --dir data/ГЛАВА`.
-7. **Курс:** `python run.py rebuild ГЛАВА`. Открыть `out/ГЛАВА/index.html`.
+6. **Курс:** `python run.py rebuild ГЛАВА`: слой попадает в `data/`, картинки и курс собираются сами. Открыть `out/ГЛАВА/index.html`.
+7. Просмотреть курс глазами новичка: путь, один шаг, задания.
 
 8. **Ролик на назначенный узел** (организаторы называют узел): `python run.py video ГЛАВА УЗЕЛ short` → прочитать `work/ГЛАВА/video_prompt.md` → ответ в `work/ГЛАВА/video_answer.json` → `python run.py video-build ГЛАВА preview` → посмотреть кадры `out/video/ID/preview_*.jpg` → `python run.py video-build ГЛАВА`. Рендер шортса около 3 минут, разбора около 8. Если нужен голос ElevenLabs, перед запуском в этом же окне задаётся `ELEVENLABS_API_KEY`; без ключа ролик выйдет голосом Windows. Если ни одна сцена не подходит, честный ответ «нужна новая» попадает в отчёт о покрытии.
 9. **Анимации остальных видеоузлов:** `python run.py anims ГЛАВА` → ответ в `work/ГЛАВА/anims_answer.json` → `python run.py anims-build ГЛАВА preview` → посмотреть `out/anim/ГЛАВА` → `python run.py anims-build ГЛАВА` (около 40 секунд на петлю, можно оставить считать). Без этого шага узлы получат простые текстовые петли.

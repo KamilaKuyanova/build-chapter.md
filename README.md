@@ -2,7 +2,14 @@
 
 Конвейер: **глава (md) → учебный слой (JSON) → маршрутизация → курс и ролики**. Курс собирается только из слоя. Форматы официальные (`schema/official/`). Требования ТЗ: `TZ-checklist.md`.
 
-Для слоя, проверки и сборки курса нужен только Python 3.10+. Для генератора заданий и озвучки: `pip install -r requirements.txt`.
+## Посмотреть курс
+
+```
+pip install -r requirements.txt
+python run.py course latyshova      # потом открыть out/latyshova/index.html
+```
+
+Для слоя и проверки хватает Python 3.10+. Для анимаций и роликов ещё нужны Node.js, Edge и FFmpeg. Видео в git не хранится, поэтому первая сборка главы рисует анимации заново (около 5 минут), следующие идут секунды. Ролики собираются отдельно: `python run.py rebuild latyshova video`. Курс открывается без интернета и сервера.
 
 ## Готовые слои
 
@@ -12,7 +19,7 @@
 | Басниев, гл. XXIII и XXIV §1 | 48 | `data/basniev/` |
 | Кузнецов, гл. 10 §10.1–10.4 | 41 | `data/kuznetsov/` |
 
-В каждой папке `layer.json`, `routing.json`, `coverage.json`. **Часть Б кладёт рядом `tasks.json` и `illustrations.json`** (сейчас там пустые заготовки), `step_id` — это id узла.
+В каждой папке `layer.json`, `routing.json`, `coverage.json`, `tasks.json`, `illustrations.json`; `step_id` — это id узла.
 
 ## Часть А: слой
 

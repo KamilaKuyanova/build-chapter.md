@@ -53,7 +53,22 @@ window.FACTS = {
    "scan": 28
   }
  ],
- "test": [],
+ "test": [
+  {
+   "id": "slatt",
+   "title": "Slatt, Stratigraphic Reservoir Characterization, §9.3 (конец) и §9.4",
+   "set": "test",
+   "lang": "en",
+   "domain": "geology",
+   "nodes": 10,
+   "claims": 37,
+   "tasks": 18,
+   "loops": 0,
+   "units": 50,
+   "covered": 50,
+   "scan": 1
+  }
+ ],
  "control": {
   "targets": 40,
   "errors": 21,
@@ -64,6 +79,7 @@ window.FACTS = {
  "videos": [
   {
    "id": "basniev_response",
+   "chapter": "basniev",
    "format": "long",
    "sec": 115.5,
    "check": {
@@ -105,6 +121,7 @@ window.FACTS = {
   },
   {
    "id": "latyshova_signs",
+   "chapter": "latyshova",
    "format": "short",
    "sec": 63.6,
    "check": {
@@ -147,5 +164,36 @@ window.FACTS = {
   "kuznetsov.group_atoll",
   "basniev.flow_profile",
   "kuznetsov.reef_deposits"
- ]
+ ],
+ "demo": {
+  "id": "latyshova_signs",
+  "chapter": "latyshova",
+  "format": "short",
+  "sec": 63.6,
+  "check": {
+   "voice": "onwK4e9ZLuTAKqWW03F9 (elevenlabs, облако, наружу уходит только текст сценария)",
+   "fallback_voice": "ru_RU-dmitri-medium (piper)",
+   "wpm": 131.3,
+   "lufs": -16.1,
+   "sync_max_s": 0.01,
+   "sync_note": "по меткам слов: от начала слота фразы до её первого слова и от последнего звука до конца слота",
+   "asr_wer": 0.024,
+   "asr_note": "faster-whisper small, локально; слов 123, расхождений 3; синхрон по услышанным словам, фраз 11 из 12",
+   "asr_errors": [
+    "излучение → излучения",
+    "у → —",
+    "песчаника → упещанника"
+   ],
+   "asr_terms_lost": [],
+   "asr_sync_s": 0.9,
+   "check_by_ear": [
+    "сопротивление",
+    "нейтронные",
+    "гамма-излучение",
+    "песчаник",
+    "известняк"
+   ]
+  },
+  "prediction": "Если в песчанике вместо солёной воды нефть, станет ли сопротивление максимальным?"
+ }
 };

@@ -54,9 +54,17 @@ def videos():
     out = []
     for p in sorted((ROOT / "videos").glob("*/passport.json")):
         d = load(p)
-        out.append({"id": d["video_id"], "format": d["format"], "sec": d["duration_sec"], "check": d.get("audio_check"),
-                    "prediction": d.get("prediction_question")})
+        ch = (d.get("node_id") or "").split(".")[0]
+        if (ROOT / "data" / ch / "media" / f'{d["video_id"]}.mp4').exists():
+            out.append({"id": d["video_id"], "chapter": ch, "format": d["format"], "sec": d["duration_sec"], "check": d.get("audio_check"),
+                        "prediction": d.get("prediction_question")})
     return out
+
+
+def demo_video(vids, test_ids):
+    """На слайд «Ролик»: шортс тестовой главы, если он уже есть, иначе шортс обучения."""
+    shorts = [v for v in vids if v["format"] == "short"]
+    return next((v for v in shorts if v["chapter"] in test_ids), shorts[0] if shorts else None)
 
 
 def media():
@@ -67,12 +75,14 @@ def media():
         print("нет ffmpeg: видео не подготовлены")
         return
     jobs = [(ROOT / "data" / n.split(".")[0] / "media" / f"anim_{n}.mp4", out / f"loop_{i:02d}.mp4", "scale=560:-2", "28", False) for i, n in enumerate(LOOPS)]
-    jobs.append((ROOT / "data/latyshova/media/latyshova_signs.mp4", out / "short.mp4", "scale=720:-2", "24", True))
+    d = demo_video(videos(), {c["id"] for c in load(ROOT / "chapters.json")["chapters"] if c.get("set") == "test"})
+    if d:
+        jobs.append((ROOT / "data" / d["chapter"] / "media" / f'{d["id"]}.mp4', out / "short.mp4", "scale=720:-2", "24", True))
     for src, dst, vf, crf, sound in jobs:
         if not src.exists():
             print("нет", src.relative_to(ROOT))
             continue
-        if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime:
+        if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime and dst.name != "short.mp4":
             continue
         subprocess.run([ff, "-v", "error", "-y", "-i", str(src), "-vf", vf, "-c:v", "libx264", "-crf", crf, "-pix_fmt", "yuv420p", "-movflags", "+faststart",
                         *(["-c:a", "aac", "-b:a", "128k"] if sound else ["-an"]), str(dst)], check=True)
@@ -113,6 +123,7 @@ def main():
     team = next((ln.split(":", 1)[1].strip() for ln in (ROOT / "MANIFEST.md").read_text(encoding="utf-8").splitlines() if ln.startswith("Команда:")), "")
     facts = {"team": "" if "ЗАПОЛНИТЬ" in team else team, "total": total, "train": train, "test": [c for c in ch if c["set"] == "test"],
              "control": CONTROL, "videos": videos(), "loops": LOOPS}
+    facts["demo"] = demo_video(facts["videos"], {c["id"] for c in facts["test"]})
     (HERE / "facts.js").write_text("window.FACTS = " + json.dumps(facts, ensure_ascii=False, indent=1) + ";\n", encoding="utf-8")
     print("facts.js:", total, "| тестовых глав:", len(facts["test"]))
     media()

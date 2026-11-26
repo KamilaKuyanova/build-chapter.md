@@ -1,0 +1,215 @@
+{
+ "chapter": "slatt",
+ "routes": [
+  {
+   "node_id": "slatt.clinoform_correlation",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 7 из 10: невидимое становится видимым, контринтуитивность"
+  },
+  {
+   "node_id": "slatt.mekong_example",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 6 из 10: изменение во времени; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "slatt.channel_switching",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "slatt.lowstand_deltas",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "slatt.delta_progradation",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 2,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 9 из 10: изменение во времени, невидимое становится видимым, скачок масштаба, причина и следствие"
+  },
+  {
+   "node_id": "slatt.delta_facies",
+   "format": "интерактив",
+   "secondary_format": "длинное видео",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "strata",
+   "why": "пространство; видеоёмкость 7 из 10: невидимое становится видимым, причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика; сделан ролик slatt_delta (длинное видео, шаблон strata)"
+  },
+  {
+   "node_id": "slatt.mouth_bar_permeability",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 6 из 10: причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "slatt.prudhoe_romeo",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section_views",
+   "why": "пространство; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "slatt.romeo_time_correlation",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 8 из 10: невидимое становится видимым, контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "slatt.sinusoidal_well",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section_views",
+   "why": "пространство; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "slatt.shale_barriers",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "section_views",
+   "why": "пространство; видеоёмкость 7 из 10: невидимое становится видимым, причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "slatt.shale_shield_wells",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "пространство; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "slatt.kuparuk_units",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "time_evolution",
+   "why": "в геологическое время; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "slatt.wave_dominated_delta",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: изменение во времени, причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  }
+ ]
+}

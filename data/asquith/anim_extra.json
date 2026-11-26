@@ -1,0 +1,103 @@
+{
+ "asquith.archie_sxo": [
+  {
+   "id": "asquith.archie_sxo.anim",
+   "file": "media/anim_asquith.archie_sxo.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: неглубокий зонд читает промытую зону у стенки, глубокий — нетронутый пласт; фильтрат вытесняет нефть у стенки. 19 с, без звука.",
+   "alt": "Анимация к шагу «Сколько воды у стенки скважины»: неглубокий зонд читает промытую зону у стенки, глубокий — нетронутый пласт; фильтрат вытесняет нефть у стенки",
+   "source": "стр. 127; допущения: значения кривых, толщины слоёв и глубина проникновения условные, показано направление изменения; соотношение кривых в нефтеносном пласте условное: в главе нет чисел для этого рисунка",
+   "claim_ids": [
+    "asquith.archie_sxo#c1",
+    "asquith.archie_sxo#c2",
+    "asquith.archie_sxo#c3",
+    "asquith.archie_sxo#c4"
+   ],
+   "prompt": null,
+   "scene": "log_run"
+  }
+ ],
+ "asquith.bvw_irreducible": [
+  {
+   "id": "asquith.bvw_irreducible.anim",
+   "file": "media/anim_asquith.bvw_irreducible.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: точки равного BVW лежат на одной гиперболе пористость — водонасыщенность; при неснижаемой водонасыщенности точки на ней, иначе разброс. 22 с, без звука.",
+   "alt": "Анимация к шагу «Объём воды и безводная добыча»: точки равного BVW лежат на одной гиперболе пористость — водонасыщенность; при неснижаемой водонасыщенности точки на ней, иначе разброс",
+   "source": "стр. 131; допущения: значения BVW кривых условные, показана форма: линия равного BVW — гипербола; разброс показан несколькими кривыми большего BVW",
+   "claim_ids": [
+    "asquith.bvw_irreducible#c1",
+    "asquith.bvw_irreducible#c2",
+    "asquith.bvw_irreducible#c3",
+    "asquith.bvw_irreducible#c4",
+    "asquith.bvw_irreducible#c5"
+   ],
+   "prompt": null,
+   "scene": "curve"
+  }
+ ],
+ "asquith.pickett_theory": [
+  {
+   "id": "asquith.pickett_theory.anim",
+   "file": "media/anim_asquith.pickett_theory.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: в логарифмических осях водоносные точки Арчи ложатся на прямую; сопротивление по горизонтали, пористость по вертикали. 21 с, без звука.",
+   "alt": "Анимация к шагу «Почему на графике Пиккетта прямая»: в логарифмических осях водоносные точки Арчи ложатся на прямую; сопротивление по горизонтали, пористость по вертикали",
+   "source": "стр. 132; допущения: Rw, a и значения показателя цементации условные; показана форма: в логарифмах водоносная линия прямая",
+   "claim_ids": [
+    "asquith.pickett_theory#c1",
+    "asquith.pickett_theory#c2",
+    "asquith.pickett_theory#c3",
+    "asquith.pickett_theory#c4",
+    "asquith.pickett_theory#c5"
+   ],
+   "prompt": null,
+   "scene": "curve"
+  }
+ ],
+ "asquith.pickett_matrix": [
+  {
+   "id": "asquith.pickett_matrix.anim",
+   "file": "media/anim_asquith.pickett_matrix.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: при верном значении матрицы водоносная линия прямая, при слишком большом или малом изгибается. 22 с, без звука.",
+   "alt": "Анимация к шагу «Подбор матрицы по прямизне линии»: при верном значении матрицы водоносная линия прямая, при слишком большом или малом изгибается",
+   "source": "стр. 132, 133; допущения: плотности, Rw и показатель цементации условные; модуль разности плотностей показан для наглядности формы; показана форма: при ошибке в матрице линия изгибается",
+   "claim_ids": [
+    "asquith.pickett_matrix#c1",
+    "asquith.pickett_matrix#c2",
+    "asquith.pickett_matrix#c3",
+    "asquith.pickett_matrix#c4",
+    "asquith.pickett_matrix#c5"
+   ],
+   "prompt": null,
+   "scene": "curve"
+  }
+ ],
+ "asquith.shaly_sand_models": [
+  {
+   "id": "asquith.shaly_sand_models.anim",
+   "file": "media/anim_asquith.shaly_sand_models.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему глина ломает формулу Арчи»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "asquith.shaly_sand_models#c1",
+    "asquith.shaly_sand_models#c2",
+    "asquith.shaly_sand_models#c3"
+   ],
+   "prompt": null
+  }
+ ]
+}

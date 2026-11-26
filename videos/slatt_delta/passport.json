@@ -1,0 +1,487 @@
+{
+ "video_id": "slatt_delta",
+ "node_id": "slatt.delta_facies",
+ "format": "long",
+ "node_card": {
+  "id": "slatt.delta_facies",
+  "title": "Main facies of a river-dominated delta",
+  "title_novice": "Где в дельте песок, а где глина",
+  "main": "Песчаные коллекторы речной дельты — отложения распределительных проток и устьевых баров. Заливы, марши и лагуны разделяют пески и дают глинистые барьеры. Фации узнают по укрупнению зерна вверх по разрезу, а в каротаже — по утонению и измельчению от оси канала.",
+  "chapter": "slatt"
+ },
+ "script": [
+  {
+   "text": "Скважина вскрыла речную дельту: внизу глина, вверху песок. Почему порода грубеет снизу вверх?",
+   "claim_id": "slatt.delta_facies#c3",
+   "on_screen": "Почему грубеет вверх?",
+   "t_start": 0.12,
+   "t_end": 7.88
+  },
+  {
+   "text": "Отмотаем назад. Эталоном речной дельты давно считают дельту Миссисипи.",
+   "claim_id": "slatt.delta_progradation#c1",
+   "on_screen": "Эталон: Миссисипи",
+   "t_start": 8.23,
+   "t_end": 13.13
+  },
+  {
+   "text": "Сильные волны и течения не доходят до её защищённого берега.",
+   "claim_id": "slatt.delta_progradation#c2",
+   "on_screen": "Волны слабые",
+   "t_start": 13.48,
+   "t_end": 17.7
+  },
+  {
+   "text": "Поэтому осадок у берега не разносится вдоль побережья, а копится у устья.",
+   "claim_id": "slatt.delta_progradation#c2",
+   "on_screen": "Осадок копится у устья",
+   "t_start": 18.05,
+   "t_end": 23.47
+  },
+  {
+   "text": "Песок откладывают распределительные протоки, то есть рукава реки, и устьевые бары у их концов.",
+   "claim_id": "slatt.delta_facies#c1",
+   "on_screen": "Протоки и устьевые бары",
+   "t_start": 23.82,
+   "t_end": 30.48
+  },
+  {
+   "text": "Между песками ложатся глины заливов и лагун: в недрах это глинистые барьеры.",
+   "claim_id": "slatt.delta_facies#c2",
+   "on_screen": "Глины между песками",
+   "t_start": 30.83,
+   "t_end": 36.18
+  },
+  {
+   "text": "Если места для осадка между дном и морем хватает, дельта наступает в сторону моря.",
+   "claim_id": "slatt.delta_progradation#c3",
+   "on_screen": "Дельта наступает",
+   "t_start": 36.53,
+   "t_end": 41.71
+  },
+  {
+   "text": "Вместе с ней к морю сдвигаются и её зоны: песок ложится всё дальше от берега.",
+   "claim_id": "slatt.delta_progradation#c3",
+   "on_screen": "Зоны сдвигаются к морю",
+   "t_start": 42.06,
+   "t_end": 47.26
+  },
+  {
+   "text": "Подумайте: скважина стоит на месте, а дельта идёт к морю. Что ляжет поверх глины?",
+   "claim_id": "slatt.delta_facies#c3",
+   "on_screen": "Что ляжет поверх глины?",
+   "t_start": 47.61,
+   "t_end": 53.47
+  },
+  {
+   "text": "Песок бара. Зона бара пришла к скважине сверху, и разрез грубеет вверх.",
+   "claim_id": "slatt.delta_facies#c3",
+   "on_screen": "Сверху пришёл песок",
+   "t_start": 55.07,
+   "t_end": 60.19
+  },
+  {
+   "text": "Значит, укрупнение зерна вверх — след того, что дельта наступала на море.",
+   "claim_id": "slatt.delta_progradation#c3",
+   "on_screen": "След наступания",
+   "t_start": 60.54,
+   "t_end": 65.73
+  },
+  {
+   "text": "Именно по такому укрупнению вверх и набору текстур фации бара узнают в разрезе.",
+   "claim_id": "slatt.delta_facies#c3",
+   "on_screen": "Так узнают фацию",
+   "t_start": 66.08,
+   "t_end": 71.41
+  },
+  {
+   "text": "Теперь границы лопастей. Каждая — поверхность одного момента геологического времени.",
+   "claim_id": "slatt.delta_progradation#c4",
+   "on_screen": "Линии времени",
+   "t_start": 71.76,
+   "t_end": 77.95
+  },
+  {
+   "text": "Они идут наискосок и пересекают границы между песком и глиной.",
+   "claim_id": "slatt.delta_progradation#c4",
+   "on_screen": "Время режет фации",
+   "t_start": 78.3,
+   "t_end": 82.4
+  },
+  {
+   "text": "Но дельта сама себе мешает: наступая и нарастая вверх, она мелит воду.",
+   "claim_id": "slatt.delta_progradation#c5",
+   "on_screen": "Вода мелеет",
+   "t_start": 82.75,
+   "t_end": 89.01
+  },
+  {
+   "text": "Тогда река уходит туда, где глубже, и начинает новую лопасть в другом месте.",
+   "claim_id": "slatt.delta_progradation#c5",
+   "on_screen": "Река уходит глубже",
+   "t_start": 89.36,
+   "t_end": 94.58
+  },
+  {
+   "text": "За последние четыре тысячи шестьсот лет у Миссисипи так было не меньше восьми раз.",
+   "claim_id": "slatt.delta_progradation#c6",
+   "on_screen": "Не меньше восьми раз",
+   "t_start": 94.93,
+   "t_end": 100.29
+  },
+  {
+   "text": "В скважинах это видно в керне и на каротаже, а от оси канала отклик утоняется и мельчает.",
+   "claim_id": "slatt.delta_facies#c4",
+   "on_screen": "Керн и каротаж",
+   "t_start": 100.64,
+   "t_end": 107.74
+  },
+  {
+   "text": "Похоже на очередь, которая заполняет один сервер и переключается на свободный, только старая лопасть остаётся навсегда.",
+   "is_analogy": true,
+   "on_screen": "Аналогия: переключение",
+   "t_start": 108.09,
+   "t_end": 116.03,
+   "claim_id": null
+  },
+  {
+   "text": "Итак: протоки и бары дают песок, дельта наступает, и разрез грубеет вверх.",
+   "claim_id": "slatt.delta_facies#c1",
+   "on_screen": "Итог",
+   "t_start": 116.38,
+   "t_end": 122.82
+  },
+  {
+   "text": "Вопрос. Какую форму кривой искать на каротаже, чтобы найти в скважине наступающий бар?",
+   "claim_id": "slatt.delta_facies#c3",
+   "on_screen": "Какую кривую искать?",
+   "t_start": 123.17,
+   "t_end": 129.06
+  }
+ ],
+ "sources": [
+  {
+   "claim_id": "slatt.delta_facies#c1",
+   "page_or_dataset": "стр. 411",
+   "quote": "Sandy reservoir facies are deposits of distributary channels and distributary mouth-bars."
+  },
+  {
+   "claim_id": "slatt.delta_facies#c2",
+   "page_or_dataset": "стр. 411",
+   "quote": "Interdistributary bays, marshes, and lagoons separate sandy facies and provide shale barriers in subsurface reservoirs, and sometimes, they provide hydrocarbon source rocks."
+  },
+  {
+   "claim_id": "slatt.delta_facies#c3",
+   "page_or_dataset": "стр. 413",
+   "quote": "facies can be recognized in outcrop by facies relationships and by a distinctive coarsening-upward grain size with a characteristic assemblage of sedimentary structures (Fig. 9.15)."
+  },
+  {
+   "claim_id": "slatt.delta_facies#c4",
+   "page_or_dataset": "стр. 413",
+   "quote": "In the subsurface, these same features can be identified in cores and on well logs, including a lateral thinning and fining log response away from the channel axis (Fig. 9.15)."
+  },
+  {
+   "claim_id": "slatt.delta_progradation#c1",
+   "page_or_dataset": "стр. 411",
+   "quote": "The Mississippi River Delta (Fig. 9.13) has long been considered the “type” river-dominated delta (Fig. 9.5)."
+  },
+  {
+   "claim_id": "slatt.delta_progradation#c2",
+   "page_or_dataset": "стр. 411",
+   "quote": "Strong waves and currents do not impinge upon its protected shoreline, so sediment deposited at and near the shore zone is not reworked or dispersed laterally (Figs. 9.4 and 9.7)."
+  },
+  {
+   "claim_id": "slatt.delta_progradation#c3",
+   "page_or_dataset": "стр. 411",
+   "quote": "With time and sufficient accommodation space between the sea surface and seafloor to accept sediment, such a delta will prograde seaward (Fig. 9.9), as will the delta zones (Fig. 9.7)."
+  },
+  {
+   "claim_id": "slatt.delta_progradation#c4",
+   "page_or_dataset": "стр. 411",
+   "quote": "By that process, surfaces representing instants in geologic time crosscut boundaries between sedimentary facies (see the time lines or clinoforms in Fig. 9.9)."
+  },
+  {
+   "claim_id": "slatt.delta_progradation#c5",
+   "page_or_dataset": "стр. 411",
+   "quote": "However, over time, progradation and vertical aggradation lead to a progressive shallowing of the water depth, to the point at which the main river(s) feeding sediment to its delta will shift toward deeper water (toward lower points on the seafloor), thereby causing the distributary-channel switching discussed earlier (Fig. 9.11)."
+  },
+  {
+   "claim_id": "slatt.delta_progradation#c6",
+   "page_or_dataset": "стр. 411",
+   "quote": "During the past 4600 years, there have been no fewer than eight periods of channel and lobe switching on the Mississippi River Delta (Fig. 9.12)."
+  }
+ ],
+ "scene_spec": "videos/slatt_delta/scene_spec.json",
+ "frames": [
+  {
+   "t": 0.12,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 8.23,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 13.48,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 18.05,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 23.82,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 30.83,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 36.53,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 42.06,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 47.61,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 55.07,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 60.54,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 66.08,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 71.76,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 78.3,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 82.75,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 89.36,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 94.93,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 100.64,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 108.09,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 116.38,
+   "class": "B",
+   "label": "схема"
+  },
+  {
+   "t": 123.17,
+   "class": "B",
+   "label": "схема"
+  }
+ ],
+ "exaggerations": [
+  "Высота преувеличена примерно в 80 раз: разрез 12 км в ширину и 60 м по высоте, точное число подписано в каждом кадре",
+  "Показаны 4 условных этапа наступания одной лопасти, это не 8 периодов переключения из главы"
+ ],
+ "references": [
+  "разрез: расчётная схема наступания дельты по тексту стр. 411 и фациям стр. 411–413; рисунки книги не копировались",
+  "подача: ролики организаторов (вопрос в первом кадре, один непрерывный разрез)"
+ ],
+ "prediction_question": "Скважина стоит на месте, а дельта идёт к морю. Что ляжет поверх глины?",
+ "transfer_question": "Какую форму кривой искать на каротаже, чтобы найти в скважине наступающий бар?",
+ "data_it_bridge": "Укрупнение вверх — шаблон формы каротажной кривой (например, гамма убывает вверх по разрезу), который можно искать в скважинах и размечать как кандидата в устьевой бар; подтверждает фацию геолог по керну и соседним скважинам.",
+ "physics_checklist": [
+  {
+   "item": "pc.layers_order",
+   "answer": "да",
+   "note": "лопасти накапливаются по очереди, молодые лежат на старых"
+  },
+  {
+   "item": "pc.fault_consistent",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.unconformity_event",
+   "answer": "н/п",
+   "note": "размыва в узле нет"
+  },
+  {
+   "item": "pc.fluids_in_pores",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.gas_oil_water",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.flow_high_to_low",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.causality",
+   "answer": "да",
+   "note": "сначала осадок копится у устья, потом дельта наступает, потом вода мелеет и река уходит"
+  },
+  {
+   "item": "pc.balance",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.views_consistent",
+   "answer": "да",
+   "note": "скважина и разрез берутся из одной модели при одной стадии"
+  },
+  {
+   "item": "pc.tool_mechanism",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.signal_vs_property",
+   "answer": "да",
+   "note": "голос говорит, что фацию узнают по керну и каротажу, то есть по признакам"
+  },
+  {
+   "item": "pc.applicability",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.curve_sync",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.plausible_numbers",
+   "answer": "да",
+   "note": "в голосе только числа главы: 4600 лет и восемь периодов"
+  },
+  {
+   "item": "pc.exaggeration_named",
+   "answer": "да",
+   "note": "вертикальное преувеличение подписано числом в каждом кадре"
+  },
+  {
+   "item": "pc.objects_stable",
+   "answer": "да",
+   "note": "скважина стоит на одном месте, границы лопастей считаются из стадий"
+  },
+  {
+   "item": "pc.objects_plausible",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.depth_down",
+   "answer": "да",
+   "note": "глубина растёт вниз, уровень моря отмечен"
+  },
+  {
+   "item": "pc.label_matches",
+   "answer": "да",
+   "note": "метка «схема»: размеры условные, рассчитаны кодом"
+  },
+  {
+   "item": "pc.modern_or_historic",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.hydrostatic",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.gas_closed_well",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.pit_gain",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  },
+  {
+   "item": "pc.well_construction",
+   "answer": "н/п",
+   "note": "к сцене не относится"
+  }
+ ],
+ "audio_check": {
+  "voice": "onwK4e9ZLuTAKqWW03F9 (elevenlabs, облако, наружу уходит только текст сценария)",
+  "fallback_voice": "ru_RU-dmitri-medium (piper)",
+  "wpm": 131.7,
+  "lufs": -16.2,
+  "sync_max_s": 0.01,
+  "sync_note": "по меткам слов: от начала слота фразы до её первого слова и от последнего звука до конца слота",
+  "asr_wer": 0.026,
+  "asr_note": "faster-whisper small, локально; слов 265, расхождений 7; синхрон по услышанным словам, фраз 21 из 21",
+  "asr_errors": [
+   "— → у",
+   "— → стива",
+   "устьевые → и",
+   "— → лопасти",
+   "лопастей → и",
+   "тысячи → —",
+   "миссисипи → мессисипе"
+  ],
+  "asr_terms_lost": [
+   "устьевые"
+  ],
+  "asr_sync_s": 0.19,
+  "check_by_ear": [
+   "Миссисипи",
+   "лопасть",
+   "устьевые",
+   "протоки",
+   "каротаже",
+   "фации"
+  ]
+ },
+ "duration_sec": 132.4
+}

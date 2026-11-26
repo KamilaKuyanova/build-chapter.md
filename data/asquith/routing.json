@@ -1,0 +1,680 @@
+{
+ "chapter": "asquith",
+ "routes": [
+  {
+   "node_id": "asquith.interpretation_goal",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "tool_and_curve",
+   "why": "косвенное измерение; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.log_scanning",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "asquith.archie_sw",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "asquith.archie_sxo",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 6 из 10: невидимое становится видимым, причина и следствие"
+  },
+  {
+   "node_id": "asquith.ratio_mhi",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "asquith.ratio_swr",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  },
+  {
+   "node_id": "asquith.swa_swr_compare",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  },
+  {
+   "node_id": "asquith.quicklook_overview",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.rxo_rt_quicklook",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "asquith.rxo_rt_basis",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.rwa_quicklook",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  },
+  {
+   "node_id": "asquith.rwa_basis",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.rwa_saturation",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  },
+  {
+   "node_id": "asquith.conductivity_porosity",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  },
+  {
+   "node_id": "asquith.conductivity_basis",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.wet_resistivity",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "asquith.bvw_irreducible",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 7 из 10: невидимое становится видимым, контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "asquith.buckles_plot",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "asquith.bvw_grain_size",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.saturation_crossplots",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.pickett_theory",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 6 из 10: невидимое становится видимым, контринтуитивность"
+  },
+  {
+   "node_id": "asquith.pickett_patterns",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "asquith.pickett_matrix",
+   "format": "длинное видео",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "step_procedure",
+   "why": "процедура; видеоёмкость 6 из 10: невидимое становится видимым, контринтуитивность, причина и следствие"
+  },
+  {
+   "node_id": "asquith.pickett_sw_lines",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  },
+  {
+   "node_id": "asquith.hingle_basis",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "asquith.hingle_patterns",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "asquith.hingle_parameters",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.hingle_sw_lines",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.crossplot_choice",
+   "format": "текст",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; движение ничего не добавит, видеоёмкость 1 из 10"
+  },
+  {
+   "node_id": "asquith.crossplot_comparison",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 2 из 10"
+  },
+  {
+   "node_id": "asquith.morrow_crossplot_data",
+   "format": "карточки",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.log_permeability_conditions",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 4 из 10"
+  },
+  {
+   "node_id": "asquith.wyllie_rose_timur",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.coates_dumanoir",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.shaly_sand_models",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "process_state",
+   "why": "механизм, процесс; видеоёмкость 6 из 10: невидимое становится видимым"
+  },
+  {
+   "node_id": "asquith.shale_effects",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "asquith.scanning_flowchart",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.interpretation_flowchart",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.buckles_examples",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "распознавание; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "asquith.pickett_example",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.pickett_example_sw",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.hingle_charts",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 1 из 10"
+  },
+  {
+   "node_id": "asquith.hingle_example_rw",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.hingle_example_sw",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "asquith.permeability_chart",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "процедура; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  }
+ ]
+}

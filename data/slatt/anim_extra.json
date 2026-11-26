@@ -1,0 +1,145 @@
+{
+ "slatt.clinoform_correlation": [
+  {
+   "id": "slatt.clinoform_correlation.anim",
+   "file": "media/anim_slatt.clinoform_correlation.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Линии времени режут пласты наискосок»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.clinoform_correlation#c1",
+    "slatt.clinoform_correlation#c2",
+    "slatt.clinoform_correlation#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "slatt.mekong_example": [
+  {
+   "id": "slatt.mekong_example.anim",
+   "file": "media/anim_slatt.mekong_example.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Пример дельты Меконга»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.mekong_example#c1",
+    "slatt.mekong_example#c2",
+    "slatt.mekong_example#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "slatt.channel_switching": [
+  {
+   "id": "slatt.channel_switching.anim",
+   "file": "media/anim_slatt.channel_switching.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 9 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Протоки дельты перескакивают»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.channel_switching#c1",
+    "slatt.channel_switching#c2"
+   ],
+   "prompt": null
+  }
+ ],
+ "slatt.delta_progradation": [
+  {
+   "id": "slatt.delta_progradation.anim",
+   "file": "media/anim_slatt.delta_progradation.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Как растёт речная дельта»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.delta_progradation#c1",
+    "slatt.delta_progradation#c2",
+    "slatt.delta_progradation#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "slatt.mouth_bar_permeability": [
+  {
+   "id": "slatt.mouth_bar_permeability.anim",
+   "file": "media/anim_slatt.mouth_bar_permeability.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Лучший песок — у устья протоки»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.mouth_bar_permeability#c1",
+    "slatt.mouth_bar_permeability#c2",
+    "slatt.mouth_bar_permeability#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "slatt.romeo_time_correlation": [
+  {
+   "id": "slatt.romeo_time_correlation.anim",
+   "file": "media/anim_slatt.romeo_time_correlation.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Корреляция по времени совпала с добычей»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.romeo_time_correlation#c1",
+    "slatt.romeo_time_correlation#c2",
+    "slatt.romeo_time_correlation#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "slatt.shale_barriers": [
+  {
+   "id": "slatt.shale_barriers.anim",
+   "file": "media/anim_slatt.shale_barriers.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Глины управляют потоком»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.shale_barriers#c1",
+    "slatt.shale_barriers#c2",
+    "slatt.shale_barriers#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "slatt.wave_dominated_delta": [
+  {
+   "id": "slatt.wave_dominated_delta.anim",
+   "file": "media/anim_slatt.wave_dominated_delta.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Дельта, которую причёсывают волны»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.wave_dominated_delta#c1",
+    "slatt.wave_dominated_delta#c2",
+    "slatt.wave_dominated_delta#c3"
+   ],
+   "prompt": null
+  }
+ ]
+}

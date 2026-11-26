@@ -1,0 +1,26 @@
+{
+ "basarygin.shutin_procedure": [
+  {
+   "id": "basarygin.shutin_procedure.video",
+   "file": "media/basarygin_kick.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Ролик (шортс 9:16, 68 с): Превентор закрывают сразу, пока долото бурит и насосы качают?",
+   "alt": "Ролик шортс 9:16 по шагу; субтитры включаются в плеере",
+   "source": "паспорт: videos/basarygin_kick/passport.json",
+   "claim_ids": [
+    "basarygin.pit_gain#c1",
+    "basarygin.pit_gain#c2",
+    "basarygin.shutin_balance#c1",
+    "basarygin.shutin_balance#c2",
+    "basarygin.shutin_balance#c4",
+    "basarygin.shutin_procedure#c2",
+    "basarygin.shutin_procedure#c3",
+    "basarygin.shutin_procedure#c4",
+    "basarygin.trip_fill#c3"
+   ],
+   "prompt": null
+  }
+ ]
+}

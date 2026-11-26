@@ -1,0 +1,172 @@
+{
+ "chapter": "basarygin",
+ "templates": {
+  "process_state": {
+   "type": "М",
+   "state": "номер стадии процесса s (непрерывно); величины — функции s",
+   "description": "Процесс как смена состояний с измеримыми величинами (М — механизм, процесс)."
+  },
+  "time_evolution": {
+   "type": "В",
+   "state": "время T; толщина каждого слоя и величина — функции T",
+   "description": "Накопление и преобразование толщи во времени (В — геологическое время)."
+  },
+  "tool_and_curve": {
+   "type": "И",
+   "state": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
+   "description": "Прибор идёт вдоль разреза и пишет кривые (И — косвенное измерение)."
+  },
+  "formula_explorer": {
+   "type": "Ф",
+   "state": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "description": "Формула как управляемая модель: синхронные виды из одного расчёта (Ф — формализм, модель)."
+  },
+  "section_views": {
+   "type": "П",
+   "state": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
+   "description": "Тело в пространстве: план и разрез из одной геометрии (П — пространство)."
+  },
+  "step_procedure": {
+   "type": "Пр",
+   "state": "номер шага k; пройденные шаги накапливаются",
+   "description": "Процедура специалиста по шагам, с накоплением (Пр — процедура)."
+  },
+  "decision_panel": {
+   "type": "Н",
+   "state": "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила",
+   "description": "Решение по правилу с неопределённостью (Н — неопределённость, решение)."
+  },
+  "compare_signs": {
+   "type": "Р",
+   "state": "число открытых признаков k; суммы баллов — функция k",
+   "description": "Распознавание по набору признаков (Р — распознавание): таблица «признак × вариант» с баллами."
+  }
+ },
+ "rows": [
+  {
+   "node_id": "basarygin.pit_gain",
+   "title": "Уровень в ёмкости растёт",
+   "type": "И",
+   "secondary": "Ф",
+   "format": "длинное видео",
+   "video_scores": 6,
+   "template": "tool_and_curve",
+   "state_model": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
+   "needs": "отклики прибора на породы/флюиды",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "basarygin.gas_not_cause",
+   "title": "Газ — признак, а не причина",
+   "type": "Ф",
+   "secondary": "М",
+   "format": "длинное видео",
+   "video_scores": 6,
+   "template": "formula_explorer",
+   "state_model": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "needs": "формула главы с параметром",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "basarygin.pump_pressure",
+   "title": "Что показывает давление насосов",
+   "type": "М",
+   "secondary": "Ф",
+   "format": "длинное видео",
+   "video_scores": 8,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "basarygin.shutin_balance",
+   "title": "Что происходит после закрытия",
+   "type": "М",
+   "secondary": "Ф",
+   "format": "длинное видео",
+   "video_scores": 8,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "basarygin.shutin_procedure",
+   "title": "Как закрывают скважину по шагам",
+   "type": "Пр",
+   "secondary": null,
+   "format": "практикум на данных",
+   "video_scores": 4,
+   "template": "wellbore",
+   "state_model": "забой, плотность и циркуляция раствора, положение газовой пачки; все давления по глубине вычисляются из них",
+   "needs": null,
+   "status": "закрывает: ролик",
+   "video": {
+    "video_id": "basarygin_kick",
+    "template": null,
+    "scene": "wellbore",
+    "format": "short"
+   },
+   "animation_in_course": false
+  },
+  {
+   "node_id": "basarygin.hard_vs_soft_shutin",
+   "title": "Закрыть быстро или плавно",
+   "type": "Пр",
+   "secondary": "Н",
+   "format": "длинное видео",
+   "video_scores": 6,
+   "template": "step_procedure",
+   "state_model": "номер шага k; пройденные шаги накапливаются",
+   "needs": "шаги процедуры по порядку",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "basarygin.drillers_method",
+   "title": "Глушение в два этапа",
+   "type": "Пр",
+   "secondary": "М",
+   "format": "практикум на данных",
+   "video_scores": 6,
+   "template": "step_procedure",
+   "state_model": "номер шага k; пройденные шаги накапливаются",
+   "needs": "шаги процедуры по порядку",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "basarygin.wait_and_weight",
+   "title": "Глушение за один этап",
+   "type": "Пр",
+   "secondary": "Ф",
+   "format": "практикум на данных",
+   "video_scores": 6,
+   "template": "step_procedure",
+   "state_model": "номер шага k; пройденные шаги накапливаются",
+   "needs": "шаги процедуры по порядку",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  }
+ ],
+ "summary": {
+  "video_nodes": 8,
+  "covered": 8,
+  "need_new": 0,
+  "videos_made": 1,
+  "animations_in_course": 7,
+  "uncovered_in_course": 0
+ }
+}

@@ -42,11 +42,16 @@ def chapter(spec):
     layer, tasks = load(d / "layer.json"), load(d / "tasks.json") if (d / "tasks.json").exists() else {"tasks": []}
     run = subprocess.run([sys.executable, "run.py", "check", spec["id"]], cwd=ROOT, capture_output=True, text=True, encoding="utf-8", env={**os.environ, "PYTHONUTF8": "1"})
     cov = re.search(r"покрытие (\d+)/(\d+)", run.stdout)  # тот же счёт, что у проверки конвейера
+    rows = load(d / "coverage.json") if (d / "coverage.json").exists() else []   # без рабочей папки считаем по отчёту покрытия
+    rows = rows.get("rows", []) if isinstance(rows, dict) else rows
+    need = [r for r in rows if r.get("kind") != "heading" or r.get("node_ids")]
+    done = [r for r in need if r.get("node_ids") or r.get("reason")]
     loops = load(d / "anim_scenes.json")["nodes"] if (d / "anim_scenes.json").exists() else {}
-    return {"id": spec["id"], "title": spec["title"], "set": spec["set"], "lang": spec.get("lang", "ru"), "domain": spec.get("domain", "geology"),
+    title = spec["title"] if spec["set"] != "test" else f'{spec["id"].capitalize()}: {spec["title"][:1] + spec["title"][1:].lower() if spec["title"].isupper() else spec["title"]}'
+    return {"id": spec["id"], "title": title, "set": spec["set"], "lang": spec.get("lang", "ru"), "domain": spec.get("domain", "geology"),
             "nodes": len(layer["nodes"]), "claims": sum(len(n["claims"]) for n in layer["nodes"]), "tasks": len(tasks["tasks"]),
             "loops": sum(1 for v in loops.values() if not v.get("need_new_scene")),
-            "units": int(cov.group(2)) if cov else 0, "covered": int(cov.group(1)) if cov else 0,
+            "units": int(cov.group(2)) if cov else len(need), "covered": int(cov.group(1)) if cov else len(done),
             "scan": len({(s.get("page"), s.get("what")) for n in layer["nodes"] for s in n.get("needs_scan", [])})}  # одно место в двух узлах считаем один раз
 
 

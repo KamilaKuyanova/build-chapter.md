@@ -55,18 +55,60 @@ window.FACTS = {
  ],
  "test": [
   {
-   "id": "slatt",
-   "title": "Slatt, Stratigraphic Reservoir Characterization, §9.3 (конец) и §9.4",
+   "id": "asquith",
+   "title": "Asquith: Log Interpretation",
    "set": "test",
    "lang": "en",
    "domain": "geology",
-   "nodes": 10,
-   "claims": 37,
+   "nodes": 45,
+   "claims": 198,
+   "tasks": 25,
+   "loops": 4,
+   "units": 306,
+   "covered": 306,
+   "scan": 23
+  },
+  {
+   "id": "dake",
+   "title": "Dake: Chapter 5",
+   "set": "test",
+   "lang": "en",
+   "domain": "geology",
+   "nodes": 25,
+   "claims": 89,
+   "tasks": 21,
+   "loops": 6,
+   "units": 167,
+   "covered": 167,
+   "scan": 9
+  },
+  {
+   "id": "slatt",
+   "title": "Slatt: 9.4 river-dominated delta deposits and reservoirs",
+   "set": "test",
+   "lang": "en",
+   "domain": "geology",
+   "nodes": 14,
+   "claims": 60,
    "tasks": 18,
    "loops": 0,
-   "units": 50,
-   "covered": 50,
-   "scan": 1
+   "units": 44,
+   "covered": 44,
+   "scan": 2
+  },
+  {
+   "id": "basarygin",
+   "title": "Basarygin: 4.1.1. признаки проявлений",
+   "set": "test",
+   "lang": "ru",
+   "domain": "drilling",
+   "nodes": 24,
+   "claims": 110,
+   "tasks": 18,
+   "loops": 0,
+   "units": 115,
+   "covered": 115,
+   "scan": 8
   }
  ],
  "control": {

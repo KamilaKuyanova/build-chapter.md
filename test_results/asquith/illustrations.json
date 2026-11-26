@@ -1,0 +1,1339 @@
+{
+ "chapter": "asquith",
+ "illustrations": [
+  {
+   "id": "asquith.interpretation_goal.i1",
+   "step_id": "asquith.interpretation_goal",
+   "node_id": "asquith.interpretation_goal",
+   "file": "illustrations/asquith.interpretation_goal.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Зачем интерпретировать каротаж» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Зачем интерпретировать каротаж» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.interpretation_goal#c1",
+    "asquith.interpretation_goal#c2",
+    "asquith.interpretation_goal#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.log_scanning.i1",
+   "step_id": "asquith.log_scanning",
+   "node_id": "asquith.log_scanning",
+   "file": "illustrations/asquith.log_scanning.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как быстро найти пласты-коллекторы» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как быстро найти пласты-коллекторы» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.log_scanning#c1",
+    "asquith.log_scanning#c2",
+    "asquith.log_scanning#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.log_scanning.i2",
+   "step_id": "asquith.log_scanning",
+   "node_id": "asquith.log_scanning",
+   "file": "illustrations/asquith.log_scanning.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как быстро найти пласты-коллекторы»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как быстро найти пласты-коллекторы»",
+   "source": null,
+   "claim_ids": [
+    "asquith.log_scanning#c1",
+    "asquith.log_scanning#c2",
+    "asquith.log_scanning#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.archie_sw.i1",
+   "step_id": "asquith.archie_sw",
+   "node_id": "asquith.archie_sw",
+   "file": "illustrations/asquith.archie_sw.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Сколько воды в порах пласта» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Сколько воды в порах пласта» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.archie_sw#c1",
+    "asquith.archie_sw#c2",
+    "asquith.archie_sw#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.archie_sw.i2",
+   "step_id": "asquith.archie_sw",
+   "node_id": "asquith.archie_sw",
+   "file": "illustrations/asquith.archie_sw.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Сколько воды в порах пласта»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Сколько воды в порах пласта»",
+   "source": null,
+   "claim_ids": [
+    "asquith.archie_sw#c1",
+    "asquith.archie_sw#c2",
+    "asquith.archie_sw#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.archie_sxo.i1",
+   "step_id": "asquith.archie_sxo",
+   "node_id": "asquith.archie_sxo",
+   "file": "illustrations/asquith.archie_sxo.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Сколько воды у стенки скважины» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Сколько воды у стенки скважины» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.archie_sxo#c1",
+    "asquith.archie_sxo#c2",
+    "asquith.archie_sxo#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.archie_sxo.i2",
+   "step_id": "asquith.archie_sxo",
+   "node_id": "asquith.archie_sxo",
+   "file": "illustrations/asquith.archie_sxo.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Сколько воды у стенки скважины»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Сколько воды у стенки скважины»",
+   "source": null,
+   "claim_ids": [
+    "asquith.archie_sxo#c1",
+    "asquith.archie_sxo#c2",
+    "asquith.archie_sxo#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.archie_sxo.anim",
+   "file": "media/anim_asquith.archie_sxo.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: неглубокий зонд читает промытую зону у стенки, глубокий — нетронутый пласт; фильтрат вытесняет нефть у стенки. 19 с, без звука.",
+   "alt": "Анимация к шагу «Сколько воды у стенки скважины»: неглубокий зонд читает промытую зону у стенки, глубокий — нетронутый пласт; фильтрат вытесняет нефть у стенки",
+   "source": "стр. 127; допущения: значения кривых, толщины слоёв и глубина проникновения условные, показано направление изменения; соотношение кривых в нефтеносном пласте условное: в главе нет чисел для этого рисунка",
+   "claim_ids": [
+    "asquith.archie_sxo#c1",
+    "asquith.archie_sxo#c2",
+    "asquith.archie_sxo#c3",
+    "asquith.archie_sxo#c4"
+   ],
+   "prompt": null,
+   "scene": "log_run",
+   "step_id": "asquith.archie_sxo",
+   "node_id": "asquith.archie_sxo"
+  },
+  {
+   "id": "asquith.ratio_mhi.i1",
+   "step_id": "asquith.ratio_mhi",
+   "node_id": "asquith.ratio_mhi",
+   "file": "illustrations/asquith.ratio_mhi.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Подвижность нефти без пористости» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Подвижность нефти без пористости» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.ratio_mhi#c1",
+    "asquith.ratio_mhi#c2",
+    "asquith.ratio_mhi#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.ratio_mhi.i2",
+   "step_id": "asquith.ratio_mhi",
+   "node_id": "asquith.ratio_mhi",
+   "file": "illustrations/asquith.ratio_mhi.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Подвижность нефти без пористости»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Подвижность нефти без пористости»",
+   "source": null,
+   "claim_ids": [
+    "asquith.ratio_mhi#c1",
+    "asquith.ratio_mhi#c2",
+    "asquith.ratio_mhi#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.ratio_swr.i1",
+   "step_id": "asquith.ratio_swr",
+   "node_id": "asquith.ratio_swr",
+   "file": "illustrations/asquith.ratio_swr.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Водонасыщенность по отношению сопротивлений» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Водонасыщенность по отношению сопротивлений» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.ratio_swr#c1",
+    "asquith.ratio_swr#c2",
+    "asquith.ratio_swr#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.ratio_swr.i2",
+   "step_id": "asquith.ratio_swr",
+   "node_id": "asquith.ratio_swr",
+   "file": "illustrations/asquith.ratio_swr.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Водонасыщенность по отношению сопротивлений»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Водонасыщенность по отношению сопротивлений»",
+   "source": null,
+   "claim_ids": [
+    "asquith.ratio_swr#c1",
+    "asquith.ratio_swr#c2",
+    "asquith.ratio_swr#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.swa_swr_compare.i1",
+   "step_id": "asquith.swa_swr_compare",
+   "node_id": "asquith.swa_swr_compare",
+   "file": "illustrations/asquith.swa_swr_compare.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что значит расхождение двух Sw» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что значит расхождение двух Sw» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.swa_swr_compare#c1",
+    "asquith.swa_swr_compare#c2",
+    "asquith.swa_swr_compare#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.swa_swr_compare.i2",
+   "step_id": "asquith.swa_swr_compare",
+   "node_id": "asquith.swa_swr_compare",
+   "file": "illustrations/asquith.swa_swr_compare.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Что значит расхождение двух Sw»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Что значит расхождение двух Sw»",
+   "source": null,
+   "claim_ids": [
+    "asquith.swa_swr_compare#c1",
+    "asquith.swa_swr_compare#c2",
+    "asquith.swa_swr_compare#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.quicklook_overview.i1",
+   "step_id": "asquith.quicklook_overview",
+   "node_id": "asquith.quicklook_overview",
+   "file": "illustrations/asquith.quicklook_overview.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Быстрые флажки на нефть» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Быстрые флажки на нефть» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.quicklook_overview#c1",
+    "asquith.quicklook_overview#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.rxo_rt_quicklook.i1",
+   "step_id": "asquith.rxo_rt_quicklook",
+   "node_id": "asquith.rxo_rt_quicklook",
+   "file": "illustrations/asquith.rxo_rt_quicklook.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Отношение Rxo/Rt рядом с ПС» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Отношение Rxo/Rt рядом с ПС» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.rxo_rt_quicklook#c1",
+    "asquith.rxo_rt_quicklook#c2",
+    "asquith.rxo_rt_quicklook#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.rxo_rt_quicklook.i2",
+   "step_id": "asquith.rxo_rt_quicklook",
+   "node_id": "asquith.rxo_rt_quicklook",
+   "file": "illustrations/asquith.rxo_rt_quicklook.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Отношение Rxo/Rt рядом с ПС»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Отношение Rxo/Rt рядом с ПС»",
+   "source": null,
+   "claim_ids": [
+    "asquith.rxo_rt_quicklook#c1",
+    "asquith.rxo_rt_quicklook#c2",
+    "asquith.rxo_rt_quicklook#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.rxo_rt_basis.i1",
+   "step_id": "asquith.rxo_rt_basis",
+   "node_id": "asquith.rxo_rt_basis",
+   "file": "illustrations/asquith.rxo_rt_basis.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему Rxo/Rt похоже на ПС» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему Rxo/Rt похоже на ПС» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.rxo_rt_basis#c1",
+    "asquith.rxo_rt_basis#c2",
+    "asquith.rxo_rt_basis#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.rwa_quicklook.i1",
+   "step_id": "asquith.rwa_quicklook",
+   "node_id": "asquith.rwa_quicklook",
+   "file": "illustrations/asquith.rwa_quicklook.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Кажущееся сопротивление воды» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Кажущееся сопротивление воды» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.rwa_quicklook#c1",
+    "asquith.rwa_quicklook#c2",
+    "asquith.rwa_quicklook#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.rwa_quicklook.i2",
+   "step_id": "asquith.rwa_quicklook",
+   "node_id": "asquith.rwa_quicklook",
+   "file": "illustrations/asquith.rwa_quicklook.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Кажущееся сопротивление воды»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Кажущееся сопротивление воды»",
+   "source": null,
+   "claim_ids": [
+    "asquith.rwa_quicklook#c1",
+    "asquith.rwa_quicklook#c2",
+    "asquith.rwa_quicklook#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.rwa_basis.i1",
+   "step_id": "asquith.rwa_basis",
+   "node_id": "asquith.rwa_basis",
+   "file": "illustrations/asquith.rwa_basis.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Откуда берётся формула Rwa» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Откуда берётся формула Rwa» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.rwa_basis#c1",
+    "asquith.rwa_basis#c2",
+    "asquith.rwa_basis#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.rwa_saturation.i1",
+   "step_id": "asquith.rwa_saturation",
+   "node_id": "asquith.rwa_saturation",
+   "file": "illustrations/asquith.rwa_saturation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Водонасыщенность по двум Rwa» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Водонасыщенность по двум Rwa» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.rwa_saturation#c1",
+    "asquith.rwa_saturation#c2",
+    "asquith.rwa_saturation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.rwa_saturation.i2",
+   "step_id": "asquith.rwa_saturation",
+   "node_id": "asquith.rwa_saturation",
+   "file": "illustrations/asquith.rwa_saturation.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Водонасыщенность по двум Rwa»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Водонасыщенность по двум Rwa»",
+   "source": null,
+   "claim_ids": [
+    "asquith.rwa_saturation#c1",
+    "asquith.rwa_saturation#c2",
+    "asquith.rwa_saturation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.conductivity_porosity.i1",
+   "step_id": "asquith.conductivity_porosity",
+   "node_id": "asquith.conductivity_porosity",
+   "file": "illustrations/asquith.conductivity_porosity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Пористость по сопротивлению» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Пористость по сопротивлению» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.conductivity_porosity#c1",
+    "asquith.conductivity_porosity#c2",
+    "asquith.conductivity_porosity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.conductivity_porosity.i2",
+   "step_id": "asquith.conductivity_porosity",
+   "node_id": "asquith.conductivity_porosity",
+   "file": "illustrations/asquith.conductivity_porosity.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Пористость по сопротивлению»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Пористость по сопротивлению»",
+   "source": null,
+   "claim_ids": [
+    "asquith.conductivity_porosity#c1",
+    "asquith.conductivity_porosity#c2",
+    "asquith.conductivity_porosity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.conductivity_basis.i1",
+   "step_id": "asquith.conductivity_basis",
+   "node_id": "asquith.conductivity_basis",
+   "file": "illustrations/asquith.conductivity_basis.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему нефть занижает такую пористость» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему нефть занижает такую пористость» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.conductivity_basis#c1",
+    "asquith.conductivity_basis#c2",
+    "asquith.conductivity_basis#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.wet_resistivity.i1",
+   "step_id": "asquith.wet_resistivity",
+   "node_id": "asquith.wet_resistivity",
+   "file": "illustrations/asquith.wet_resistivity.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Сопротивление, если бы была вода» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Сопротивление, если бы была вода» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.wet_resistivity#c1",
+    "asquith.wet_resistivity#c2",
+    "asquith.wet_resistivity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.wet_resistivity.i2",
+   "step_id": "asquith.wet_resistivity",
+   "node_id": "asquith.wet_resistivity",
+   "file": "illustrations/asquith.wet_resistivity.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Сопротивление, если бы была вода»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Сопротивление, если бы была вода»",
+   "source": null,
+   "claim_ids": [
+    "asquith.wet_resistivity#c1",
+    "asquith.wet_resistivity#c2",
+    "asquith.wet_resistivity#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.bvw_irreducible.i1",
+   "step_id": "asquith.bvw_irreducible",
+   "node_id": "asquith.bvw_irreducible",
+   "file": "illustrations/asquith.bvw_irreducible.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Объём воды и безводная добыча» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Объём воды и безводная добыча» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.bvw_irreducible#c1",
+    "asquith.bvw_irreducible#c2",
+    "asquith.bvw_irreducible#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.bvw_irreducible.i2",
+   "step_id": "asquith.bvw_irreducible",
+   "node_id": "asquith.bvw_irreducible",
+   "file": "illustrations/asquith.bvw_irreducible.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Объём воды и безводная добыча»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Объём воды и безводная добыча»",
+   "source": null,
+   "claim_ids": [
+    "asquith.bvw_irreducible#c1",
+    "asquith.bvw_irreducible#c2",
+    "asquith.bvw_irreducible#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.bvw_irreducible.anim",
+   "file": "media/anim_asquith.bvw_irreducible.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: точки равного BVW лежат на одной гиперболе пористость — водонасыщенность; при неснижаемой водонасыщенности точки на ней, иначе разброс. 22 с, без звука.",
+   "alt": "Анимация к шагу «Объём воды и безводная добыча»: точки равного BVW лежат на одной гиперболе пористость — водонасыщенность; при неснижаемой водонасыщенности точки на ней, иначе разброс",
+   "source": "стр. 131; допущения: значения BVW кривых условные, показана форма: линия равного BVW — гипербола; разброс показан несколькими кривыми большего BVW",
+   "claim_ids": [
+    "asquith.bvw_irreducible#c1",
+    "asquith.bvw_irreducible#c2",
+    "asquith.bvw_irreducible#c3",
+    "asquith.bvw_irreducible#c4",
+    "asquith.bvw_irreducible#c5"
+   ],
+   "prompt": null,
+   "scene": "curve",
+   "step_id": "asquith.bvw_irreducible",
+   "node_id": "asquith.bvw_irreducible"
+  },
+  {
+   "id": "asquith.buckles_plot.i1",
+   "step_id": "asquith.buckles_plot",
+   "node_id": "asquith.buckles_plot",
+   "file": "illustrations/asquith.buckles_plot.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «График пористость — водонасыщенность» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «График пористость — водонасыщенность» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.buckles_plot#c1",
+    "asquith.buckles_plot#c2",
+    "asquith.buckles_plot#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.buckles_plot.i2",
+   "step_id": "asquith.buckles_plot",
+   "node_id": "asquith.buckles_plot",
+   "file": "illustrations/asquith.buckles_plot.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «График пористость — водонасыщенность»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «График пористость — водонасыщенность»",
+   "source": null,
+   "claim_ids": [
+    "asquith.buckles_plot#c1",
+    "asquith.buckles_plot#c2",
+    "asquith.buckles_plot#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.bvw_grain_size.i1",
+   "step_id": "asquith.bvw_grain_size",
+   "node_id": "asquith.bvw_grain_size",
+   "file": "illustrations/asquith.bvw_grain_size.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Чем мельче зерно, тем больше воды» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Чем мельче зерно, тем больше воды» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.bvw_grain_size#c1",
+    "asquith.bvw_grain_size#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.saturation_crossplots.i1",
+   "step_id": "asquith.saturation_crossplots",
+   "node_id": "asquith.saturation_crossplots",
+   "file": "illustrations/asquith.saturation_crossplots.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Графики вместо расчёта по Арчи» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Графики вместо расчёта по Арчи» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.saturation_crossplots#c1",
+    "asquith.saturation_crossplots#c2",
+    "asquith.saturation_crossplots#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.pickett_theory.i1",
+   "step_id": "asquith.pickett_theory",
+   "node_id": "asquith.pickett_theory",
+   "file": "illustrations/asquith.pickett_theory.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему на графике Пиккетта прямая» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему на графике Пиккетта прямая» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.pickett_theory#c1",
+    "asquith.pickett_theory#c2",
+    "asquith.pickett_theory#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.pickett_theory.anim",
+   "file": "media/anim_asquith.pickett_theory.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: в логарифмических осях водоносные точки Арчи ложатся на прямую; сопротивление по горизонтали, пористость по вертикали. 21 с, без звука.",
+   "alt": "Анимация к шагу «Почему на графике Пиккетта прямая»: в логарифмических осях водоносные точки Арчи ложатся на прямую; сопротивление по горизонтали, пористость по вертикали",
+   "source": "стр. 132; допущения: Rw, a и значения показателя цементации условные; показана форма: в логарифмах водоносная линия прямая",
+   "claim_ids": [
+    "asquith.pickett_theory#c1",
+    "asquith.pickett_theory#c2",
+    "asquith.pickett_theory#c3",
+    "asquith.pickett_theory#c4",
+    "asquith.pickett_theory#c5"
+   ],
+   "prompt": null,
+   "scene": "curve",
+   "step_id": "asquith.pickett_theory",
+   "node_id": "asquith.pickett_theory"
+  },
+  {
+   "id": "asquith.pickett_patterns.i1",
+   "step_id": "asquith.pickett_patterns",
+   "node_id": "asquith.pickett_patterns",
+   "file": "illustrations/asquith.pickett_patterns.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как читать график Пиккетта» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как читать график Пиккетта» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.pickett_patterns#c1",
+    "asquith.pickett_patterns#c2",
+    "asquith.pickett_patterns#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.pickett_patterns.i2",
+   "step_id": "asquith.pickett_patterns",
+   "node_id": "asquith.pickett_patterns",
+   "file": "illustrations/asquith.pickett_patterns.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как читать график Пиккетта»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как читать график Пиккетта»",
+   "source": null,
+   "claim_ids": [
+    "asquith.pickett_patterns#c1",
+    "asquith.pickett_patterns#c2",
+    "asquith.pickett_patterns#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.pickett_matrix.i1",
+   "step_id": "asquith.pickett_matrix",
+   "node_id": "asquith.pickett_matrix",
+   "file": "illustrations/asquith.pickett_matrix.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Подбор матрицы по прямизне линии» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Подбор матрицы по прямизне линии» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.pickett_matrix#c1",
+    "asquith.pickett_matrix#c2",
+    "asquith.pickett_matrix#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.pickett_matrix.i2",
+   "step_id": "asquith.pickett_matrix",
+   "node_id": "asquith.pickett_matrix",
+   "file": "illustrations/asquith.pickett_matrix.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Подбор матрицы по прямизне линии»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Подбор матрицы по прямизне линии»",
+   "source": null,
+   "claim_ids": [
+    "asquith.pickett_matrix#c1",
+    "asquith.pickett_matrix#c2",
+    "asquith.pickett_matrix#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.pickett_matrix.anim",
+   "file": "media/anim_asquith.pickett_matrix.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: при верном значении матрицы водоносная линия прямая, при слишком большом или малом изгибается. 22 с, без звука.",
+   "alt": "Анимация к шагу «Подбор матрицы по прямизне линии»: при верном значении матрицы водоносная линия прямая, при слишком большом или малом изгибается",
+   "source": "стр. 132, 133; допущения: плотности, Rw и показатель цементации условные; модуль разности плотностей показан для наглядности формы; показана форма: при ошибке в матрице линия изгибается",
+   "claim_ids": [
+    "asquith.pickett_matrix#c1",
+    "asquith.pickett_matrix#c2",
+    "asquith.pickett_matrix#c3",
+    "asquith.pickett_matrix#c4",
+    "asquith.pickett_matrix#c5"
+   ],
+   "prompt": null,
+   "scene": "curve",
+   "step_id": "asquith.pickett_matrix",
+   "node_id": "asquith.pickett_matrix"
+  },
+  {
+   "id": "asquith.pickett_sw_lines.i1",
+   "step_id": "asquith.pickett_sw_lines",
+   "node_id": "asquith.pickett_sw_lines",
+   "file": "illustrations/asquith.pickett_sw_lines.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Линии водонасыщенности на графике» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Линии водонасыщенности на графике» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.pickett_sw_lines#c1",
+    "asquith.pickett_sw_lines#c2",
+    "asquith.pickett_sw_lines#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.pickett_sw_lines.i2",
+   "step_id": "asquith.pickett_sw_lines",
+   "node_id": "asquith.pickett_sw_lines",
+   "file": "illustrations/asquith.pickett_sw_lines.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Линии водонасыщенности на графике»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Линии водонасыщенности на графике»",
+   "source": null,
+   "claim_ids": [
+    "asquith.pickett_sw_lines#c1",
+    "asquith.pickett_sw_lines#c2",
+    "asquith.pickett_sw_lines#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_basis.i1",
+   "step_id": "asquith.hingle_basis",
+   "node_id": "asquith.hingle_basis",
+   "file": "illustrations/asquith.hingle_basis.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «График Хингла: прямые на особой сетке» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «График Хингла: прямые на особой сетке» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_basis#c1",
+    "asquith.hingle_basis#c2",
+    "asquith.hingle_basis#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_basis.i2",
+   "step_id": "asquith.hingle_basis",
+   "node_id": "asquith.hingle_basis",
+   "file": "illustrations/asquith.hingle_basis.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «График Хингла: прямые на особой сетке»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «График Хингла: прямые на особой сетке»",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_basis#c1",
+    "asquith.hingle_basis#c2",
+    "asquith.hingle_basis#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_patterns.i1",
+   "step_id": "asquith.hingle_patterns",
+   "node_id": "asquith.hingle_patterns",
+   "file": "illustrations/asquith.hingle_patterns.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как читать график Хингла» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как читать график Хингла» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_patterns#c1",
+    "asquith.hingle_patterns#c2",
+    "asquith.hingle_patterns#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_patterns.i2",
+   "step_id": "asquith.hingle_patterns",
+   "node_id": "asquith.hingle_patterns",
+   "file": "illustrations/asquith.hingle_patterns.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как читать график Хингла»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как читать график Хингла»",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_patterns#c1",
+    "asquith.hingle_patterns#c2",
+    "asquith.hingle_patterns#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_parameters.i1",
+   "step_id": "asquith.hingle_parameters",
+   "node_id": "asquith.hingle_parameters",
+   "file": "illustrations/asquith.hingle_parameters.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Rw и матрица по графику Хингла» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Rw и матрица по графику Хингла» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_parameters#c1",
+    "asquith.hingle_parameters#c2",
+    "asquith.hingle_parameters#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_sw_lines.i1",
+   "step_id": "asquith.hingle_sw_lines",
+   "node_id": "asquith.hingle_sw_lines",
+   "file": "illustrations/asquith.hingle_sw_lines.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Линии Sw на графике Хингла» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Линии Sw на графике Хингла» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_sw_lines#c1",
+    "asquith.hingle_sw_lines#c2",
+    "asquith.hingle_sw_lines#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.crossplot_choice.i1",
+   "step_id": "asquith.crossplot_choice",
+   "node_id": "asquith.crossplot_choice",
+   "file": "illustrations/asquith.crossplot_choice.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Пиккетт или Хингл» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Пиккетт или Хингл» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.crossplot_choice#c1",
+    "asquith.crossplot_choice#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.crossplot_comparison.i1",
+   "step_id": "asquith.crossplot_comparison",
+   "node_id": "asquith.crossplot_comparison",
+   "file": "illustrations/asquith.crossplot_comparison.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Сильные и слабые стороны кроссплотов» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Сильные и слабые стороны кроссплотов» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.crossplot_comparison#c1",
+    "asquith.crossplot_comparison#c2",
+    "asquith.crossplot_comparison#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.crossplot_comparison.i2",
+   "step_id": "asquith.crossplot_comparison",
+   "node_id": "asquith.crossplot_comparison",
+   "file": "illustrations/asquith.crossplot_comparison.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Сильные и слабые стороны кроссплотов»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Сильные и слабые стороны кроссплотов»",
+   "source": null,
+   "claim_ids": [
+    "asquith.crossplot_comparison#c1",
+    "asquith.crossplot_comparison#c2",
+    "asquith.crossplot_comparison#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.morrow_crossplot_data.i1",
+   "step_id": "asquith.morrow_crossplot_data",
+   "node_id": "asquith.morrow_crossplot_data",
+   "file": "illustrations/asquith.morrow_crossplot_data.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Данные примера для кроссплотов» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Данные примера для кроссплотов» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.morrow_crossplot_data#c1"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.log_permeability_conditions.i1",
+   "step_id": "asquith.log_permeability_conditions",
+   "node_id": "asquith.log_permeability_conditions",
+   "file": "illustrations/asquith.log_permeability_conditions.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Когда проницаемости по каротажу верить» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Когда проницаемости по каротажу верить» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.log_permeability_conditions#c1",
+    "asquith.log_permeability_conditions#c2",
+    "asquith.log_permeability_conditions#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.log_permeability_conditions.i2",
+   "step_id": "asquith.log_permeability_conditions",
+   "node_id": "asquith.log_permeability_conditions",
+   "file": "illustrations/asquith.log_permeability_conditions.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Когда проницаемости по каротажу верить»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Когда проницаемости по каротажу верить»",
+   "source": null,
+   "claim_ids": [
+    "asquith.log_permeability_conditions#c1",
+    "asquith.log_permeability_conditions#c2",
+    "asquith.log_permeability_conditions#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.wyllie_rose_timur.i1",
+   "step_id": "asquith.wyllie_rose_timur",
+   "node_id": "asquith.wyllie_rose_timur",
+   "file": "illustrations/asquith.wyllie_rose_timur.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Простые формулы проницаемости» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Простые формулы проницаемости» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.wyllie_rose_timur#c1",
+    "asquith.wyllie_rose_timur#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.coates_dumanoir.i1",
+   "step_id": "asquith.coates_dumanoir",
+   "node_id": "asquith.coates_dumanoir",
+   "file": "illustrations/asquith.coates_dumanoir.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Проницаемость с учётом плотности нефти» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Проницаемость с учётом плотности нефти» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.coates_dumanoir#c1",
+    "asquith.coates_dumanoir#c2",
+    "asquith.coates_dumanoir#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.shaly_sand_models.i1",
+   "step_id": "asquith.shaly_sand_models",
+   "node_id": "asquith.shaly_sand_models",
+   "file": "illustrations/asquith.shaly_sand_models.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему глина ломает формулу Арчи» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему глина ломает формулу Арчи» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.shaly_sand_models#c1",
+    "asquith.shaly_sand_models#c2",
+    "asquith.shaly_sand_models#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.shaly_sand_models.anim",
+   "file": "media/anim_asquith.shaly_sand_models.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Почему глина ломает формулу Арчи»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "asquith.shaly_sand_models#c1",
+    "asquith.shaly_sand_models#c2",
+    "asquith.shaly_sand_models#c3"
+   ],
+   "prompt": null,
+   "step_id": "asquith.shaly_sand_models",
+   "node_id": "asquith.shaly_sand_models"
+  },
+  {
+   "id": "asquith.shale_effects.i1",
+   "step_id": "asquith.shale_effects",
+   "node_id": "asquith.shale_effects",
+   "file": "illustrations/asquith.shale_effects.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как глина путает нефть с водой» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как глина путает нефть с водой» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.shale_effects#c1",
+    "asquith.shale_effects#c2",
+    "asquith.shale_effects#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.shale_effects.i2",
+   "step_id": "asquith.shale_effects",
+   "node_id": "asquith.shale_effects",
+   "file": "illustrations/asquith.shale_effects.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как глина путает нефть с водой»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как глина путает нефть с водой»",
+   "source": null,
+   "claim_ids": [
+    "asquith.shale_effects#c1",
+    "asquith.shale_effects#c2",
+    "asquith.shale_effects#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.scanning_flowchart.i1",
+   "step_id": "asquith.scanning_flowchart",
+   "node_id": "asquith.scanning_flowchart",
+   "file": "illustrations/asquith.scanning_flowchart.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Подписи к схеме просмотра» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Подписи к схеме просмотра» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.scanning_flowchart#c1",
+    "asquith.scanning_flowchart#c2",
+    "asquith.scanning_flowchart#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.interpretation_flowchart.i1",
+   "step_id": "asquith.interpretation_flowchart",
+   "node_id": "asquith.interpretation_flowchart",
+   "file": "illustrations/asquith.interpretation_flowchart.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Схема всей интерпретации» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Схема всей интерпретации» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.interpretation_flowchart#c1",
+    "asquith.interpretation_flowchart#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.buckles_examples.i1",
+   "step_id": "asquith.buckles_examples",
+   "node_id": "asquith.buckles_examples",
+   "file": "illustrations/asquith.buckles_examples.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Три скважины на графике Бакла» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Три скважины на графике Бакла» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.buckles_examples#c1",
+    "asquith.buckles_examples#c2",
+    "asquith.buckles_examples#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.buckles_examples.i2",
+   "step_id": "asquith.buckles_examples",
+   "node_id": "asquith.buckles_examples",
+   "file": "illustrations/asquith.buckles_examples.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Три скважины на графике Бакла»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Три скважины на графике Бакла»",
+   "source": null,
+   "claim_ids": [
+    "asquith.buckles_examples#c1",
+    "asquith.buckles_examples#c2",
+    "asquith.buckles_examples#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.pickett_example.i1",
+   "step_id": "asquith.pickett_example",
+   "node_id": "asquith.pickett_example",
+   "file": "illustrations/asquith.pickett_example.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Пример: Rw по графику Пиккетта» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Пример: Rw по графику Пиккетта» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.pickett_example#c1",
+    "asquith.pickett_example#c2",
+    "asquith.pickett_example#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.pickett_example_sw.i1",
+   "step_id": "asquith.pickett_example_sw",
+   "node_id": "asquith.pickett_example_sw",
+   "file": "illustrations/asquith.pickett_example_sw.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Пример: Sw точки на графике Пиккетта» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Пример: Sw точки на графике Пиккетта» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.pickett_example_sw#c1",
+    "asquith.pickett_example_sw#c2",
+    "asquith.pickett_example_sw#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_charts.i1",
+   "step_id": "asquith.hingle_charts",
+   "node_id": "asquith.hingle_charts",
+   "file": "illustrations/asquith.hingle_charts.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Готовые сетки Хингла» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Готовые сетки Хингла» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_charts#c1",
+    "asquith.hingle_charts#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_charts.i2",
+   "step_id": "asquith.hingle_charts",
+   "node_id": "asquith.hingle_charts",
+   "file": "illustrations/asquith.hingle_charts.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Готовые сетки Хингла»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Готовые сетки Хингла»",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_charts#c1",
+    "asquith.hingle_charts#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_example_rw.i1",
+   "step_id": "asquith.hingle_example_rw",
+   "node_id": "asquith.hingle_example_rw",
+   "file": "illustrations/asquith.hingle_example_rw.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Пример: матрица и Rw по Хинглу» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Пример: матрица и Rw по Хинглу» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_example_rw#c1",
+    "asquith.hingle_example_rw#c2",
+    "asquith.hingle_example_rw#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.hingle_example_sw.i1",
+   "step_id": "asquith.hingle_example_sw",
+   "node_id": "asquith.hingle_example_sw",
+   "file": "illustrations/asquith.hingle_example_sw.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Пример: Sw точки на графике Хингла» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Пример: Sw точки на графике Хингла» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.hingle_example_sw#c1",
+    "asquith.hingle_example_sw#c2",
+    "asquith.hingle_example_sw#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.permeability_chart.i1",
+   "step_id": "asquith.permeability_chart",
+   "node_id": "asquith.permeability_chart",
+   "file": "illustrations/asquith.permeability_chart.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Палетка проницаемости: пример» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Палетка проницаемости: пример» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "asquith.permeability_chart#c1",
+    "asquith.permeability_chart#c2",
+    "asquith.permeability_chart#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "asquith.permeability_chart.i2",
+   "step_id": "asquith.permeability_chart",
+   "node_id": "asquith.permeability_chart",
+   "file": "illustrations/asquith.permeability_chart.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Палетка проницаемости: пример»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Палетка проницаемости: пример»",
+   "source": null,
+   "claim_ids": [
+    "asquith.permeability_chart#c1",
+    "asquith.permeability_chart#c2",
+    "asquith.permeability_chart#c3"
+   ],
+   "prompt": null
+  }
+ ]
+}

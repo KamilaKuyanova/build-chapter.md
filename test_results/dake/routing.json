@@ -1,0 +1,380 @@
+{
+ "chapter": "dake",
+ "routes": [
+  {
+   "node_id": "dake.radial_equation_overview",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.radial_geometry_assumptions",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "пространство; есть признаки, правило и вывод, видеоёмкость 3 из 10"
+  },
+  {
+   "node_id": "dake.mass_balance_element",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.darcy_substitution",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.compressibility_to_pressure",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 4 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.nonlinearity_linearization",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 2 из 10"
+  },
+  {
+   "node_id": "dake.constant_terminal_rate",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.transient_condition",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 8 из 10: изменение во времени, невидимое становится видимым, причина и следствие"
+  },
+  {
+   "node_id": "dake.semi_steady_state",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 6 из 10: изменение во времени, причина и следствие"
+  },
+  {
+   "node_id": "dake.average_reservoir_pressure",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section_views",
+   "why": "пространство; видеоёмкость 6 из 10: невидимое становится видимым"
+  },
+  {
+   "node_id": "dake.steady_state",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.conditions_in_field",
+   "format": "практикум на данных",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "неопределённость, решение; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.chain_rule_expansion",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 1 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.diffusivity_equation_derivation",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.small_compressibility_check",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "dake.phi_c_product",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 1 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.diffusivity_heat_analogy",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 7 из 10: изменение во времени, невидимое становится видимым, контринтуитивность"
+  },
+  {
+   "node_id": "dake.pressure_decline_periods",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 6 из 10: изменение во времени, причина и следствие; в главе есть более видеоёмкие узлы, поэтому без ролика"
+  },
+  {
+   "node_id": "dake.hurst_van_everdingen_superposition",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.line_source_conditions",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 3 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.boltzmann_transformation",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 1 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.line_source_solution",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 2 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.exponential_integral",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "формализм, модель; есть признаки, правило и вывод, видеоёмкость 5 из 10"
+  },
+  {
+   "node_id": "dake.wellbore_pressure_transient",
+   "format": "интерактив",
+   "secondary_format": "текст",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 5 из 10, для ролика мало"
+  },
+  {
+   "node_id": "dake.interference_full_ei",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "formula_explorer",
+   "why": "формализм, модель; видеоёмкость 7 из 10: невидимое становится видимым, причина и следствие"
+  }
+ ]
+}

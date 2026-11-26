@@ -1,0 +1,673 @@
+{
+ "chapter": "dake",
+ "illustrations": [
+  {
+   "id": "dake.radial_equation_overview.i1",
+   "step_id": "dake.radial_equation_overview",
+   "node_id": "dake.radial_equation_overview",
+   "file": "illustrations/dake.radial_equation_overview.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Главное уравнение притока к скважине» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Главное уравнение притока к скважине» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.radial_equation_overview#c1",
+    "dake.radial_equation_overview#c2",
+    "dake.radial_equation_overview#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.radial_geometry_assumptions.i1",
+   "step_id": "dake.radial_geometry_assumptions",
+   "node_id": "dake.radial_geometry_assumptions",
+   "file": "illustrations/dake.radial_geometry_assumptions.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему поток к скважине считают радиальным» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему поток к скважине считают радиальным» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.radial_geometry_assumptions#c1",
+    "dake.radial_geometry_assumptions#c2",
+    "dake.radial_geometry_assumptions#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.radial_geometry_assumptions.i2",
+   "step_id": "dake.radial_geometry_assumptions",
+   "node_id": "dake.radial_geometry_assumptions",
+   "file": "illustrations/dake.radial_geometry_assumptions.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Почему поток к скважине считают радиальным»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Почему поток к скважине считают радиальным»",
+   "source": null,
+   "claim_ids": [
+    "dake.radial_geometry_assumptions#c1",
+    "dake.radial_geometry_assumptions#c2",
+    "dake.radial_geometry_assumptions#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.mass_balance_element.i1",
+   "step_id": "dake.mass_balance_element",
+   "node_id": "dake.mass_balance_element",
+   "file": "illustrations/dake.mass_balance_element.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Баланс массы в тонком кольце» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Баланс массы в тонком кольце» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.mass_balance_element#c1",
+    "dake.mass_balance_element#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.darcy_substitution.i1",
+   "step_id": "dake.darcy_substitution",
+   "node_id": "dake.darcy_substitution",
+   "file": "illustrations/dake.darcy_substitution.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Подставляем закон Дарси» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Подставляем закон Дарси» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.darcy_substitution#c1"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.compressibility_to_pressure.i1",
+   "step_id": "dake.compressibility_to_pressure",
+   "node_id": "dake.compressibility_to_pressure",
+   "file": "illustrations/dake.compressibility_to_pressure.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «От плотности к давлению через сжимаемость» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «От плотности к давлению через сжимаемость» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.compressibility_to_pressure#c1",
+    "dake.compressibility_to_pressure#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.nonlinearity_linearization.i1",
+   "step_id": "dake.nonlinearity_linearization",
+   "node_id": "dake.nonlinearity_linearization",
+   "file": "illustrations/dake.nonlinearity_linearization.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему уравнение надо упрощать» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему уравнение надо упрощать» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.nonlinearity_linearization#c1",
+    "dake.nonlinearity_linearization#c2",
+    "dake.nonlinearity_linearization#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.nonlinearity_linearization.i2",
+   "step_id": "dake.nonlinearity_linearization",
+   "node_id": "dake.nonlinearity_linearization",
+   "file": "illustrations/dake.nonlinearity_linearization.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Почему уравнение надо упрощать»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Почему уравнение надо упрощать»",
+   "source": null,
+   "claim_ids": [
+    "dake.nonlinearity_linearization#c1",
+    "dake.nonlinearity_linearization#c2",
+    "dake.nonlinearity_linearization#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.constant_terminal_rate.i1",
+   "step_id": "dake.constant_terminal_rate",
+   "node_id": "dake.constant_terminal_rate",
+   "file": "illustrations/dake.constant_terminal_rate.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Скважина работает с постоянным дебитом» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Скважина работает с постоянным дебитом» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.constant_terminal_rate#c1",
+    "dake.constant_terminal_rate#c2",
+    "dake.constant_terminal_rate#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.transient_condition.i1",
+   "step_id": "dake.transient_condition",
+   "node_id": "dake.transient_condition",
+   "file": "illustrations/dake.transient_condition.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Первые часы: пласт кажется бесконечным» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Первые часы: пласт кажется бесконечным» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.transient_condition#c1",
+    "dake.transient_condition#c2",
+    "dake.transient_condition#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.transient_condition.i2",
+   "step_id": "dake.transient_condition",
+   "node_id": "dake.transient_condition",
+   "file": "illustrations/dake.transient_condition.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Первые часы: пласт кажется бесконечным»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Первые часы: пласт кажется бесконечным»",
+   "source": null,
+   "claim_ids": [
+    "dake.transient_condition#c1",
+    "dake.transient_condition#c2",
+    "dake.transient_condition#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.transient_condition.anim",
+   "file": "media/anim_dake.transient_condition.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Анимация: после смены дебита воронка давления расходится от скважины, а до далёкой границы ещё не дошла. 21 с, без звука.",
+   "alt": "Анимация к шагу «Первые часы: пласт кажется бесконечным»: после смены дебита воронка давления расходится от скважины, а до далёкой границы ещё не дошла",
+   "source": "стр. 77; допущения: пьезопроводность 1 м²/с условная; масштаб давления условный, показана форма решения линейного источника (7.6)",
+   "claim_ids": [
+    "dake.transient_condition#c1",
+    "dake.transient_condition#c2",
+    "dake.transient_condition#c3",
+    "dake.transient_condition#c4",
+    "dake.transient_condition#c5"
+   ],
+   "prompt": null,
+   "scene": "curve",
+   "step_id": "dake.transient_condition",
+   "node_id": "dake.transient_condition"
+  },
+  {
+   "id": "dake.semi_steady_state.i1",
+   "step_id": "dake.semi_steady_state",
+   "node_id": "dake.semi_steady_state",
+   "file": "illustrations/dake.semi_steady_state.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Закрытая граница: давление падает равномерно» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Закрытая граница: давление падает равномерно» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.semi_steady_state#c1",
+    "dake.semi_steady_state#c2",
+    "dake.semi_steady_state#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.semi_steady_state.anim",
+   "file": "media/anim_dake.semi_steady_state.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: в закрытой ячейке профиль давления опускается целиком, сохраняя форму, а на границе остаётся пологим. 18 с, без звука.",
+   "alt": "Анимация к шагу «Закрытая граница: давление падает равномерно»: в закрытой ячейке профиль давления опускается целиком, сохраняя форму, а на границе остаётся пологим",
+   "source": "стр. 77; допущения: радиус ячейки принят за 1, скважина у левого края; давление и время условные; профиль — форма псевдоустановившегося режима",
+   "claim_ids": [
+    "dake.semi_steady_state#c1",
+    "dake.semi_steady_state#c2",
+    "dake.semi_steady_state#c3",
+    "dake.semi_steady_state#c4"
+   ],
+   "prompt": null,
+   "scene": "curve",
+   "step_id": "dake.semi_steady_state",
+   "node_id": "dake.semi_steady_state"
+  },
+  {
+   "id": "dake.average_reservoir_pressure.i1",
+   "step_id": "dake.average_reservoir_pressure",
+   "node_id": "dake.average_reservoir_pressure",
+   "file": "illustrations/dake.average_reservoir_pressure.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Среднее давление пласта по дебитам» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Среднее давление пласта по дебитам» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.average_reservoir_pressure#c1",
+    "dake.average_reservoir_pressure#c2",
+    "dake.average_reservoir_pressure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.average_reservoir_pressure.i2",
+   "step_id": "dake.average_reservoir_pressure",
+   "node_id": "dake.average_reservoir_pressure",
+   "file": "illustrations/dake.average_reservoir_pressure.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Среднее давление пласта по дебитам»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Среднее давление пласта по дебитам»",
+   "source": null,
+   "claim_ids": [
+    "dake.average_reservoir_pressure#c1",
+    "dake.average_reservoir_pressure#c2",
+    "dake.average_reservoir_pressure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.average_reservoir_pressure.anim",
+   "file": "media/anim_dake.average_reservoir_pressure.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: три скважины, у каждой своя область дренирования за границей без потока; среднее давление считают по дебитам. 21 с, без звука.",
+   "alt": "Анимация к шагу «Среднее давление пласта по дебитам»: три скважины, у каждой своя область дренирования за границей без потока; среднее давление считают по дебитам",
+   "source": "стр. 77, 78; допущения: размеры пласта, форма областей и расстановка скважин условные; показано только взаимное положение",
+   "claim_ids": [
+    "dake.average_reservoir_pressure#c1",
+    "dake.average_reservoir_pressure#c2",
+    "dake.average_reservoir_pressure#c3",
+    "dake.average_reservoir_pressure#c4"
+   ],
+   "prompt": null,
+   "scene": "plan",
+   "step_id": "dake.average_reservoir_pressure",
+   "node_id": "dake.average_reservoir_pressure"
+  },
+  {
+   "id": "dake.steady_state.i1",
+   "step_id": "dake.steady_state",
+   "node_id": "dake.steady_state",
+   "file": "illustrations/dake.steady_state.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Открытая граница: давление не меняется» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Открытая граница: давление не меняется» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.steady_state#c1",
+    "dake.steady_state#c2",
+    "dake.steady_state#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.conditions_in_field.i1",
+   "step_id": "dake.conditions_in_field",
+   "node_id": "dake.conditions_in_field",
+   "file": "illustrations/dake.conditions_in_field.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Идеальные режимы и реальный пласт» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Идеальные режимы и реальный пласт» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.conditions_in_field#c1",
+    "dake.conditions_in_field#c2",
+    "dake.conditions_in_field#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.chain_rule_expansion.i1",
+   "step_id": "dake.chain_rule_expansion",
+   "node_id": "dake.chain_rule_expansion",
+   "file": "illustrations/dake.chain_rule_expansion.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Раскрываем скобки в уравнении» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Раскрываем скобки в уравнении» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.chain_rule_expansion#c1",
+    "dake.chain_rule_expansion#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.diffusivity_equation_derivation.i1",
+   "step_id": "dake.diffusivity_equation_derivation",
+   "node_id": "dake.diffusivity_equation_derivation",
+   "file": "illustrations/dake.diffusivity_equation_derivation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Два допущения дают уравнение пьезопроводности» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Два допущения дают уравнение пьезопроводности» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.diffusivity_equation_derivation#c1",
+    "dake.diffusivity_equation_derivation#c2",
+    "dake.diffusivity_equation_derivation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.small_compressibility_check.i1",
+   "step_id": "dake.small_compressibility_check",
+   "node_id": "dake.small_compressibility_check",
+   "file": "illustrations/dake.small_compressibility_check.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Проверка: сжимаемость должна быть малой» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Проверка: сжимаемость должна быть малой» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.small_compressibility_check#c1",
+    "dake.small_compressibility_check#c2",
+    "dake.small_compressibility_check#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.small_compressibility_check.i2",
+   "step_id": "dake.small_compressibility_check",
+   "node_id": "dake.small_compressibility_check",
+   "file": "illustrations/dake.small_compressibility_check.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Проверка: сжимаемость должна быть малой»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Проверка: сжимаемость должна быть малой»",
+   "source": null,
+   "claim_ids": [
+    "dake.small_compressibility_check#c1",
+    "dake.small_compressibility_check#c2",
+    "dake.small_compressibility_check#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.phi_c_product.i1",
+   "step_id": "dake.phi_c_product",
+   "node_id": "dake.phi_c_product",
+   "file": "illustrations/dake.phi_c_product.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как правильно перемножать пористость и сжимаемость» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как правильно перемножать пористость и сжимаемость» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.phi_c_product#c1",
+    "dake.phi_c_product#c2",
+    "dake.phi_c_product#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.diffusivity_heat_analogy.i1",
+   "step_id": "dake.diffusivity_heat_analogy",
+   "node_id": "dake.diffusivity_heat_analogy",
+   "file": "illustrations/dake.diffusivity_heat_analogy.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Давление расплывается, как тепло» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Давление расплывается, как тепло» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.diffusivity_heat_analogy#c1",
+    "dake.diffusivity_heat_analogy#c2",
+    "dake.diffusivity_heat_analogy#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.diffusivity_heat_analogy.anim",
+   "file": "media/anim_dake.diffusivity_heat_analogy.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Анимация: одно и то же решение описывает расплывание давления в пласте и тепла в цилиндре. 17 с, без звука.",
+   "alt": "Анимация к шагу «Давление расплывается, как тепло»: одно и то же решение описывает расплывание давления в пласте и тепла в цилиндре",
+   "source": "стр. 79; допущения: пьезопроводность и температуропроводность условно равны 1 м²/с; масштаб условный, показана одинаковая форма решений",
+   "claim_ids": [
+    "dake.diffusivity_heat_analogy#c1",
+    "dake.diffusivity_heat_analogy#c2",
+    "dake.diffusivity_heat_analogy#c3"
+   ],
+   "prompt": null,
+   "scene": "curve",
+   "step_id": "dake.diffusivity_heat_analogy",
+   "node_id": "dake.diffusivity_heat_analogy"
+  },
+  {
+   "id": "dake.pressure_decline_periods.i1",
+   "step_id": "dake.pressure_decline_periods",
+   "node_id": "dake.pressure_decline_periods",
+   "file": "illustrations/dake.pressure_decline_periods.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Три периода падения давления в скважине» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Три периода падения давления в скважине» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.pressure_decline_periods#c1",
+    "dake.pressure_decline_periods#c2",
+    "dake.pressure_decline_periods#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.pressure_decline_periods.anim",
+   "file": "media/anim_dake.pressure_decline_periods.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация: забойное давление при постоянном дебите: сначала как в бесконечном пласте, потом граница сказывается, затем темп падения постоянен. 18 с, без звука.",
+   "alt": "Анимация к шагу «Три периода падения давления в скважине»: забойное давление при постоянном дебите: сначала как в бесконечном пласте, потом граница сказывается, затем темп падения постоянен",
+   "source": "стр. 87; допущения: время и давление условные; кривая схематична и показывает только смену трёх участков",
+   "claim_ids": [
+    "dake.pressure_decline_periods#c1",
+    "dake.pressure_decline_periods#c3",
+    "dake.pressure_decline_periods#c4",
+    "dake.pressure_decline_periods#c6"
+   ],
+   "prompt": null,
+   "scene": "curve",
+   "step_id": "dake.pressure_decline_periods",
+   "node_id": "dake.pressure_decline_periods"
+  },
+  {
+   "id": "dake.hurst_van_everdingen_superposition.i1",
+   "step_id": "dake.hurst_van_everdingen_superposition",
+   "node_id": "dake.hurst_van_everdingen_superposition",
+   "file": "illustrations/dake.hurst_van_everdingen_superposition.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Сложное полное решение и суперпозиция» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Сложное полное решение и суперпозиция» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.hurst_van_everdingen_superposition#c1",
+    "dake.hurst_van_everdingen_superposition#c2",
+    "dake.hurst_van_everdingen_superposition#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.line_source_conditions.i1",
+   "step_id": "dake.line_source_conditions",
+   "node_id": "dake.line_source_conditions",
+   "file": "illustrations/dake.line_source_conditions.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Скважина как тонкая линия» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Скважина как тонкая линия» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.line_source_conditions#c1",
+    "dake.line_source_conditions#c2",
+    "dake.line_source_conditions#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.boltzmann_transformation.i1",
+   "step_id": "dake.boltzmann_transformation",
+   "node_id": "dake.boltzmann_transformation",
+   "file": "illustrations/dake.boltzmann_transformation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Одна переменная вместо двух» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Одна переменная вместо двух» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.boltzmann_transformation#c1",
+    "dake.boltzmann_transformation#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.line_source_solution.i1",
+   "step_id": "dake.line_source_solution",
+   "node_id": "dake.line_source_solution",
+   "file": "illustrations/dake.line_source_solution.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Формула давления в любой точке и момент» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Формула давления в любой точке и момент» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.line_source_solution#c1",
+    "dake.line_source_solution#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.exponential_integral.i1",
+   "step_id": "dake.exponential_integral",
+   "node_id": "dake.exponential_integral",
+   "file": "illustrations/dake.exponential_integral.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Экспоненциальный интеграл и его упрощение» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Экспоненциальный интеграл и его упрощение» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.exponential_integral#c1",
+    "dake.exponential_integral#c2",
+    "dake.exponential_integral#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.exponential_integral.i2",
+   "step_id": "dake.exponential_integral",
+   "node_id": "dake.exponential_integral",
+   "file": "illustrations/dake.exponential_integral.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Экспоненциальный интеграл и его упрощение»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Экспоненциальный интеграл и его упрощение»",
+   "source": null,
+   "claim_ids": [
+    "dake.exponential_integral#c1",
+    "dake.exponential_integral#c2",
+    "dake.exponential_integral#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.wellbore_pressure_transient.i1",
+   "step_id": "dake.wellbore_pressure_transient",
+   "node_id": "dake.wellbore_pressure_transient",
+   "file": "illustrations/dake.wellbore_pressure_transient.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Давление в скважине растёт по логарифму» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Давление в скважине растёт по логарифму» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.wellbore_pressure_transient#c1",
+    "dake.wellbore_pressure_transient#c2",
+    "dake.wellbore_pressure_transient#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.interference_full_ei.i1",
+   "step_id": "dake.interference_full_ei",
+   "node_id": "dake.interference_full_ei",
+   "file": "illustrations/dake.interference_full_ei.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Далёкая скважина: нужна полная формула» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Далёкая скважина: нужна полная формула» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "dake.interference_full_ei#c1",
+    "dake.interference_full_ei#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.interference_full_ei.anim",
+   "file": "media/anim_dake.interference_full_ei.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Анимация: при больших x логарифмическое приближение расходится с полным экспоненциальным интегралом. 17 с, без звука.",
+   "alt": "Анимация к шагу «Далёкая скважина: нужна полная формула»: при больших x логарифмическое приближение расходится с полным экспоненциальным интегралом",
+   "source": "стр. 89; допущения: кривые рассчитаны по формулам главы: ei(x) и его логарифмическое приближение; диапазон x как на рис. 7.3",
+   "claim_ids": [
+    "dake.interference_full_ei#c1",
+    "dake.interference_full_ei#c2"
+   ],
+   "prompt": null,
+   "scene": "curve",
+   "step_id": "dake.interference_full_ei",
+   "node_id": "dake.interference_full_ei"
+  }
+ ]
+}

@@ -1,0 +1,616 @@
+{
+ "chapter": "dake",
+ "tasks": [
+  {
+   "id": "dake.radial_equation_overview.t1",
+   "type": "single",
+   "step_id": "dake.radial_equation_overview",
+   "claim_ids": [
+    "dake.radial_equation_overview#c2"
+   ],
+   "prompt": "Почему основное уравнение радиального течения (5.1) называют нелинейным?",
+   "explanation": "Автор прямо связывает нелинейность с тем, что коэффициенты обеих частей зависят от давления.",
+   "kind": "understanding",
+   "evidence": "Уравнение нелинейно, потому что коэффициенты в обеих частях зависят от давления.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Его коэффициенты сами зависят от давления",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Оно записано в радиальных, а не декартовых координатах",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Флюид в нём всегда считается газом",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Пласт в выводе принят неоднородным",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "dake.radial_geometry_assumptions.t1",
+   "type": "single",
+   "step_id": "dake.radial_geometry_assumptions",
+   "claim_ids": [
+    "dake.radial_geometry_assumptions#c5"
+   ],
+   "prompt": "Скважина вскрывает только верхнюю половину толщины однородного пласта. Что это значит для радиального уравнения главы?",
+   "explanation": "Полностью радиальный поток обеспечивается вскрытием всей толщины пласта (допущение б).",
+   "kind": "transfer",
+   "evidence": "Скважина вскрывает всю толщину пласта, что даёт полностью радиальный поток.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Поток остаётся полностью радиальным, раз пласт однороден",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Флюид пойдёт к скважине по пустому объёму над интервалом",
+     "misconception": "misc.reservoir_void"
+    },
+    {
+     "id": "o3",
+     "text": "Нарушено допущение о полном вскрытии, поток не полностью радиальный",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Надо перейти к декартовым решениям, ими промысловики пользуются чаще",
+     "misconception": null
+    }
+   ],
+   "answer": "o3"
+  },
+  {
+   "id": "dake.mass_balance_element.t1",
+   "type": "order",
+   "step_id": "dake.mass_balance_element",
+   "claim_ids": [
+    "dake.mass_balance_element#c1"
+   ],
+   "prompt": "Расставьте шаги вывода уравнения (5.1) в том порядке, в каком их делает автор.",
+   "explanation": "Сначала баланс массы (5.2), затем закон Дарси (5.3), затем сжимаемость (5.5) и итог (5.1).",
+   "kind": "understanding",
+   "evidence": "Вывод начинают с элемента объёма толщиной dr на расстоянии r от центра и закона сохранения массы.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Баланс массы для тонкого кольца толщиной dr",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Получение итогового уравнения (5.1)",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Замена производной плотности через сжимаемость",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Подстановка закона Дарси вместо расхода q",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o4",
+    "o3",
+    "o2"
+   ]
+  },
+  {
+   "id": "dake.compressibility_to_pressure.t1",
+   "type": "gap",
+   "step_id": "dake.compressibility_to_pressure",
+   "claim_ids": [
+    "dake.compressibility_to_pressure#c1"
+   ],
+   "prompt": "Производную плотности по времени выражают через производную давления, используя определение изотермической {{1}}.",
+   "explanation": "Определение изотермической сжимаемости даёт связь ∂ρ/∂t = cρ·∂p/∂t.",
+   "kind": "recall",
+   "evidence": "Производную плотности по времени выражают через производную давления, используя определение изотермической сжимаемости.",
+   "answer": [
+    "сжимаемости"
+   ]
+  },
+  {
+   "id": "dake.nonlinearity_linearization.t1",
+   "type": "single",
+   "step_id": "dake.nonlinearity_linearization",
+   "claim_ids": [
+    "dake.nonlinearity_linearization#c3"
+   ],
+   "prompt": "Нужно описать радиальный приток реального газа к скважине. Какой способ линеаризации уравнения (5.1) подходит по главе?",
+   "explanation": "Простая линеаризация годится для жидкостей малой и постоянной сжимаемости, а для реального газа нужен метод Кирхгофа.",
+   "kind": "transfer",
+   "evidence": "Простая линеаризация применима к жидкостям малой и постоянной сжимаемости, а для реального газа нужен метод Кирхгофа.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Простая линеаризация, если пласт однороден",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Интегральное преобразование Кирхгофа из главы 8",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Простая линеаризация раздела 5.4, ведь газ однофазный",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Никакой, газ даёт линейное уравнение сразу",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "dake.transient_condition.t1",
+   "type": "single",
+   "step_id": "dake.transient_condition",
+   "claim_ids": [
+    "dake.transient_condition#c3",
+    "dake.transient_condition#c4"
+   ],
+   "prompt": "В крупном пласте дебит скважины сменили и несколько часов записывали давление в скважине. Можно ли считать пласт бесконечным при анализе?",
+   "explanation": "Автор оговаривает: если пласт не очень мал, за несколько часов граница не скажется и пласт математически бесконечен.",
+   "kind": "transfer",
+   "evidence": "Пока действует условие, внешняя граница не влияет на отклик, и пласт выглядит бесконечным.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Да, если пласт не очень мал, граница за это время не скажется",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Да, всегда, даже в очень маленьком пласте",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Нет, давление мгновенно доходит до границы с постоянной скоростью",
+     "misconception": "misc.pressure_sound_speed"
+    },
+    {
+     "id": "o4",
+     "text": "Нет, бесконечным пласт считают только после влияния границы",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "dake.semi_steady_state.t1",
+   "type": "gap",
+   "step_id": "dake.semi_steady_state",
+   "claim_ids": [
+    "dake.semi_steady_state#c2"
+   ],
+   "prompt": "На непроницаемой внешней границе r = r_e градиент давления ∂p/∂r равен {{1}}.",
+   "explanation": "Сплошная «кирпичная стена» не пропускает флюид, поэтому по закону Дарси ∂p/∂r = 0 — уравнение (5.6).",
+   "kind": "recall",
+   "evidence": "Скважину считают окружённой непроницаемой «кирпичной стеной» на внешней границе.",
+   "answer": [
+    "нулю"
+   ]
+  },
+  {
+   "id": "dake.semi_steady_state.t2",
+   "type": "calc",
+   "step_id": "dake.semi_steady_state",
+   "claim_ids": [
+    "dake.semi_steady_state#c4"
+   ],
+   "prompt": "Скважина в псевдоустановившемся режиме: дебит q = 500 rb/сут, сжимаемость c = 10×10⁻⁶ 1/psi, дренируемый поровый объём V = 10 000 000 rb. Чему равна dp/dt по уравнению (5.9)?",
+   "explanation": "По (5.9) dp/dt = −q/(cV) = −500/(10×10⁻⁶·10⁷) = −5 psi/сут.",
+   "kind": "data",
+   "evidence": "Постоянную скорость падения давления дают материальный баланс и определение сжимаемости.",
+   "answer": -5,
+   "tolerance": 0.01,
+   "unit": "psi/сут"
+  },
+  {
+   "id": "dake.average_reservoir_pressure.t1",
+   "type": "calc",
+   "step_id": "dake.average_reservoir_pressure",
+   "claim_ids": [
+    "dake.average_reservoir_pressure#c3",
+    "dake.average_reservoir_pressure#c4"
+   ],
+   "prompt": "Пласт в псевдоустановившемся режиме, сжимаемость меняется мало. Скважина A: среднее давление области 3000 psi, дебит 200. Скважина B: 2800 psi, дебит 600. Найдите среднее давление пласта по (5.13).",
+   "explanation": "Среднее по дебитам: (3000·200 + 2800·600)/800 = 2850 psi.",
+   "kind": "data",
+   "evidence": "Если изменение сжимаемости мало, дебит области пропорционален её объёму пор.",
+   "answer": 2850,
+   "tolerance": 1,
+   "unit": "psi"
+  },
+  {
+   "id": "dake.average_reservoir_pressure.t2",
+   "type": "single",
+   "step_id": "dake.average_reservoir_pressure",
+   "claim_ids": [
+    "dake.average_reservoir_pressure#c3",
+    "dake.average_reservoir_pressure#c4"
+   ],
+   "prompt": "Почему в формуле среднего давления пласта объёмы областей V_i можно заменить дебитами q_i?",
+   "explanation": "Из (5.9) при постоянном dp/dt и малом изменении сжимаемости q_i ∝ V_i, а q_i измеряют постоянно.",
+   "kind": "understanding",
+   "evidence": "Если изменение сжимаемости мало, дебит области пропорционален её объёму пор.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Сжимаемость в пласте всегда строго постоянна",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Дебит пропорционален объёму при малом изменении сжимаемости, а дебиты регулярно измеряют",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "У всех скважин одинаковые области дренирования",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Дебиты точнее объёмов при любом режиме течения",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "dake.steady_state.t1",
+   "type": "multiple",
+   "step_id": "dake.steady_state",
+   "claim_ids": [
+    "dake.steady_state#c2",
+    "dake.steady_state#c3"
+   ],
+   "prompt": "Какие признаки соответствуют установившемуся условию (steady state) по главе?",
+   "explanation": "Установившийся режим — открытая граница, ∂p/∂t = 0, давление поддерживается притоком воды или закачкой.",
+   "kind": "data",
+   "evidence": "Принимают, что при постоянном дебите отбор точно уравновешен притоком через открытую границу.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Давление поддерживается притоком воды или закачкой",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Внешняя граница — непроницаемая «кирпичная стена»",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Давление нигде не меняется во времени",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Давление падает везде с одинаковой постоянной скоростью",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o3"
+   ]
+  },
+  {
+   "id": "dake.conditions_in_field.t1",
+   "type": "order",
+   "step_id": "dake.conditions_in_field",
+   "claim_ids": [
+    "dake.conditions_in_field#c4"
+   ],
+   "prompt": "Скважину остановили на ремонт, а затем снова пустили. Расставьте по времени, что происходит с течением в пласте.",
+   "explanation": "Автор пишет: после смены дебита бывает короткий неустановившийся период, а затем стабильный режим.",
+   "kind": "understanding",
+   "evidence": "После смены дебита скважины бывает короткий неустановившийся период, а затем стабильный режим.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Стабилизированное течение при новом распределении дебитов",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Короткий период неустановившегося течения",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Дебит скважины изменился",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o3",
+    "o2",
+    "o1"
+   ]
+  },
+  {
+   "id": "dake.small_compressibility_check.t1",
+   "type": "calc",
+   "step_id": "dake.small_compressibility_check",
+   "claim_ids": [
+    "dake.small_compressibility_check#c4"
+   ],
+   "prompt": "По (5.22) c_t = c_o·S_o + c_w·S_wc + c_f. Дано: c_o = 10, c_w = 3, c_f = 6 (в 10⁻⁶ 1/psi), S_wc = 0.2, нефть занимает остальные поры. Найдите c_t.",
+   "explanation": "c_t = 10·0.8 + 3·0.2 + 6 = 14.6 × 10⁻⁶ 1/psi, как у автора.",
+   "kind": "data",
+   "evidence": "При типичных значениях c_t равно 14.6 × 10⁻⁶ /psi, а cp равно 0.04, что удовлетворяет условию.",
+   "answer": 14.6,
+   "tolerance": 0.05,
+   "unit": "10⁻⁶ 1/psi"
+  },
+  {
+   "id": "dake.small_compressibility_check.t2",
+   "type": "single",
+   "step_id": "dake.small_compressibility_check",
+   "claim_ids": [
+    "dake.small_compressibility_check#c2",
+    "dake.small_compressibility_check#c5"
+   ],
+   "prompt": "Сжимаемость газа в первом приближении равна 1/p. Можно ли для такой системы применять простую линеаризацию отбрасыванием слагаемых?",
+   "explanation": "Простая линеаризация допустима только при cp ≪ 1, а для газа cp равно единице.",
+   "kind": "transfer",
+   "evidence": "Дранчук и Куон показали, что простую линеаризацию надо применять осторожно и только при очень малом произведении cp.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Да: для однофазного флюида cp всегда много меньше 1",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Да: сжимаемость газа меньше сжимаемости нефти",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Нет: произведение cp равно единице, нужна интегральная линеаризация",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Да: достаточно, чтобы сжимаемость была постоянной",
+     "misconception": null
+    }
+   ],
+   "answer": "o3"
+  },
+  {
+   "id": "dake.phi_c_product.t1",
+   "type": "single",
+   "step_id": "dake.phi_c_product",
+   "claim_ids": [
+    "dake.phi_c_product#c3"
+   ],
+   "prompt": "Произведение φc можно записать по (5.23) или по (5.24). Какое правило автор даёт для расчётов?",
+   "explanation": "Автор пишет, что значения (5.23) и (5.24) одинаковы, нужно лишь не смешивать отдельные множители.",
+   "kind": "understanding",
+   "evidence": "Произведения (5.23) и (5.24) равны, но смешивать отдельные множители из разных уравнений нельзя.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Произведения равны, но множители из разных записей смешивать нельзя",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Запись (5.24) всегда даёт большее значение φc",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Абсолютная и углеводородная пористость всегда равны",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Можно брать абсолютную пористость и сжимаемость из (5.24)",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "dake.diffusivity_heat_analogy.t1",
+   "type": "gap",
+   "step_id": "dake.diffusivity_heat_analogy",
+   "claim_ids": [
+    "dake.diffusivity_heat_analogy#c1"
+   ],
+   "prompt": "В уравнении (5.20) коэффициент k/φμc называют коэффициентом {{1}}.",
+   "explanation": "Уравнение (5.20) — радиальное уравнение пьезопроводности, k/φμc — коэффициент пьезопроводности.",
+   "kind": "recall",
+   "evidence": "Уравнение (5.20) — радиальное уравнение пьезопроводности, а k/φμc называют коэффициентом пьезопроводности.",
+   "answer": [
+    "пьезопроводности"
+   ]
+  },
+  {
+   "id": "dake.pressure_decline_periods.t1",
+   "type": "order",
+   "step_id": "dake.pressure_decline_periods",
+   "claim_ids": [
+    "dake.pressure_decline_periods#c2",
+    "dake.pressure_decline_periods#c4",
+    "dake.pressure_decline_periods#c6"
+   ],
+   "prompt": "Скважина внутри непроницаемой границы работает с постоянным дебитом. Расставьте периоды падения забойного давления по времени.",
+   "explanation": "Автор описывает именно эту смену: бесконечный пласт, влияние границы, затем стабилизированное течение.",
+   "kind": "understanding",
+   "evidence": "Сначала принимают, что граница дренирования не влияет на отклик давления в скважине, и наоборот.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Псевдоустановившийся период: скорость падения давления постоянна",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Неустановившийся период: пласт выглядит бесконечным",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Поздний неустановившийся период: граница начинает сказываться",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o2",
+    "o3",
+    "o1"
+   ]
+  },
+  {
+   "id": "dake.interference_full_ei.t1",
+   "type": "single",
+   "step_id": "dake.interference_full_ei",
+   "claim_ids": [
+    "dake.interference_full_ei#c2"
+   ],
+   "prompt": "Для удалённой наблюдательной скважины расчёт дал x = 0.3. Как найти экспоненциальный интеграл ei(x)?",
+   "explanation": "Приближение −ln(γx) верно только при x < 0.01, а для удалённой скважины используют полную форму (7.11).",
+   "kind": "transfer",
+   "evidence": "При записи отклика в удалённой скважине r велик, и приближение (7.9) уже не верно.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "По −ln(γx): приближение верно при любом x",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Считать ei(x) равным нулю, так как x мал",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Брать полный ei(x), например по графику рис. 7.3",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "По −ln x − 0.5772, так как x меньше единицы",
+     "misconception": null
+    }
+   ],
+   "answer": "o3"
+  },
+  {
+   "id": "dake.wellbore_pressure_transient.t1",
+   "type": "single",
+   "step_id": "dake.wellbore_pressure_transient",
+   "claim_ids": [
+    "dake.wellbore_pressure_transient#c4"
+   ],
+   "prompt": "По ранней записи забойного давления подобрали формулу (7.10). Что она говорит о площади дренирования скважины?",
+   "explanation": "В короткое время применимости (7.10) пласт выглядит бесконечным, поэтому зависимости от площади нет.",
+   "kind": "data",
+   "evidence": "Решение (7.10) не зависит от площади дренирования и положения скважины: в короткое время, когда оно применимо, пласт выглядит бесконечным.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Площадь равна πr_w², раз в формуле стоит r_w",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Ничего: в этот период формула не зависит от площади и границ",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Формула сразу даёт размер и форму пласта",
+     "misconception": "misc.model_knows"
+    },
+    {
+     "id": "o4",
+     "text": "Площадь задаёт скин-фактор S",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "dake.line_source_conditions.t1",
+   "type": "multiple",
+   "step_id": "dake.line_source_conditions",
+   "claim_ids": [
+    "dake.line_source_conditions#c4"
+   ],
+   "prompt": "Какие допущения главы 5 сохраняются в решении линейного источника?",
+   "explanation": "Автор сохраняет допущения главы 5: однородный изотропный пласт, полное вскрытие, постоянная вязкость, малая постоянная сжимаемость.",
+   "kind": "understanding",
+   "evidence": "Сохраняются допущения главы 5, поэтому решение применимо к течению недонасыщенной нефти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Флюид сильно сжимаемый",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Сжимаемость флюида мала и постоянна",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Пласт однороден и изотропен",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Скважина вскрывает только часть толщины",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o3",
+    "o2"
+   ]
+  },
+  {
+   "id": "dake.hurst_van_everdingen_superposition.t1",
+   "type": "gap",
+   "step_id": "dake.hurst_van_everdingen_superposition",
+   "claim_ids": [
+    "dake.hurst_van_everdingen_superposition#c5"
+   ],
+   "prompt": "Сложением решений при постоянном дебите — {{1}} — описывают отклик давления для любой последовательности дебитов.",
+   "explanation": "Суперпозиция таких решений — общий метод анализа любого испытания скважины.",
+   "kind": "recall",
+   "evidence": "Суперпозицией решений описывают отклик давления для любой последовательности дебитов; это общий метод анализа испытаний.",
+   "answer": [
+    "суперпозицией"
+   ]
+  }
+ ]
+}

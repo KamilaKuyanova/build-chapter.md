@@ -1,0 +1,854 @@
+{
+ "chapter": "basarygin",
+ "illustrations": [
+  {
+   "id": "basarygin.safety_measures.i1",
+   "step_id": "basarygin.safety_measures",
+   "node_id": "basarygin.safety_measures",
+   "file": "illustrations/basarygin.safety_measures.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что нужно для безопасного бурения» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что нужно для безопасного бурения» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.safety_measures#c1",
+    "basarygin.safety_measures#c2",
+    "basarygin.safety_measures#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.kick_signs.i1",
+   "step_id": "basarygin.kick_signs",
+   "node_id": "basarygin.kick_signs",
+   "file": "illustrations/basarygin.kick_signs.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как заметить приток в скважину» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как заметить приток в скважину» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.kick_signs#c1",
+    "basarygin.kick_signs#c2",
+    "basarygin.kick_signs#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.kick_signs.i2",
+   "step_id": "basarygin.kick_signs",
+   "node_id": "basarygin.kick_signs",
+   "file": "illustrations/basarygin.kick_signs.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как заметить приток в скважину»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как заметить приток в скважину»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.kick_signs#c1",
+    "basarygin.kick_signs#c2",
+    "basarygin.kick_signs#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.drilling_break.i1",
+   "step_id": "basarygin.drilling_break",
+   "node_id": "basarygin.drilling_break",
+   "file": "illustrations/basarygin.drilling_break.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Почему вдруг бурится быстрее» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Почему вдруг бурится быстрее» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.drilling_break#c1",
+    "basarygin.drilling_break#c2",
+    "basarygin.drilling_break#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.drilling_break.i2",
+   "step_id": "basarygin.drilling_break",
+   "node_id": "basarygin.drilling_break",
+   "file": "illustrations/basarygin.drilling_break.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Почему вдруг бурится быстрее»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Почему вдруг бурится быстрее»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.drilling_break#c1",
+    "basarygin.drilling_break#c2",
+    "basarygin.drilling_break#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.pit_gain.i1",
+   "step_id": "basarygin.pit_gain",
+   "node_id": "basarygin.pit_gain",
+   "file": "illustrations/basarygin.pit_gain.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Уровень в ёмкости растёт» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Уровень в ёмкости растёт» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.pit_gain#c1",
+    "basarygin.pit_gain#c2",
+    "basarygin.pit_gain#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.pit_gain.i2",
+   "step_id": "basarygin.pit_gain",
+   "node_id": "basarygin.pit_gain",
+   "file": "illustrations/basarygin.pit_gain.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Уровень в ёмкости растёт»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Уровень в ёмкости растёт»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.pit_gain#c1",
+    "basarygin.pit_gain#c2",
+    "basarygin.pit_gain#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.pit_gain.anim",
+   "file": "media/anim_basarygin.pit_gain.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Уровень в ёмкости растёт»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.pit_gain#c1",
+    "basarygin.pit_gain#c2",
+    "basarygin.pit_gain#c3"
+   ],
+   "prompt": null,
+   "step_id": "basarygin.pit_gain",
+   "node_id": "basarygin.pit_gain"
+  },
+  {
+   "id": "basarygin.pit_control.i1",
+   "step_id": "basarygin.pit_control",
+   "node_id": "basarygin.pit_control",
+   "file": "illustrations/basarygin.pit_control.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как настроить контроль уровня» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как настроить контроль уровня» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.pit_control#c1",
+    "basarygin.pit_control#c2",
+    "basarygin.pit_control#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.flow_out.i1",
+   "step_id": "basarygin.flow_out",
+   "node_id": "basarygin.flow_out",
+   "file": "illustrations/basarygin.flow_out.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Из скважины выходит больше, чем закачали» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Из скважины выходит больше, чем закачали» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.flow_out#c1",
+    "basarygin.flow_out#c2",
+    "basarygin.flow_out#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.flow_out.i2",
+   "step_id": "basarygin.flow_out",
+   "node_id": "basarygin.flow_out",
+   "file": "illustrations/basarygin.flow_out.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Из скважины выходит больше, чем закачали»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Из скважины выходит больше, чем закачали»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.flow_out#c1",
+    "basarygin.flow_out#c2",
+    "basarygin.flow_out#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_cut_sources.i1",
+   "step_id": "basarygin.gas_cut_sources",
+   "node_id": "basarygin.gas_cut_sources",
+   "file": "illustrations/basarygin.gas_cut_sources.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Откуда в растворе газ» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Откуда в растворе газ» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.gas_cut_sources#c1",
+    "basarygin.gas_cut_sources#c2",
+    "basarygin.gas_cut_sources#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_as_kick_sign.i1",
+   "step_id": "basarygin.gas_as_kick_sign",
+   "node_id": "basarygin.gas_as_kick_sign",
+   "file": "illustrations/basarygin.gas_as_kick_sign.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Когда газ в растворе — тревога» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Когда газ в растворе — тревога» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.gas_as_kick_sign#c1",
+    "basarygin.gas_as_kick_sign#c2",
+    "basarygin.gas_as_kick_sign#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_as_kick_sign.i2",
+   "step_id": "basarygin.gas_as_kick_sign",
+   "node_id": "basarygin.gas_as_kick_sign",
+   "file": "illustrations/basarygin.gas_as_kick_sign.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Когда газ в растворе — тревога»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Когда газ в растворе — тревога»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.gas_as_kick_sign#c1",
+    "basarygin.gas_as_kick_sign#c2",
+    "basarygin.gas_as_kick_sign#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_without_kick.i1",
+   "step_id": "basarygin.gas_without_kick",
+   "node_id": "basarygin.gas_without_kick",
+   "file": "illustrations/basarygin.gas_without_kick.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Газ, который не опасен» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Газ, который не опасен» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.gas_without_kick#c1",
+    "basarygin.gas_without_kick#c2",
+    "basarygin.gas_without_kick#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_not_cause.i1",
+   "step_id": "basarygin.gas_not_cause",
+   "node_id": "basarygin.gas_not_cause",
+   "file": "illustrations/basarygin.gas_not_cause.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Газ — признак, а не причина» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Газ — признак, а не причина» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.gas_not_cause#c1",
+    "basarygin.gas_not_cause#c2",
+    "basarygin.gas_not_cause#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_not_cause.i2",
+   "step_id": "basarygin.gas_not_cause",
+   "node_id": "basarygin.gas_not_cause",
+   "file": "illustrations/basarygin.gas_not_cause.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Газ — признак, а не причина»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Газ — признак, а не причина»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.gas_not_cause#c1",
+    "basarygin.gas_not_cause#c2",
+    "basarygin.gas_not_cause#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_not_cause.anim",
+   "file": "media/anim_basarygin.gas_not_cause.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Газ — признак, а не причина»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.gas_not_cause#c1",
+    "basarygin.gas_not_cause#c2",
+    "basarygin.gas_not_cause#c3"
+   ],
+   "prompt": null,
+   "step_id": "basarygin.gas_not_cause",
+   "node_id": "basarygin.gas_not_cause"
+  },
+  {
+   "id": "basarygin.pump_pressure.i1",
+   "step_id": "basarygin.pump_pressure",
+   "node_id": "basarygin.pump_pressure",
+   "file": "illustrations/basarygin.pump_pressure.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что показывает давление насосов» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что показывает давление насосов» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.pump_pressure#c1",
+    "basarygin.pump_pressure#c2",
+    "basarygin.pump_pressure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.pump_pressure.i2",
+   "step_id": "basarygin.pump_pressure",
+   "node_id": "basarygin.pump_pressure",
+   "file": "illustrations/basarygin.pump_pressure.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Что показывает давление насосов»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Что показывает давление насосов»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.pump_pressure#c1",
+    "basarygin.pump_pressure#c2",
+    "basarygin.pump_pressure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.pump_pressure.anim",
+   "file": "media/anim_basarygin.pump_pressure.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Что показывает давление насосов»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.pump_pressure#c1",
+    "basarygin.pump_pressure#c2",
+    "basarygin.pump_pressure#c3"
+   ],
+   "prompt": null,
+   "step_id": "basarygin.pump_pressure",
+   "node_id": "basarygin.pump_pressure"
+  },
+  {
+   "id": "basarygin.trip_fill.i1",
+   "step_id": "basarygin.trip_fill",
+   "node_id": "basarygin.trip_fill",
+   "file": "illustrations/basarygin.trip_fill.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Сколько долить при подъёме труб» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Сколько долить при подъёме труб» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.trip_fill#c1",
+    "basarygin.trip_fill#c2",
+    "basarygin.trip_fill#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.trip_fill.i2",
+   "step_id": "basarygin.trip_fill",
+   "node_id": "basarygin.trip_fill",
+   "file": "illustrations/basarygin.trip_fill.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Сколько долить при подъёме труб»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Сколько долить при подъёме труб»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.trip_fill#c1",
+    "basarygin.trip_fill#c2",
+    "basarygin.trip_fill#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.trip_displacement.i1",
+   "step_id": "basarygin.trip_displacement",
+   "node_id": "basarygin.trip_displacement",
+   "file": "illustrations/basarygin.trip_displacement.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Сколько выльется при спуске труб» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Сколько выльется при спуске труб» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.trip_displacement#c1",
+    "basarygin.trip_displacement#c2",
+    "basarygin.trip_displacement#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.trip_displacement.i2",
+   "step_id": "basarygin.trip_displacement",
+   "node_id": "basarygin.trip_displacement",
+   "file": "illustrations/basarygin.trip_displacement.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Сколько выльется при спуске труб»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Сколько выльется при спуске труб»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.trip_displacement#c1",
+    "basarygin.trip_displacement#c2",
+    "basarygin.trip_displacement#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.mud_properties.i1",
+   "step_id": "basarygin.mud_properties",
+   "node_id": "basarygin.mud_properties",
+   "file": "illustrations/basarygin.mud_properties.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Раствор меняет свойства» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Раствор меняет свойства» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.mud_properties#c1",
+    "basarygin.mud_properties#c2",
+    "basarygin.mud_properties#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.mud_properties.i2",
+   "step_id": "basarygin.mud_properties",
+   "node_id": "basarygin.mud_properties",
+   "file": "illustrations/basarygin.mud_properties.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Раствор меняет свойства»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Раствор меняет свойства»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.mud_properties#c1",
+    "basarygin.mud_properties#c2",
+    "basarygin.mud_properties#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.influx_overbalanced.i1",
+   "step_id": "basarygin.influx_overbalanced",
+   "node_id": "basarygin.influx_overbalanced",
+   "file": "illustrations/basarygin.influx_overbalanced.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Флюид входит и при перевесе раствора» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Флюид входит и при перевесе раствора» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.influx_overbalanced#c1",
+    "basarygin.influx_overbalanced#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.wellhead_reinforce.i1",
+   "step_id": "basarygin.wellhead_reinforce",
+   "node_id": "basarygin.wellhead_reinforce",
+   "file": "illustrations/basarygin.wellhead_reinforce.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Зачем укрепляют устье газовых скважин» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Зачем укрепляют устье газовых скважин» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.wellhead_reinforce#c1",
+    "basarygin.wellhead_reinforce#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.bop_stack.i1",
+   "step_id": "basarygin.bop_stack",
+   "node_id": "basarygin.bop_stack",
+   "file": "illustrations/basarygin.bop_stack.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что стоит на устье скважины» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что стоит на устье скважины» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.bop_stack#c1",
+    "basarygin.bop_stack#c2",
+    "basarygin.bop_stack#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.shutin_balance.i1",
+   "step_id": "basarygin.shutin_balance",
+   "node_id": "basarygin.shutin_balance",
+   "file": "illustrations/basarygin.shutin_balance.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что происходит после закрытия» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что происходит после закрытия» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.shutin_balance#c1",
+    "basarygin.shutin_balance#c2",
+    "basarygin.shutin_balance#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.shutin_balance.i2",
+   "step_id": "basarygin.shutin_balance",
+   "node_id": "basarygin.shutin_balance",
+   "file": "illustrations/basarygin.shutin_balance.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Что происходит после закрытия»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Что происходит после закрытия»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.shutin_balance#c1",
+    "basarygin.shutin_balance#c2",
+    "basarygin.shutin_balance#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.shutin_balance.anim",
+   "file": "media/anim_basarygin.shutin_balance.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Что происходит после закрытия»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.shutin_balance#c1",
+    "basarygin.shutin_balance#c2",
+    "basarygin.shutin_balance#c3"
+   ],
+   "prompt": null,
+   "step_id": "basarygin.shutin_balance",
+   "node_id": "basarygin.shutin_balance"
+  },
+  {
+   "id": "basarygin.shutin_procedure.i1",
+   "step_id": "basarygin.shutin_procedure",
+   "node_id": "basarygin.shutin_procedure",
+   "file": "illustrations/basarygin.shutin_procedure.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как закрывают скважину по шагам» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как закрывают скважину по шагам» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.shutin_procedure#c1",
+    "basarygin.shutin_procedure#c2",
+    "basarygin.shutin_procedure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.shutin_procedure.i2",
+   "step_id": "basarygin.shutin_procedure",
+   "node_id": "basarygin.shutin_procedure",
+   "file": "illustrations/basarygin.shutin_procedure.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Как закрывают скважину по шагам»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Как закрывают скважину по шагам»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.shutin_procedure#c1",
+    "basarygin.shutin_procedure#c2",
+    "basarygin.shutin_procedure#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.shutin_procedure.video",
+   "file": "media/basarygin_kick.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Ролик (шортс 9:16, 68 с): Превентор закрывают сразу, пока долото бурит и насосы качают?",
+   "alt": "Ролик шортс 9:16 по шагу; субтитры включаются в плеере",
+   "source": "паспорт: videos/basarygin_kick/passport.json",
+   "claim_ids": [
+    "basarygin.pit_gain#c1",
+    "basarygin.pit_gain#c2",
+    "basarygin.shutin_balance#c1",
+    "basarygin.shutin_balance#c2",
+    "basarygin.shutin_balance#c4",
+    "basarygin.shutin_procedure#c2",
+    "basarygin.shutin_procedure#c3",
+    "basarygin.shutin_procedure#c4",
+    "basarygin.trip_fill#c3"
+   ],
+   "prompt": null,
+   "step_id": "basarygin.shutin_procedure",
+   "node_id": "basarygin.shutin_procedure"
+  },
+  {
+   "id": "basarygin.hard_vs_soft_shutin.i1",
+   "step_id": "basarygin.hard_vs_soft_shutin",
+   "node_id": "basarygin.hard_vs_soft_shutin",
+   "file": "illustrations/basarygin.hard_vs_soft_shutin.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Закрыть быстро или плавно» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Закрыть быстро или плавно» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.hard_vs_soft_shutin#c1",
+    "basarygin.hard_vs_soft_shutin#c2",
+    "basarygin.hard_vs_soft_shutin#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.hard_vs_soft_shutin.i2",
+   "step_id": "basarygin.hard_vs_soft_shutin",
+   "node_id": "basarygin.hard_vs_soft_shutin",
+   "file": "illustrations/basarygin.hard_vs_soft_shutin.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Закрыть быстро или плавно»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Закрыть быстро или плавно»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.hard_vs_soft_shutin#c1",
+    "basarygin.hard_vs_soft_shutin#c2",
+    "basarygin.hard_vs_soft_shutin#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.hard_vs_soft_shutin.anim",
+   "file": "media/anim_basarygin.hard_vs_soft_shutin.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Закрыть быстро или плавно»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.hard_vs_soft_shutin#c1",
+    "basarygin.hard_vs_soft_shutin#c2",
+    "basarygin.hard_vs_soft_shutin#c3"
+   ],
+   "prompt": null,
+   "step_id": "basarygin.hard_vs_soft_shutin",
+   "node_id": "basarygin.hard_vs_soft_shutin"
+  },
+  {
+   "id": "basarygin.kill_overview.i1",
+   "step_id": "basarygin.kill_overview",
+   "node_id": "basarygin.kill_overview",
+   "file": "illustrations/basarygin.kill_overview.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Что делают после закрытия» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Что делают после закрытия» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.kill_overview#c1",
+    "basarygin.kill_overview#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.drillers_method.i1",
+   "step_id": "basarygin.drillers_method",
+   "node_id": "basarygin.drillers_method",
+   "file": "illustrations/basarygin.drillers_method.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Глушение в два этапа» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Глушение в два этапа» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.drillers_method#c1",
+    "basarygin.drillers_method#c2",
+    "basarygin.drillers_method#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.drillers_method.i2",
+   "step_id": "basarygin.drillers_method",
+   "node_id": "basarygin.drillers_method",
+   "file": "illustrations/basarygin.drillers_method.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Глушение в два этапа»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Глушение в два этапа»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.drillers_method#c1",
+    "basarygin.drillers_method#c2",
+    "basarygin.drillers_method#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.drillers_method.anim",
+   "file": "media/anim_basarygin.drillers_method.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Глушение в два этапа»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.drillers_method#c1",
+    "basarygin.drillers_method#c2",
+    "basarygin.drillers_method#c3"
+   ],
+   "prompt": null,
+   "step_id": "basarygin.drillers_method",
+   "node_id": "basarygin.drillers_method"
+  },
+  {
+   "id": "basarygin.wait_and_weight.i1",
+   "step_id": "basarygin.wait_and_weight",
+   "node_id": "basarygin.wait_and_weight",
+   "file": "illustrations/basarygin.wait_and_weight.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Глушение за один этап» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Глушение за один этап» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.wait_and_weight#c1",
+    "basarygin.wait_and_weight#c2",
+    "basarygin.wait_and_weight#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.wait_and_weight.i2",
+   "step_id": "basarygin.wait_and_weight",
+   "node_id": "basarygin.wait_and_weight",
+   "file": "illustrations/basarygin.wait_and_weight.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Глушение за один этап»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Глушение за один этап»",
+   "source": null,
+   "claim_ids": [
+    "basarygin.wait_and_weight#c1",
+    "basarygin.wait_and_weight#c2",
+    "basarygin.wait_and_weight#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.wait_and_weight.anim",
+   "file": "media/anim_basarygin.wait_and_weight.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Глушение за один этап»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.wait_and_weight#c1",
+    "basarygin.wait_and_weight#c2",
+    "basarygin.wait_and_weight#c3"
+   ],
+   "prompt": null,
+   "step_id": "basarygin.wait_and_weight",
+   "node_id": "basarygin.wait_and_weight"
+  },
+  {
+   "id": "basarygin.kill_special_cases.i1",
+   "step_id": "basarygin.kill_special_cases",
+   "node_id": "basarygin.kill_special_cases",
+   "file": "illustrations/basarygin.kill_special_cases.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Другие случаи глушения» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Другие случаи глушения» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "basarygin.kill_special_cases#c1",
+    "basarygin.kill_special_cases#c2",
+    "basarygin.kill_special_cases#c3"
+   ],
+   "prompt": null
+  }
+ ]
+}

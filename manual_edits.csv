@@ -3,3 +3,4 @@ time,chapter,file,what_changed,person_minutes,people,run_no,reason
 2026-11-26T01:02,latyshova,data/latyshova/answers/tasks_answer.json,"переписаны 6 вопросов, к заданиям добавлены «Где это в шаге?» и слова из вопроса",2.0,1,2,первый новичок решил 0 из 3
 2026-11-26T01:02,kuznetsov,data/kuznetsov/answers/tasks_answer.json,переписаны 2 вопроса,1.0,1,2,то же замечание
 2026-11-26T01:02,basniev,data/basniev/answers/tasks_answer.json,переписан 1 вопрос,1.0,1,2,то же замечание
+2026-11-26T11:57,basarygin,work/basarygin/answers/03.json,shutin_procedure: добавлена связь prerequisite на pit_gain,1.0,1,1,закрытие скважины начинают по сигналу роста уровня в ёмкости; связь нужна ролику на тему README (признаки и закрытие)

@@ -1,0 +1,560 @@
+{
+ "chapter": "slatt",
+ "tasks": [
+  {
+   "id": "slatt.clinoform_correlation.t1",
+   "type": "single",
+   "step_id": "slatt.clinoform_correlation",
+   "claim_ids": [
+    "slatt.clinoform_correlation#c2",
+    "slatt.clinoform_correlation#c3"
+   ],
+   "prompt": "В двух скважинах пески похожи по каротажу. Корреляция по времени показала между ними глинистые и гетеролитные прослои. Что это значит для разработки?",
+   "explanation": "Глины и гетеролиты разделяют пески, поэтому пески между скважинами не сообщаются, а это ухудшает заводнение и продуктивность.",
+   "kind": "transfer",
+   "evidence": "Глинистые и гетеролитные интервалы разделяют песчаные, поэтому пески между скважинами 1 и 2 не сообщаются.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Пески не сообщаются, и заводнение будет работать хуже",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Глины между песками улучшат продуктивность скважин",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Корреляция по времени всегда совпадает с литологической",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Это один непрерывный пласт, раз каротаж похож",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "slatt.clinoform_correlation.t2",
+   "type": "gap",
+   "step_id": "slatt.clinoform_correlation",
+   "claim_ids": [
+    "slatt.clinoform_correlation#c1"
+   ],
+   "prompt": "Клиноформы представляют линии геологического {{1}} и пересекают литостратиграфические границы.",
+   "explanation": "Клиноформы — линии геологического времени, поэтому они режут границы пачек наискосок.",
+   "kind": "recall",
+   "evidence": "Клиноформы представляют линии геологического времени и пересекают литостратиграфические границы.",
+   "answer": [
+    "времени"
+   ]
+  },
+  {
+   "id": "slatt.delta_progradation.t1",
+   "type": "single",
+   "step_id": "slatt.delta_progradation",
+   "claim_ids": [
+    "slatt.delta_progradation#c2"
+   ],
+   "prompt": "Почему у дельты Миссисипи осадок у берега не разносится вдоль побережья?",
+   "explanation": "Берег защищён: волны и течения не перерабатывают осадок, и он остаётся у устьев.",
+   "kind": "understanding",
+   "evidence": "Сильные волны и течения не доходят до её берега, поэтому осадок у берега не перерабатывается и не разносится.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Дельта лежит в очень глубокой воде",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Уровень моря там постоянно падает",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Сильные волны и течения не доходят до её берега",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Река приносит к берегу только глину",
+     "misconception": null
+    }
+   ],
+   "answer": "o3"
+  },
+  {
+   "id": "slatt.delta_progradation.t2",
+   "type": "single",
+   "step_id": "slatt.delta_progradation",
+   "claim_ids": [
+    "slatt.delta_progradation#c5"
+   ],
+   "prompt": "Что по этой главе заставляет главную реку речной дельты переключиться на новое место?",
+   "explanation": "Наступание и вертикальное наращивание мелят воду, и река уходит к более глубоким участкам дна.",
+   "kind": "understanding",
+   "evidence": "Наступание и наращивание постепенно мелят воду, и река переключается в более глубокую воду.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Река пересыхает и находит новый исток",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Падение уровня моря всегда переключает реку",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Волны размывают устье и меняют русло",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Вода над дельтой мелеет от наступания и наращивания",
+     "misconception": null
+    }
+   ],
+   "answer": "o4"
+  },
+  {
+   "id": "slatt.delta_progradation.t3",
+   "type": "order",
+   "step_id": "slatt.delta_progradation",
+   "claim_ids": [
+    "slatt.delta_progradation#c3",
+    "slatt.delta_progradation#c5"
+   ],
+   "prompt": "Расставьте этапы развития лопасти речной дельты в причинном порядке.",
+   "explanation": "Осадок не разносится, дельта наступает, вода мелеет, и река переключается — начинается новая лопасть.",
+   "kind": "understanding",
+   "evidence": "При достаточном пространстве аккомодации такая дельта наступает в сторону моря.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Дельта наступает в сторону моря",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Вода над дельтой мелеет",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Река приносит осадок к защищённому берегу",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Река переключается в более глубокую воду",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o3",
+    "o1",
+    "o2",
+    "o4"
+   ]
+  },
+  {
+   "id": "slatt.delta_facies.t1",
+   "type": "multiple",
+   "step_id": "slatt.delta_facies",
+   "claim_ids": [
+    "slatt.delta_facies#c1"
+   ],
+   "prompt": "Какие фации речной дельты по этой главе дают песчаные коллекторы?",
+   "explanation": "Песчаные коллекторы — отложения распределительных проток и устьевых баров, а заливы, марши и лагуны дают глинистые барьеры.",
+   "kind": "recall",
+   "evidence": "Песчаные фации-коллекторы речной дельты — отложения распределительных проток и устьевых баров.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Распределительные протоки",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Устьевые бары",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Марши и лагуны",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Межпротоковые заливы",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o2"
+   ]
+  },
+  {
+   "id": "slatt.delta_facies.t2",
+   "type": "gap",
+   "step_id": "slatt.delta_facies",
+   "claim_ids": [
+    "slatt.delta_facies#c1"
+   ],
+   "prompt": "Песчаные фации-коллекторы речной дельты — отложения распределительных проток и устьевых {{1}}.",
+   "explanation": "Вторая песчаная фация речной дельты — устьевые бары.",
+   "kind": "recall",
+   "evidence": "Песчаные фации-коллекторы речной дельты — отложения распределительных проток и устьевых баров.",
+   "answer": [
+    "баров"
+   ]
+  },
+  {
+   "id": "slatt.delta_facies.t3",
+   "type": "single",
+   "step_id": "slatt.delta_facies",
+   "claim_ids": [
+    "slatt.delta_facies#c3",
+    "slatt.delta_facies#c4"
+   ],
+   "prompt": "В дельтовом интервале каротаж показывает, что зерно укрупняется вверх по разрезу. Какая фация по этой главе вероятнее?",
+   "explanation": "Устьевой бар узнают по характерному укрупнению зерна вверх по разрезу.",
+   "kind": "data",
+   "evidence": "Фации распознают по укрупнению зерна вверх по разрезу с характерным набором осадочных текстур.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Марш между протоками",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Глина межпротокового залива",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Лагуна за береговым валом",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Наступающий устьевой бар",
+     "misconception": null
+    }
+   ],
+   "answer": "o4"
+  },
+  {
+   "id": "slatt.mouth_bar_permeability.t1",
+   "type": "single",
+   "step_id": "slatt.mouth_bar_permeability",
+   "claim_ids": [
+    "slatt.mouth_bar_permeability#c4",
+    "slatt.mouth_bar_permeability#c5"
+   ],
+   "prompt": "Нужно вскрыть самый проницаемый песок устьевого бара. Где по этой главе его искать?",
+   "explanation": "Паводковые шлейфы отложили лучше отсортированный и самый проницаемый песок у вершины бара и вдоль проксимального края.",
+   "kind": "transfer",
+   "evidence": "Считается, что паводковые шлейфы отложили лучше отсортированный и самый проницаемый песок у вершины бара и вдоль проксимального края.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Где угодно: внутри бара песок однородный",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "В дистальной части бара, дальше от протоки",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "У вершины бара, в проксимальной части",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "В межпротоковом заливе рядом с баром",
+     "misconception": null
+    }
+   ],
+   "answer": "o3"
+  },
+  {
+   "id": "slatt.mouth_bar_permeability.t2",
+   "type": "calc",
+   "step_id": "slatt.mouth_bar_permeability",
+   "claim_ids": [
+    "slatt.mouth_bar_permeability#c2",
+    "slatt.mouth_bar_permeability#c3"
+   ],
+   "prompt": "В устьевом баре Прудо-Бей лучшая литофация в среднем 129 мД, у остальных — до 40 мД. Во сколько раз 129 мД больше 40 мД?",
+   "explanation": "129 / 40 ≈ 3,2: лучшая литофация проницаемее даже самой хорошей из остальных более чем втрое.",
+   "kind": "data",
+   "evidence": "Шесть литофаций имеют среднюю горизонтальную проницаемость 12–40 мД.",
+   "answer": 3.225,
+   "tolerance": 0.03,
+   "unit": "раз"
+  },
+  {
+   "id": "slatt.romeo_time_correlation.t1",
+   "type": "single",
+   "step_id": "slatt.romeo_time_correlation",
+   "claim_ids": [
+    "slatt.romeo_time_correlation#c2",
+    "slatt.romeo_time_correlation#c3"
+   ],
+   "prompt": "Почему корреляцию по времени в зоне Romeo сочли лучше литологической?",
+   "explanation": "Tye и др. лучше совместили корреляции скважин с историей добычи именно по временной схеме.",
+   "kind": "understanding",
+   "evidence": "Tye и др. лучше совместили корреляции скважин с историей добычи по временной стратиграфической схеме.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Она показала плитообразные пласты",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Она лучше совпала с историей добычи",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Она скрыла наклон песчаников",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Её проще построить без каротажа",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "slatt.shale_barriers.t1",
+   "type": "single",
+   "step_id": "slatt.shale_barriers",
+   "claim_ids": [
+    "slatt.shale_barriers#c2"
+   ],
+   "prompt": "Какую роль по этой главе играют непрерывные глины в дельтовых фациях Прудо-Бей?",
+   "explanation": "Непрерывные глины — вертикальные барьеры потоку, которые помогают сфокусировать заводнение.",
+   "kind": "understanding",
+   "evidence": "Непрерывные глины создают вертикальные барьеры потоку и помогают сфокусировать заводнение.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Делают пески одним непрерывным коллектором",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Всегда только мешают добыче нефти",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Пропускают воду между соседними песками",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Создают вертикальные барьеры и помогают направить заводнение",
+     "misconception": null
+    }
+   ],
+   "answer": "o4"
+  },
+  {
+   "id": "slatt.shale_barriers.t2",
+   "type": "multiple",
+   "step_id": "slatt.shale_barriers",
+   "claim_ids": [
+    "slatt.shale_barriers#c1"
+   ],
+   "prompt": "Почему по этой главе некоторые глины в Прудо-Бей прерывисты?",
+   "explanation": "Глины менее непрерывны из-за размыва вышележащим песчаником или стратиграфического выклинивания.",
+   "kind": "understanding",
+   "evidence": "Некоторые глины непрерывны на площади больше расстояния между скважинами, а другие прерываются из-за размыва или выклинивания.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Они стратиграфически выклиниваются",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Их размыло заводнением",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Их размыл вышележащий песчаник",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Их разрушила перфорация скважин",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o3",
+    "o1"
+   ]
+  },
+  {
+   "id": "slatt.shale_shield_wells.t1",
+   "type": "order",
+   "step_id": "slatt.shale_shield_wells",
+   "claim_ids": [
+    "slatt.shale_shield_wells#c1",
+    "slatt.shale_shield_wells#c2",
+    "slatt.shale_shield_wells#c3"
+   ],
+   "prompt": "Расставьте события истории скважины и её бокового ствола в Прудо-Бей по порядку.",
+   "explanation": "Рост воды указал на спад, картирование экрана подсказало нефть под глиной, боковой ствол дал новую добычу.",
+   "kind": "understanding",
+   "evidence": "За это время росла добыча воды, и это указывало, что добыча нефти со временем заметно снизится.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Получают новую добычу около 400 BOPD",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Под глиной бурят боковой горизонтальный ствол",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Глину на 8950 футах картируют как экран",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "В добыче вертикальной скважины растёт вода",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o4",
+    "o3",
+    "o2",
+    "o1"
+   ]
+  },
+  {
+   "id": "slatt.shale_shield_wells.t2",
+   "type": "calc",
+   "step_id": "slatt.shale_shield_wells",
+   "claim_ids": [
+    "slatt.shale_shield_wells#c4"
+   ],
+   "prompt": "Горизонтальный участок скважины длиной 894 фута прошёл в песчанике, из них 475 футов — эффективная толщина. Какая это доля участка?",
+   "explanation": "475 / 894 ≈ 0,53: эффективной оказалась примерно половина горизонтального участка.",
+   "kind": "data",
+   "evidence": "Скважина 11-30 пробурена под глиной залива, экранировавшей от газовой шапки; 894 фута ствола прошли в песчанике, 475 футов — эффективная толщина.",
+   "answer": 0.531,
+   "tolerance": 0.01,
+   "unit": null
+  },
+  {
+   "id": "slatt.kuparuk_units.t1",
+   "type": "single",
+   "step_id": "slatt.kuparuk_units",
+   "claim_ids": [
+    "slatt.kuparuk_units#c2",
+    "slatt.kuparuk_units#c3"
+   ],
+   "prompt": "Единицу A месторождения Купарук сначала считали одним непрерывным песчаником. Что показала секвенс-стратиграфия?",
+   "explanation": "Единица A состоит из шести песчаных тел, наступавших к морю, и каждое отделено трансгрессивной морской глиной.",
+   "kind": "data",
+   "evidence": "В начале разработки каждую единицу считали латерально непрерывным песчаным телом.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Шесть отдельных тел, разделённых морскими глинами",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Два тела, разделённых только разломом",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Шесть тел, свободно сообщающихся между собой",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Один непрерывный песчаник по всей площади",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "slatt.kuparuk_units.t2",
+   "type": "calc",
+   "step_id": "slatt.kuparuk_units",
+   "claim_ids": [
+    "slatt.kuparuk_units#c1"
+   ],
+   "prompt": "На Купаруке 6 млрд баррелей начальных запасов нефти в пласте, к 2006 году добыто 2 млрд. Какая доля начальных запасов добыта?",
+   "explanation": "2 / 6 ≈ 0,33: к 2006 году добыта примерно треть начальных запасов.",
+   "kind": "data",
+   "evidence": "Kuparuk River — второе по величине нефтяное месторождение Северной Америки.",
+   "answer": 0.333,
+   "tolerance": 0.01,
+   "unit": null
+  },
+  {
+   "id": "slatt.wave_dominated_delta.t1",
+   "type": "single",
+   "step_id": "slatt.wave_dominated_delta",
+   "claim_ids": [
+    "slatt.wave_dominated_delta#c3"
+   ],
+   "prompt": "Прямой берег волновой дельты питается вдольбереговым переносом. Что происходит с устьем реки со временем?",
+   "explanation": "Берег наступает и наращивается вбок, а устье реки постепенно отклоняется по направлению вдольберегового переноса.",
+   "kind": "transfer",
+   "evidence": "При вдольбереговом переносе берег не только наступает и наращивается вбок, но и устье реки отклоняется по направлению переноса.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Остаётся на одном месте",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Отклоняется по направлению вдольберегового переноса",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Отклоняется против направления переноса",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Делится на рукава с устьевыми барами, как у Миссисипи",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  }
+ ]
+}

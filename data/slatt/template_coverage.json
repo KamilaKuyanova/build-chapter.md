@@ -1,0 +1,186 @@
+{
+ "chapter": "slatt",
+ "templates": {
+  "process_state": {
+   "type": "М",
+   "state": "номер стадии процесса s (непрерывно); величины — функции s",
+   "description": "Процесс как смена состояний с измеримыми величинами (М — механизм, процесс)."
+  },
+  "time_evolution": {
+   "type": "В",
+   "state": "время T; толщина каждого слоя и величина — функции T",
+   "description": "Накопление и преобразование толщи во времени (В — геологическое время)."
+  },
+  "tool_and_curve": {
+   "type": "И",
+   "state": "положение прибора d (глубина/расстояние); кривые — функции разреза, вычисленные до d",
+   "description": "Прибор идёт вдоль разреза и пишет кривые (И — косвенное измерение)."
+  },
+  "formula_explorer": {
+   "type": "Ф",
+   "state": "время модели t (radial_diffusion) или параметр формулы p (expression); все виды считаются из одного значения",
+   "description": "Формула как управляемая модель: синхронные виды из одного расчёта (Ф — формализм, модель)."
+  },
+  "section_views": {
+   "type": "П",
+   "state": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
+   "description": "Тело в пространстве: план и разрез из одной геометрии (П — пространство)."
+  },
+  "step_procedure": {
+   "type": "Пр",
+   "state": "номер шага k; пройденные шаги накапливаются",
+   "description": "Процедура специалиста по шагам, с накоплением (Пр — процедура)."
+  },
+  "decision_panel": {
+   "type": "Н",
+   "state": "номер случая c и видимость диапазона погрешности; вывод — функция положения диапазона относительно зон правила",
+   "description": "Решение по правилу с неопределённостью (Н — неопределённость, решение)."
+  },
+  "compare_signs": {
+   "type": "Р",
+   "state": "число открытых признаков k; суммы баллов — функция k",
+   "description": "Распознавание по набору признаков (Р — распознавание): таблица «признак × вариант» с баллами."
+  }
+ },
+ "rows": [
+  {
+   "node_id": "slatt.clinoform_correlation",
+   "title": "Линии времени режут пласты наискосок",
+   "type": "В",
+   "secondary": "П",
+   "format": "длинное видео",
+   "video_scores": 7,
+   "template": "time_evolution",
+   "state_model": "время T; толщина каждого слоя и величина — функции T",
+   "needs": "последовательность событий во времени",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "slatt.mekong_example",
+   "title": "Пример дельты Меконга",
+   "type": "В",
+   "secondary": "П",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "time_evolution",
+   "state_model": "время T; толщина каждого слоя и величина — функции T",
+   "needs": "последовательность событий во времени",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "slatt.channel_switching",
+   "title": "Протоки дельты перескакивают",
+   "type": "М",
+   "secondary": "В",
+   "format": "интерактив",
+   "video_scores": 7,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "slatt.delta_progradation",
+   "title": "Как растёт речная дельта",
+   "type": "М",
+   "secondary": "В",
+   "format": "шортс",
+   "video_scores": 9,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "slatt.delta_facies",
+   "title": "Где в дельте песок, а где глина",
+   "type": "П",
+   "secondary": "Р",
+   "format": "интерактив",
+   "video_scores": 7,
+   "template": "strata",
+   "state_model": "номер стадии с долей st; все границы слоёв вычисляются из него",
+   "needs": null,
+   "status": "закрывает: ролик",
+   "video": {
+    "video_id": "slatt_delta",
+    "template": null,
+    "scene": "strata",
+    "format": "long"
+   },
+   "animation_in_course": false
+  },
+  {
+   "node_id": "slatt.mouth_bar_permeability",
+   "title": "Лучший песок — у устья протоки",
+   "type": "М",
+   "secondary": "П",
+   "format": "интерактив",
+   "video_scores": 6,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "slatt.romeo_time_correlation",
+   "title": "Корреляция по времени совпала с добычей",
+   "type": "В",
+   "secondary": "П",
+   "format": "длинное видео",
+   "video_scores": 8,
+   "template": "time_evolution",
+   "state_model": "время T; толщина каждого слоя и величина — функции T",
+   "needs": "последовательность событий во времени",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "slatt.shale_barriers",
+   "title": "Глины управляют потоком",
+   "type": "П",
+   "secondary": "М",
+   "format": "интерактив",
+   "video_scores": 7,
+   "template": "section_views",
+   "state_model": "положение секущей линии y и вертикальное преувеличение ve; план и разрез — из одной формы тела",
+   "needs": "форма и размеры тела",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  },
+  {
+   "node_id": "slatt.wave_dominated_delta",
+   "title": "Дельта, которую причёсывают волны",
+   "type": "М",
+   "secondary": "П",
+   "format": "интерактив",
+   "video_scores": 7,
+   "template": "process_state",
+   "state_model": "номер стадии процесса s (непрерывно); величины — функции s",
+   "needs": "стадии процесса и величины, которые меняются",
+   "status": "закрывает",
+   "video": null,
+   "animation_in_course": true
+  }
+ ],
+ "summary": {
+  "video_nodes": 9,
+  "covered": 9,
+  "need_new": 0,
+  "videos_made": 1,
+  "animations_in_course": 8,
+  "uncovered_in_course": 0
+ }
+}

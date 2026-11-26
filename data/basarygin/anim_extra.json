@@ -1,0 +1,128 @@
+{
+ "basarygin.pit_gain": [
+  {
+   "id": "basarygin.pit_gain.anim",
+   "file": "media/anim_basarygin.pit_gain.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Уровень в ёмкости растёт»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.pit_gain#c1",
+    "basarygin.pit_gain#c2",
+    "basarygin.pit_gain#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basarygin.gas_not_cause": [
+  {
+   "id": "basarygin.gas_not_cause.anim",
+   "file": "media/anim_basarygin.gas_not_cause.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Газ — признак, а не причина»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.gas_not_cause#c1",
+    "basarygin.gas_not_cause#c2",
+    "basarygin.gas_not_cause#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basarygin.pump_pressure": [
+  {
+   "id": "basarygin.pump_pressure.anim",
+   "file": "media/anim_basarygin.pump_pressure.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Что показывает давление насосов»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.pump_pressure#c1",
+    "basarygin.pump_pressure#c2",
+    "basarygin.pump_pressure#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basarygin.shutin_balance": [
+  {
+   "id": "basarygin.shutin_balance.anim",
+   "file": "media/anim_basarygin.shutin_balance.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Что происходит после закрытия»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.shutin_balance#c1",
+    "basarygin.shutin_balance#c2",
+    "basarygin.shutin_balance#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basarygin.hard_vs_soft_shutin": [
+  {
+   "id": "basarygin.hard_vs_soft_shutin.anim",
+   "file": "media/anim_basarygin.hard_vs_soft_shutin.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Закрыть быстро или плавно»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.hard_vs_soft_shutin#c1",
+    "basarygin.hard_vs_soft_shutin#c2",
+    "basarygin.hard_vs_soft_shutin#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basarygin.drillers_method": [
+  {
+   "id": "basarygin.drillers_method.anim",
+   "file": "media/anim_basarygin.drillers_method.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Глушение в два этапа»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.drillers_method#c1",
+    "basarygin.drillers_method#c2",
+    "basarygin.drillers_method#c3"
+   ],
+   "prompt": null
+  }
+ ],
+ "basarygin.wait_and_weight": [
+  {
+   "id": "basarygin.wait_and_weight.anim",
+   "file": "media/anim_basarygin.wait_and_weight.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Глушение за один этап»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "basarygin.wait_and_weight#c1",
+    "basarygin.wait_and_weight#c2",
+    "basarygin.wait_and_weight#c3"
+   ],
+   "prompt": null
+  }
+ ]
+}

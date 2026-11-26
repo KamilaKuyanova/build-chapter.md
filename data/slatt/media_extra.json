@@ -1,0 +1,27 @@
+{
+ "slatt.delta_facies": [
+  {
+   "id": "slatt.delta_facies.video",
+   "file": "media/slatt_delta.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Ролик (разбор 16:9, 132 с): Скважина стоит на месте, а дельта идёт к морю. Что ляжет поверх глины?",
+   "alt": "Ролик разбор 16:9 по шагу; субтитры включаются в плеере",
+   "source": "паспорт: videos/slatt_delta/passport.json",
+   "claim_ids": [
+    "slatt.delta_facies#c1",
+    "slatt.delta_facies#c2",
+    "slatt.delta_facies#c3",
+    "slatt.delta_facies#c4",
+    "slatt.delta_progradation#c1",
+    "slatt.delta_progradation#c2",
+    "slatt.delta_progradation#c3",
+    "slatt.delta_progradation#c4",
+    "slatt.delta_progradation#c5",
+    "slatt.delta_progradation#c6"
+   ],
+   "prompt": null
+  }
+ ]
+}

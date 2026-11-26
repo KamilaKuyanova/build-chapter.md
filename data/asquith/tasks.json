@@ -1,0 +1,760 @@
+{
+ "chapter": "asquith",
+ "tasks": [
+  {
+   "id": "asquith.log_scanning.t1",
+   "type": "single",
+   "step_id": "asquith.log_scanning",
+   "claim_ids": [
+    "asquith.log_scanning#c4",
+    "asquith.log_scanning#c5"
+   ],
+   "prompt": "Вы впервые смотрите разрез из известняков и доломитов, глин в нём почти нет. С какой кривой по схеме главы начать поиск коллекторов?",
+   "explanation": "В карбонатах сопротивление обычно сильно меняется с типом породы, а глин мало, поэтому главный обзорный замер — пористость.",
+   "kind": "transfer",
+   "evidence": "В обломочных породах главный обзорный замер — сопротивление, потому что коллекторы обычно окружены глинами с медленно меняющимся сопротивлением.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "С кривой сопротивления, как в песчаниках",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "С кривой ПС, сравнивая её с глинами",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "С кривой сопротивления: высокое сопротивление сразу указывает на нефть",
+     "misconception": "misc.high_res_oil"
+    },
+    {
+     "id": "o4",
+     "text": "С кривой пористости",
+     "misconception": null
+    }
+   ],
+   "answer": "o4"
+  },
+  {
+   "id": "asquith.archie_sw.t1",
+   "type": "multiple",
+   "step_id": "asquith.archie_sw",
+   "claim_ids": [
+    "asquith.archie_sw#c4",
+    "asquith.archie_sw#c5"
+   ],
+   "prompt": "Sw пласта по Арчи низкое. Что геолог ещё должен проверить, прежде чем оценить продуктивность?",
+   "explanation": "Одного Sw мало: надо проверить подвижность углеводородов, проницаемость, достаточно ли низко Sw и есть ли промышленные запасы.",
+   "kind": "understanding",
+   "evidence": "Знание одного Sw не даёт достаточно информации для полной оценки продуктивности.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Больше ли Rt, чем 1 ohm-m",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Совпадает ли Sw с прошлогодним замером",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Проницаем ли пласт",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Подвижны ли углеводороды",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o4",
+    "o3"
+   ]
+  },
+  {
+   "id": "asquith.archie_sxo.t1",
+   "type": "single",
+   "step_id": "asquith.archie_sxo",
+   "claim_ids": [
+    "asquith.archie_sxo#c4"
+   ],
+   "prompt": "В пласте Sxo намного больше Sw. Какой вывод делает автор?",
+   "explanation": "Если Sxo намного больше Sw, углеводороды в промытой зоне, вероятно, вытеснены проникающим раствором.",
+   "kind": "understanding",
+   "evidence": "Если Sxo намного больше Sw, углеводороды, вероятно, вытеснены проникающим раствором.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Углеводороды, вероятно, вытеснены фильтратом",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Пласт непроницаем, раствор остался в скважине",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Фильтрат раствора вообще не вошёл в пласт",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Углеводородов в пласте точно нет, раз у стенки много воды",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "asquith.ratio_mhi.t1",
+   "type": "gap",
+   "step_id": "asquith.ratio_mhi",
+   "claim_ids": [
+    "asquith.ratio_mhi#c6"
+   ],
+   "prompt": "Подвижные углеводороды в песчаниках указывает индекс Sw/Sxo меньше {{1}}.",
+   "explanation": "Порог для песчаников 0.7, для карбонатов 0.6.",
+   "kind": "recall",
+   "evidence": "Всякий раз, если Sw/Sxo меньше 0.7 в песчаниках или меньше 0.6 в карбонатах, это указывает на подвижные углеводороды.",
+   "answer": [
+    "0.7"
+   ]
+  },
+  {
+   "id": "asquith.ratio_mhi.t2",
+   "type": "single",
+   "step_id": "asquith.ratio_mhi",
+   "claim_ids": [
+    "asquith.ratio_mhi#c5"
+   ],
+   "prompt": "В песчанике индекс Sw/Sxo по методу отношений равен 1.2. Что это значит?",
+   "explanation": "При Sw/Sxo 1.0 и больше углеводороды не сдвинулись, и это верно независимо от того, есть ли они в пласте.",
+   "kind": "transfer",
+   "evidence": "Если Sw/Sxo равно 1.0 или больше, углеводороды при проникновении не сдвинулись, есть они в пласте или нет.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "В пласте точно только вода, углеводородов нет",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Углеводороды подвижны и легко вытесняются фильтратом",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Пористость пласта рассчитана неверно",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Углеводороды при проникновении не сдвинулись",
+     "misconception": null
+    }
+   ],
+   "answer": "o4"
+  },
+  {
+   "id": "asquith.swa_swr_compare.t1",
+   "type": "multiple",
+   "step_id": "asquith.swa_swr_compare",
+   "claim_ids": [
+    "asquith.swa_swr_compare#c3",
+    "asquith.swa_swr_compare#c5"
+   ],
+   "prompt": "В зоне Swa заметно меньше Swr. Какие объяснения дают авторы?",
+   "explanation": "Swa меньше Swr — Rxo/Rt завышено (например, из-за соседних высокоомных пластов) или карбонат с моульдовой пористостью.",
+   "kind": "data",
+   "evidence": "Если Swa меньше Swr, отношение Rxo/Rt слишком велико: влияют соседние высокоомные пласты или Rt занижено.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Rxo завышено соседними высокоомными пластами",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Проникновение очень неглубокое",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Профиль проникновения точно ступенчатый",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Коллектор может быть карбонатом с моульдовой пористостью",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o4"
+   ]
+  },
+  {
+   "id": "asquith.rxo_rt_quicklook.t1",
+   "type": "order",
+   "step_id": "asquith.rxo_rt_quicklook",
+   "claim_ids": [
+    "asquith.rxo_rt_quicklook#c1"
+   ],
+   "prompt": "Расставьте действия экспресс-метода Rxo/Rt по порядку.",
+   "explanation": "Сначала считают отношение, затем строят его рядом с ПС и ищут расхождения.",
+   "kind": "understanding",
+   "evidence": "Метод Rxo/Rt сравнивает кривую отношения сопротивлений с кривой ПС.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Построить отношение в той же дорожке, что ПС",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Искать интервалы, где отношение уходит от ПС",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Рассчитать Rxo/Rt по глубокому и неглубокому замерам",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o3",
+    "o1",
+    "o2"
+   ]
+  },
+  {
+   "id": "asquith.rxo_rt_quicklook.t2",
+   "type": "single",
+   "step_id": "asquith.rxo_rt_quicklook",
+   "claim_ids": [
+    "asquith.rxo_rt_quicklook#c3",
+    "asquith.rxo_rt_quicklook#c4"
+   ],
+   "prompt": "В интервале кривая Rxo/Rt идёт в точности как ПС. Что это, по главе?",
+   "explanation": "В водоносной зоне Rxo/Rt повторяет ПС, а в зоне с углеводородами уходит от неё.",
+   "kind": "data",
+   "evidence": "В водоносной зоне Rxo/Rt повторяет ПС.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Зона с подвижными углеводородами",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Вероятно, водоносная зона",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Ошибка записи ПС",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Плотная непористая порода",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "asquith.rwa_quicklook.t1",
+   "type": "single",
+   "step_id": "asquith.rwa_quicklook",
+   "claim_ids": [
+    "asquith.rwa_quicklook#c6"
+   ],
+   "prompt": "Минимальное Rwa в разрезе получилось в пласте с пористостью 6%. Почему брать его за Rw опасно?",
+   "explanation": "В низкопористых зонах (меньше примерно 10%) Rwa ниже настоящего Rw, и минимум может быть ложным.",
+   "kind": "transfer",
+   "evidence": "В зонах с пористостью меньше примерно 10% Rwa ниже настоящего Rw.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Rwa не зависит от пористости, поэтому минимум случаен",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "В низкопористых пластах Rwa всегда заметно выше настоящего Rw",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Минимум Rwa всегда приходится на нефтяную зону разреза",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "При пористости меньше примерно 10% Rwa ниже Rw",
+     "misconception": null
+    }
+   ],
+   "answer": "o4"
+  },
+  {
+   "id": "asquith.rwa_saturation.t1",
+   "type": "calc",
+   "step_id": "asquith.rwa_saturation",
+   "claim_ids": [
+    "asquith.rwa_saturation#c3"
+   ],
+   "prompt": "Rwa зоны в 4 раза больше минимального Rwa. Найдите Sw по формуле Sw = корень из (Rwa мин / Rwa зоны), доля.",
+   "explanation": "Корень из 1/4 равен 0.50, как в сокращённом расчёте главы.",
+   "kind": "data",
+   "evidence": "Отношение Rwa зоны к минимуму 3, 4 и 5 даёт Sw 0.58, 0.50 и 0.45 соответственно.",
+   "answer": 0.5,
+   "tolerance": 0.01,
+   "unit": ""
+  },
+  {
+   "id": "asquith.conductivity_porosity.t1",
+   "type": "single",
+   "step_id": "asquith.conductivity_porosity",
+   "claim_ids": [
+    "asquith.conductivity_porosity#c4"
+   ],
+   "prompt": "Пористость по сопротивлению в пласте заметно ниже пористости по плотностному каротажу. Что это указывает?",
+   "explanation": "В зонах с углеводородами пористость по сопротивлению низкая, ниже истинной.",
+   "kind": "understanding",
+   "evidence": "В зонах с углеводородами пористость по сопротивлению низкая, ниже истинной.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "На глинистую корку",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "На ошибку плотностного прибора",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "На углеводороды в пласте",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "На то, что пласт водоносный",
+     "misconception": null
+    }
+   ],
+   "answer": "o3"
+  },
+  {
+   "id": "asquith.wet_resistivity.t1",
+   "type": "single",
+   "step_id": "asquith.wet_resistivity",
+   "claim_ids": [
+    "asquith.wet_resistivity#c5"
+   ],
+   "prompt": "В заведомо водоносном пласте кривая Ro не совпадает с глубоким сопротивлением. Какая причина названа в главе?",
+   "explanation": "Если Rw для Ro выбрано неверно, кривые в водоносных зонах не совпадут.",
+   "kind": "data",
+   "evidence": "Если Rw выбрано неверно, кривые в водоносных зонах не совпадут.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "В пласте нефть, раз сопротивление выше расчётного",
+     "misconception": "misc.high_res_oil"
+    },
+    {
+     "id": "o2",
+     "text": "Rw для расчёта Ro выбрано неверно",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Пласт при неснижаемой водонасыщенности",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Глубокий зонд читает промытую зону",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "asquith.bvw_irreducible.t1",
+   "type": "single",
+   "step_id": "asquith.bvw_irreducible",
+   "claim_ids": [
+    "asquith.bvw_irreducible#c2",
+    "asquith.bvw_irreducible#c4"
+   ],
+   "prompt": "BVW пласта на десяти глубинах почти одинаково. Чего ждать от добычи?",
+   "explanation": "Постоянное BVW — неснижаемая водонасыщенность, вода удерживается капиллярным давлением, добыча должна быть безводной.",
+   "kind": "transfer",
+   "evidence": "Если BVW на нескольких глубинах постоянно или почти постоянно, зона одного типа породы и при неснижаемой водонасыщенности.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Пласт даст в основном воду, а не нефть",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Добыча должна быть безводной",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Вода в пласте подвижна и пойдёт в скважину",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Пласт непроницаем и притока не даст",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "asquith.bvw_irreducible.t2",
+   "type": "calc",
+   "step_id": "asquith.bvw_irreducible",
+   "claim_ids": [
+    "asquith.bvw_irreducible#c1"
+   ],
+   "prompt": "Пористость пласта 0.25, водонасыщенность 0.40. Найдите BVW.",
+   "explanation": "BVW — произведение Sw на пористость: 0.40 × 0.25 = 0.10.",
+   "kind": "data",
+   "evidence": "BVW — произведение водонасыщенности пласта на его пористость.",
+   "answer": 0.1,
+   "tolerance": 0.005,
+   "unit": ""
+  },
+  {
+   "id": "asquith.buckles_examples.t1",
+   "type": "order",
+   "step_id": "asquith.buckles_examples",
+   "claim_ids": [
+    "asquith.buckles_examples#c4",
+    "asquith.buckles_examples#c6",
+    "asquith.buckles_examples#c7"
+   ],
+   "prompt": "Расставьте скважины рисунка 7.3 от наименьшего разброса BVW к наибольшему.",
+   "explanation": "Чем больше разброс BVW от гипербол, тем больше воды в добыче.",
+   "kind": "data",
+   "evidence": "Рисунок 7.3a — пример почти постоянного BVW; пласт даёт 96% нефти.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Скважина с 96% нефти",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Скважина, дающая одну воду",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Скважина с 68% нефти",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o1",
+    "o3",
+    "o2"
+   ]
+  },
+  {
+   "id": "asquith.pickett_patterns.t1",
+   "type": "single",
+   "step_id": "asquith.pickett_patterns",
+   "claim_ids": [
+    "asquith.pickett_patterns#c3"
+   ],
+   "prompt": "Куда сдвинута углеводородная точка на графике Пиккетта относительно водоносной линии и почему?",
+   "explanation": "Углеводородные точки сдвинуты вправо по горизонтали из-за увеличенного сопротивления.",
+   "kind": "understanding",
+   "evidence": "Углеводородные точки сдвинуты вправо по горизонтали из-за большего сопротивления.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Вниз, из-за меньшей пористости пласта",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Вверх, из-за большей пористости пласта",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Влево, из-за меньшего сопротивления пласта",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Вправо, из-за большего сопротивления",
+     "misconception": null
+    }
+   ],
+   "answer": "o4"
+  },
+  {
+   "id": "asquith.pickett_matrix.t1",
+   "type": "single",
+   "step_id": "asquith.pickett_matrix",
+   "claim_ids": [
+    "asquith.pickett_matrix#c3",
+    "asquith.pickett_matrix#c4"
+   ],
+   "prompt": "На графике Пиккетта с осью ρb − ρma водоносная линия получилась изогнутой. Что делать?",
+   "explanation": "При неверной матрице линия изогнута, верную подбирают пробами, пока линия не станет прямой.",
+   "kind": "transfer",
+   "evidence": "Если пористость в зонах меняется и матрица выбрана верно, водоносная линия прямая.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Подбирать матрицу, пока линия не выпрямится",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Принять линию как есть: изгиб линии — признак нефти",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Убрать из графика точки с самой высокой пористостью",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Сменить показатель насыщенности n на другое значение",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "asquith.pickett_sw_lines.t1",
+   "type": "order",
+   "step_id": "asquith.pickett_sw_lines",
+   "claim_ids": [
+    "asquith.pickett_sw_lines#c1"
+   ],
+   "prompt": "Расставьте по порядку построение линий Sw на графике Пиккетта.",
+   "explanation": "Сначала читают Ro, затем умножают на множители, откладывают точки и проводят параллельные линии.",
+   "kind": "understanding",
+   "evidence": "На практике читают Rt точки и Ro линии при той же пористости, оценивают n и считают Sw.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Отложить полученные значения при той же пористости",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Отметить сопротивление линии Ro при пористости 0.10",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Умножить его на множители таблицы 7.2",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Провести через точки линии, параллельные водоносной",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "o2",
+    "o3",
+    "o1",
+    "o4"
+   ]
+  },
+  {
+   "id": "asquith.pickett_example.t1",
+   "type": "calc",
+   "step_id": "asquith.pickett_example",
+   "claim_ids": [
+    "asquith.pickett_example#c4",
+    "asquith.pickett_example#c5"
+   ],
+   "prompt": "На водоносной линии при пористости 0.10 сопротивление Ro = 4.6 ohm-m; a = 1.0, m = 2.0. Найдите Rw = Ro·φ^m/a.",
+   "explanation": "4.6 × 0.01 / 1.0 = 0.046 ohm-m, как в примере рисунка 7.4.",
+   "kind": "data",
+   "evidence": "Ro читают при некоторых значениях пористости; здесь при пористости 10% оно 4.6 ohm-m.",
+   "answer": 0.046,
+   "tolerance": 0.002,
+   "unit": "ohm-m"
+  },
+  {
+   "id": "asquith.hingle_example_sw.t1",
+   "type": "calc",
+   "step_id": "asquith.hingle_example_sw",
+   "claim_ids": [
+    "asquith.hingle_example_sw#c4"
+   ],
+   "prompt": "Для точки с Rt = 40 ohm-m сопротивление водоносной линии при той же пористости Ro = 0.83 ohm-m, n = 2.0. Найдите Sw = (Ro/Rt)^(1/n).",
+   "explanation": "Корень из 0.83/40 равен 0.144, как в примере рисунка 7.7.",
+   "kind": "data",
+   "evidence": "Для двух интересных точек с одинаковой пористостью Ro = 0.83 ohm-m.",
+   "answer": 0.144,
+   "tolerance": 0.003,
+   "unit": ""
+  },
+  {
+   "id": "asquith.hingle_patterns.t1",
+   "type": "single",
+   "step_id": "asquith.hingle_patterns",
+   "claim_ids": [
+    "asquith.hingle_patterns#c3",
+    "asquith.hingle_patterns#c5"
+   ],
+   "prompt": "Чем расположение углеводородных точек на графике Хингла отличается от графика Пиккетта?",
+   "explanation": "На графике Хингла углеводородные точки лежат ниже линии 100% воды, а линии меньшей Sw расходятся веером.",
+   "kind": "understanding",
+   "evidence": "Углеводородные точки лежат ниже линии 100% водонасыщенности из-за большего сопротивления.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Выше водоносной линии; линии Sw параллельны ей",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Правее водоносной линии; линии Sw параллельны ей",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Ниже водоносной линии; линии Sw — веером",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Прямо на водоносной линии; линий Sw на графике нет",
+     "misconception": null
+    }
+   ],
+   "answer": "o3"
+  },
+  {
+   "id": "asquith.log_permeability_conditions.t1",
+   "type": "single",
+   "step_id": "asquith.log_permeability_conditions",
+   "claim_ids": [
+    "asquith.log_permeability_conditions#c1",
+    "asquith.log_permeability_conditions#c6"
+   ],
+   "prompt": "BVW пласта сильно скачет по глубине. Можно ли доверять проницаемости по формулам Тимура или Уайли — Роуза?",
+   "explanation": "Формулы верны только при неснижаемой водонасыщенности; при непостоянном BVW оценки проницаемости сомнительны.",
+   "kind": "data",
+   "evidence": "Формулы проницаемости по каротажу верны только для пластов при неснижаемой водонасыщенности.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Да: проницаемость по каротажу — точный замер",
+     "misconception": "misc.porosity_eq_perm"
+    },
+    {
+     "id": "o2",
+     "text": "Нет: формулы верны только при неснижаемой Sw",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Да: эти формулы верны для любого пласта без условий",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Да, если пористость пласта выше примерно 10%",
+     "misconception": null
+    }
+   ],
+   "answer": "o2"
+  },
+  {
+   "id": "asquith.shale_effects.t1",
+   "type": "single",
+   "step_id": "asquith.shale_effects",
+   "claim_ids": [
+    "asquith.shale_effects#c7"
+   ],
+   "prompt": "Геолог переоценил содержание глин в песчанике и пересчитал Sw по формуле для глинистых песчаников. Какая ошибка возможна?",
+   "explanation": "Формулы для глинистых песчаников снижают Sw; при переоценке глин водоносная зона может показаться углеводородной.",
+   "kind": "transfer",
+   "evidence": "Если переоценить содержание глин, водоносная зона может показаться углеводородной.",
+   "options": [
+    {
+     "id": "o1",
+     "text": "Водоносная зона покажется углеводородной",
+     "misconception": null
+    },
+    {
+     "id": "o2",
+     "text": "Углеводородная зона покажется водоносной и будет пропущена",
+     "misconception": null
+    },
+    {
+     "id": "o3",
+     "text": "Пористость пласта станет заметно выше истинной",
+     "misconception": null
+    },
+    {
+     "id": "o4",
+     "text": "Rw станет равно сопротивлению фильтрата Rmf",
+     "misconception": null
+    }
+   ],
+   "answer": "o1"
+  },
+  {
+   "id": "asquith.shale_effects.t2",
+   "type": "gap",
+   "step_id": "asquith.shale_effects",
+   "claim_ids": [
+    "asquith.shale_effects#c5"
+   ],
+   "prompt": "По Хилчи глины заметно влияют на Sw, если их содержание больше 10 to {{1}}%.",
+   "explanation": "Порог по Хилчи — больше 10 to 15%.",
+   "kind": "recall",
+   "evidence": "Глины заметно влияют на Sw, если их содержание больше 10 to 15%.",
+   "answer": [
+    "15"
+   ]
+  },
+  {
+   "id": "asquith.permeability_chart.t1",
+   "type": "gap",
+   "step_id": "asquith.permeability_chart",
+   "claim_ids": [
+    "asquith.permeability_chart#c4"
+   ],
+   "prompt": "Палетка рисунка 7.8 верна для оценки проницаемости только в зонах при {{1}} водонасыщенности.",
+   "explanation": "Палетка верна только при неснижаемой водонасыщенности.",
+   "kind": "recall",
+   "evidence": "Палетка верна для оценки проницаемости только в зонах при неснижаемой водонасыщенности.",
+   "answer": [
+    "неснижаемой"
+   ]
+  }
+ ]
+}

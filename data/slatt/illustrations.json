@@ -1,0 +1,531 @@
+{
+ "chapter": "slatt",
+ "illustrations": [
+  {
+   "id": "slatt.clinoform_correlation.i1",
+   "step_id": "slatt.clinoform_correlation",
+   "node_id": "slatt.clinoform_correlation",
+   "file": "illustrations/slatt.clinoform_correlation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Линии времени режут пласты наискосок» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Линии времени режут пласты наискосок» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.clinoform_correlation#c1",
+    "slatt.clinoform_correlation#c2",
+    "slatt.clinoform_correlation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.clinoform_correlation.i2",
+   "step_id": "slatt.clinoform_correlation",
+   "node_id": "slatt.clinoform_correlation",
+   "file": "illustrations/slatt.clinoform_correlation.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Линии времени режут пласты наискосок»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Линии времени режут пласты наискосок»",
+   "source": null,
+   "claim_ids": [
+    "slatt.clinoform_correlation#c1",
+    "slatt.clinoform_correlation#c2",
+    "slatt.clinoform_correlation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.clinoform_correlation.anim",
+   "file": "media/anim_slatt.clinoform_correlation.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Линии времени режут пласты наискосок»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.clinoform_correlation#c1",
+    "slatt.clinoform_correlation#c2",
+    "slatt.clinoform_correlation#c3"
+   ],
+   "prompt": null,
+   "step_id": "slatt.clinoform_correlation",
+   "node_id": "slatt.clinoform_correlation"
+  },
+  {
+   "id": "slatt.mekong_example.i1",
+   "step_id": "slatt.mekong_example",
+   "node_id": "slatt.mekong_example",
+   "file": "illustrations/slatt.mekong_example.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Пример дельты Меконга» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Пример дельты Меконга» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.mekong_example#c1",
+    "slatt.mekong_example#c2",
+    "slatt.mekong_example#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.mekong_example.anim",
+   "file": "media/anim_slatt.mekong_example.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 12 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Пример дельты Меконга»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.mekong_example#c1",
+    "slatt.mekong_example#c2",
+    "slatt.mekong_example#c3"
+   ],
+   "prompt": null,
+   "step_id": "slatt.mekong_example",
+   "node_id": "slatt.mekong_example"
+  },
+  {
+   "id": "slatt.channel_switching.i1",
+   "step_id": "slatt.channel_switching",
+   "node_id": "slatt.channel_switching",
+   "file": "illustrations/slatt.channel_switching.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Протоки дельты перескакивают» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Протоки дельты перескакивают» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.channel_switching#c1",
+    "slatt.channel_switching#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.channel_switching.anim",
+   "file": "media/anim_slatt.channel_switching.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 9 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Протоки дельты перескакивают»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.channel_switching#c1",
+    "slatt.channel_switching#c2"
+   ],
+   "prompt": null,
+   "step_id": "slatt.channel_switching",
+   "node_id": "slatt.channel_switching"
+  },
+  {
+   "id": "slatt.lowstand_deltas.i1",
+   "step_id": "slatt.lowstand_deltas",
+   "node_id": "slatt.lowstand_deltas",
+   "file": "illustrations/slatt.lowstand_deltas.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Дельты при падении уровня моря» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Дельты при падении уровня моря» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.lowstand_deltas#c1",
+    "slatt.lowstand_deltas#c2",
+    "slatt.lowstand_deltas#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.delta_progradation.i1",
+   "step_id": "slatt.delta_progradation",
+   "node_id": "slatt.delta_progradation",
+   "file": "illustrations/slatt.delta_progradation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Как растёт речная дельта» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Как растёт речная дельта» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.delta_progradation#c1",
+    "slatt.delta_progradation#c2",
+    "slatt.delta_progradation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.delta_progradation.anim",
+   "file": "media/anim_slatt.delta_progradation.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Как растёт речная дельта»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.delta_progradation#c1",
+    "slatt.delta_progradation#c2",
+    "slatt.delta_progradation#c3"
+   ],
+   "prompt": null,
+   "step_id": "slatt.delta_progradation",
+   "node_id": "slatt.delta_progradation"
+  },
+  {
+   "id": "slatt.delta_facies.i1",
+   "step_id": "slatt.delta_facies",
+   "node_id": "slatt.delta_facies",
+   "file": "illustrations/slatt.delta_facies.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Где в дельте песок, а где глина» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Где в дельте песок, а где глина» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.delta_facies#c1",
+    "slatt.delta_facies#c2",
+    "slatt.delta_facies#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.delta_facies.i2",
+   "step_id": "slatt.delta_facies",
+   "node_id": "slatt.delta_facies",
+   "file": "illustrations/slatt.delta_facies.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Где в дельте песок, а где глина»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Где в дельте песок, а где глина»",
+   "source": null,
+   "claim_ids": [
+    "slatt.delta_facies#c1",
+    "slatt.delta_facies#c2",
+    "slatt.delta_facies#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.delta_facies.video",
+   "file": "media/slatt_delta.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Ролик (разбор 16:9, 132 с): Скважина стоит на месте, а дельта идёт к морю. Что ляжет поверх глины?",
+   "alt": "Ролик разбор 16:9 по шагу; субтитры включаются в плеере",
+   "source": "паспорт: videos/slatt_delta/passport.json",
+   "claim_ids": [
+    "slatt.delta_facies#c1",
+    "slatt.delta_facies#c2",
+    "slatt.delta_facies#c3",
+    "slatt.delta_facies#c4",
+    "slatt.delta_progradation#c1",
+    "slatt.delta_progradation#c2",
+    "slatt.delta_progradation#c3",
+    "slatt.delta_progradation#c4",
+    "slatt.delta_progradation#c5",
+    "slatt.delta_progradation#c6"
+   ],
+   "prompt": null,
+   "step_id": "slatt.delta_facies",
+   "node_id": "slatt.delta_facies"
+  },
+  {
+   "id": "slatt.mouth_bar_permeability.i1",
+   "step_id": "slatt.mouth_bar_permeability",
+   "node_id": "slatt.mouth_bar_permeability",
+   "file": "illustrations/slatt.mouth_bar_permeability.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Лучший песок — у устья протоки» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Лучший песок — у устья протоки» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.mouth_bar_permeability#c1",
+    "slatt.mouth_bar_permeability#c2",
+    "slatt.mouth_bar_permeability#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.mouth_bar_permeability.i2",
+   "step_id": "slatt.mouth_bar_permeability",
+   "node_id": "slatt.mouth_bar_permeability",
+   "file": "illustrations/slatt.mouth_bar_permeability.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Лучший песок — у устья протоки»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Лучший песок — у устья протоки»",
+   "source": null,
+   "claim_ids": [
+    "slatt.mouth_bar_permeability#c1",
+    "slatt.mouth_bar_permeability#c2",
+    "slatt.mouth_bar_permeability#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.mouth_bar_permeability.anim",
+   "file": "media/anim_slatt.mouth_bar_permeability.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Лучший песок — у устья протоки»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.mouth_bar_permeability#c1",
+    "slatt.mouth_bar_permeability#c2",
+    "slatt.mouth_bar_permeability#c3"
+   ],
+   "prompt": null,
+   "step_id": "slatt.mouth_bar_permeability",
+   "node_id": "slatt.mouth_bar_permeability"
+  },
+  {
+   "id": "slatt.prudhoe_romeo.i1",
+   "step_id": "slatt.prudhoe_romeo",
+   "node_id": "slatt.prudhoe_romeo",
+   "file": "illustrations/slatt.prudhoe_romeo.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Дельта под месторождением Прудо-Бей» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Дельта под месторождением Прудо-Бей» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.prudhoe_romeo#c1",
+    "slatt.prudhoe_romeo#c2",
+    "slatt.prudhoe_romeo#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.romeo_time_correlation.i1",
+   "step_id": "slatt.romeo_time_correlation",
+   "node_id": "slatt.romeo_time_correlation",
+   "file": "illustrations/slatt.romeo_time_correlation.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Корреляция по времени совпала с добычей» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Корреляция по времени совпала с добычей» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.romeo_time_correlation#c1",
+    "slatt.romeo_time_correlation#c2",
+    "slatt.romeo_time_correlation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.romeo_time_correlation.i2",
+   "step_id": "slatt.romeo_time_correlation",
+   "node_id": "slatt.romeo_time_correlation",
+   "file": "illustrations/slatt.romeo_time_correlation.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Корреляция по времени совпала с добычей»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Корреляция по времени совпала с добычей»",
+   "source": null,
+   "claim_ids": [
+    "slatt.romeo_time_correlation#c1",
+    "slatt.romeo_time_correlation#c2",
+    "slatt.romeo_time_correlation#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.romeo_time_correlation.anim",
+   "file": "media/anim_slatt.romeo_time_correlation.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Корреляция по времени совпала с добычей»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.romeo_time_correlation#c1",
+    "slatt.romeo_time_correlation#c2",
+    "slatt.romeo_time_correlation#c3"
+   ],
+   "prompt": null,
+   "step_id": "slatt.romeo_time_correlation",
+   "node_id": "slatt.romeo_time_correlation"
+  },
+  {
+   "id": "slatt.sinusoidal_well.i1",
+   "step_id": "slatt.sinusoidal_well",
+   "node_id": "slatt.sinusoidal_well",
+   "file": "illustrations/slatt.sinusoidal_well.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Скважина змейкой вскрывает больше песка» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Скважина змейкой вскрывает больше песка» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.sinusoidal_well#c1",
+    "slatt.sinusoidal_well#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.shale_barriers.i1",
+   "step_id": "slatt.shale_barriers",
+   "node_id": "slatt.shale_barriers",
+   "file": "illustrations/slatt.shale_barriers.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Глины управляют потоком» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Глины управляют потоком» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.shale_barriers#c1",
+    "slatt.shale_barriers#c2",
+    "slatt.shale_barriers#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.shale_barriers.i2",
+   "step_id": "slatt.shale_barriers",
+   "node_id": "slatt.shale_barriers",
+   "file": "illustrations/slatt.shale_barriers.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Глины управляют потоком»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Глины управляют потоком»",
+   "source": null,
+   "claim_ids": [
+    "slatt.shale_barriers#c1",
+    "slatt.shale_barriers#c2",
+    "slatt.shale_barriers#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.shale_barriers.anim",
+   "file": "media/anim_slatt.shale_barriers.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (признаки → правило → вывод), 15 с, без звука.",
+   "alt": "Анимация: признаки → правило → вывод для шага «Глины управляют потоком»; текст шага на экране",
+   "source": "шаблон step_procedure; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.shale_barriers#c1",
+    "slatt.shale_barriers#c2",
+    "slatt.shale_barriers#c3"
+   ],
+   "prompt": null,
+   "step_id": "slatt.shale_barriers",
+   "node_id": "slatt.shale_barriers"
+  },
+  {
+   "id": "slatt.shale_shield_wells.i1",
+   "step_id": "slatt.shale_shield_wells",
+   "node_id": "slatt.shale_shield_wells",
+   "file": "illustrations/slatt.shale_shield_wells.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Скважины под глиняным щитом» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Скважины под глиняным щитом» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.shale_shield_wells#c1",
+    "slatt.shale_shield_wells#c2",
+    "slatt.shale_shield_wells#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.shale_shield_wells.i2",
+   "step_id": "slatt.shale_shield_wells",
+   "node_id": "slatt.shale_shield_wells",
+   "file": "illustrations/slatt.shale_shield_wells.decision.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Решение на данных в шаге «Скважины под глиняным щитом»: признаки, правило, вывод.",
+   "alt": "Схема «признаки, правило, вывод» для шага «Скважины под глиняным щитом»",
+   "source": null,
+   "claim_ids": [
+    "slatt.shale_shield_wells#c1",
+    "slatt.shale_shield_wells#c2",
+    "slatt.shale_shield_wells#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.kuparuk_units.i1",
+   "step_id": "slatt.kuparuk_units",
+   "node_id": "slatt.kuparuk_units",
+   "file": "illustrations/slatt.kuparuk_units.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Один пласт оказался шестью» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Один пласт оказался шестью» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.kuparuk_units#c1",
+    "slatt.kuparuk_units#c2",
+    "slatt.kuparuk_units#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.wave_dominated_delta.i1",
+   "step_id": "slatt.wave_dominated_delta",
+   "node_id": "slatt.wave_dominated_delta",
+   "file": "illustrations/slatt.wave_dominated_delta.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Место шага «Дельта, которую причёсывают волны» в главе: на что опирается и куда ведёт.",
+   "alt": "Схема: предыдущие шаги, шаг «Дельта, которую причёсывают волны» и следующие шаги, стрелки сверху вниз",
+   "source": null,
+   "claim_ids": [
+    "slatt.wave_dominated_delta#c1",
+    "slatt.wave_dominated_delta#c2",
+    "slatt.wave_dominated_delta#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.wave_dominated_delta.anim",
+   "file": "media/anim_slatt.wave_dominated_delta.mp4",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Анимация логики шага (утверждения шага по порядку), 18 с, без звука.",
+   "alt": "Анимация: утверждения шага по порядку для шага «Дельта, которую причёсывают волны»; текст шага на экране",
+   "source": "шаблон process_state; текст и страницы — из слоя",
+   "claim_ids": [
+    "slatt.wave_dominated_delta#c1",
+    "slatt.wave_dominated_delta#c2",
+    "slatt.wave_dominated_delta#c3"
+   ],
+   "prompt": null,
+   "step_id": "slatt.wave_dominated_delta",
+   "node_id": "slatt.wave_dominated_delta"
+  }
+ ]
+}
